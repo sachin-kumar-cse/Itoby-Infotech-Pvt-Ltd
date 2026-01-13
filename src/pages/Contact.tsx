@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone, MapPin, MessageCircle, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 
 const contactInfo = [
   {
@@ -44,9 +46,19 @@ const services = [
   "Other",
 ];
 
+// Validation schema
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  phone: z.string().trim().max(20, "Phone must be less than 20 characters").optional().or(z.literal("")),
+  service: z.string().min(1, "Please select a service"),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+});
+
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,22 +66,108 @@ const Contact = () => {
     service: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+
+    // Validate form data
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0].toString()] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Save to database
+      const { error: dbError } = await supabase
+        .from("contact_submissions")
+        .insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          service: formData.service,
+          message: formData.message.trim(),
+        });
 
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      if (dbError) {
+        throw new Error("Failed to save your message. Please try again.");
+      }
 
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
-    setIsSubmitting(false);
+      // Send email notifications
+      const { error: emailError } = await supabase.functions.invoke("send-contact-email", {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          service: formData.service,
+          message: formData.message.trim(),
+        },
+      });
+
+      if (emailError) {
+        console.error("Email notification failed:", emailError);
+        // Don't throw - form was saved successfully
+      }
+
+      setIsSuccess(true);
+      toast({
+        title: "Message Sent Successfully! ✨",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Something went wrong",
+        description: error.message || "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  if (isSuccess) {
+    return (
+      <Layout>
+        <section className="min-h-screen flex items-center justify-center pt-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center max-w-md mx-auto p-8"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: "spring" }}
+              className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6"
+            >
+              <CheckCircle className="text-primary" size={48} />
+            </motion.div>
+            <h1 className="font-display text-3xl font-bold mb-4">Thank You!</h1>
+            <p className="text-muted-foreground mb-8">
+              Your message has been sent successfully. Our team will review your inquiry 
+              and get back to you within 24-48 hours.
+            </p>
+            <Button variant="hero" onClick={() => setIsSuccess(false)}>
+              Send Another Message
+            </Button>
+          </motion.div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -172,9 +270,9 @@ const Contact = () => {
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                        className="h-12 bg-secondary border-border"
+                        className={`h-12 bg-secondary border-border ${errors.name ? 'border-destructive' : ''}`}
                       />
+                      {errors.name && <p className="text-destructive text-sm">{errors.name}</p>}
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
@@ -186,9 +284,9 @@ const Contact = () => {
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        className="h-12 bg-secondary border-border"
+                        className={`h-12 bg-secondary border-border ${errors.email ? 'border-destructive' : ''}`}
                       />
+                      {errors.email && <p className="text-destructive text-sm">{errors.email}</p>}
                     </div>
                   </div>
 
@@ -203,8 +301,9 @@ const Contact = () => {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="h-12 bg-secondary border-border"
+                        className={`h-12 bg-secondary border-border ${errors.phone ? 'border-destructive' : ''}`}
                       />
+                      {errors.phone && <p className="text-destructive text-sm">{errors.phone}</p>}
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="service" className="text-sm font-medium">
@@ -213,9 +312,8 @@ const Contact = () => {
                       <Select
                         value={formData.service}
                         onValueChange={(value) => setFormData({ ...formData, service: value })}
-                        required
                       >
-                        <SelectTrigger className="h-12 bg-secondary border-border">
+                        <SelectTrigger className={`h-12 bg-secondary border-border ${errors.service ? 'border-destructive' : ''}`}>
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent className="bg-card border-border">
@@ -226,6 +324,7 @@ const Contact = () => {
                           ))}
                         </SelectContent>
                       </Select>
+                      {errors.service && <p className="text-destructive text-sm">{errors.service}</p>}
                     </div>
                   </div>
 
@@ -238,9 +337,9 @@ const Contact = () => {
                       placeholder="Tell us about your project..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                      className="min-h-[150px] bg-secondary border-border resize-none"
+                      className={`min-h-[150px] bg-secondary border-border resize-none ${errors.message ? 'border-destructive' : ''}`}
                     />
+                    {errors.message && <p className="text-destructive text-sm">{errors.message}</p>}
                   </div>
 
                   <Button

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import lawFirmImage from "@/assets/portfolio/law-firm-m365.jpg";
+import retailImage from "@/assets/portfolio/retail-m365.jpg";
 import { Button } from "@/components/ui/button";
 import { 
   Cloud,
@@ -81,14 +83,14 @@ const caseStudies = [
     title: "Law Firm M365 Migration",
     category: "Professional Services",
     result: "50% reduction in IT costs",
-    image: "/placeholder.svg",
+    image: lawFirmImage,
     path: "/portfolio/law-firm-m365",
   },
   {
     title: "Retail Chain Collaboration",
     category: "Retail",
     result: "200+ locations connected",
-    image: "/placeholder.svg",
+    image: retailImage,
     path: "/portfolio/retail-m365",
   },
 ];

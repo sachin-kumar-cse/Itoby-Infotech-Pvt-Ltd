@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import fittrackImage from "@/assets/portfolio/fittrack-app.jpg";
+import quickpayImage from "@/assets/portfolio/quickpay-fintech.jpg";
 import { Button } from "@/components/ui/button";
 import { 
   Smartphone,
@@ -81,14 +83,14 @@ const caseStudies = [
     title: "FitTrack Health App",
     category: "Health & Fitness",
     result: "500K+ downloads in 6 months",
-    image: "/placeholder.svg",
+    image: fittrackImage,
     path: "/portfolio/fittrack",
   },
   {
     title: "QuickPay Fintech App",
     category: "Finance",
     result: "4.8★ rating on App Store",
-    image: "/placeholder.svg",
+    image: quickpayImage,
     path: "/portfolio/quickpay",
   },
 ];

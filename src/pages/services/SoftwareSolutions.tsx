@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import manufacturingErpImage from "@/assets/portfolio/manufacturing-erp.jpg";
+import healthcarePortalImage from "@/assets/portfolio/healthcare-portal.jpg";
 import { Button } from "@/components/ui/button";
 import { 
   Database,
@@ -81,14 +83,14 @@ const caseStudies = [
     title: "Manufacturing ERP System",
     category: "Enterprise Software",
     result: "45% improvement in efficiency",
-    image: "/placeholder.svg",
+    image: manufacturingErpImage,
     path: "/portfolio/manufacturing-erp",
   },
   {
     title: "Healthcare Patient Portal",
     category: "Custom Portal",
     result: "Reduced admin time by 60%",
-    image: "/placeholder.svg",
+    image: healthcarePortalImage,
     path: "/portfolio/healthcare-portal",
   },
 ];

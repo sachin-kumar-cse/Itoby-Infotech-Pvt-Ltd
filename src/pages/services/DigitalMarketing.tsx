@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import restaurantImage from "@/assets/portfolio/restaurant-marketing.jpg";
+import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.jpg";
 import { Button } from "@/components/ui/button";
 import { 
   Search,
@@ -81,14 +83,14 @@ const caseStudies = [
     title: "Local Restaurant Chain",
     category: "Local SEO & Ads",
     result: "250% increase in reservations",
-    image: "/placeholder.svg",
+    image: restaurantImage,
     path: "/portfolio/restaurant-chain",
   },
   {
     title: "B2B SaaS Company",
     category: "Lead Generation",
     result: "85% reduction in cost per lead",
-    image: "/placeholder.svg",
+    image: b2bSaasImage,
     path: "/portfolio/b2b-saas",
   },
 ];

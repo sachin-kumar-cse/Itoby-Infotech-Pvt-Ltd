@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import techflowImage from "@/assets/portfolio/techflow-saas.jpg";
+import luxeFashionImage from "@/assets/portfolio/luxe-fashion.jpg";
 import { Button } from "@/components/ui/button";
 import { 
   Palette, 
@@ -81,14 +83,14 @@ const caseStudies = [
     title: "TechFlow SaaS Platform",
     category: "Web Application",
     result: "300% increase in user signups",
-    image: "/placeholder.svg",
+    image: techflowImage,
     path: "/portfolio/techflow",
   },
   {
     title: "Luxe Fashion E-commerce",
     category: "E-commerce",
     result: "150% boost in online sales",
-    image: "/placeholder.svg",
+    image: luxeFashionImage,
     path: "/portfolio/luxe-fashion",
   },
 ];

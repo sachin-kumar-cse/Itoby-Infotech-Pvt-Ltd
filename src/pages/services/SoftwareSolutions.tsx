@@ -25,6 +25,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/sections/CTASection";
+import { PricingSection } from "@/components/sections/PricingSection";
 
 const offerings = [
   { icon: Database, title: "CRM/ERP Systems", description: "Custom CRM and ERP solutions that streamline your business operations." },
@@ -75,6 +76,52 @@ const faqs = [
   {
     question: "Do you provide training for our team?",
     answer: "Absolutely! We provide comprehensive training for all users, including documentation, video tutorials, and hands-on sessions. We ensure your team is confident using the new system."
+  },
+];
+
+const pricingTiers = [
+  {
+    name: "Automation",
+    price: "$8,000",
+    description: "Simple workflow automation and tools",
+    features: [
+      "Process automation",
+      "Single integration",
+      "Admin dashboard",
+      "User documentation",
+      "4-6 weeks delivery",
+      "3 months support",
+    ],
+  },
+  {
+    name: "Custom Portal",
+    price: "$25,000",
+    description: "Client or employee portals with custom features",
+    features: [
+      "Custom portal development",
+      "User management system",
+      "Multiple integrations",
+      "Role-based access control",
+      "Reporting dashboard",
+      "Mobile responsive",
+      "6 months support",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise System",
+    price: "$75,000",
+    description: "Full CRM/ERP or complex enterprise solutions",
+    features: [
+      "Complete system development",
+      "Unlimited modules",
+      "Legacy system integration",
+      "Data migration",
+      "Advanced security",
+      "Staff training",
+      "24/7 monitoring",
+      "12 months support",
+    ],
   },
 ];
 
@@ -307,6 +354,13 @@ const SoftwareSolutions = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <PricingSection
+        title="Investment Options"
+        subtitle="Transparent pricing for software solutions of any scale."
+        tiers={pricingTiers}
+      />
 
       {/* FAQs */}
       <section className="section-padding bg-card/30">

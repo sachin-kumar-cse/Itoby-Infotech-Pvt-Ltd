@@ -1,13 +1,27 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const serviceLinks = [
+  { name: "Web Design & Development", path: "/services/web-design" },
+  { name: "Mobile App Development", path: "/services/mobile-app" },
+  { name: "Digital Marketing", path: "/services/digital-marketing" },
+  { name: "Custom Software Solutions", path: "/services/software-solutions" },
+  { name: "Microsoft 365 Services", path: "/services/microsoft-365" },
+];
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Services", path: "/services" },
+  { name: "Services", path: "/services", hasDropdown: true },
   { name: "Portfolio", path: "/portfolio" },
   { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
@@ -53,20 +67,46 @@ export const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium animated-underline transition-colors ${
-                  location.pathname === link.path
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
+              link.hasDropdown ? (
+                <DropdownMenu key={link.path}>
+                  <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                    location.pathname.startsWith('/services')
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}>
+                    {link.name}
+                    <ChevronDown size={14} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-56">
+                    <DropdownMenuItem asChild>
+                      <Link to="/services" className="w-full cursor-pointer font-medium">
+                        All Services
+                      </Link>
+                    </DropdownMenuItem>
+                    {serviceLinks.map((service) => (
+                      <DropdownMenuItem key={service.path} asChild>
+                        <Link to={service.path} className="w-full cursor-pointer">
+                          {service.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-medium animated-underline transition-colors ${
+                    location.pathname === link.path
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -103,19 +143,37 @@ export const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <div className="absolute right-0 top-0 h-full w-80 bg-card border-l border-border p-6 pt-24">
-              <nav className="flex flex-col gap-4">
+              <nav className="flex flex-col gap-2">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`text-lg font-medium transition-colors py-2 ${
-                      location.pathname === link.path
-                        ? "text-primary"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
+                  <div key={link.path}>
+                    <Link
+                      to={link.path}
+                      className={`text-lg font-medium transition-colors py-2 block ${
+                        location.pathname === link.path
+                          ? "text-primary"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                    {link.hasDropdown && (
+                      <div className="pl-4 flex flex-col gap-1">
+                        {serviceLinks.map((service) => (
+                          <Link
+                            key={service.path}
+                            to={service.path}
+                            className={`text-sm transition-colors py-1 block ${
+                              location.pathname === service.path
+                                ? "text-primary"
+                                : "text-muted-foreground hover:text-foreground"
+                            }`}
+                          >
+                            {service.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 <Button variant="hero" size="lg" className="mt-4" asChild>
                   <Link to="/contact">Get a Free Quote</Link>

@@ -5,72 +5,100 @@ import { Layout } from "@/components/layout/Layout";
 import { ArrowUpRight } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
 
-const categories = ["All", "Website", "App", "Marketing", "Software"];
+// Import portfolio images
+import techflowImg from "@/assets/portfolio/techflow-saas.jpg";
+import luxeImg from "@/assets/portfolio/luxe-fashion.jpg";
+import fittrackImg from "@/assets/portfolio/fittrack-app.jpg";
+import quickpayImg from "@/assets/portfolio/quickpay-fintech.jpg";
+import restaurantImg from "@/assets/portfolio/restaurant-marketing.jpg";
+import b2bSaasImg from "@/assets/portfolio/b2b-saas-marketing.jpg";
+import manufacturingImg from "@/assets/portfolio/manufacturing-erp.jpg";
+import healthcareImg from "@/assets/portfolio/healthcare-portal.jpg";
+import lawFirmImg from "@/assets/portfolio/law-firm-m365.jpg";
+import retailImg from "@/assets/portfolio/retail-m365.jpg";
+
+const categories = ["All", "Website", "App", "Marketing", "Software", "Microsoft 365"];
 
 const projects = [
   {
-    id: 1,
-    title: "TechCorp Website Redesign",
+    slug: "techflow",
+    title: "TechFlow SaaS Platform",
     category: "Website",
-    description: "Complete brand overhaul and e-commerce platform for a leading technology company.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    description: "Complete web application redesign for a B2B SaaS company serving 10,000+ users.",
+    image: techflowImg,
     results: "+200% Conversions",
   },
   {
-    id: 2,
-    title: "FinanceApp Mobile",
-    category: "App",
-    description: "Cross-platform financial management app with real-time analytics.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    results: "50K+ Downloads",
-  },
-  {
-    id: 3,
-    title: "GrowthHub SEO Campaign",
-    category: "Marketing",
-    description: "Comprehensive SEO and content strategy for a SaaS startup.",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=600&fit=crop",
-    results: "+300% Traffic",
-  },
-  {
-    id: 4,
-    title: "RetailPro ERP System",
-    category: "Software",
-    description: "Custom inventory and sales management system for retail chain.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    results: "40% Efficiency Gain",
-  },
-  {
-    id: 5,
+    slug: "luxe-fashion",
     title: "Luxe Fashion E-commerce",
     category: "Website",
-    description: "Premium e-commerce store with AR try-on feature.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
+    description: "Premium e-commerce store with AR try-on feature for a luxury fashion brand.",
+    image: luxeImg,
     results: "+400% Sales",
   },
   {
-    id: 6,
-    title: "HealthTrack Wellness App",
+    slug: "fittrack",
+    title: "FitTrack Health App",
     category: "App",
-    description: "AI-powered health and fitness tracking application.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-    results: "100K+ Users",
+    description: "AI-powered health and fitness tracking mobile application with 100K+ users.",
+    image: fittrackImg,
+    results: "100K+ Downloads",
   },
   {
-    id: 7,
-    title: "StartupHub Lead Campaign",
+    slug: "quickpay",
+    title: "QuickPay Fintech App",
+    category: "App",
+    description: "Cross-platform mobile payment and financial management application.",
+    image: quickpayImg,
+    results: "50K+ Active Users",
+  },
+  {
+    slug: "restaurant-chain",
+    title: "Restaurant Chain Marketing",
     category: "Marketing",
-    description: "Multi-channel lead generation campaign for B2B startup.",
-    image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&h=600&fit=crop",
+    description: "Full-scale digital marketing campaign for a 25-location restaurant chain.",
+    image: restaurantImg,
+    results: "+150% Foot Traffic",
+  },
+  {
+    slug: "b2b-saas",
+    title: "B2B SaaS Lead Generation",
+    category: "Marketing",
+    description: "Multi-channel lead generation campaign for enterprise software company.",
+    image: b2bSaasImg,
     results: "500+ Leads/Month",
   },
   {
-    id: 8,
-    title: "LogiFlow CRM Solution",
+    slug: "manufacturing-erp",
+    title: "Manufacturing ERP System",
     category: "Software",
-    description: "Custom CRM with automated workflow for logistics company.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    results: "60% Time Saved",
+    description: "Custom ERP solution for a manufacturing company with 500+ employees.",
+    image: manufacturingImg,
+    results: "40% Efficiency Gain",
+  },
+  {
+    slug: "healthcare-portal",
+    title: "Healthcare Patient Portal",
+    category: "Software",
+    description: "HIPAA-compliant patient portal for a multi-location healthcare network.",
+    image: healthcareImg,
+    results: "60% Admin Reduction",
+  },
+  {
+    slug: "law-firm-m365",
+    title: "Law Firm M365 Migration",
+    category: "Microsoft 365",
+    description: "Complete Microsoft 365 migration for a 150-attorney law firm.",
+    image: lawFirmImg,
+    results: "99.9% Uptime",
+  },
+  {
+    slug: "retail-m365",
+    title: "Retail Chain M365 Deployment",
+    category: "Microsoft 365",
+    description: "Enterprise M365 deployment across 50+ retail locations nationwide.",
+    image: retailImg,
+    results: "35% Cost Savings",
   },
 ];
 
@@ -145,13 +173,13 @@ const Portfolio = () => {
             >
               {filteredProjects.map((project, index) => (
                 <motion.div
-                  key={project.id}
+                  key={project.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link
-                    to={`/portfolio/${project.id}`}
+                    to={`/portfolio/${project.slug}`}
                     className="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden">

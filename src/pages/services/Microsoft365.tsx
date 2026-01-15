@@ -25,6 +25,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/sections/CTASection";
+import { PricingSection } from "@/components/sections/PricingSection";
 
 const offerings = [
   { icon: Cloud, title: "Microsoft 365 Setup", description: "Complete M365 deployment tailored to your organization's needs." },
@@ -75,6 +76,52 @@ const faqs = [
   {
     question: "Can you help with ongoing M365 administration?",
     answer: "Absolutely! We offer managed services for ongoing administration including user management, security monitoring, updates, and technical support."
+  },
+];
+
+const pricingTiers = [
+  {
+    name: "Basic Setup",
+    price: "$1,500",
+    description: "Essential M365 deployment for small teams",
+    features: [
+      "Up to 25 users",
+      "Email migration",
+      "Basic Teams setup",
+      "OneDrive configuration",
+      "User training (2 hours)",
+      "30 days support",
+    ],
+  },
+  {
+    name: "Professional",
+    price: "$4,500",
+    description: "Complete migration for growing organizations",
+    features: [
+      "Up to 100 users",
+      "Full email & data migration",
+      "SharePoint intranet setup",
+      "Teams configuration",
+      "Security policies",
+      "User training (8 hours)",
+      "90 days support",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: "$12,000",
+    description: "Large-scale deployment with advanced features",
+    features: [
+      "Unlimited users",
+      "Complex migration scenarios",
+      "Custom SharePoint solutions",
+      "Power Automate workflows",
+      "Intune device management",
+      "Compliance configuration",
+      "Dedicated project manager",
+      "12 months support",
+    ],
   },
 ];
 
@@ -307,6 +354,13 @@ const Microsoft365 = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <PricingSection
+        title="Service Packages"
+        subtitle="One-time setup fees with optional ongoing support."
+        tiers={pricingTiers}
+      />
 
       {/* FAQs */}
       <section className="section-padding bg-card/30">

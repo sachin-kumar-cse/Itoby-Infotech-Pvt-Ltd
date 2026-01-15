@@ -25,6 +25,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/sections/CTASection";
+import { PricingSection } from "@/components/sections/PricingSection";
 
 const offerings = [
   { icon: Search, title: "SEO Services", description: "Improve your search rankings and drive organic traffic with proven SEO strategies." },
@@ -75,6 +76,54 @@ const faqs = [
   {
     question: "Can you work with our existing marketing team?",
     answer: "Absolutely! We frequently collaborate with in-house teams, providing specialized expertise and additional resources while ensuring seamless integration with your existing efforts."
+  },
+];
+
+const pricingTiers = [
+  {
+    name: "Starter",
+    price: "$1,500",
+    period: "month",
+    description: "Essential marketing for small businesses",
+    features: [
+      "SEO optimization (5 keywords)",
+      "Social media management (2 platforms)",
+      "Monthly blog post",
+      "Basic analytics reporting",
+      "Email support",
+    ],
+  },
+  {
+    name: "Growth",
+    price: "$3,500",
+    period: "month",
+    description: "Comprehensive marketing for scaling businesses",
+    features: [
+      "SEO optimization (15 keywords)",
+      "Google Ads management ($2K spend)",
+      "Social media (4 platforms)",
+      "Content marketing (4 posts/month)",
+      "Lead generation campaigns",
+      "Weekly reporting calls",
+      "Dedicated account manager",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: "$7,500",
+    period: "month",
+    description: "Full-service marketing for large organizations",
+    features: [
+      "Unlimited keyword SEO",
+      "Multi-channel ad management",
+      "Complete social media suite",
+      "Video content creation",
+      "Marketing automation",
+      "Conversion rate optimization",
+      "Custom integrations",
+      "24/7 priority support",
+    ],
   },
 ];
 
@@ -307,6 +356,13 @@ const DigitalMarketing = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <PricingSection
+        title="Monthly Plans"
+        subtitle="Scalable marketing packages that grow with your business."
+        tiers={pricingTiers}
+      />
 
       {/* FAQs */}
       <section className="section-padding bg-card/30">

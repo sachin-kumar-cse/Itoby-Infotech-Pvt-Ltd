@@ -25,6 +25,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/sections/CTASection";
+import { PricingSection } from "@/components/sections/PricingSection";
 
 const offerings = [
   { icon: Palette, title: "UI/UX Design", description: "Beautiful, intuitive interfaces that delight users and drive engagement." },
@@ -75,6 +76,53 @@ const faqs = [
   {
     question: "Do you redesign existing websites?",
     answer: "Yes, we specialize in website redesigns and can modernize your existing site while preserving your SEO rankings and content."
+  },
+];
+
+const pricingTiers = [
+  {
+    name: "Starter",
+    price: "$2,500",
+    description: "Perfect for small businesses needing a professional online presence",
+    features: [
+      "Up to 5 pages",
+      "Mobile responsive design",
+      "Basic SEO setup",
+      "Contact form integration",
+      "2 rounds of revisions",
+      "1 month support",
+    ],
+  },
+  {
+    name: "Professional",
+    price: "$5,500",
+    description: "Ideal for growing businesses with advanced requirements",
+    features: [
+      "Up to 15 pages",
+      "Custom UI/UX design",
+      "Advanced SEO optimization",
+      "CMS integration",
+      "Blog functionality",
+      "Analytics dashboard",
+      "3 rounds of revisions",
+      "3 months support",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: "$12,000",
+    description: "Full-scale solution for large organizations",
+    features: [
+      "Unlimited pages",
+      "E-commerce functionality",
+      "Custom integrations",
+      "Multi-language support",
+      "Performance optimization",
+      "Security hardening",
+      "Unlimited revisions",
+      "12 months support",
+    ],
   },
 ];
 
@@ -307,6 +355,13 @@ const WebDesign = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <PricingSection
+        title="Pricing Packages"
+        subtitle="Transparent pricing with no hidden fees. Choose the package that fits your needs."
+        tiers={pricingTiers}
+      />
 
       {/* FAQs */}
       <section className="section-padding bg-card/30">

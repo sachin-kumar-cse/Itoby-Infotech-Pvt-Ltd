@@ -25,6 +25,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTASection } from "@/components/sections/CTASection";
+import { PricingSection } from "@/components/sections/PricingSection";
 
 const offerings = [
   { icon: Smartphone, title: "Android Apps", description: "Native Android applications with Material Design and optimal performance." },
@@ -75,6 +76,54 @@ const faqs = [
   {
     question: "What happens after the app is launched?",
     answer: "We offer maintenance packages that include bug fixes, performance monitoring, security updates, and feature enhancements to keep your app competitive."
+  },
+];
+
+const pricingTiers = [
+  {
+    name: "MVP",
+    price: "$15,000",
+    description: "Launch your minimum viable product quickly",
+    features: [
+      "Single platform (iOS or Android)",
+      "Up to 10 screens",
+      "Basic UI design",
+      "User authentication",
+      "Push notifications",
+      "2 months development",
+      "1 month support",
+    ],
+  },
+  {
+    name: "Standard",
+    price: "$35,000",
+    description: "Full-featured app for growing businesses",
+    features: [
+      "iOS and Android (cross-platform)",
+      "Up to 25 screens",
+      "Custom UI/UX design",
+      "Backend API development",
+      "Payment integration",
+      "Analytics dashboard",
+      "App Store submission",
+      "3 months support",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: "$75,000",
+    description: "Complex applications with advanced features",
+    features: [
+      "Native iOS and Android apps",
+      "Unlimited screens",
+      "Advanced animations",
+      "AI/ML integration",
+      "Real-time features",
+      "Admin dashboard",
+      "Dedicated team",
+      "12 months support",
+    ],
   },
 ];
 
@@ -307,6 +356,13 @@ const MobileApp = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <PricingSection
+        title="Investment Packages"
+        subtitle="Flexible pricing options for apps of any complexity."
+        tiers={pricingTiers}
+      />
 
       {/* FAQs */}
       <section className="section-padding bg-card/30">

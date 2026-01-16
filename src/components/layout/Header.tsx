@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,10 +27,61 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
+// Menu item stagger animation variants
+const menuItemVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.08,
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  }),
+  exit: (i: number) => ({
+    opacity: 0,
+    x: 50,
+    transition: {
+      delay: i * 0.03,
+      duration: 0.2,
+    },
+  }),
+};
+
+// Magnetic button hook
+const useMagneticButton = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const springX = useSpring(x, { stiffness: 300, damping: 20 });
+  const springY = useSpring(y, { stiffness: 300, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const deltaX = (e.clientX - centerX) * 0.3;
+    const deltaY = (e.clientY - centerY) * 0.3;
+    x.set(deltaX);
+    y.set(deltaY);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return { ref, springX, springY, handleMouseMove, handleMouseLeave };
+};
+
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { ref: magneticRef, springX, springY, handleMouseMove, handleMouseLeave } = useMagneticButton();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,42 +95,68 @@ export const Header = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "glass py-3" : "py-5"
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? "glass py-3 shadow-lg shadow-background/20" 
+            : "py-4 sm:py-5"
         }`}
       >
         <div className="container-wide flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">I</span>
+          <Link to="/" className="flex items-center gap-2 group">
+            <motion.div 
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2"
+            >
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.5)] transition-shadow duration-300">
+                <span className="text-primary-foreground font-display font-bold text-lg sm:text-xl">I</span>
               </div>
-              <span className="text-foreground font-display font-bold text-xl hidden sm:block">
+              <span className="text-foreground font-display font-bold text-lg sm:text-xl hidden sm:block">
                 Itoby<span className="text-primary">.</span>
               </span>
-            </div>
+            </motion.div>
           </Link>
 
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               link.hasDropdown ? (
                 <DropdownMenu key={link.path}>
-                  <DropdownMenuTrigger className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                  <DropdownMenuTrigger className={`group flex items-center gap-1 text-sm font-medium transition-colors relative ${
                     location.pathname.startsWith('/services')
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
                   }`}>
                     {link.name}
-                    <ChevronDown size={14} />
+                    <ChevronDown size={14} className="group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                    {/* Active indicator */}
+                    {location.pathname.startsWith('/services') && (
+                      <motion.span 
+                        layoutId="activeNav"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                      />
+                    )}
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-56">
+                  <DropdownMenuContent align="start" className="w-56 mt-2">
                     <DropdownMenuItem asChild>
                       <Link to="/services" className="w-full cursor-pointer font-medium">
                         All Services
@@ -98,88 +175,178 @@ export const Header = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium animated-underline transition-colors ${
+                  className={`relative text-sm font-medium transition-colors group ${
                     location.pathname === link.path
                       ? "text-primary"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {link.name}
+                  {/* Animated underline */}
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary rounded-full transition-all duration-300 ${
+                    location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
                 </Link>
               )
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button with Magnetic Effect */}
           <div className="hidden lg:block">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">Get a Free Quote</Link>
-            </Button>
+            <motion.div
+              ref={magneticRef}
+              style={{ x: springX, y: springY }}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Button variant="hero" size="lg" className="magnetic-btn" asChild>
+                <Link to="/contact">Get a Free Quote</Link>
+              </Button>
+            </motion.div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
+          {/* Mobile Menu Button - Animated Hamburger */}
+          <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground relative w-10 h-10 flex items-center justify-center"
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.9 }}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <div className="relative w-6 h-5 flex flex-col justify-between">
+              <motion.span
+                animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-full h-0.5 bg-foreground rounded-full origin-center"
+              />
+              <motion.span
+                animate={isMobileMenuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
+                transition={{ duration: 0.2 }}
+                className="w-full h-0.5 bg-foreground rounded-full"
+              />
+              <motion.span
+                animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-full h-0.5 bg-foreground rounded-full origin-center"
+              />
+            </div>
+          </motion.button>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Fullscreen Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <div
-              className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-background/95 backdrop-blur-xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <div className="absolute right-0 top-0 h-full w-80 bg-card border-l border-border p-6 pt-24">
-              <nav className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <div key={link.path}>
+            
+            {/* Menu Content */}
+            <motion.div 
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute right-0 top-0 h-full w-full sm:w-80 bg-card border-l border-border p-6 pt-24 overflow-y-auto"
+            >
+              {/* Decorative gradient */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
+              
+              <nav className="relative flex flex-col gap-1">
+                {navLinks.map((link, index) => (
+                  <motion.div 
+                    key={link.path}
+                    custom={index}
+                    variants={menuItemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                  >
                     <Link
                       to={link.path}
-                      className={`text-lg font-medium transition-colors py-2 block ${
+                      className={`flex items-center justify-between text-2xl font-display font-bold transition-colors py-3 ${
                         location.pathname === link.path
                           ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
+                          : "text-foreground hover:text-primary"
                       }`}
                     >
                       {link.name}
+                      {location.pathname === link.path && (
+                        <motion.span 
+                          layoutId="mobileActiveIndicator"
+                          className="w-2 h-2 rounded-full bg-primary"
+                        />
+                      )}
                     </Link>
                     {link.hasDropdown && (
-                      <div className="pl-4 flex flex-col gap-1">
-                        {serviceLinks.map((service) => (
-                          <Link
+                      <motion.div 
+                        className="pl-4 flex flex-col gap-1 border-l-2 border-border ml-2 mb-2"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {serviceLinks.map((service, serviceIndex) => (
+                          <motion.div
                             key={service.path}
-                            to={service.path}
-                            className={`text-sm transition-colors py-1 block ${
-                              location.pathname === service.path
-                                ? "text-primary"
-                                : "text-muted-foreground hover:text-foreground"
-                            }`}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 + serviceIndex * 0.05 }}
                           >
-                            {service.name}
-                          </Link>
+                            <Link
+                              to={service.path}
+                              className={`text-base transition-colors py-2 block ${
+                                location.pathname === service.path
+                                  ? "text-primary"
+                                  : "text-muted-foreground hover:text-foreground"
+                              }`}
+                            >
+                              {service.name}
+                            </Link>
+                          </motion.div>
                         ))}
-                      </div>
+                      </motion.div>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
-                <Button variant="hero" size="lg" className="mt-4" asChild>
-                  <Link to="/contact">Get a Free Quote</Link>
-                </Button>
+                
+                <motion.div
+                  custom={navLinks.length}
+                  variants={menuItemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="mt-6 pt-6 border-t border-border"
+                >
+                  <Button variant="hero" size="lg" className="w-full" asChild>
+                    <Link to="/contact">Get a Free Quote</Link>
+                  </Button>
+                </motion.div>
+
+                {/* Contact Info */}
+                <motion.div
+                  custom={navLinks.length + 1}
+                  variants={menuItemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="mt-8 space-y-3 text-sm text-muted-foreground"
+                >
+                  <p>📧 info@itobyinfotech.in</p>
+                  <p>📞 +91 98765 43210</p>
+                </motion.div>
               </nav>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

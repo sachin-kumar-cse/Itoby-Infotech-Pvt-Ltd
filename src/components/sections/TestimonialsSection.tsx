@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star, Pause, Play } from "lucide-react";
 
 const testimonials = [
   {
@@ -55,24 +55,59 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [direction, setDirection] = useState(1);
 
-  const next = () => {
+  const next = useCallback(() => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, []);
 
-  const prev = () => {
+  const prev = useCallback(() => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      next();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, next]);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+      scale: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9,
+    }),
   };
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-gradient-to-b from-background via-card/30 to-background">
       <div className="container-wide">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
             Client Stories
@@ -80,7 +115,7 @@ export const TestimonialsSection = () => {
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg">
             Don't just take our word for it. Here's what industry leaders have to say 
             about their experience working with us.
           </p>
@@ -88,53 +123,96 @@ export const TestimonialsSection = () => {
 
         {/* Testimonial Slider */}
         <div className="relative max-w-4xl mx-auto">
-          <AnimatePresence mode="wait">
+          {/* Progress Bar */}
+          <div className="absolute -top-4 left-0 right-0 h-0.5 bg-border rounded-full overflow-hidden">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.4 }}
-              className="relative p-8 md:p-12 rounded-3xl bg-card border border-border"
+              initial={{ width: "0%" }}
+              animate={{ width: isAutoPlaying ? "100%" : "0%" }}
+              transition={{ duration: 5, ease: "linear" }}
+              className="h-full bg-primary"
+            />
+          </div>
+
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="relative p-6 sm:p-8 md:p-12 rounded-3xl bg-card border border-border"
             >
               {/* Quote Icon */}
-              <Quote className="absolute top-8 right-8 w-12 h-12 text-primary/20" />
+              <Quote className="absolute top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 text-primary/20" />
 
-              <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                 {/* Image */}
-                <div className="shrink-0">
-                  <img
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    className="w-24 h-24 rounded-full object-cover border-4 border-primary/20"
-                  />
-                </div>
+                <motion.div 
+                  className="shrink-0"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="relative">
+                    <img
+                      src={testimonials[currentIndex].image}
+                      alt={testimonials[currentIndex].name}
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-primary/20"
+                    />
+                    {/* Glow ring */}
+                    <motion.div
+                      animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.2, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0 rounded-full border-2 border-primary/30"
+                    />
+                  </div>
+                </motion.div>
 
                 {/* Content */}
                 <div className="text-center md:text-left">
                   {/* Rating */}
-                  <div className="flex gap-1 justify-center md:justify-start mb-4">
+                  <motion.div 
+                    className="flex gap-1 justify-center md:justify-start mb-4"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                      <Star
+                      <motion.div
                         key={i}
-                        size={18}
-                        className="text-primary fill-primary"
-                      />
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.1 + i * 0.05 }}
+                      >
+                        <Star size={18} className="text-primary fill-primary" />
+                      </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
 
-                  <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
+                  <motion.p 
+                    className="text-base sm:text-lg md:text-xl text-foreground leading-relaxed mb-6"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
                     "{testimonials[currentIndex].content}"
-                  </p>
+                  </motion.p>
 
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
                     <p className="font-display font-bold text-lg">
                       {testimonials[currentIndex].name}
                     </p>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground text-sm sm:text-base">
                       {testimonials[currentIndex].role}
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -142,37 +220,60 @@ export const TestimonialsSection = () => {
 
           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-8">
-            <button
+            <motion.button
               onClick={prev}
-              className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={24} />
-            </button>
+            </motion.button>
 
             {/* Dots */}
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
-                <button
+                <motion.button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  onClick={() => {
+                    setDirection(index > currentIndex ? 1 : -1);
+                    setCurrentIndex(index);
+                  }}
+                  whileHover={{ scale: 1.2 }}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? "bg-primary w-8"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2.5"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
 
-            <button
+            <motion.button
               onClick={next}
-              className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={24} />
-            </button>
+            </motion.button>
+
+            {/* Auto-play toggle */}
+            <motion.button
+              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-colors ${
+                isAutoPlaying 
+                  ? "bg-primary/10 text-primary" 
+                  : "bg-secondary text-muted-foreground hover:text-primary hover:bg-primary/10"
+              }`}
+              aria-label={isAutoPlaying ? "Pause auto-play" : "Resume auto-play"}
+            >
+              {isAutoPlaying ? <Pause size={18} /> : <Play size={18} />}
+            </motion.button>
           </div>
         </div>
       </div>

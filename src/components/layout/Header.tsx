@@ -1,14 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const serviceLinks = [
   { name: "Web Design & Development", path: "/services/web-design" },
@@ -80,8 +74,23 @@ const useMagneticButton = () => {
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { ref: magneticRef, springX, springY, handleMouseMove, handleMouseLeave } = useMagneticButton();
+
+  const handleServicesMouseEnter = () => {
+    if (servicesTimeoutRef.current) {
+      clearTimeout(servicesTimeoutRef.current);
+    }
+    setIsServicesOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    servicesTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 150);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -140,14 +149,25 @@ export const Header = () => {
           <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               link.hasDropdown ? (
-                <DropdownMenu key={link.path}>
-                  <DropdownMenuTrigger className={`group flex items-center gap-1 text-sm font-medium transition-colors relative ${
-                    location.pathname.startsWith('/services')
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}>
+                <div 
+                  key={link.path}
+                  className="relative"
+                  onMouseEnter={handleServicesMouseEnter}
+                  onMouseLeave={handleServicesMouseLeave}
+                >
+                  <Link
+                    to={link.path}
+                    className={`group flex items-center gap-1 text-sm font-medium transition-colors relative ${
+                      location.pathname.startsWith('/services')
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
                     {link.name}
-                    <ChevronDown size={14} className="group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                    <ChevronDown 
+                      size={14} 
+                      className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} 
+                    />
                     {/* Active indicator */}
                     {location.pathname.startsWith('/services') && (
                       <motion.span 
@@ -155,22 +175,39 @@ export const Header = () => {
                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
                       />
                     )}
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-56 mt-2">
-                    <DropdownMenuItem asChild>
-                      <Link to="/services" className="w-full cursor-pointer font-medium">
-                        All Services
-                      </Link>
-                    </DropdownMenuItem>
-                    {serviceLinks.map((service) => (
-                      <DropdownMenuItem key={service.path} asChild>
-                        <Link to={service.path} className="w-full cursor-pointer">
-                          {service.name}
-                        </Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                  </Link>
+                  
+                  {/* Hover Dropdown */}
+                  <AnimatePresence>
+                    {isServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 pt-2"
+                      >
+                        <div className="w-56 rounded-md border bg-popover p-1 text-popover-foreground shadow-lg">
+                          <Link 
+                            to="/services" 
+                            className="block px-3 py-2 text-sm font-medium rounded-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+                          >
+                            All Services
+                          </Link>
+                          {serviceLinks.map((service) => (
+                            <Link 
+                              key={service.path}
+                              to={service.path} 
+                              className="block px-3 py-2 text-sm rounded-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+                            >
+                              {service.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ) : (
                 <Link
                   key={link.path}

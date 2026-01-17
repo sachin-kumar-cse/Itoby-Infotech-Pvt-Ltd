@@ -2,13 +2,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Code, Globe, Smartphone, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const stats = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "11+", label: "Years Experience" },
+  { value: 100, suffix: "+", label: "Projects Delivered" },
+  { value: 50, suffix: "+", label: "Happy Clients" },
+  { value: 11, suffix: "+", label: "Years Experience" },
 ];
 
 const floatingIcons = [
@@ -246,14 +247,13 @@ export const HeroSection = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <motion.p 
-                    className="text-2xl sm:text-3xl font-display font-bold text-primary"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.7 + index * 0.1, type: "spring" }}
-                  >
-                    {stat.value}
-                  </motion.p>
+                  <p className="text-2xl sm:text-3xl font-display font-bold text-primary">
+                    <AnimatedCounter 
+                      value={stat.value} 
+                      suffix={stat.suffix}
+                      duration={2}
+                    />
+                  </p>
                   <p className="text-xs sm:text-sm text-muted-foreground">{stat.label}</p>
                 </motion.div>
               ))}

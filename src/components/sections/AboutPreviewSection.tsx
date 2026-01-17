@@ -38,10 +38,10 @@ export const AboutPreviewSection = () => {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, type: "spring" }}
-              className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-primary flex flex-col items-center justify-center text-primary-foreground shadow-lg"
+              className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 rounded-xl sm:rounded-2xl bg-primary flex flex-col items-center justify-center text-primary-foreground shadow-lg"
             >
-              <span className="text-4xl font-display font-bold">11+</span>
-              <span className="text-sm font-medium">Years of<br/>Experience</span>
+              <span className="text-2xl sm:text-4xl font-display font-bold">11+</span>
+              <span className="text-xs sm:text-sm font-medium text-center">Years of<br/>Experience</span>
             </motion.div>
           </motion.div>
 

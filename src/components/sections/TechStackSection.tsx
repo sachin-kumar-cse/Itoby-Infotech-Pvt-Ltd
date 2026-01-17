@@ -43,7 +43,7 @@ export const TechStackSection = () => {
         </motion.div>
 
         {/* Tech Grid */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
@@ -52,9 +52,9 @@ export const TechStackSection = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="px-6 py-3 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[0_0_20px_hsl(75_100%_50%/0.1)] transition-all cursor-default"
+              className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[0_0_20px_hsl(75_100%_50%/0.1)] transition-all cursor-default"
             >
-              <p className="font-medium text-foreground">{tech.name}</p>
+              <p className="font-medium text-sm sm:text-base text-foreground">{tech.name}</p>
               <p className="text-xs text-muted-foreground">{tech.category}</p>
             </motion.div>
           ))}

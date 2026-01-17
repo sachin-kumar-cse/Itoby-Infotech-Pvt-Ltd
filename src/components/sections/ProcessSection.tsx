@@ -62,7 +62,7 @@ export const ProcessSection = () => {
           {/* Connecting Line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2" />
 
-          <div className="grid lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -75,22 +75,22 @@ export const ProcessSection = () => {
                 {/* Step Card */}
                 <div className="relative z-10 flex flex-col items-center text-center group">
                   {/* Icon Circle */}
-                  <div className="relative mb-6">
+                  <div className="relative mb-4 sm:mb-6">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-20 h-20 rounded-2xl bg-card border border-border flex items-center justify-center group-hover:border-primary group-hover:shadow-[0_0_30px_hsl(75_100%_50%/0.2)] transition-all duration-300"
+                      className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-card border border-border flex items-center justify-center group-hover:border-primary group-hover:shadow-[0_0_30px_hsl(75_100%_50%/0.2)] transition-all duration-300"
                     >
-                      <step.icon size={32} className="text-primary" />
+                      <step.icon size={24} className="text-primary sm:w-8 sm:h-8" />
                     </motion.div>
-                    <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">
+                    <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary text-primary-foreground text-xs sm:text-sm font-bold flex items-center justify-center">
                       {step.number}
                     </span>
                   </div>
 
-                  <h3 className="font-display text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-sm sm:text-lg font-bold mb-1 sm:mb-2 group-hover:text-primary transition-colors">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed hidden sm:block">
                     {step.description}
                   </p>
                 </div>

@@ -1,0 +1,78 @@
+import { motion } from "framer-motion";
+import { Award, Star, Trophy, Medal } from "lucide-react";
+
+const awards = [
+  {
+    icon: Trophy,
+    title: "Best Web Agency",
+    year: "2024",
+    organization: "Digital Excellence Awards",
+  },
+  {
+    icon: Award,
+    title: "Top IT Service Provider",
+    year: "2023",
+    organization: "India Tech Awards",
+  },
+  {
+    icon: Star,
+    title: "5-Star Rating",
+    year: "2024",
+    organization: "Google Business",
+  },
+  {
+    icon: Medal,
+    title: "Certified Partner",
+    year: "2024",
+    organization: "Microsoft 365",
+  },
+];
+
+export const AwardsSection = () => {
+  return (
+    <section className="py-12 sm:py-16 bg-card/50 border-y border-border">
+      <div className="container-wide">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-center sm:text-left">
+              Awards & <span className="text-primary">Recognition</span>
+            </h3>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {awards.map((award, index) => (
+            <motion.div
+              key={award.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              className="group p-4 sm:p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 text-center"
+            >
+              <motion.div
+                whileHover={{ rotate: 10, scale: 1.1 }}
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors"
+              >
+                <award.icon 
+                  size={24} 
+                  className="text-primary group-hover:text-primary-foreground transition-colors" 
+                />
+              </motion.div>
+              <h4 className="font-display font-bold text-sm sm:text-base mb-1 group-hover:text-primary transition-colors">
+                {award.title}
+              </h4>
+              <p className="text-xs text-primary font-semibold mb-1">{award.year}</p>
+              <p className="text-xs text-muted-foreground">{award.organization}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

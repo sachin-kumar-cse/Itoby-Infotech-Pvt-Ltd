@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -33,56 +34,113 @@ const faqs = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
 export const FAQSection = () => {
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
+  const leftInView = useInView(leftRef, { once: true, amount: 0.3 });
+  const rightInView = useInView(rightRef, { once: true, amount: 0.2 });
+
   return (
     <section className="section-padding bg-card/30">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Column - Header */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            ref={leftRef}
+            initial={{ opacity: 0, x: -60 }}
+            animate={leftInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+            transition={{ duration: 0.7 }}
             className="lg:sticky lg:top-32"
           >
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-primary font-semibold uppercase tracking-wider text-sm inline-block"
+            >
               FAQs
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6"
+            >
               Frequently Asked <span className="gradient-text">Questions</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-muted-foreground text-lg mb-8"
+            >
               Got questions? We've got answers. If you don't find what you're 
               looking for, feel free to reach out to our team.
-            </p>
+            </motion.p>
             
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-card border border-border">
+            <motion.div 
+              className="grid grid-cols-2 gap-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <motion.div 
+                className="p-4 rounded-xl bg-card border border-border"
+                whileHover={{ scale: 1.03, y: -3 }}
+                transition={{ duration: 0.2 }}
+              >
                 <p className="text-2xl font-display font-bold text-primary">100+</p>
                 <p className="text-sm text-muted-foreground">Projects Delivered</p>
-              </div>
-              <div className="p-4 rounded-xl bg-card border border-border">
+              </motion.div>
+              <motion.div 
+                className="p-4 rounded-xl bg-card border border-border"
+                whileHover={{ scale: 1.03, y: -3 }}
+                transition={{ duration: 0.2 }}
+              >
                 <p className="text-2xl font-display font-bold text-primary">99%</p>
                 <p className="text-sm text-muted-foreground">Client Satisfaction</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column - Accordion */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            ref={rightRef}
+            variants={containerVariants}
+            initial="hidden"
+            animate={rightInView ? "visible" : "hidden"}
           >
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.01 }}
                 >
                   <AccordionItem
                     value={`item-${index}`}

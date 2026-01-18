@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 import techflowImg from "@/assets/portfolio/techflow-saas.jpg";
 import fittrackImg from "@/assets/portfolio/fittrack-app.jpg";
@@ -43,42 +44,93 @@ const projects = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
 export const FeaturedProjectsSection = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const headerInView = useInView(headerRef, { once: true, amount: 0.5 });
+  const gridInView = useInView(gridRef, { once: true, amount: 0.1 });
+
   return (
     <section className="section-padding">
       <div className="container-wide">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          ref={headerRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.7 }}
           className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12"
         >
           <div>
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-primary font-semibold uppercase tracking-wider text-sm inline-block"
+            >
               Featured Work
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4">
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4"
+            >
               Our Latest <span className="gradient-text">Projects</span>
-            </h2>
+            </motion.h2>
           </div>
-          <Button variant="outline" asChild className="shrink-0">
-            <Link to="/portfolio">
-              View All Projects
-              <ArrowUpRight size={16} className="ml-2" />
-            </Link>
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={headerInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <Button variant="outline" asChild className="shrink-0 group">
+              <Link to="/portfolio">
+                View All Projects
+                <ArrowUpRight size={16} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+            </Button>
+          </motion.div>
         </motion.div>
 
         {/* Projects Grid - Bento Style */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          ref={gridRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={gridInView ? "visible" : "hidden"}
+          className="grid md:grid-cols-2 gap-6"
+        >
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={itemVariants}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.3 }}
               className={`group relative ${index === 0 ? 'md:row-span-2' : ''}`}
             >
               <Link
@@ -86,10 +138,12 @@ export const FeaturedProjectsSection = () => {
                 className="block relative h-full min-h-[280px] sm:min-h-[320px] rounded-2xl overflow-hidden"
               >
                 {/* Image */}
-                <img
+                <motion.img
                   src={project.image}
                   alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.7 }}
                 />
                 
                 {/* Overlay */}
@@ -97,9 +151,15 @@ export const FeaturedProjectsSection = () => {
                 
                 {/* Content */}
                 <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
-                  <span className="text-primary text-sm font-semibold mb-2">
+                  <motion.span 
+                    className="text-primary text-sm font-semibold mb-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                  >
                     {project.category}
-                  </span>
+                  </motion.span>
                   <h3 className="font-display text-xl sm:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
@@ -109,21 +169,25 @@ export const FeaturedProjectsSection = () => {
                   
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
+                    {project.tags.map((tag, tagIndex) => (
+                      <motion.span
                         key={tag}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + tagIndex * 0.05 }}
                         className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>
                 
                 {/* Hover Icon */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileHover={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0, rotate: -45 }}
+                  whileHover={{ opacity: 1, scale: 1, rotate: 0 }}
                   className="absolute top-6 right-6 w-12 h-12 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                 >
                   <ExternalLink size={20} className="text-primary-foreground" />
@@ -131,7 +195,7 @@ export const FeaturedProjectsSection = () => {
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

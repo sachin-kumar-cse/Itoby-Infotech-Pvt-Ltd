@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, Youtube, ArrowUpRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 const services = [
   { name: "Web Design & Development", path: "/services/web-design" },
@@ -28,11 +29,39 @@ const socialLinks = [
   { icon: Youtube, href: "https://youtube.com/@itobyinfotech", label: "YouTube" },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const whatsappNumber = "919876543210";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your digital services.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  
+  const newsletterRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+  const newsletterInView = useInView(newsletterRef, { once: true, amount: 0.3 });
+  const mainInView = useInView(mainRef, { once: true, amount: 0.1 });
 
   return (
     <footer className="relative bg-card border-t border-border overflow-hidden">
@@ -41,39 +70,58 @@ export const Footer = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-glow-secondary/5 rounded-full blur-3xl" />
 
       {/* Newsletter Section */}
-      <div className="relative border-b border-border">
+      <div className="relative border-b border-border" ref={newsletterRef}>
         <div className="container-wide py-12 sm:py-16">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <motion.div 
+            className="flex flex-col lg:flex-row items-center justify-between gap-8"
+            initial={{ opacity: 0, y: 40 }}
+            animate={newsletterInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.7 }}
+          >
             <div className="text-center lg:text-left">
               <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">
                 Stay Updated with <span className="gradient-text">Our Insights</span>
               </h3>
               <p className="text-muted-foreground">Get the latest trends, tips, and news delivered to your inbox.</p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto"
+              initial={{ opacity: 0, x: 30 }}
+              animate={newsletterInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="h-12 px-4 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors w-full sm:w-72"
+                className="h-12 px-4 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-[0_0_20px_hsl(75_100%_50%/0.2)] transition-all w-full sm:w-72"
               />
-              <Button variant="hero" size="lg" className="shrink-0">
+              <Button variant="hero" size="lg" className="shrink-0 group">
                 Subscribe
-                <ArrowUpRight size={18} />
+                <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
       {/* Main Footer Content */}
-      <div className="container-wide section-padding relative">
+      <motion.div 
+        ref={mainRef}
+        className="container-wide section-padding relative"
+        variants={containerVariants}
+        initial="hidden"
+        animate={mainInView ? "visible" : "hidden"}
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
-          <div className="sm:col-span-2 lg:col-span-1 space-y-6">
+          <motion.div variants={itemVariants} className="sm:col-span-2 lg:col-span-1 space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.5)] transition-shadow">
+              <motion.div 
+                className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.5)] transition-shadow"
+                whileHover={{ rotate: 5, scale: 1.05 }}
+              >
                 <span className="text-primary-foreground font-display font-bold text-xl">I</span>
-              </div>
+              </motion.div>
               <span className="text-foreground font-display font-bold text-xl">
                 Itoby<span className="text-primary">.</span>
               </span>
@@ -111,10 +159,10 @@ export const Footer = () => {
               <MessageCircle size={18} />
               Chat on WhatsApp
             </motion.a>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="font-display font-bold text-lg mb-6">Our Services</h4>
             <ul className="space-y-3">
               {services.map((service) => (
@@ -131,10 +179,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="font-display font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -151,10 +199,10 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h4 className="font-display font-bold text-lg mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li>
@@ -208,9 +256,9 @@ export const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom Bar */}
       <div className="border-t border-border py-6 relative">

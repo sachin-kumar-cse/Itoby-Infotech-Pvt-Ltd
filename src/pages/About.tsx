@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, Target, Eye, Users, Award, Zap, Shield, Clock, HeartHandshake } from "lucide-react";
+import { CheckCircle, Target, Eye, Zap, Shield, Clock, HeartHandshake, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { CTASection } from "@/components/sections/CTASection";
+import { TeamSection } from "@/components/sections/TeamSection";
+import { TimelineSection } from "@/components/sections/TimelineSection";
+import { TechStackSection } from "@/components/sections/TechStackSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import aboutTeam from "@/assets/about-team.jpg";
 
 const whyChooseUs = [
@@ -14,10 +18,17 @@ const whyChooseUs = [
 ];
 
 const stats = [
-  { value: "100+", label: "Projects Completed" },
-  { value: "50+", label: "Happy Clients" },
+  { value: "500+", label: "Projects Completed" },
+  { value: "150+", label: "Happy Clients" },
   { value: "11+", label: "Years Experience" },
-  { value: "25+", label: "Team Members" },
+  { value: "50+", label: "Team Members" },
+];
+
+const values = [
+  { title: "Innovation", description: "We constantly explore new technologies and methodologies to deliver cutting-edge solutions." },
+  { title: "Integrity", description: "Transparency and honesty form the foundation of all our client relationships." },
+  { title: "Excellence", description: "We strive for perfection in every project, no matter how big or small." },
+  { title: "Collaboration", description: "We work as an extension of your team, ensuring seamless communication and partnership." },
 ];
 
 const About = () => {
@@ -37,12 +48,23 @@ const About = () => {
               About Us
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mt-4 mb-6">
-              About <span className="gradient-text">Itoby Infotech</span>
+              Transforming Ideas Into <span className="gradient-text">Digital Reality</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A modern digital agency helping businesses scale through design, technology, 
-              and strategic marketing since 2013.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+              We're a passionate team of designers, developers, and strategists dedicated to 
+              helping businesses thrive in the digital age since 2013.
             </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/contact">
+                  Work With Us
+                  <ArrowRight size={20} />
+                </Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild>
+                <Link to="/portfolio">View Our Work</Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -74,26 +96,31 @@ const About = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
+              <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+                Our Story
+              </span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold">
-                Our <span className="gradient-text">Story</span>
+                Building Digital <span className="gradient-text">Excellence</span> Since 2013
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Itoby Infotech is a revolutionary digital agency working on new concepts, 
-                web protocols, and innovation. Founded in 2013, we've grown from a small 
-                team of passionate developers to a full-service digital agency serving 
-                clients across the globe.
+                Itoby Infotech started with a simple vision: to help businesses navigate the 
+                digital landscape with innovative, scalable solutions. What began as a small 
+                web design studio in Patna has grown into a full-service digital agency with 
+                a global footprint.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We focus on marketing and branding businesses by applying advanced concepts 
-                and strategies in website designing and integrated marketing. Our dedicated 
-                teams work on apps, online stores, and custom software solutions that drive 
-                real business results.
+                Our journey has been marked by continuous learning, adaptation, and an unwavering 
+                commitment to client success. We've partnered with startups, SMEs, and enterprises 
+                across diverse industries, helping them achieve their digital transformation goals.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Today, we are at the forefront of designing websites and creating intuitive 
-                marketing strategies for small and medium business enterprises, startups, 
-                and established corporations alike.
-              </p>
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                {["ISO 9001 Certified", "Microsoft Partner", "Agile Methodology", "24/7 Support"].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle className="text-primary" size={20} />
+                    <span className="text-sm font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -115,9 +142,8 @@ const About = () => {
               <h3 className="font-display text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
                 To empower businesses with innovative digital solutions that drive growth, 
-                enhance user experiences, and create lasting impact in the digital landscape. 
-                We strive to be more than service providers—we aim to be strategic partners 
-                in our clients' success.
+                enhance user experiences, and create lasting impact. We aim to be strategic 
+                partners in our clients' success, not just service providers.
               </p>
             </motion.div>
 
@@ -134,17 +160,56 @@ const About = () => {
               <h3 className="font-display text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
                 To become the most trusted digital partner for businesses worldwide, 
-                known for our innovative approach, technical excellence, and unwavering 
-                commitment to delivering exceptional results. We envision a future where 
-                every business has access to world-class digital solutions.
+                known for innovation, technical excellence, and commitment to results. 
+                We envision a future where every business has access to world-class digital solutions.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Core Values */}
       <section className="section-padding">
+        <div className="container-wide">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              Our Values
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4">
+              What We <span className="gradient-text">Stand For</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all text-center group"
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary transition-colors">
+                  <span className="text-2xl font-display font-bold text-primary group-hover:text-primary-foreground">
+                    {index + 1}
+                  </span>
+                </div>
+                <h3 className="font-display text-lg font-bold mb-2">{value.title}</h3>
+                <p className="text-muted-foreground text-sm">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-card/30">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -181,6 +246,12 @@ const About = () => {
         </div>
       </section>
 
+      {/* Timeline */}
+      <TimelineSection />
+
+      {/* Team */}
+      <TeamSection />
+
       {/* Stats */}
       <section className="section-padding bg-card/30">
         <div className="container-wide">
@@ -203,6 +274,12 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Tech Stack */}
+      <TechStackSection />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
 
       <CTASection />
     </Layout>

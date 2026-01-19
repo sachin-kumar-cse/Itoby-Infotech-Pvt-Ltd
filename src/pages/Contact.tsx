@@ -9,6 +9,9 @@ import { Mail, Phone, MapPin, MessageCircle, Send, CheckCircle } from "lucide-re
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
+import { ContactInfoCards } from "@/components/sections/ContactInfoCards";
+import { OfficeLocations } from "@/components/sections/OfficeLocations";
+import { FAQSection } from "@/components/sections/FAQSection";
 
 const contactInfo = [
   {
@@ -43,7 +46,20 @@ const services = [
   "Digital Marketing",
   "Software Solutions",
   "Microsoft Office 365",
+  "UI/UX Design",
+  "E-commerce Development",
+  "API Development",
+  "Cloud Solutions",
   "Other",
+];
+
+const budgetRanges = [
+  "Under ₹50,000",
+  "₹50,000 - ₹1,00,000",
+  "₹1,00,000 - ₹3,00,000",
+  "₹3,00,000 - ₹5,00,000",
+  "₹5,00,000+",
+  "Not sure yet",
 ];
 
 // Validation schema
@@ -64,6 +80,8 @@ const Contact = () => {
     email: "",
     phone: "",
     service: "",
+    company: "",
+    budget: "",
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -96,7 +114,7 @@ const Contact = () => {
           email: formData.email.trim(),
           phone: formData.phone.trim() || null,
           service: formData.service,
-          message: formData.message.trim(),
+          message: `Company: ${formData.company || 'N/A'}\nBudget: ${formData.budget || 'N/A'}\n\n${formData.message.trim()}`,
         });
 
       if (dbError) {
@@ -116,7 +134,6 @@ const Contact = () => {
 
       if (emailError) {
         console.error("Email notification failed:", emailError);
-        // Don't throw - form was saved successfully
       }
 
       setIsSuccess(true);
@@ -125,7 +142,7 @@ const Contact = () => {
         description: "We'll get back to you within 24 hours.",
       });
 
-      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", service: "", company: "", budget: "", message: "" });
     } catch (error: any) {
       console.error("Form submission error:", error);
       toast({
@@ -182,18 +199,21 @@ const Contact = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-              Contact Us
+              Get In Touch
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mt-4 mb-6">
-              Let's <span className="gradient-text">Talk</span>
+              Let's Build Something <span className="gradient-text">Amazing</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ready to start your project? Get in touch with our team and let's discuss 
-              how we can help transform your business.
+              Have a project in mind? We'd love to hear about it. Share your ideas with us 
+              and let's create exceptional digital experiences together.
             </p>
           </motion.div>
         </div>
       </section>
+
+      {/* Quick Info Cards */}
+      <ContactInfoCards />
 
       {/* Contact Section */}
       <section className="section-padding">
@@ -209,8 +229,8 @@ const Contact = () => {
               <div>
                 <h2 className="font-display text-2xl font-bold mb-4">Get in Touch</h2>
                 <p className="text-muted-foreground">
-                  Have a project in mind? We'd love to hear from you. Reach out and 
-                  let's start building something amazing together.
+                  Ready to start your project? Reach out to us through any of the following 
+                  channels or fill out the form and we'll get back to you promptly.
                 </p>
               </div>
 
@@ -257,7 +277,8 @@ const Contact = () => {
               className="lg:col-span-3"
             >
               <div className="p-8 md:p-10 rounded-2xl bg-card border border-border">
-                <h2 className="font-display text-2xl font-bold mb-6">Send us a Message</h2>
+                <h2 className="font-display text-2xl font-bold mb-2">Tell Us About Your Project</h2>
+                <p className="text-muted-foreground mb-6">Fill out the form and we'll get back to you within 24 hours.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
@@ -303,8 +324,22 @@ const Contact = () => {
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className={`h-12 bg-secondary border-border ${errors.phone ? 'border-destructive' : ''}`}
                       />
-                      {errors.phone && <p className="text-destructive text-sm">{errors.phone}</p>}
                     </div>
+                    <div className="space-y-2">
+                      <label htmlFor="company" className="text-sm font-medium">
+                        Company Name
+                      </label>
+                      <Input
+                        id="company"
+                        placeholder="Your Company"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="h-12 bg-secondary border-border"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="service" className="text-sm font-medium">
                         Service Interested In *
@@ -326,15 +361,35 @@ const Contact = () => {
                       </Select>
                       {errors.service && <p className="text-destructive text-sm">{errors.service}</p>}
                     </div>
+                    <div className="space-y-2">
+                      <label htmlFor="budget" className="text-sm font-medium">
+                        Estimated Budget
+                      </label>
+                      <Select
+                        value={formData.budget}
+                        onValueChange={(value) => setFormData({ ...formData, budget: value })}
+                      >
+                        <SelectTrigger className="h-12 bg-secondary border-border">
+                          <SelectValue placeholder="Select budget range" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-card border-border">
+                          {budgetRanges.map((range) => (
+                            <SelectItem key={range} value={range}>
+                              {range}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
-                      Your Message *
+                      Project Details *
                     </label>
                     <Textarea
                       id="message"
-                      placeholder="Tell us about your project..."
+                      placeholder="Tell us about your project, goals, and timeline..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className={`min-h-[150px] bg-secondary border-border resize-none ${errors.message ? 'border-destructive' : ''}`}
@@ -368,25 +423,39 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Office Locations */}
+      <OfficeLocations />
+
+      {/* FAQ Section */}
+      <FAQSection />
+
       {/* Schedule Meeting CTA */}
-      <section className="section-padding bg-card/30">
+      <section className="section-padding">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto"
+            className="text-center max-w-2xl mx-auto p-10 rounded-2xl bg-card border border-border"
           >
             <h2 className="font-display text-3xl font-bold mb-4">
               Prefer a <span className="gradient-text">Direct Call?</span>
             </h2>
             <p className="text-muted-foreground mb-6">
-              Schedule a meeting with our team at your convenience. 
-              We'll discuss your requirements and provide a free consultation.
+              Schedule a free 30-minute consultation with our team. We'll discuss your 
+              requirements and provide expert recommendations.
             </p>
-            <Button variant="hero-outline" size="xl">
-              Schedule a Meeting
-            </Button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button variant="hero" size="xl">
+                Schedule a Meeting
+              </Button>
+              <Button variant="hero-outline" size="xl" asChild>
+                <a href="tel:+919876543210">
+                  <Phone size={20} />
+                  Call Now
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>

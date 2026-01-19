@@ -2,8 +2,10 @@ import { Layout } from "@/components/layout/Layout";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TrustedBySection } from "@/components/sections/TrustedBySection";
 import { ClientsMarqueeSection } from "@/components/sections/ClientsMarqueeSection";
+import { StatsCounterSection } from "@/components/sections/StatsCounterSection";
 import { AboutPreviewSection } from "@/components/sections/AboutPreviewSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection";
@@ -20,8 +22,10 @@ const Index = () => {
       <HeroSection />
       <TrustedBySection />
       <ClientsMarqueeSection />
+      <StatsCounterSection />
       <AboutPreviewSection />
       <ServicesSection />
+      <IndustriesSection />
       <WhyChooseUsSection />
       <ProcessSection />
       <FeaturedProjectsSection />

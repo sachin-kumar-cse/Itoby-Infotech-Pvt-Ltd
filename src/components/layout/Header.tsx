@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const serviceLinks = [
   { name: "Web Design & Development", path: "/services/web-design" },
@@ -228,8 +229,9 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button with Magnetic Effect */}
-          <div className="hidden lg:block">
+          {/* Theme Toggle & CTA Button */}
+          <div className="hidden lg:flex items-center gap-4">
+            <ThemeToggle />
             <motion.div
               ref={magneticRef}
               style={{ x: springX, y: springY }}
@@ -242,31 +244,34 @@ export const Header = () => {
             </motion.div>
           </div>
 
-          {/* Mobile Menu Button - Animated Hamburger */}
-          <motion.button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground relative w-10 h-10 flex items-center justify-center"
-            aria-label="Toggle menu"
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="relative w-6 h-5 flex flex-col justify-between">
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="w-full h-0.5 bg-foreground rounded-full origin-center"
-              />
-              <motion.span
-                animate={isMobileMenuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
-                transition={{ duration: 0.2 }}
-                className="w-full h-0.5 bg-foreground rounded-full"
-              />
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="w-full h-0.5 bg-foreground rounded-full origin-center"
-              />
-            </div>
-          </motion.button>
+          {/* Mobile Theme Toggle & Menu Button */}
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <motion.button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-foreground relative w-10 h-10 flex items-center justify-center"
+              aria-label="Toggle menu"
+              whileTap={{ scale: 0.9 }}
+            >
+              <div className="relative w-6 h-5 flex flex-col justify-between">
+                <motion.span
+                  animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-0.5 bg-foreground rounded-full origin-center"
+                />
+                <motion.span
+                  animate={isMobileMenuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full h-0.5 bg-foreground rounded-full"
+                />
+                <motion.span
+                  animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-0.5 bg-foreground rounded-full origin-center"
+                />
+              </div>
+            </motion.button>
+          </div>
         </div>
       </motion.header>
 

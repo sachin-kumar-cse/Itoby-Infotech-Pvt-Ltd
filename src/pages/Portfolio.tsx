@@ -2,8 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Filter } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
+import { PortfolioStatsSection } from "@/components/sections/PortfolioStatsSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { WorkProcessSection } from "@/components/sections/WorkProcessSection";
 
 // Import portfolio images
 import techflowImg from "@/assets/portfolio/techflow-saas.jpg";
@@ -27,6 +30,8 @@ const projects = [
     description: "Complete web application redesign for a B2B SaaS company serving 10,000+ users.",
     image: techflowImg,
     results: "+200% Conversions",
+    tech: ["React", "Node.js", "PostgreSQL"],
+    client: "TechFlow Inc.",
   },
   {
     slug: "luxe-fashion",
@@ -35,6 +40,8 @@ const projects = [
     description: "Premium e-commerce store with AR try-on feature for a luxury fashion brand.",
     image: luxeImg,
     results: "+400% Sales",
+    tech: ["Next.js", "Shopify", "AR.js"],
+    client: "Luxe Fashion",
   },
   {
     slug: "fittrack",
@@ -43,6 +50,8 @@ const projects = [
     description: "AI-powered health and fitness tracking mobile application with 100K+ users.",
     image: fittrackImg,
     results: "100K+ Downloads",
+    tech: ["React Native", "TensorFlow", "Firebase"],
+    client: "FitTrack",
   },
   {
     slug: "quickpay",
@@ -51,6 +60,8 @@ const projects = [
     description: "Cross-platform mobile payment and financial management application.",
     image: quickpayImg,
     results: "50K+ Active Users",
+    tech: ["Flutter", "Stripe", "Node.js"],
+    client: "QuickPay",
   },
   {
     slug: "restaurant-chain",
@@ -59,6 +70,8 @@ const projects = [
     description: "Full-scale digital marketing campaign for a 25-location restaurant chain.",
     image: restaurantImg,
     results: "+150% Foot Traffic",
+    tech: ["Google Ads", "Meta Ads", "SEO"],
+    client: "FoodHub",
   },
   {
     slug: "b2b-saas",
@@ -67,6 +80,8 @@ const projects = [
     description: "Multi-channel lead generation campaign for enterprise software company.",
     image: b2bSaasImg,
     results: "500+ Leads/Month",
+    tech: ["LinkedIn Ads", "Content Marketing", "HubSpot"],
+    client: "SaaS Corp",
   },
   {
     slug: "manufacturing-erp",
@@ -75,6 +90,8 @@ const projects = [
     description: "Custom ERP solution for a manufacturing company with 500+ employees.",
     image: manufacturingImg,
     results: "40% Efficiency Gain",
+    tech: ["Python", "Django", "React"],
+    client: "ManufacturePro",
   },
   {
     slug: "healthcare-portal",
@@ -83,6 +100,8 @@ const projects = [
     description: "HIPAA-compliant patient portal for a multi-location healthcare network.",
     image: healthcareImg,
     results: "60% Admin Reduction",
+    tech: ["Vue.js", "Laravel", "MySQL"],
+    client: "HealthFirst",
   },
   {
     slug: "law-firm-m365",
@@ -91,6 +110,8 @@ const projects = [
     description: "Complete Microsoft 365 migration for a 150-attorney law firm.",
     image: lawFirmImg,
     results: "99.9% Uptime",
+    tech: ["SharePoint", "Teams", "Power Automate"],
+    client: "LegalPro LLP",
   },
   {
     slug: "retail-m365",
@@ -99,6 +120,8 @@ const projects = [
     description: "Enterprise M365 deployment across 50+ retail locations nationwide.",
     image: retailImg,
     results: "35% Cost Savings",
+    tech: ["Azure AD", "Intune", "Dynamics 365"],
+    client: "RetailMax",
   },
 ];
 
@@ -123,18 +146,21 @@ const Portfolio = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-              Our Work
+              Our Portfolio
             </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mt-4 mb-6">
-              Featured <span className="gradient-text">Portfolio</span>
+              Showcasing Our <span className="gradient-text">Best Work</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore our successful projects and see how we've helped businesses 
-              achieve their digital transformation goals.
+              Explore our portfolio of successful projects across web development, mobile apps, 
+              digital marketing, and enterprise solutions.
             </p>
           </motion.div>
         </div>
       </section>
+
+      {/* Stats */}
+      <PortfolioStatsSection />
 
       {/* Portfolio Grid */}
       <section className="section-padding">
@@ -144,16 +170,20 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-3 mb-12"
           >
+            <div className="flex items-center gap-2 mr-4 text-muted-foreground">
+              <Filter size={18} />
+              <span className="text-sm font-medium">Filter:</span>
+            </div>
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === category
                     ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(75_100%_50%/0.3)]"
-                    : "bg-secondary text-muted-foreground hover:text-foreground"
+                    : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
                 }`}
               >
                 {category}
@@ -191,18 +221,32 @@ const Portfolio = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                       
                       <div className="absolute bottom-6 left-6 right-6">
-                        <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium mb-3">
-                          {project.category}
-                        </span>
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
+                            {project.category}
+                          </span>
+                          <span className="inline-block px-3 py-1 rounded-full bg-card/80 text-foreground text-xs font-medium backdrop-blur-sm">
+                            {project.client}
+                          </span>
+                        </div>
                         <h3 className="font-display text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground text-sm mb-3">
                           {project.description}
                         </p>
-                        <span className="inline-flex items-center gap-2 text-primary font-medium">
-                          {project.results}
-                        </span>
+                        <div className="flex items-center justify-between">
+                          <span className="inline-flex items-center gap-2 text-primary font-medium">
+                            {project.results}
+                          </span>
+                          <div className="flex gap-1">
+                            {project.tech.slice(0, 2).map((t) => (
+                              <span key={t} className="text-xs px-2 py-1 rounded bg-secondary text-muted-foreground">
+                                {t}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
 
                       <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
@@ -214,8 +258,25 @@ const Portfolio = () => {
               ))}
             </motion.div>
           </AnimatePresence>
+
+          {/* No Results */}
+          {filteredProjects.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-16"
+            >
+              <p className="text-muted-foreground text-lg">No projects found in this category.</p>
+            </motion.div>
+          )}
         </div>
       </section>
+
+      {/* Work Process */}
+      <WorkProcessSection />
+
+      {/* Testimonials */}
+      <TestimonialsSection />
 
       <CTASection />
     </Layout>

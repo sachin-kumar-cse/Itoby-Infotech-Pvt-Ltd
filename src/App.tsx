@@ -17,6 +17,7 @@ import MobileApp from "./pages/services/MobileApp";
 import DigitalMarketing from "./pages/services/DigitalMarketing";
 import SoftwareSolutions from "./pages/services/SoftwareSolutions";
 import Microsoft365 from "./pages/services/Microsoft365";
+import Careers from "./pages/Careers";
 import TechFlow from "./pages/portfolio/TechFlow";
 import LuxeFashion from "./pages/portfolio/LuxeFashion";
 import FitTrack from "./pages/portfolio/FitTrack";
@@ -60,6 +61,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/careers" element={<Careers />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import WebDesign from "./pages/services/WebDesign";
@@ -57,7 +58,7 @@ const App = () => (
             <Route path="/portfolio/law-firm-m365" element={<LawFirmM365 />} />
             <Route path="/portfolio/retail-m365" element={<RetailM365 />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

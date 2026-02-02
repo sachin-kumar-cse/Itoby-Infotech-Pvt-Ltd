@@ -5,6 +5,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 const posts = [
   {
     id: 1,
+    slug: "web-design-trends-2026",
     title: "Top Web Design Trends to Watch in 2026",
     excerpt: "Discover the latest design patterns and visual trends shaping the future of web experiences.",
     category: "Design",
@@ -13,6 +14,7 @@ const posts = [
   },
   {
     id: 2,
+    slug: "seo-checklist-2026",
     title: "The Ultimate SEO Checklist for 2026",
     excerpt: "A comprehensive guide to optimizing your website for search engines in the AI era.",
     category: "SEO",
@@ -21,11 +23,12 @@ const posts = [
   },
   {
     id: 3,
-    title: "How to Improve Website Conversion Rate by 300%",
-    excerpt: "Proven strategies and psychological principles to turn visitors into customers.",
-    category: "Marketing",
-    date: "Jan 2, 2026",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    slug: "saas-case-study-techflow",
+    title: "Case Study: How We Built TechFlow's SaaS Platform",
+    excerpt: "A deep dive into building a project management platform that serves 10,000+ teams.",
+    category: "Case Study",
+    date: "Dec 15, 2025",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
   },
 ];
 
@@ -68,7 +71,7 @@ export const BlogPreviewSection = () => {
               transition={{ delay: index * 0.1 }}
             >
               <Link
-                to={`/blog/${post.id}`}
+                to={`/blog/${post.slug}`}
                 className="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">

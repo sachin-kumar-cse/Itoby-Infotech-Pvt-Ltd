@@ -24,69 +24,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const jobOpenings = [
-  {
-    id: 1,
-    title: "Senior Full Stack Developer",
-    department: "Engineering",
-    location: "Patna, Bihar (Hybrid)",
-    type: "Full-time",
-    experience: "5+ years",
-    description: "Lead development of complex web applications using React, Node.js, and cloud technologies.",
-    skills: ["React", "Node.js", "TypeScript", "AWS", "PostgreSQL"],
-  },
-  {
-    id: 2,
-    title: "UI/UX Designer",
-    department: "Design",
-    location: "Remote",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Create stunning user interfaces and experiences for web and mobile applications.",
-    skills: ["Figma", "Adobe XD", "Prototyping", "User Research", "Design Systems"],
-  },
-  {
-    id: 3,
-    title: "Mobile App Developer",
-    department: "Engineering",
-    location: "Patna, Bihar (On-site)",
-    type: "Full-time",
-    experience: "3+ years",
-    description: "Build cross-platform mobile applications using React Native and Flutter.",
-    skills: ["React Native", "Flutter", "iOS", "Android", "REST APIs"],
-  },
-  {
-    id: 4,
-    title: "Digital Marketing Specialist",
-    department: "Marketing",
-    location: "Remote",
-    type: "Full-time",
-    experience: "2+ years",
-    description: "Drive digital marketing campaigns including SEO, PPC, and social media marketing.",
-    skills: ["SEO", "Google Ads", "Social Media", "Analytics", "Content Marketing"],
-  },
-  {
-    id: 5,
-    title: "DevOps Engineer",
-    department: "Engineering",
-    location: "Patna, Bihar (Hybrid)",
-    type: "Full-time",
-    experience: "4+ years",
-    description: "Manage cloud infrastructure, CI/CD pipelines, and ensure system reliability.",
-    skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Linux"],
-  },
-  {
-    id: 6,
-    title: "Project Manager",
-    department: "Operations",
-    location: "Patna, Bihar (On-site)",
-    type: "Full-time",
-    experience: "5+ years",
-    description: "Lead project delivery, coordinate teams, and ensure client satisfaction.",
-    skills: ["Agile", "Scrum", "JIRA", "Client Management", "Risk Management"],
-  },
-];
-
+import { jobOpenings } from "@/data/jobs";
 const benefits = [
   {
     icon: Laptop,
@@ -342,58 +280,58 @@ const Careers = () => {
           <div className="space-y-4">
             {jobOpenings.map((job, index) => (
               <ScrollReveal key={job.id} delay={index * 0.1}>
-                <Card className="bg-card border-border/50 hover:border-primary/50 transition-all group">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
-                      <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <Badge variant="secondary" className="text-xs">
-                            {job.department}
-                          </Badge>
-                          <Badge variant="outline" className="text-xs">
-                            {job.type}
-                          </Badge>
-                        </div>
-                        <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                          {job.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm mb-3">
-                          {job.description}
-                        </p>
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                          <span className="flex items-center gap-1">
-                            <MapPin size={14} className="text-primary" />
-                            {job.location}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock size={14} className="text-primary" />
-                            {job.experience}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-3 lg:items-end">
-                        <div className="flex flex-wrap gap-2">
-                          {job.skills.slice(0, 3).map((skill) => (
-                            <Badge key={skill} variant="outline" className="text-xs bg-secondary/50">
-                              {skill}
+                <Link to={`/careers/${job.id}`}>
+                  <Card className="bg-card border-border/50 hover:border-primary/50 transition-all group cursor-pointer">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
+                        <div className="flex-1">
+                          <div className="flex flex-wrap items-center gap-2 mb-2">
+                            <Badge variant="secondary" className="text-xs">
+                              {job.department}
                             </Badge>
-                          ))}
-                          {job.skills.length > 3 && (
-                            <Badge variant="outline" className="text-xs bg-secondary/50">
-                              +{job.skills.length - 3}
+                            <Badge variant="outline" className="text-xs">
+                              {job.type}
                             </Badge>
-                          )}
+                          </div>
+                          <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                            {job.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
+                            {job.description}
+                          </p>
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1">
+                              <MapPin size={14} className="text-primary" />
+                              {job.location}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Clock size={14} className="text-primary" />
+                              {job.experience}
+                            </span>
+                          </div>
                         </div>
-                        <Button variant="default" className="w-full lg:w-auto" asChild>
-                          <Link to="/contact">
-                            Apply Now
+                        <div className="flex flex-col gap-3 lg:items-end">
+                          <div className="flex flex-wrap gap-2">
+                            {job.skills.slice(0, 3).map((skill) => (
+                              <Badge key={skill} variant="outline" className="text-xs bg-secondary/50">
+                                {skill}
+                              </Badge>
+                            ))}
+                            {job.skills.length > 3 && (
+                              <Badge variant="outline" className="text-xs bg-secondary/50">
+                                +{job.skills.length - 3}
+                              </Badge>
+                            )}
+                          </div>
+                          <Button variant="default" className="w-full lg:w-auto">
+                            View Details
                             <ArrowRight size={16} className="ml-2" />
-                          </Link>
-                        </Button>
+                          </Button>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

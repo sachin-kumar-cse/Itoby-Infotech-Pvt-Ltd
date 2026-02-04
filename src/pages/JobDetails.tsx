@@ -22,14 +22,55 @@ import {
   Share2,
   Heart
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+
+const ALLOWED_FILE_TYPES = [
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+];
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 const JobDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const job = id ? getJobById(id) : undefined;
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const validateFile = (file: File): string | null => {
+    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+      return "Please upload a PDF or Word document (.pdf, .doc, .docx)";
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      return "File size must be less than 10MB";
+    }
+    return null;
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    setFileError(null);
+    
+    if (file) {
+      const error = validateFile(file);
+      if (error) {
+        setFileError(error);
+        setSelectedFile(null);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
+      } else {
+        setSelectedFile(file);
+      }
+    } else {
+      setSelectedFile(null);
+    }
+  };
 
   if (!job) {
     return (
@@ -51,12 +92,40 @@ const JobDetails = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast.success("Application submitted successfully! We'll be in touch soon.");
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    try {
+      let resumeUrl: string | null = null;
+      
+      // Upload resume if provided
+      if (selectedFile) {
+        const fileExt = selectedFile.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+        const filePath = `${job?.id}/${fileName}`;
+        
+        const { error: uploadError } = await supabase.storage
+          .from('resumes')
+          .upload(filePath, selectedFile);
+        
+        if (uploadError) {
+          throw new Error("Failed to upload resume. Please try again.");
+        }
+        
+        resumeUrl = filePath;
+      }
+      
+      // For now, just show success - in production you'd save application to database
+      console.log('Application submitted with resume:', resumeUrl);
+      
+      toast.success("Application submitted successfully! We'll be in touch soon.");
+      (e.target as HTMLFormElement).reset();
+      setSelectedFile(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Failed to submit application");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleShare = () => {
@@ -264,6 +333,30 @@ const JobDetails = () => {
                       <div className="space-y-2">
                         <Label htmlFor="experience">Years of Experience *</Label>
                         <Input id="experience" placeholder="5 years" required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="resume">Resume/CV</Label>
+                        <div className="space-y-2">
+                          <Input
+                            ref={fileInputRef}
+                            id="resume"
+                            type="file"
+                            accept=".pdf,.doc,.docx"
+                            onChange={handleFileChange}
+                            className="cursor-pointer file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/90"
+                          />
+                          <p className="text-xs text-muted-foreground">
+                            Accepted formats: PDF, DOC, DOCX (max 10MB)
+                          </p>
+                          {fileError && (
+                            <p className="text-xs text-destructive">{fileError}</p>
+                          )}
+                          {selectedFile && !fileError && (
+                            <p className="text-xs text-primary">
+                              ✓ {selectedFile.name}
+                            </p>
+                          )}
+                        </div>
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="message">Cover Letter</Label>

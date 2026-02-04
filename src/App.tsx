@@ -21,6 +21,8 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import JobDetails from "./pages/JobDetails";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import TechFlow from "./pages/portfolio/TechFlow";
 import LuxeFashion from "./pages/portfolio/LuxeFashion";
 import FitTrack from "./pages/portfolio/FitTrack";
@@ -68,6 +70,8 @@ const App = () => (
             <Route path="/careers/:id" element={<JobDetails />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

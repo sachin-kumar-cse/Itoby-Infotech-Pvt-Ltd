@@ -92,8 +92,10 @@ const JobDetails = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    const formData = new FormData(e.currentTarget);
+    
     try {
-      let resumeUrl: string | null = null;
+      let resumePath: string | null = null;
       
       // Upload resume if provided
       if (selectedFile) {
@@ -109,11 +111,27 @@ const JobDetails = () => {
           throw new Error("Failed to upload resume. Please try again.");
         }
         
-        resumeUrl = filePath;
+        resumePath = filePath;
       }
       
-      // For now, just show success - in production you'd save application to database
-      console.log('Application submitted with resume:', resumeUrl);
+      // Save application to database
+      const { error: insertError } = await supabase
+        .from('job_applications')
+        .insert({
+          job_id: job?.id || '',
+          job_title: job?.title || '',
+          name: formData.get('name') as string,
+          email: formData.get('email') as string,
+          phone: formData.get('phone') as string || null,
+          portfolio_url: formData.get('portfolio') as string || null,
+          experience: formData.get('experience') as string,
+          cover_letter: formData.get('message') as string || null,
+          resume_path: resumePath,
+        });
+      
+      if (insertError) {
+        throw new Error("Failed to submit application. Please try again.");
+      }
       
       toast.success("Application submitted successfully! We'll be in touch soon.");
       (e.target as HTMLFormElement).reset();
@@ -316,23 +334,23 @@ const JobDetails = () => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Full Name *</Label>
-                        <Input id="name" placeholder="John Doe" required />
+                        <Input id="name" name="name" placeholder="John Doe" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email *</Label>
-                        <Input id="email" type="email" placeholder="john@example.com" required />
+                        <Input id="email" name="email" type="email" placeholder="john@example.com" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number</Label>
-                        <Input id="phone" type="tel" placeholder="+91 98765 43210" />
+                        <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="portfolio">Portfolio / LinkedIn URL</Label>
-                        <Input id="portfolio" type="url" placeholder="https://linkedin.com/in/johndoe" />
+                        <Input id="portfolio" name="portfolio" type="url" placeholder="https://linkedin.com/in/johndoe" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="experience">Years of Experience *</Label>
-                        <Input id="experience" placeholder="5 years" required />
+                        <Input id="experience" name="experience" placeholder="5 years" required />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="resume">Resume/CV</Label>
@@ -362,6 +380,7 @@ const JobDetails = () => {
                         <Label htmlFor="message">Cover Letter</Label>
                         <Textarea 
                           id="message" 
+                          name="message"
                           placeholder="Tell us why you're interested in this role..."
                           rows={4}
                         />

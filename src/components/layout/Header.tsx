@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
@@ -76,6 +76,7 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const location = useLocation();
   const { ref: magneticRef, springX, springY, handleMouseMove, handleMouseLeave } = useMagneticButton();
@@ -290,7 +291,7 @@ export const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-background/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-background/80 backdrop-blur-2xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
@@ -300,77 +301,115 @@ export const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute right-0 top-0 h-full w-full sm:w-80 bg-card border-l border-border p-6 pt-24 overflow-y-auto"
+              className="absolute right-0 top-0 h-full w-full max-w-sm bg-card/95 backdrop-blur-xl border-l border-border flex flex-col"
             >
-              {/* Decorative gradient */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl" />
+              {/* Top decorative gradient */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+              {/* Close area / top padding */}
+              <div className="h-16 sm:h-20 flex-shrink-0" />
               
-              <nav className="relative flex flex-col gap-1">
-                {navLinks.map((link, index) => (
-                  <motion.div 
-                    key={link.path}
-                    custom={index}
-                    variants={menuItemVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <Link
-                      to={link.path}
-                      className={`flex items-center justify-between text-2xl font-display font-bold transition-colors py-3 ${
-                        location.pathname === link.path
-                          ? "text-primary"
-                          : "text-foreground hover:text-primary"
-                      }`}
+              {/* Scrollable nav area */}
+              <nav className="relative flex-1 overflow-y-auto px-6 pb-6">
+                <div className="flex flex-col gap-0.5">
+                  {navLinks.map((link, index) => (
+                    <motion.div 
+                      key={link.path}
+                      custom={index}
+                      variants={menuItemVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
                     >
-                      {link.name}
-                      {location.pathname === link.path && (
-                        <motion.span 
-                          layoutId="mobileActiveIndicator"
-                          className="w-2 h-2 rounded-full bg-primary"
-                        />
-                      )}
-                    </Link>
-                    {link.hasDropdown && (
-                      <motion.div 
-                        className="pl-4 flex flex-col gap-1 border-l-2 border-border ml-2 mb-2"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        transition={{ delay: 0.2 }}
-                      >
-                        {serviceLinks.map((service, serviceIndex) => (
-                          <motion.div
-                            key={service.path}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.3 + serviceIndex * 0.05 }}
-                          >
+                      {link.hasDropdown ? (
+                        <div>
+                          <div className="flex items-center justify-between">
                             <Link
-                              to={service.path}
-                              className={`text-base transition-colors py-2 block ${
-                                location.pathname === service.path
+                              to={link.path}
+                              className={`flex-1 text-xl sm:text-2xl font-display font-bold transition-colors py-3 ${
+                                location.pathname === link.path
                                   ? "text-primary"
-                                  : "text-muted-foreground hover:text-foreground"
+                                  : "text-foreground hover:text-primary"
                               }`}
                             >
-                              {service.name}
+                              {link.name}
                             </Link>
-                          </motion.div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </motion.div>
-                ))}
+                            <motion.button
+                              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                              className="p-2 rounded-lg hover:bg-accent transition-colors"
+                              animate={{ rotate: isMobileServicesOpen ? 180 : 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <ChevronDown size={20} className="text-muted-foreground" />
+                            </motion.button>
+                          </div>
+                          <AnimatePresence>
+                            {isMobileServicesOpen && (
+                              <motion.div 
+                                className="pl-4 flex flex-col gap-0.5 border-l-2 border-primary/30 ml-2 mb-2"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                              >
+                                {serviceLinks.map((service, serviceIndex) => (
+                                  <motion.div
+                                    key={service.path}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: serviceIndex * 0.05 }}
+                                  >
+                                    <Link
+                                      to={service.path}
+                                      className={`text-sm sm:text-base transition-colors py-2.5 block rounded-md px-2 hover:bg-accent ${
+                                        location.pathname === service.path
+                                          ? "text-primary font-medium"
+                                          : "text-muted-foreground hover:text-foreground"
+                                      }`}
+                                    >
+                                      {service.name}
+                                    </Link>
+                                  </motion.div>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      ) : (
+                        <Link
+                          to={link.path}
+                          className={`flex items-center justify-between text-xl sm:text-2xl font-display font-bold transition-colors py-3 rounded-lg group ${
+                            location.pathname === link.path
+                              ? "text-primary"
+                              : "text-foreground hover:text-primary"
+                          }`}
+                        >
+                          <span>{link.name}</span>
+                          {location.pathname === link.path ? (
+                            <motion.span 
+                              layoutId="mobileActiveIndicator"
+                              className="w-2 h-2 rounded-full bg-primary"
+                            />
+                          ) : (
+                            <ArrowRight size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                          )}
+                        </Link>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
                 
+                {/* CTA */}
                 <motion.div
                   custom={navLinks.length}
                   variants={menuItemVariants}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="mt-6 pt-6 border-t border-border"
+                  className="mt-8 pt-6 border-t border-border"
                 >
-                  <Button variant="hero" size="lg" className="w-full" asChild>
+                  <Button variant="hero" size="lg" className="w-full text-base" asChild>
                     <Link to="/contact">Get a Free Quote</Link>
                   </Button>
                 </motion.div>
@@ -382,10 +421,16 @@ export const Header = () => {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="mt-8 space-y-3 text-sm text-muted-foreground"
+                  className="mt-6 space-y-3"
                 >
-                  <p>📧 info@itobyinfotech.in</p>
-                  <p>📞 +91 98765 43210</p>
+                  <a href="mailto:info@itobyinfotech.in" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors py-1">
+                    <Mail size={16} className="text-primary" />
+                    info@itobyinfotech.in
+                  </a>
+                  <a href="tel:+919876543210" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors py-1">
+                    <Phone size={16} className="text-primary" />
+                    +91 98765 43210
+                  </a>
                 </motion.div>
               </nav>
             </motion.div>

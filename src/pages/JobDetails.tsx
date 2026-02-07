@@ -133,6 +133,19 @@ const JobDetails = () => {
         throw new Error("Failed to submit application. Please try again.");
       }
       
+      // Send email notifications (non-blocking)
+      supabase.functions.invoke("send-job-application-email", {
+        body: {
+          name: formData.get('name') as string,
+          email: formData.get('email') as string,
+          phone: formData.get('phone') as string || undefined,
+          jobTitle: job?.title || '',
+          experience: formData.get('experience') as string,
+          portfolioUrl: formData.get('portfolio') as string || undefined,
+          coverLetter: formData.get('message') as string || undefined,
+        },
+      }).catch((err) => console.error("Email notification failed:", err));
+
       toast.success("Application submitted successfully! We'll be in touch soon.");
       (e.target as HTMLFormElement).reset();
       setSelectedFile(null);

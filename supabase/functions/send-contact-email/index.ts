@@ -1,12 +1,24 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
+
+function escapeHtml(text: string): string {
+  const map: { [key: string]: string } = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+}
 
 interface ContactEmailRequest {
   name: string;
@@ -17,7 +29,6 @@ interface ContactEmailRequest {
 }
 
 const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -25,7 +36,6 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { name, email, phone, service, message }: ContactEmailRequest = await req.json();
 
-    // Validate required fields
     if (!name || !email || !service || !message) {
       return new Response(
         JSON.stringify({ error: "Missing required fields" }),
@@ -33,7 +43,32 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Send notification email to admin using Resend API directly
+    // Rate limiting: max 3 submissions per email per hour
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+    );
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    const { data: recent } = await supabase
+      .from('contact_submissions')
+      .select('id')
+      .eq('email', email)
+      .gte('created_at', oneHourAgo);
+
+    if (recent && recent.length >= 3) {
+      return new Response(
+        JSON.stringify({ error: "Rate limit exceeded. Please try again later." }),
+        { status: 429, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    // Escape all user inputs
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = phone ? escapeHtml(phone) : '';
+    const safeService = escapeHtml(service);
+    const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+
     const adminEmailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -43,7 +78,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Itoby Infotech <onboarding@resend.dev>",
         to: ["info@itobyinfotech.in"],
-        subject: `New Contact Form Submission: ${service}`,
+        subject: `New Contact Form Submission: ${safeService}`,
         html: `
           <!DOCTYPE html>
           <html>
@@ -68,25 +103,25 @@ const handler = async (req: Request): Promise<Response> => {
               <div class="content">
                 <div class="field">
                   <div class="field-label">Name</div>
-                  <div class="field-value">${name}</div>
+                  <div class="field-value">${safeName}</div>
                 </div>
                 <div class="field">
                   <div class="field-label">Email</div>
-                  <div class="field-value"><a href="mailto:${email}">${email}</a></div>
+                  <div class="field-value"><a href="mailto:${safeEmail}">${safeEmail}</a></div>
                 </div>
-                ${phone ? `
+                ${safePhone ? `
                 <div class="field">
                   <div class="field-label">Phone</div>
-                  <div class="field-value"><a href="tel:${phone}">${phone}</a></div>
+                  <div class="field-value"><a href="tel:${safePhone}">${safePhone}</a></div>
                 </div>
                 ` : ''}
                 <div class="field">
                   <div class="field-label">Service Interested In</div>
-                  <div class="field-value">${service}</div>
+                  <div class="field-value">${safeService}</div>
                 </div>
                 <div class="field">
                   <div class="field-label">Message</div>
-                  <div class="message-box">${message.replace(/\n/g, '<br>')}</div>
+                  <div class="message-box">${safeMessage}</div>
                 </div>
               </div>
             </div>
@@ -99,11 +134,8 @@ const handler = async (req: Request): Promise<Response> => {
     if (!adminEmailRes.ok) {
       const errorData = await adminEmailRes.text();
       console.error("Failed to send admin email:", errorData);
-    } else {
-      console.log("Admin notification email sent successfully");
     }
 
-    // Send confirmation email to user
     const userEmailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -132,20 +164,16 @@ const handler = async (req: Request): Promise<Response> => {
           <body>
             <div class="container">
               <div class="header">
-                <h1>Thank You, ${name}! 🎉</h1>
+                <h1>Thank You, ${safeName}! 🎉</h1>
               </div>
               <div class="content">
                 <p>We've received your message and appreciate you reaching out to us.</p>
-                
                 <div class="highlight">
                   <p><strong>What happens next?</strong></p>
-                  <p>Our team will review your inquiry about <strong>${service}</strong> and get back to you within 24-48 business hours.</p>
+                  <p>Our team will review your inquiry about <strong>${safeService}</strong> and get back to you within 24-48 business hours.</p>
                 </div>
-                
                 <p>In the meantime, feel free to explore our website to learn more about our services.</p>
-                
                 <p>Best regards,<br><strong>The Itoby Infotech Team</strong></p>
-                
                 <div class="footer">
                   <p>Itoby Infotech Pvt. Ltd.<br>
                   Patna, Bihar, India<br>
@@ -160,30 +188,18 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     if (!userEmailRes.ok) {
-      const errorData = await userEmailRes.text();
-      console.error("Failed to send user confirmation email:", errorData);
-    } else {
-      console.log("User confirmation email sent successfully");
+      console.error("Failed to send user confirmation email:", await userEmailRes.text());
     }
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
-        message: "Emails sent successfully" 
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      JSON.stringify({ success: true, message: "Emails sent successfully" }),
+      { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
+      JSON.stringify({ error: "An unexpected error occurred" }),
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
   }
 };

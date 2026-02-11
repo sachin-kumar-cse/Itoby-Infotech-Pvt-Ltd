@@ -19,6 +19,9 @@ import manufacturingImg from "@/assets/portfolio/manufacturing-erp.jpg";
 import healthcareImg from "@/assets/portfolio/healthcare-portal.jpg";
 import lawFirmImg from "@/assets/portfolio/law-firm-m365.jpg";
 import retailImg from "@/assets/portfolio/retail-m365.jpg";
+import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
+import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
+import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
 
 const categories = ["All", "Website", "App", "Marketing", "Software", "Microsoft 365"];
 
@@ -122,6 +125,36 @@ const projects = [
     results: "35% Cost Savings",
     tech: ["Azure AD", "Intune", "Dynamics 365"],
     client: "RetailMax",
+  },
+  {
+    slug: "kaspereye-security",
+    title: "Kaspereye Security Solutions",
+    category: "Website",
+    description: "Premium security solutions website with smart surveillance showcase and lead generation.",
+    image: kaspereyeImg,
+    results: "+180% Leads",
+    tech: ["React", "Tailwind CSS", "Node.js"],
+    client: "Kaspereye Security",
+  },
+  {
+    slug: "freightxpress",
+    title: "FreightXpress Logistics Platform",
+    category: "Website",
+    description: "Comprehensive logistics website with real-time tracking and online booking system.",
+    image: freightxpressImg,
+    results: "+320% Bookings",
+    tech: ["React", "PostgreSQL", "Maps API"],
+    client: "FreightXpress",
+  },
+  {
+    slug: "rainfra-studio",
+    title: "RA Infra Studio Portfolio",
+    category: "Website",
+    description: "Stunning architecture portfolio with immersive project showcases and 3D walkthroughs.",
+    image: rainfraImg,
+    results: "+200% Inquiries",
+    tech: ["React", "Three.js", "Framer Motion"],
+    client: "RA Infra Studio",
   },
 ];
 

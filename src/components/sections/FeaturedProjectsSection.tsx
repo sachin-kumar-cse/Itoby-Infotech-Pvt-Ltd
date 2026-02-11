@@ -6,8 +6,9 @@ import { useRef } from "react";
 
 import techflowImg from "@/assets/portfolio/techflow-saas.jpg";
 import fittrackImg from "@/assets/portfolio/fittrack-app.jpg";
-import healthcareImg from "@/assets/portfolio/healthcare-portal.jpg";
-import luxeImg from "@/assets/portfolio/luxe-fashion.jpg";
+import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
+import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
+import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
 
 const projects = [
   {
@@ -15,32 +16,40 @@ const projects = [
     category: "Web Development",
     description: "Complete SaaS solution with dashboard, analytics, and team collaboration features.",
     image: techflowImg,
-    link: "/portfolio/techflow-saas",
+    link: "/portfolio/techflow",
     tags: ["React", "Node.js", "MongoDB"],
+  },
+  {
+    title: "Kaspereye Security Solutions",
+    category: "Website",
+    description: "Premium security solutions website with smart surveillance showcase and lead generation.",
+    image: kaspereyeImg,
+    link: "/portfolio/kaspereye-security",
+    tags: ["React", "Tailwind CSS", "Node.js"],
+  },
+  {
+    title: "FreightXpress Logistics",
+    category: "Website",
+    description: "Logistics platform with real-time tracking and online booking system.",
+    image: freightxpressImg,
+    link: "/portfolio/freightxpress",
+    tags: ["React", "PostgreSQL", "Maps API"],
   },
   {
     title: "FitTrack Mobile App",
     category: "Mobile App",
     description: "Fitness tracking app with workout plans, nutrition logging, and progress analytics.",
     image: fittrackImg,
-    link: "/portfolio/fittrack-app",
+    link: "/portfolio/fittrack",
     tags: ["Flutter", "Firebase", "AI"],
   },
   {
-    title: "HealthCare Portal",
-    category: "Software Solution",
-    description: "Patient management system with appointment booking and telemedicine features.",
-    image: healthcareImg,
-    link: "/portfolio/healthcare-portal",
-    tags: ["Laravel", "Vue.js", "MySQL"],
-  },
-  {
-    title: "Luxe Fashion E-commerce",
-    category: "E-commerce",
-    description: "Premium fashion e-commerce with AR try-on and personalized recommendations.",
-    image: luxeImg,
-    link: "/portfolio/luxe-fashion",
-    tags: ["Shopify", "React", "AI"],
+    title: "RA Infra Studio",
+    category: "Architecture Portfolio",
+    description: "Stunning architecture portfolio with immersive project showcases and 3D walkthroughs.",
+    image: rainfraImg,
+    link: "/portfolio/rainfra-studio",
+    tags: ["React", "Three.js", "Framer Motion"],
   },
 ];
 

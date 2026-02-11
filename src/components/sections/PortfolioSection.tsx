@@ -13,8 +13,9 @@ import manufacturingImg from "@/assets/portfolio/manufacturing-erp.jpg";
 import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
 import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
 import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
+import easy2buyImg from "@/assets/portfolio/easy2buy-ecommerce.jpg";
 
-const categories = ["All", "Website", "App", "Marketing", "Software"];
+const categories = ["All", "Website", "E-commerce", "App", "Marketing", "Software"];
 
 const projects = [
   {
@@ -79,6 +80,13 @@ const projects = [
     category: "Website",
     description: "Architecture portfolio with immersive project showcases",
     image: rainfraImg,
+  },
+  {
+    slug: "easy2buy",
+    title: "Easy2Buy Fashion Store",
+    category: "E-commerce",
+    description: "Vibrant fashion e-commerce with 10K+ happy customers",
+    image: easy2buyImg,
   },
 ];
 

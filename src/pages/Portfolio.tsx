@@ -22,8 +22,9 @@ import retailImg from "@/assets/portfolio/retail-m365.jpg";
 import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
 import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
 import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
+import easy2buyImg from "@/assets/portfolio/easy2buy-ecommerce.jpg";
 
-const categories = ["All", "Website", "App", "Marketing", "Software", "Microsoft 365"];
+const categories = ["All", "Website", "E-commerce", "App", "Marketing", "Software", "Microsoft 365"];
 
 const projects = [
   {
@@ -155,6 +156,16 @@ const projects = [
     results: "+200% Inquiries",
     tech: ["React", "Three.js", "Framer Motion"],
     client: "RA Infra Studio",
+  },
+  {
+    slug: "easy2buy",
+    title: "Easy2Buy Fashion E-commerce",
+    category: "E-commerce",
+    description: "Vibrant fashion e-commerce platform with 500+ products and 10K+ happy customers.",
+    image: easy2buyImg,
+    results: "+400% Revenue",
+    tech: ["React", "Supabase", "Razorpay"],
+    client: "Easy2Buy",
   },
 ];
 

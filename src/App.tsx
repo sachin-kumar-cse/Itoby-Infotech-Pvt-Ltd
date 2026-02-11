@@ -33,6 +33,9 @@ import ManufacturingERP from "./pages/portfolio/ManufacturingERP";
 import HealthcarePortal from "./pages/portfolio/HealthcarePortal";
 import LawFirmM365 from "./pages/portfolio/LawFirmM365";
 import RetailM365 from "./pages/portfolio/RetailM365";
+import KaspereyeSecurity from "./pages/portfolio/KaspereyeSecurity";
+import FreightXpress from "./pages/portfolio/FreightXpress";
+import RainfraStudio from "./pages/portfolio/RainfraStudio";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +66,9 @@ const App = () => (
             <Route path="/portfolio/healthcare-portal" element={<HealthcarePortal />} />
             <Route path="/portfolio/law-firm-m365" element={<LawFirmM365 />} />
             <Route path="/portfolio/retail-m365" element={<RetailM365 />} />
+            <Route path="/portfolio/kaspereye-security" element={<KaspereyeSecurity />} />
+            <Route path="/portfolio/freightxpress" element={<FreightXpress />} />
+            <Route path="/portfolio/rainfra-studio" element={<RainfraStudio />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />

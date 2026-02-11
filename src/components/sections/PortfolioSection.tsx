@@ -10,6 +10,9 @@ import fittrackImg from "@/assets/portfolio/fittrack-app.jpg";
 import quickpayImg from "@/assets/portfolio/quickpay-fintech.jpg";
 import restaurantImg from "@/assets/portfolio/restaurant-marketing.jpg";
 import manufacturingImg from "@/assets/portfolio/manufacturing-erp.jpg";
+import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
+import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
+import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
 
 const categories = ["All", "Website", "App", "Marketing", "Software"];
 
@@ -55,6 +58,27 @@ const projects = [
     category: "Software",
     description: "Custom inventory and sales management system",
     image: manufacturingImg,
+  },
+  {
+    slug: "kaspereye-security",
+    title: "Kaspereye Security Solutions",
+    category: "Website",
+    description: "Premium security solutions website with lead generation",
+    image: kaspereyeImg,
+  },
+  {
+    slug: "freightxpress",
+    title: "FreightXpress Logistics",
+    category: "Website",
+    description: "Logistics platform with real-time shipment tracking",
+    image: freightxpressImg,
+  },
+  {
+    slug: "rainfra-studio",
+    title: "RA Infra Studio",
+    category: "Website",
+    description: "Architecture portfolio with immersive project showcases",
+    image: rainfraImg,
   },
 ];
 

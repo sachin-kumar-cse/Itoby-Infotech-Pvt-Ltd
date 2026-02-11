@@ -36,6 +36,7 @@ import RetailM365 from "./pages/portfolio/RetailM365";
 import KaspereyeSecurity from "./pages/portfolio/KaspereyeSecurity";
 import FreightXpress from "./pages/portfolio/FreightXpress";
 import RainfraStudio from "./pages/portfolio/RainfraStudio";
+import Easy2Buy from "./pages/portfolio/Easy2Buy";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/portfolio/kaspereye-security" element={<KaspereyeSecurity />} />
             <Route path="/portfolio/freightxpress" element={<FreightXpress />} />
             <Route path="/portfolio/rainfra-studio" element={<RainfraStudio />} />
+            <Route path="/portfolio/easy2buy" element={<Easy2Buy />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />

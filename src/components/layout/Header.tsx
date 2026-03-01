@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { ChevronDown, ArrowRight, Mail, Phone } from "lucide-react";
+import { ChevronDown, ArrowRight, Mail, Phone, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
@@ -233,6 +233,13 @@ export const Header = () => {
           {/* Theme Toggle & CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
+            <Link
+              to="/admin"
+              className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
+              aria-label="Admin Login"
+            >
+              <LogIn size={20} />
+            </Link>
             <motion.div
               ref={magneticRef}
               style={{ x: springX, y: springY }}
@@ -247,6 +254,13 @@ export const Header = () => {
 
           {/* Mobile Theme Toggle & Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
+            <Link
+              to="/admin"
+              className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
+              aria-label="Admin Login"
+            >
+              <LogIn size={18} />
+            </Link>
             <ThemeToggle />
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

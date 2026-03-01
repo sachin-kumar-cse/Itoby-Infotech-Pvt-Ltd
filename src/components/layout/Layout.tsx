@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+import { useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
@@ -11,12 +13,16 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen flex flex-col">
       <CursorGlow />
       <Header />
       <main className="flex-1">
-        <PageTransition>{children}</PageTransition>
+        <AnimatePresence mode="wait">
+          <PageTransition key={location.pathname}>{children}</PageTransition>
+        </AnimatePresence>
       </main>
       <Footer />
       <WhatsAppButton />

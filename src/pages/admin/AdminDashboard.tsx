@@ -274,6 +274,25 @@ const AdminDashboard = () => {
     toast.success("Application deleted");
   };
 
+  const markQuoteAsRead = async (quote: QuoteRequest) => {
+    if (!quote.is_read) {
+      await supabase
+        .from('quote_requests')
+        .update({ is_read: true })
+        .eq('id', quote.id);
+      setQuotes(prev => prev.map(q => q.id === quote.id ? { ...q, is_read: true } : q));
+    }
+    setSelectedQuote(quote);
+  };
+
+  const deleteQuote = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this quote request?")) return;
+    await supabase.from('quote_requests').delete().eq('id', id);
+    setQuotes(prev => prev.filter(q => q.id !== id));
+    setSelectedQuote(null);
+    toast.success("Quote request deleted");
+  };
+
   const downloadResume = async (resumePath: string) => {
     try {
       const { data, error } = await supabase.storage
@@ -307,7 +326,37 @@ const AdminDashboard = () => {
 
   const unreadContacts = contacts.filter(c => !c.is_read).length;
   const unreadApplications = applications.filter(a => !a.is_read).length;
-  const totalUnread = unreadContacts + unreadApplications;
+  const unreadQuotes = quotes.filter(q => !q.is_read).length;
+  const totalUnread = unreadContacts + unreadApplications + unreadQuotes;
+
+  // Analytics chart data
+  const chartData = useMemo(() => {
+    const last7Days = Array.from({ length: 7 }, (_, i) => {
+      const date = new Date();
+      date.setDate(date.getDate() - (6 - i));
+      return date.toISOString().split('T')[0];
+    });
+
+    return last7Days.map(day => {
+      const label = new Date(day).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+      return {
+        name: label,
+        contacts: contacts.filter(c => c.created_at.startsWith(day)).length,
+        applications: applications.filter(a => a.created_at.startsWith(day)).length,
+        quotes: quotes.filter(q => q.created_at.startsWith(day)).length,
+      };
+    });
+  }, [contacts, applications, quotes]);
+
+  const serviceDistribution = useMemo(() => {
+    const map: Record<string, number> = {};
+    contacts.forEach(c => {
+      map[c.service] = (map[c.service] || 0) + 1;
+    });
+    return Object.entries(map).map(([name, value]) => ({ name, value }));
+  }, [contacts]);
+
+  const CHART_COLORS = ["hsl(75, 100%, 50%)", "hsl(200, 80%, 50%)", "hsl(150, 70%, 45%)", "hsl(40, 90%, 55%)", "hsl(300, 70%, 50%)"];
 
   const stats = [
     {

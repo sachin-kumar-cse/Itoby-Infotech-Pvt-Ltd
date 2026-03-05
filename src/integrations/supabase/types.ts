@@ -92,6 +92,51 @@ export type Database = {
         }
         Relationships: []
       }
+      quote_requests: {
+        Row: {
+          budget: string
+          company: string | null
+          created_at: string
+          description: string
+          email: string
+          estimated_cost: string | null
+          id: string
+          is_read: boolean
+          name: string
+          phone: string | null
+          services: string[]
+          timeline: string
+        }
+        Insert: {
+          budget: string
+          company?: string | null
+          created_at?: string
+          description: string
+          email: string
+          estimated_cost?: string | null
+          id?: string
+          is_read?: boolean
+          name: string
+          phone?: string | null
+          services?: string[]
+          timeline: string
+        }
+        Update: {
+          budget?: string
+          company?: string | null
+          created_at?: string
+          description?: string
+          email?: string
+          estimated_cost?: string | null
+          id?: string
+          is_read?: boolean
+          name?: string
+          phone?: string | null
+          services?: string[]
+          timeline?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

@@ -544,13 +544,17 @@ const AdminDashboard = () => {
               <h1 className="font-display text-3xl font-bold mb-1">
                 {activeTab === "overview" && "Dashboard Overview"}
                 {activeTab === "contacts" && "Contact Submissions"}
+                {activeTab === "quotes" && "Quote Requests"}
                 {activeTab === "applications" && "Job Applications"}
+                {activeTab === "analytics" && "Analytics"}
                 {activeTab === "profile" && "Profile Settings"}
               </h1>
               <p className="text-muted-foreground">
                 {activeTab === "overview" && "Welcome back! Here's what's happening."}
                 {activeTab === "contacts" && "Manage and respond to contact inquiries."}
+                {activeTab === "quotes" && "Review and manage project quote requests."}
                 {activeTab === "applications" && "Review and process job applications."}
+                {activeTab === "analytics" && "Visualize submission trends and insights."}
                 {activeTab === "profile" && "Manage your account settings."}
               </p>
             </div>

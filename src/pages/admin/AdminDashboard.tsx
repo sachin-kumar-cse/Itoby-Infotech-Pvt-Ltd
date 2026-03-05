@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -33,7 +33,21 @@ import {
   TrendingUp,
   Users,
   Activity,
+  IndianRupee,
+  BarChart3,
 } from "lucide-react";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
 import {
   Dialog,
   DialogContent,
@@ -69,6 +83,21 @@ interface JobApplication {
   created_at: string;
 }
 
+interface QuoteRequest {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  company: string | null;
+  services: string[];
+  budget: string;
+  timeline: string;
+  description: string;
+  estimated_cost: string | null;
+  is_read: boolean;
+  created_at: string;
+}
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -88,9 +117,11 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [applications, setApplications] = useState<JobApplication[]>([]);
+  const [quotes, setQuotes] = useState<QuoteRequest[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedContact, setSelectedContact] = useState<ContactSubmission | null>(null);
   const [selectedApplication, setSelectedApplication] = useState<JobApplication | null>(null);
+  const [selectedQuote, setSelectedQuote] = useState<QuoteRequest | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
   const [userEmail, setUserEmail] = useState("");
@@ -134,16 +165,19 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const [contactsRes, applicationsRes] = await Promise.all([
+      const [contactsRes, applicationsRes, quotesRes] = await Promise.all([
         supabase.from('contact_submissions').select('*').order('created_at', { ascending: false }),
         supabase.from('job_applications').select('*').order('created_at', { ascending: false }),
+        supabase.from('quote_requests').select('*').order('created_at', { ascending: false }),
       ]);
 
       if (contactsRes.error) throw contactsRes.error;
       if (applicationsRes.error) throw applicationsRes.error;
+      if (quotesRes.error) throw quotesRes.error;
 
       setContacts(contactsRes.data || []);
       setApplications(applicationsRes.data || []);
+      setQuotes((quotesRes.data as any[]) || []);
     } catch (error) {
       console.error('Error fetching data:', error);
       toast.error("Failed to load data");
@@ -240,6 +274,25 @@ const AdminDashboard = () => {
     toast.success("Application deleted");
   };
 
+  const markQuoteAsRead = async (quote: QuoteRequest) => {
+    if (!quote.is_read) {
+      await supabase
+        .from('quote_requests')
+        .update({ is_read: true })
+        .eq('id', quote.id);
+      setQuotes(prev => prev.map(q => q.id === quote.id ? { ...q, is_read: true } : q));
+    }
+    setSelectedQuote(quote);
+  };
+
+  const deleteQuote = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this quote request?")) return;
+    await supabase.from('quote_requests').delete().eq('id', id);
+    setQuotes(prev => prev.filter(q => q.id !== id));
+    setSelectedQuote(null);
+    toast.success("Quote request deleted");
+  };
+
   const downloadResume = async (resumePath: string) => {
     try {
       const { data, error } = await supabase.storage
@@ -273,16 +326,45 @@ const AdminDashboard = () => {
 
   const unreadContacts = contacts.filter(c => !c.is_read).length;
   const unreadApplications = applications.filter(a => !a.is_read).length;
-  const totalUnread = unreadContacts + unreadApplications;
+  const unreadQuotes = quotes.filter(q => !q.is_read).length;
+  const totalUnread = unreadContacts + unreadApplications + unreadQuotes;
+
+  // Analytics chart data
+  const chartData = useMemo(() => {
+    const last7Days = Array.from({ length: 7 }, (_, i) => {
+      const date = new Date();
+      date.setDate(date.getDate() - (6 - i));
+      return date.toISOString().split('T')[0];
+    });
+
+    return last7Days.map(day => {
+      const label = new Date(day).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+      return {
+        name: label,
+        contacts: contacts.filter(c => c.created_at.startsWith(day)).length,
+        applications: applications.filter(a => a.created_at.startsWith(day)).length,
+        quotes: quotes.filter(q => q.created_at.startsWith(day)).length,
+      };
+    });
+  }, [contacts, applications, quotes]);
+
+  const serviceDistribution = useMemo(() => {
+    const map: Record<string, number> = {};
+    contacts.forEach(c => {
+      map[c.service] = (map[c.service] || 0) + 1;
+    });
+    return Object.entries(map).map(([name, value]) => ({ name, value }));
+  }, [contacts]);
+
+  const CHART_COLORS = ["hsl(75, 100%, 50%)", "hsl(200, 80%, 50%)", "hsl(150, 70%, 45%)", "hsl(40, 90%, 55%)", "hsl(300, 70%, 50%)"];
 
   const stats = [
     {
       title: "Total Inquiries",
-      value: contacts.length + applications.length,
+      value: contacts.length + applications.length + quotes.length,
       icon: Activity,
       gradient: "from-primary/20 via-primary/10 to-transparent",
       iconColor: "text-primary",
-      change: "+12%",
     },
     {
       title: "Contact Submissions",
@@ -293,19 +375,20 @@ const AdminDashboard = () => {
       badge: unreadContacts > 0 ? unreadContacts : null,
     },
     {
+      title: "Quote Requests",
+      value: quotes.length,
+      icon: IndianRupee,
+      gradient: "from-violet-500/20 via-violet-500/10 to-transparent",
+      iconColor: "text-violet-500",
+      badge: unreadQuotes > 0 ? unreadQuotes : null,
+    },
+    {
       title: "Job Applications",
       value: applications.length,
       icon: Briefcase,
       gradient: "from-emerald-500/20 via-emerald-500/10 to-transparent",
       iconColor: "text-emerald-500",
       badge: unreadApplications > 0 ? unreadApplications : null,
-    },
-    {
-      title: "Pending Review",
-      value: totalUnread,
-      icon: Clock,
-      gradient: "from-amber-500/20 via-amber-500/10 to-transparent",
-      iconColor: "text-amber-500",
     },
   ];
 
@@ -344,7 +427,9 @@ const AdminDashboard = () => {
             {[
               { id: "overview", label: "Overview", icon: Activity },
               { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
+              { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+              { id: "analytics", label: "Analytics", icon: BarChart3 },
               { id: "profile", label: "Profile", icon: User },
             ].map((item, index) => (
               <motion.button
@@ -426,7 +511,9 @@ const AdminDashboard = () => {
             {[
               { id: "overview", label: "Overview", icon: Activity },
               { id: "contacts", label: "Contacts", icon: Mail },
+              { id: "quotes", label: "Quotes", icon: IndianRupee },
               { id: "applications", label: "Jobs", icon: Briefcase },
+              { id: "analytics", label: "Charts", icon: BarChart3 },
               { id: "profile", label: "Profile", icon: User },
             ].map((item) => (
               <Button
@@ -457,13 +544,17 @@ const AdminDashboard = () => {
               <h1 className="font-display text-3xl font-bold mb-1">
                 {activeTab === "overview" && "Dashboard Overview"}
                 {activeTab === "contacts" && "Contact Submissions"}
+                {activeTab === "quotes" && "Quote Requests"}
                 {activeTab === "applications" && "Job Applications"}
+                {activeTab === "analytics" && "Analytics"}
                 {activeTab === "profile" && "Profile Settings"}
               </h1>
               <p className="text-muted-foreground">
                 {activeTab === "overview" && "Welcome back! Here's what's happening."}
                 {activeTab === "contacts" && "Manage and respond to contact inquiries."}
+                {activeTab === "quotes" && "Review and manage project quote requests."}
                 {activeTab === "applications" && "Review and process job applications."}
+                {activeTab === "analytics" && "Visualize submission trends and insights."}
                 {activeTab === "profile" && "Manage your account settings."}
               </p>
             </div>
@@ -501,12 +592,6 @@ const AdminDashboard = () => {
                               <p className="text-sm text-muted-foreground mb-1">{stat.title}</p>
                               <div className="flex items-baseline gap-2">
                                 <p className="text-4xl font-display font-bold">{stat.value}</p>
-                                {stat.change && (
-                                  <span className="text-xs text-emerald-500 flex items-center gap-0.5">
-                                    <TrendingUp className="w-3 h-3" />
-                                    {stat.change}
-                                  </span>
-                                )}
                               </div>
                             </div>
                             <div className="relative">
@@ -869,6 +954,187 @@ const AdminDashboard = () => {
               </motion.div>
             )}
 
+            {/* Quotes Tab */}
+            {activeTab === "quotes" && (
+              <motion.div
+                key="quotes"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <IndianRupee className="w-5 h-5 text-violet-500" />
+                      Quote Requests
+                      {unreadQuotes > 0 && (
+                        <Badge variant="destructive" className="ml-2">{unreadQuotes} new</Badge>
+                      )}
+                    </CardTitle>
+                    <CardDescription>
+                      Review project quote requests from potential clients
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    {quotes.length === 0 ? (
+                      <div className="text-center py-16">
+                        <div className="w-20 h-20 rounded-full bg-violet-500/10 flex items-center justify-center mx-auto mb-4">
+                          <IndianRupee className="w-10 h-10 text-violet-500" />
+                        </div>
+                        <h3 className="font-medium mb-1">No quote requests yet</h3>
+                        <p className="text-sm text-muted-foreground">Quote requests will appear here</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-3">
+                        {quotes.map((quote, index) => (
+                          <motion.div
+                            key={quote.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            onClick={() => markQuoteAsRead(quote)}
+                            className={`p-4 rounded-xl border cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.01] ${
+                              quote.is_read
+                                ? "bg-secondary/30 border-border/50"
+                                : "bg-violet-500/5 border-violet-500/20 shadow-md shadow-violet-500/5"
+                            }`}
+                          >
+                            <div className="flex items-start justify-between gap-4">
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <h4 className="font-semibold truncate">{quote.name}</h4>
+                                  {!quote.is_read && (
+                                    <Badge variant="default" className="text-xs animate-pulse">New</Badge>
+                                  )}
+                                </div>
+                                <p className="text-sm text-muted-foreground truncate mb-2">{quote.email}</p>
+                                <div className="flex flex-wrap items-center gap-2">
+                                  {quote.services.map(s => (
+                                    <Badge key={s} variant="secondary" className="text-xs">{s}</Badge>
+                                  ))}
+                                  {quote.estimated_cost && (
+                                    <Badge variant="outline" className="text-xs">
+                                      <IndianRupee className="w-3 h-3 mr-1" />
+                                      {quote.estimated_cost}
+                                    </Badge>
+                                  )}
+                                  <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                    <Calendar className="w-3 h-3" />
+                                    {formatDate(quote.created_at)}
+                                  </span>
+                                </div>
+                              </div>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="hover:bg-destructive/10 hover:text-destructive"
+                                onClick={(e) => { e.stopPropagation(); deleteQuote(quote.id); }}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </Button>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
+
+            {/* Analytics Tab */}
+            {activeTab === "analytics" && (
+              <motion.div
+                key="analytics"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, y: -20 }}
+                className="space-y-6"
+              >
+                {/* Area Chart */}
+                <motion.div variants={itemVariants}>
+                  <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <TrendingUp className="w-5 h-5 text-primary" />
+                        Submissions Over Last 7 Days
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="h-[300px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <AreaChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                            <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                            <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} allowDecimals={false} />
+                            <Tooltip
+                              contentStyle={{
+                                backgroundColor: "hsl(var(--card))",
+                                border: "1px solid hsl(var(--border))",
+                                borderRadius: "0.75rem",
+                                color: "hsl(var(--foreground))",
+                              }}
+                            />
+                            <Area type="monotone" dataKey="contacts" stackId="1" stroke="hsl(200, 80%, 50%)" fill="hsl(200, 80%, 50%)" fillOpacity={0.3} name="Contacts" />
+                            <Area type="monotone" dataKey="quotes" stackId="1" stroke="hsl(270, 70%, 60%)" fill="hsl(270, 70%, 60%)" fillOpacity={0.3} name="Quotes" />
+                            <Area type="monotone" dataKey="applications" stackId="1" stroke="hsl(150, 70%, 45%)" fill="hsl(150, 70%, 45%)" fillOpacity={0.3} name="Applications" />
+                          </AreaChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Pie Chart */}
+                <motion.div variants={itemVariants}>
+                  <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <BarChart3 className="w-5 h-5 text-primary" />
+                        Service Inquiry Distribution
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      {serviceDistribution.length > 0 ? (
+                        <div className="h-[300px] flex items-center justify-center">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                              <Pie
+                                data={serviceDistribution}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={100}
+                                dataKey="value"
+                                label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                              >
+                                {serviceDistribution.map((_, index) => (
+                                  <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                                ))}
+                              </Pie>
+                              <Tooltip
+                                contentStyle={{
+                                  backgroundColor: "hsl(var(--card))",
+                                  border: "1px solid hsl(var(--border))",
+                                  borderRadius: "0.75rem",
+                                  color: "hsl(var(--foreground))",
+                                }}
+                              />
+                            </PieChart>
+                          </ResponsiveContainer>
+                        </div>
+                      ) : (
+                        <div className="text-center py-12 text-muted-foreground">
+                          <BarChart3 className="w-10 h-10 mx-auto mb-2 opacity-50" />
+                          <p>No data available yet</p>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </motion.div>
+            )}
+
             {/* Profile Tab */}
             {activeTab === "profile" && (
               <motion.div
@@ -1147,6 +1413,75 @@ const AdminDashboard = () => {
                   size="icon"
                   onClick={() => deleteApplication(selectedApplication.id)}
                 >
+                  <Trash2 className="w-4 h-4" />
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Quote Detail Dialog */}
+      <Dialog open={!!selectedQuote} onOpenChange={() => setSelectedQuote(null)}>
+        <DialogContent className="max-w-lg bg-card/95 backdrop-blur-xl border-border/50">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <IndianRupee className="w-5 h-5 text-violet-500" />
+              Quote Request Details
+            </DialogTitle>
+          </DialogHeader>
+          {selectedQuote && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="space-y-4"
+            >
+              <div>
+                <h3 className="font-semibold text-lg">{selectedQuote.name}</h3>
+                <p className="text-sm text-muted-foreground">{selectedQuote.email}</p>
+                {selectedQuote.company && (
+                  <p className="text-sm text-muted-foreground">{selectedQuote.company}</p>
+                )}
+              </div>
+              {selectedQuote.phone && (
+                <div className="flex items-center gap-2 text-sm p-3 rounded-lg bg-secondary/50">
+                  <Phone className="w-4 h-4 text-muted-foreground" />
+                  <span>{selectedQuote.phone}</span>
+                </div>
+              )}
+              <div className="flex flex-wrap gap-2">
+                {selectedQuote.services.map(s => (
+                  <Badge key={s} variant="secondary">{s}</Badge>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-secondary/50">
+                  <p className="text-xs text-muted-foreground">Budget</p>
+                  <p className="font-medium text-sm">{selectedQuote.budget}</p>
+                </div>
+                <div className="p-3 rounded-lg bg-secondary/50">
+                  <p className="text-xs text-muted-foreground">Timeline</p>
+                  <p className="font-medium text-sm">{selectedQuote.timeline}</p>
+                </div>
+              </div>
+              {selectedQuote.estimated_cost && (
+                <div className="p-3 rounded-lg bg-violet-500/10 border border-violet-500/20">
+                  <p className="text-xs text-muted-foreground">Estimated Cost</p>
+                  <p className="font-bold text-violet-500">{selectedQuote.estimated_cost}</p>
+                </div>
+              )}
+              <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
+                <p className="text-xs text-muted-foreground mb-2">Project Description</p>
+                <p className="text-sm whitespace-pre-wrap leading-relaxed">{selectedQuote.description}</p>
+              </div>
+              <p className="text-xs text-muted-foreground">{formatDate(selectedQuote.created_at)}</p>
+              <div className="flex gap-2 pt-2">
+                <Button variant="default" className="flex-1" asChild>
+                  <a href={`mailto:${selectedQuote.email}`}>
+                    <Mail className="w-4 h-4 mr-2" /> Reply via Email
+                  </a>
+                </Button>
+                <Button variant="destructive" size="icon" onClick={() => deleteQuote(selectedQuote.id)}>
                   <Trash2 className="w-4 h-4" />
                 </Button>
               </div>

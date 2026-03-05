@@ -23,6 +23,7 @@ import TermsOfService from "./pages/TermsOfService";
 import JobDetails from "./pages/JobDetails";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import RequestQuote from "./pages/RequestQuote";
 import TechFlow from "./pages/portfolio/TechFlow";
 import LuxeFashion from "./pages/portfolio/LuxeFashion";
 import FitTrack from "./pages/portfolio/FitTrack";
@@ -76,6 +77,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/careers/:id" element={<JobDetails />} />
+            <Route path="/request-quote" element={<RequestQuote />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/admin" element={<AdminLogin />} />

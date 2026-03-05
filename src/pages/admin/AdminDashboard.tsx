@@ -1421,6 +1421,75 @@ const AdminDashboard = () => {
         </DialogContent>
       </Dialog>
 
+      {/* Quote Detail Dialog */}
+      <Dialog open={!!selectedQuote} onOpenChange={() => setSelectedQuote(null)}>
+        <DialogContent className="max-w-lg bg-card/95 backdrop-blur-xl border-border/50">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <IndianRupee className="w-5 h-5 text-violet-500" />
+              Quote Request Details
+            </DialogTitle>
+          </DialogHeader>
+          {selectedQuote && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="space-y-4"
+            >
+              <div>
+                <h3 className="font-semibold text-lg">{selectedQuote.name}</h3>
+                <p className="text-sm text-muted-foreground">{selectedQuote.email}</p>
+                {selectedQuote.company && (
+                  <p className="text-sm text-muted-foreground">{selectedQuote.company}</p>
+                )}
+              </div>
+              {selectedQuote.phone && (
+                <div className="flex items-center gap-2 text-sm p-3 rounded-lg bg-secondary/50">
+                  <Phone className="w-4 h-4 text-muted-foreground" />
+                  <span>{selectedQuote.phone}</span>
+                </div>
+              )}
+              <div className="flex flex-wrap gap-2">
+                {selectedQuote.services.map(s => (
+                  <Badge key={s} variant="secondary">{s}</Badge>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-secondary/50">
+                  <p className="text-xs text-muted-foreground">Budget</p>
+                  <p className="font-medium text-sm">{selectedQuote.budget}</p>
+                </div>
+                <div className="p-3 rounded-lg bg-secondary/50">
+                  <p className="text-xs text-muted-foreground">Timeline</p>
+                  <p className="font-medium text-sm">{selectedQuote.timeline}</p>
+                </div>
+              </div>
+              {selectedQuote.estimated_cost && (
+                <div className="p-3 rounded-lg bg-violet-500/10 border border-violet-500/20">
+                  <p className="text-xs text-muted-foreground">Estimated Cost</p>
+                  <p className="font-bold text-violet-500">{selectedQuote.estimated_cost}</p>
+                </div>
+              )}
+              <div className="p-4 rounded-xl bg-secondary/50 border border-border/50">
+                <p className="text-xs text-muted-foreground mb-2">Project Description</p>
+                <p className="text-sm whitespace-pre-wrap leading-relaxed">{selectedQuote.description}</p>
+              </div>
+              <p className="text-xs text-muted-foreground">{formatDate(selectedQuote.created_at)}</p>
+              <div className="flex gap-2 pt-2">
+                <Button variant="default" className="flex-1" asChild>
+                  <a href={`mailto:${selectedQuote.email}`}>
+                    <Mail className="w-4 h-4 mr-2" /> Reply via Email
+                  </a>
+                </Button>
+                <Button variant="destructive" size="icon" onClick={() => deleteQuote(selectedQuote.id)}>
+                  <Trash2 className="w-4 h-4" />
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </DialogContent>
+      </Dialog>
+
       {/* Password Update Dialog */}
       <Dialog open={showPasswordDialog} onOpenChange={setShowPasswordDialog}>
         <DialogContent className="max-w-md bg-card/95 backdrop-blur-xl border-border/50">

@@ -83,6 +83,21 @@ interface JobApplication {
   created_at: string;
 }
 
+interface QuoteRequest {
+  id: string;
+  name: string;
+  email: string;
+  phone: string | null;
+  company: string | null;
+  services: string[];
+  budget: string;
+  timeline: string;
+  description: string;
+  estimated_cost: string | null;
+  is_read: boolean;
+  created_at: string;
+}
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {

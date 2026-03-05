@@ -954,6 +954,187 @@ const AdminDashboard = () => {
               </motion.div>
             )}
 
+            {/* Quotes Tab */}
+            {activeTab === "quotes" && (
+              <motion.div
+                key="quotes"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+              >
+                <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <IndianRupee className="w-5 h-5 text-violet-500" />
+                      Quote Requests
+                      {unreadQuotes > 0 && (
+                        <Badge variant="destructive" className="ml-2">{unreadQuotes} new</Badge>
+                      )}
+                    </CardTitle>
+                    <CardDescription>
+                      Review project quote requests from potential clients
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    {quotes.length === 0 ? (
+                      <div className="text-center py-16">
+                        <div className="w-20 h-20 rounded-full bg-violet-500/10 flex items-center justify-center mx-auto mb-4">
+                          <IndianRupee className="w-10 h-10 text-violet-500" />
+                        </div>
+                        <h3 className="font-medium mb-1">No quote requests yet</h3>
+                        <p className="text-sm text-muted-foreground">Quote requests will appear here</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-3">
+                        {quotes.map((quote, index) => (
+                          <motion.div
+                            key={quote.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            onClick={() => markQuoteAsRead(quote)}
+                            className={`p-4 rounded-xl border cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.01] ${
+                              quote.is_read
+                                ? "bg-secondary/30 border-border/50"
+                                : "bg-violet-500/5 border-violet-500/20 shadow-md shadow-violet-500/5"
+                            }`}
+                          >
+                            <div className="flex items-start justify-between gap-4">
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <h4 className="font-semibold truncate">{quote.name}</h4>
+                                  {!quote.is_read && (
+                                    <Badge variant="default" className="text-xs animate-pulse">New</Badge>
+                                  )}
+                                </div>
+                                <p className="text-sm text-muted-foreground truncate mb-2">{quote.email}</p>
+                                <div className="flex flex-wrap items-center gap-2">
+                                  {quote.services.map(s => (
+                                    <Badge key={s} variant="secondary" className="text-xs">{s}</Badge>
+                                  ))}
+                                  {quote.estimated_cost && (
+                                    <Badge variant="outline" className="text-xs">
+                                      <IndianRupee className="w-3 h-3 mr-1" />
+                                      {quote.estimated_cost}
+                                    </Badge>
+                                  )}
+                                  <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                    <Calendar className="w-3 h-3" />
+                                    {formatDate(quote.created_at)}
+                                  </span>
+                                </div>
+                              </div>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="hover:bg-destructive/10 hover:text-destructive"
+                                onClick={(e) => { e.stopPropagation(); deleteQuote(quote.id); }}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </Button>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
+
+            {/* Analytics Tab */}
+            {activeTab === "analytics" && (
+              <motion.div
+                key="analytics"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, y: -20 }}
+                className="space-y-6"
+              >
+                {/* Area Chart */}
+                <motion.div variants={itemVariants}>
+                  <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <TrendingUp className="w-5 h-5 text-primary" />
+                        Submissions Over Last 7 Days
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="h-[300px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <AreaChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                            <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                            <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} allowDecimals={false} />
+                            <Tooltip
+                              contentStyle={{
+                                backgroundColor: "hsl(var(--card))",
+                                border: "1px solid hsl(var(--border))",
+                                borderRadius: "0.75rem",
+                                color: "hsl(var(--foreground))",
+                              }}
+                            />
+                            <Area type="monotone" dataKey="contacts" stackId="1" stroke="hsl(200, 80%, 50%)" fill="hsl(200, 80%, 50%)" fillOpacity={0.3} name="Contacts" />
+                            <Area type="monotone" dataKey="quotes" stackId="1" stroke="hsl(270, 70%, 60%)" fill="hsl(270, 70%, 60%)" fillOpacity={0.3} name="Quotes" />
+                            <Area type="monotone" dataKey="applications" stackId="1" stroke="hsl(150, 70%, 45%)" fill="hsl(150, 70%, 45%)" fillOpacity={0.3} name="Applications" />
+                          </AreaChart>
+                        </ResponsiveContainer>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Pie Chart */}
+                <motion.div variants={itemVariants}>
+                  <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <BarChart3 className="w-5 h-5 text-primary" />
+                        Service Inquiry Distribution
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      {serviceDistribution.length > 0 ? (
+                        <div className="h-[300px] flex items-center justify-center">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                              <Pie
+                                data={serviceDistribution}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={100}
+                                dataKey="value"
+                                label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                              >
+                                {serviceDistribution.map((_, index) => (
+                                  <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                                ))}
+                              </Pie>
+                              <Tooltip
+                                contentStyle={{
+                                  backgroundColor: "hsl(var(--card))",
+                                  border: "1px solid hsl(var(--border))",
+                                  borderRadius: "0.75rem",
+                                  color: "hsl(var(--foreground))",
+                                }}
+                              />
+                            </PieChart>
+                          </ResponsiveContainer>
+                        </div>
+                      ) : (
+                        <div className="text-center py-12 text-muted-foreground">
+                          <BarChart3 className="w-10 h-10 mx-auto mb-2 opacity-50" />
+                          <p>No data available yet</p>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </motion.div>
+            )}
+
             {/* Profile Tab */}
             {activeTab === "profile" && (
               <motion.div

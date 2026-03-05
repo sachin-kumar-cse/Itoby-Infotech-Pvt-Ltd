@@ -584,12 +584,6 @@ const AdminDashboard = () => {
                               <p className="text-sm text-muted-foreground mb-1">{stat.title}</p>
                               <div className="flex items-baseline gap-2">
                                 <p className="text-4xl font-display font-bold">{stat.value}</p>
-                                {stat.change && (
-                                  <span className="text-xs text-emerald-500 flex items-center gap-0.5">
-                                    <TrendingUp className="w-3 h-3" />
-                                    {stat.change}
-                                  </span>
-                                )}
                               </div>
                             </div>
                             <div className="relative">

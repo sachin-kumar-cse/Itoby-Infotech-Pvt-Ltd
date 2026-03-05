@@ -23,6 +23,7 @@ import TermsOfService from "./pages/TermsOfService";
 import JobDetails from "./pages/JobDetails";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import RequestQuote from "./pages/RequestQuote";
 import TechFlow from "./pages/portfolio/TechFlow";
 import LuxeFashion from "./pages/portfolio/LuxeFashion";
 import FitTrack from "./pages/portfolio/FitTrack";

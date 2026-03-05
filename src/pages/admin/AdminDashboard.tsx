@@ -117,9 +117,11 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [applications, setApplications] = useState<JobApplication[]>([]);
+  const [quotes, setQuotes] = useState<QuoteRequest[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedContact, setSelectedContact] = useState<ContactSubmission | null>(null);
   const [selectedApplication, setSelectedApplication] = useState<JobApplication | null>(null);
+  const [selectedQuote, setSelectedQuote] = useState<QuoteRequest | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");
   const [userEmail, setUserEmail] = useState("");

@@ -361,11 +361,10 @@ const AdminDashboard = () => {
   const stats = [
     {
       title: "Total Inquiries",
-      value: contacts.length + applications.length,
+      value: contacts.length + applications.length + quotes.length,
       icon: Activity,
       gradient: "from-primary/20 via-primary/10 to-transparent",
       iconColor: "text-primary",
-      change: "+12%",
     },
     {
       title: "Contact Submissions",
@@ -376,19 +375,20 @@ const AdminDashboard = () => {
       badge: unreadContacts > 0 ? unreadContacts : null,
     },
     {
+      title: "Quote Requests",
+      value: quotes.length,
+      icon: IndianRupee,
+      gradient: "from-violet-500/20 via-violet-500/10 to-transparent",
+      iconColor: "text-violet-500",
+      badge: unreadQuotes > 0 ? unreadQuotes : null,
+    },
+    {
       title: "Job Applications",
       value: applications.length,
       icon: Briefcase,
       gradient: "from-emerald-500/20 via-emerald-500/10 to-transparent",
       iconColor: "text-emerald-500",
       badge: unreadApplications > 0 ? unreadApplications : null,
-    },
-    {
-      title: "Pending Review",
-      value: totalUnread,
-      icon: Clock,
-      gradient: "from-amber-500/20 via-amber-500/10 to-transparent",
-      iconColor: "text-amber-500",
     },
   ];
 

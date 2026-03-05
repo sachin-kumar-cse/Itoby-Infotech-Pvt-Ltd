@@ -247,7 +247,7 @@ export const Header = () => {
               onMouseLeave={handleMouseLeave}
             >
               <Button variant="hero" size="lg" className="magnetic-btn" asChild>
-                <Link to="/contact">Get a Free Quote</Link>
+                <Link to="/request-quote">Get a Free Quote</Link>
               </Button>
             </motion.div>
           </div>

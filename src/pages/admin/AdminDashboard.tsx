@@ -165,16 +165,19 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const [contactsRes, applicationsRes] = await Promise.all([
+      const [contactsRes, applicationsRes, quotesRes] = await Promise.all([
         supabase.from('contact_submissions').select('*').order('created_at', { ascending: false }),
         supabase.from('job_applications').select('*').order('created_at', { ascending: false }),
+        supabase.from('quote_requests').select('*').order('created_at', { ascending: false }),
       ]);
 
       if (contactsRes.error) throw contactsRes.error;
       if (applicationsRes.error) throw applicationsRes.error;
+      if (quotesRes.error) throw quotesRes.error;
 
       setContacts(contactsRes.data || []);
       setApplications(applicationsRes.data || []);
+      setQuotes((quotesRes.data as any[]) || []);
     } catch (error) {
       console.error('Error fetching data:', error);
       toast.error("Failed to load data");

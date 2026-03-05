@@ -33,7 +33,21 @@ import {
   TrendingUp,
   Users,
   Activity,
+  IndianRupee,
+  BarChart3,
 } from "lucide-react";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
 import {
   Dialog,
   DialogContent,

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
-import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Target, Eye, Zap, Shield, Clock, HeartHandshake, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";

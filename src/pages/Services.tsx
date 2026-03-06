@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { SEOHead } from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Globe, Smartphone, TrendingUp, Code2, Cloud, ArrowRight } from "lucide-react";

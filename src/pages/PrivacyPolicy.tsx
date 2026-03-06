@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, Database, Bell, Mail, Globe, UserCheck } from "lucide-react";
 

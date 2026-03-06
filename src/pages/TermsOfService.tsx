@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { FileText, Scale, AlertTriangle, CreditCard, RefreshCw, ShieldCheck, Gavel, HelpCircle } from "lucide-react";
 

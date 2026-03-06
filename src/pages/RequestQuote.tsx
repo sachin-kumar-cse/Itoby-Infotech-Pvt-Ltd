@@ -129,7 +129,8 @@ const RequestQuote = () => {
 
   if (isSubmitted) {
     return (
-      <Layout>
+    <Layout>
+      <SEOHead title="Request a Quote" description="Get a free project estimate from Itoby Infotech. Select your services, budget, and timeline to receive a custom quote." path="/request-quote" />
         <section className="section-padding min-h-[60vh] flex items-center justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}

@@ -58,6 +58,10 @@ export const Footer = () => {
   const whatsappNumber = "919876543210";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your digital services.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
   
   const newsletterRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);

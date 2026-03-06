@@ -158,7 +158,8 @@ const Contact = () => {
 
   if (isSuccess) {
     return (
-      <Layout>
+    <Layout>
+      <SEOHead title="Contact Us" description="Get in touch with Itoby Infotech. Reach us via phone, email, or WhatsApp for web design, app development, and digital marketing inquiries." path="/contact" jsonLd={{ "@context": "https://schema.org", "@type": "ContactPage", name: "Contact Itoby Infotech" }} />
         <section className="min-h-screen flex items-center justify-center pt-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

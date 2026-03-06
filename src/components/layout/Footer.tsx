@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, Youtube, ArrowUpRight, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, Youtube, ArrowUpRight, MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const services = [
   { name: "Web Design & Development", path: "/services/web-design" },
@@ -56,6 +58,10 @@ export const Footer = () => {
   const whatsappNumber = "919876543210";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your digital services.");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
   
   const newsletterRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -83,22 +89,64 @@ export const Footer = () => {
               </h3>
               <p className="text-muted-foreground">Get the latest trends, tips, and news delivered to your inbox.</p>
             </div>
-            <motion.div 
+            <motion.form
               className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto"
               initial={{ opacity: 0, x: 30 }}
               animate={newsletterInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ delay: 0.2, duration: 0.6 }}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const trimmed = email.trim();
+                if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+                  toast.error("Please enter a valid email address.");
+                  return;
+                }
+                setIsSubmitting(true);
+                try {
+                  const { error } = await supabase
+                    .from("newsletter_subscribers")
+                    .insert({ email: trimmed });
+                  if (error) {
+                    if (error.code === "23505") {
+                      toast.info("You're already subscribed!");
+                    } else {
+                      throw error;
+                    }
+                  } else {
+                    toast.success("Successfully subscribed! 🎉");
+                  }
+                  setIsSubscribed(true);
+                  setEmail("");
+                } catch {
+                  toast.error("Something went wrong. Please try again.");
+                } finally {
+                  setIsSubmitting(false);
+                }
+              }}
             >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 px-4 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-[0_0_20px_hsl(75_100%_50%/0.2)] transition-all w-full sm:w-72"
-              />
-              <Button variant="hero" size="lg" className="shrink-0 group">
-                Subscribe
-                <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
-            </motion.div>
+              {isSubscribed ? (
+                <div className="flex items-center gap-2 text-primary font-medium">
+                  <CheckCircle2 size={20} />
+                  <span>Thank you for subscribing!</span>
+                </div>
+              ) : (
+                <>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="h-12 px-4 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-[0_0_20px_hsl(75_100%_50%/0.2)] transition-all w-full sm:w-72"
+                    disabled={isSubmitting}
+                    required
+                  />
+                  <Button variant="hero" size="lg" className="shrink-0 group" type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? <Loader2 className="animate-spin" size={18} /> : "Subscribe"}
+                    {!isSubmitting && <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                  </Button>
+                </>
+              )}
+            </motion.form>
           </motion.div>
         </div>
       </div>

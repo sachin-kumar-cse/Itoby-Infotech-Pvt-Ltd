@@ -128,6 +128,7 @@ const hiringProcess = [
 const Careers = () => {
   return (
     <Layout>
+      <SEOHead title="Careers - Join Our Team" description="Explore career opportunities at Itoby Infotech. Join our team of designers, developers, and marketers in Patna, India." path="/careers" jsonLd={{ "@context": "https://schema.org", "@type": "JobPosting", hiringOrganization: { "@type": "Organization", name: "Itoby Infotech" } }} />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-background to-background" />

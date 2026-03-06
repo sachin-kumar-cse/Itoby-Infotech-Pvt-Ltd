@@ -166,6 +166,7 @@ const RequestQuote = () => {
 
   return (
     <Layout>
+      <SEOHead title="Request a Quote" description="Get a free project estimate from Itoby Infotech." path="/request-quote" />
       <section className="section-padding">
         <div className="container max-w-4xl">
           {/* Header */}

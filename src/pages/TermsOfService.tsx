@@ -108,6 +108,7 @@ const additionalTerms = [
 const TermsOfService = () => {
   return (
     <Layout>
+      <SEOHead title="Terms of Service" description="Review Itoby Infotech's terms of service covering our digital agency services, payments, and policies." path="/terms" />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />

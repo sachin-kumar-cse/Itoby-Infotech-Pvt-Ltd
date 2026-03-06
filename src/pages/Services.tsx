@@ -46,6 +46,7 @@ const services = [
 const Services = () => {
   return (
     <Layout>
+      <SEOHead title="Our Services" description="Explore Itoby Infotech's services: Web Design, Mobile App Development, Digital Marketing, Custom Software Solutions, and Microsoft 365." path="/services" jsonLd={{ "@context": "https://schema.org", "@type": "Service", provider: { "@type": "Organization", name: "Itoby Infotech" }, serviceType: "Digital Agency Services" }} />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

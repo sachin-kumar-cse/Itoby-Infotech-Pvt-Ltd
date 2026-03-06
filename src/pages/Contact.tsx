@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -157,7 +158,8 @@ const Contact = () => {
 
   if (isSuccess) {
     return (
-      <Layout>
+    <Layout>
+      <SEOHead title="Contact Us" description="Get in touch with Itoby Infotech. Reach us via phone, email, or WhatsApp for web design, app development, and digital marketing inquiries." path="/contact" jsonLd={{ "@context": "https://schema.org", "@type": "ContactPage", name: "Contact Itoby Infotech" }} />
         <section className="min-h-screen flex items-center justify-center pt-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -188,6 +190,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEOHead title="Contact Us" description="Get in touch with Itoby Infotech for web design, app development, and digital marketing inquiries." path="/contact" />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

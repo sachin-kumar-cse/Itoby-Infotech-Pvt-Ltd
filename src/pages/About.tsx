@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Target, Eye, Zap, Shield, Clock, HeartHandshake, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -34,6 +35,7 @@ const values = [
 const About = () => {
   return (
     <Layout>
+      <SEOHead title="About Us" description="Learn about Itoby Infotech — a premier digital agency based in Patna, India. Transforming visions into digital reality since 2013." path="/about" jsonLd={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About Itoby Infotech", description: "Premier digital agency delivering exceptional web design, app development, and marketing solutions since 2013." }} />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

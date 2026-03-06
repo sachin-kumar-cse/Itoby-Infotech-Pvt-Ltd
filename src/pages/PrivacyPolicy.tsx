@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { Shield, Lock, Eye, Database, Bell, Mail, Globe, UserCheck } from "lucide-react";
 
@@ -68,6 +69,7 @@ const sections = [
 const PrivacyPolicy = () => {
   return (
     <Layout>
+      <SEOHead title="Privacy Policy" description="Read Itoby Infotech's privacy policy. Learn how we collect, use, and protect your personal information." path="/privacy" />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />

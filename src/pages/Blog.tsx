@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
@@ -116,6 +117,7 @@ const Blog = () => {
 
   return (
     <Layout>
+      <SEOHead title="Blog - Insights & Tips" description="Read the latest articles on web design, development, SEO, digital marketing, and technology trends from Itoby Infotech." path="/blog" type="website" jsonLd={{ "@context": "https://schema.org", "@type": "Blog", name: "Itoby Infotech Blog", description: "Latest insights on web design, development, and digital marketing." }} />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.1),transparent_50%)]" />

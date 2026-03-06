@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
@@ -179,6 +180,7 @@ const Portfolio = () => {
 
   return (
     <Layout>
+      <SEOHead title="Our Portfolio" description="Browse Itoby Infotech's portfolio of successful web design, app development, and digital marketing projects across industries." path="/portfolio" />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

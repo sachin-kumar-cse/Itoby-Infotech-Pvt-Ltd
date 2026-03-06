@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -128,7 +129,8 @@ const RequestQuote = () => {
 
   if (isSubmitted) {
     return (
-      <Layout>
+    <Layout>
+      <SEOHead title="Request a Quote" description="Get a free project estimate from Itoby Infotech. Select your services, budget, and timeline to receive a custom quote." path="/request-quote" />
         <section className="section-padding min-h-[60vh] flex items-center justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -164,6 +166,7 @@ const RequestQuote = () => {
 
   return (
     <Layout>
+      <SEOHead title="Request a Quote" description="Get a free project estimate from Itoby Infotech." path="/request-quote" />
       <section className="section-padding">
         <div className="container max-w-4xl">
           {/* Header */}

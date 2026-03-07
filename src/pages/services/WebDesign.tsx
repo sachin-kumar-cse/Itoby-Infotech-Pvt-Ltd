@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import techflowImage from "@/assets/portfolio/techflow-saas.jpg";
 import luxeFashionImage from "@/assets/portfolio/luxe-fashion.jpg";
 import { Button } from "@/components/ui/button";

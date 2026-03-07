@@ -516,6 +516,7 @@ const AdminDashboard = () => {
               { id: "contacts", label: "Contacts", icon: Mail },
               { id: "quotes", label: "Quotes", icon: IndianRupee },
               { id: "applications", label: "Jobs", icon: Briefcase },
+              { id: "subscribers", label: "Subs", icon: Newspaper },
               { id: "analytics", label: "Charts", icon: BarChart3 },
               { id: "profile", label: "Profile", icon: User },
             ].map((item) => (

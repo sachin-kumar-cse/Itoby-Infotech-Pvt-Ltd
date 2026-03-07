@@ -559,6 +559,7 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Manage and respond to contact inquiries."}
                 {activeTab === "quotes" && "Review and manage project quote requests."}
                 {activeTab === "applications" && "Review and process job applications."}
+                {activeTab === "subscribers" && "View and manage newsletter email subscribers."}
                 {activeTab === "analytics" && "Visualize submission trends and insights."}
                 {activeTab === "profile" && "Manage your account settings."}
               </p>

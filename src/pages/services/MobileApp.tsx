@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import fittrackImage from "@/assets/portfolio/fittrack-app.jpg";
 import quickpayImage from "@/assets/portfolio/quickpay-fintech.jpg";
 import { Button } from "@/components/ui/button";

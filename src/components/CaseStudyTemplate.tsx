@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, CheckCircle } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
@@ -38,8 +39,24 @@ interface CaseStudyTemplateProps {
 }
 
 export const CaseStudyTemplate = ({ caseStudy }: CaseStudyTemplateProps) => {
+  const { pathname } = useLocation();
+
   return (
     <Layout>
+      <SEOHead
+        title={`${caseStudy.title} - Case Study`}
+        description={`${caseStudy.overview.slice(0, 155)}…`}
+        path={pathname}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          "name": caseStudy.title,
+          "description": caseStudy.overview,
+          "author": { "@type": "Organization", "name": "Itoby Infotech" },
+          "about": { "@type": "Thing", "name": caseStudy.category },
+          "url": `https://itobyinfotech.in${pathname}`
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

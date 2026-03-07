@@ -1048,6 +1048,9 @@ const AdminDashboard = () => {
               </motion.div>
             )}
 
+            {/* Subscribers Tab */}
+            {activeTab === "subscribers" && <SubscribersTab />}
+
             {/* Analytics Tab */}
             {activeTab === "analytics" && (
               <motion.div

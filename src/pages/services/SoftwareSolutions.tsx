@@ -146,6 +146,19 @@ const caseStudies = [
 const SoftwareSolutions = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Custom Software Solutions"
+        description="Tailored software solutions by Itoby Infotech. ERP systems, CRM platforms, healthcare portals, and enterprise applications built for your business needs."
+        path="/services/software-solutions"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Custom Software Solutions",
+          "provider": { "@type": "Organization", "name": "Itoby Infotech" },
+          "description": "Custom enterprise software development including ERP, CRM, and industry-specific solutions.",
+          "url": "https://itobyinfotech.in/services/software-solutions"
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

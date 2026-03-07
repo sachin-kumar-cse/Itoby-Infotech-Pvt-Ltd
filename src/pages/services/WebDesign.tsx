@@ -147,6 +147,19 @@ const caseStudies = [
 const WebDesign = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Web Design & Development Services"
+        description="Professional web design and development services by Itoby Infotech. Custom websites, e-commerce solutions, SaaS platforms, and responsive web applications."
+        path="/services/web-design"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Web Design & Development",
+          "provider": { "@type": "Organization", "name": "Itoby Infotech" },
+          "description": "Custom web design and development services including e-commerce, SaaS, and responsive web applications.",
+          "url": "https://itobyinfotech.in/services/web-design"
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

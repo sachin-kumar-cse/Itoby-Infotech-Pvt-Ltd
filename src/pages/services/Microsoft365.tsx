@@ -146,6 +146,19 @@ const caseStudies = [
 const Microsoft365 = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Microsoft 365 Services"
+        description="Complete Microsoft 365 deployment, migration, and support services by Itoby Infotech. M365 setup, Teams, SharePoint, Exchange, and security configuration."
+        path="/services/microsoft-365"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Microsoft 365 Services",
+          "provider": { "@type": "Organization", "name": "Itoby Infotech" },
+          "description": "Microsoft 365 deployment, migration, and managed services for businesses.",
+          "url": "https://itobyinfotech.in/services/microsoft-365"
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

@@ -148,6 +148,19 @@ const caseStudies = [
 const MobileApp = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Mobile App Development Services"
+        description="Expert mobile app development by Itoby Infotech. Native and cross-platform iOS & Android apps with intuitive UI/UX design and robust backend integration."
+        path="/services/mobile-app"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Mobile App Development",
+          "provider": { "@type": "Organization", "name": "Itoby Infotech" },
+          "description": "Native and cross-platform mobile app development for iOS and Android.",
+          "url": "https://itobyinfotech.in/services/mobile-app"
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

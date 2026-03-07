@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import manufacturingErpImage from "@/assets/portfolio/manufacturing-erp.jpg";
 import healthcarePortalImage from "@/assets/portfolio/healthcare-portal.jpg";
 import { Button } from "@/components/ui/button";

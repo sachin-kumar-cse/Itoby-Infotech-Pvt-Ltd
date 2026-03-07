@@ -35,6 +35,7 @@ import {
   Activity,
   IndianRupee,
   BarChart3,
+  Newspaper,
 } from "lucide-react";
 import {
   AreaChart,
@@ -56,6 +57,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { SubscribersTab } from "@/components/admin/SubscribersTab";
 
 interface ContactSubmission {
   id: string;
@@ -429,6 +431,7 @@ const AdminDashboard = () => {
               { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
               { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+              { id: "subscribers", label: "Subscribers", icon: Newspaper },
               { id: "analytics", label: "Analytics", icon: BarChart3 },
               { id: "profile", label: "Profile", icon: User },
             ].map((item, index) => (
@@ -513,6 +516,7 @@ const AdminDashboard = () => {
               { id: "contacts", label: "Contacts", icon: Mail },
               { id: "quotes", label: "Quotes", icon: IndianRupee },
               { id: "applications", label: "Jobs", icon: Briefcase },
+              { id: "subscribers", label: "Subs", icon: Newspaper },
               { id: "analytics", label: "Charts", icon: BarChart3 },
               { id: "profile", label: "Profile", icon: User },
             ].map((item) => (
@@ -546,6 +550,7 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Contact Submissions"}
                 {activeTab === "quotes" && "Quote Requests"}
                 {activeTab === "applications" && "Job Applications"}
+                {activeTab === "subscribers" && "Newsletter Subscribers"}
                 {activeTab === "analytics" && "Analytics"}
                 {activeTab === "profile" && "Profile Settings"}
               </h1>
@@ -554,6 +559,7 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Manage and respond to contact inquiries."}
                 {activeTab === "quotes" && "Review and manage project quote requests."}
                 {activeTab === "applications" && "Review and process job applications."}
+                {activeTab === "subscribers" && "View and manage newsletter email subscribers."}
                 {activeTab === "analytics" && "Visualize submission trends and insights."}
                 {activeTab === "profile" && "Manage your account settings."}
               </p>
@@ -1041,6 +1047,9 @@ const AdminDashboard = () => {
                 </Card>
               </motion.div>
             )}
+
+            {/* Subscribers Tab */}
+            {activeTab === "subscribers" && <SubscribersTab />}
 
             {/* Analytics Tab */}
             {activeTab === "analytics" && (

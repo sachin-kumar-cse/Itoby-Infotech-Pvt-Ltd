@@ -57,6 +57,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { SubscribersTab } from "@/components/admin/SubscribersTab";
 
 interface ContactSubmission {
   id: string;

@@ -431,6 +431,7 @@ const AdminDashboard = () => {
               { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
               { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+              { id: "subscribers", label: "Subscribers", icon: Newspaper },
               { id: "analytics", label: "Analytics", icon: BarChart3 },
               { id: "profile", label: "Profile", icon: User },
             ].map((item, index) => (

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import restaurantImage from "@/assets/portfolio/restaurant-marketing.jpg";
 import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.jpg";
 import { Button } from "@/components/ui/button";
@@ -147,6 +148,19 @@ const caseStudies = [
 const DigitalMarketing = () => {
   return (
     <Layout>
+      <SEOHead
+        title="Digital Marketing Services"
+        description="Result-driven digital marketing services by Itoby Infotech. SEO, social media marketing, PPC advertising, content marketing, and analytics to grow your business online."
+        path="/services/digital-marketing"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Digital Marketing",
+          "provider": { "@type": "Organization", "name": "Itoby Infotech" },
+          "description": "Comprehensive digital marketing services including SEO, social media, PPC, and content marketing.",
+          "url": "https://itobyinfotech.in/services/digital-marketing"
+        }}
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />

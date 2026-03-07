@@ -35,6 +35,7 @@ import {
   Activity,
   IndianRupee,
   BarChart3,
+  Newspaper,
 } from "lucide-react";
 import {
   AreaChart,

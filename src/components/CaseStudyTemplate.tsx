@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, CheckCircle } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";

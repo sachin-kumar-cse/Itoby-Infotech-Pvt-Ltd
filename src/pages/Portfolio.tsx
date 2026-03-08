@@ -3,6 +3,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { useDbProjects } from "@/hooks/useDbProjects";
 import { ArrowUpRight, Filter, Sparkles } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
 import { PortfolioStatsSection } from "@/components/sections/PortfolioStatsSection";

@@ -93,11 +93,24 @@ const projects = [
 
 export const PortfolioSection = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const { dbProjects } = useDbProjects();
+
+  // Merge DB projects (shown first) with hardcoded ones
+  const allProjects = [
+    ...dbProjects.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      category: p.category,
+      description: p.description,
+      image: p.image,
+    })),
+    ...projects,
+  ];
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      ? allProjects
+      : allProjects.filter((p) => p.category === activeCategory);
 
   return (
     <section className="section-padding bg-card/30">

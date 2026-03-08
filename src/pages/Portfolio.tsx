@@ -10,20 +10,20 @@ import { PortfolioStatsSection } from "@/components/sections/PortfolioStatsSecti
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { WorkProcessSection } from "@/components/sections/WorkProcessSection";
 
-import techflowImg from "@/assets/portfolio/techflow-saas.jpg";
-import luxeImg from "@/assets/portfolio/luxe-fashion.jpg";
-import fittrackImg from "@/assets/portfolio/fittrack-app.jpg";
-import quickpayImg from "@/assets/portfolio/quickpay-fintech.jpg";
-import restaurantImg from "@/assets/portfolio/restaurant-marketing.jpg";
-import b2bSaasImg from "@/assets/portfolio/b2b-saas-marketing.jpg";
-import manufacturingImg from "@/assets/portfolio/manufacturing-erp.jpg";
-import healthcareImg from "@/assets/portfolio/healthcare-portal.jpg";
-import lawFirmImg from "@/assets/portfolio/law-firm-m365.jpg";
-import retailImg from "@/assets/portfolio/retail-m365.jpg";
-import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
-import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
-import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
-import easy2buyImg from "@/assets/portfolio/easy2buy-ecommerce.jpg";
+import techflowImg from "@/assets/portfolio/techflow-saas.webp";
+import luxeImg from "@/assets/portfolio/luxe-fashion.webp";
+import fittrackImg from "@/assets/portfolio/fittrack-app.webp";
+import quickpayImg from "@/assets/portfolio/quickpay-fintech.webp";
+import restaurantImg from "@/assets/portfolio/restaurant-marketing.webp";
+import b2bSaasImg from "@/assets/portfolio/b2b-saas-marketing.webp";
+import manufacturingImg from "@/assets/portfolio/manufacturing-erp.webp";
+import healthcareImg from "@/assets/portfolio/healthcare-portal.webp";
+import lawFirmImg from "@/assets/portfolio/law-firm-m365.webp";
+import retailImg from "@/assets/portfolio/retail-m365.webp";
+import kaspereyeImg from "@/assets/portfolio/kaspereye-security.webp";
+import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.webp";
+import rainfraImg from "@/assets/portfolio/rainfra-architecture.webp";
+import easy2buyImg from "@/assets/portfolio/easy2buy-ecommerce.webp";
 
 const categories = ["All", "Website", "E-commerce", "App", "Marketing", "Software", "Microsoft 365"];
 

@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/easy2buy-ecommerce.jpg";
-import luxeImage from "@/assets/portfolio/luxe-fashion.jpg";
-import kaspereyeImage from "@/assets/portfolio/kaspereye-security.jpg";
+import heroImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import luxeImage from "@/assets/portfolio/luxe-fashion.webp";
+import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 
 const caseStudy = {
   title: "Easy2Buy Fashion E-commerce",

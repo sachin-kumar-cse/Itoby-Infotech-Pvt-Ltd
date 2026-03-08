@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/freightxpress-logistics.jpg";
-import kaspereyeImage from "@/assets/portfolio/kaspereye-security.jpg";
-import techflowImage from "@/assets/portfolio/techflow-saas.jpg";
+import heroImage from "@/assets/portfolio/freightxpress-logistics.webp";
+import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
+import techflowImage from "@/assets/portfolio/techflow-saas.webp";
 
 const caseStudy = {
   title: "FreightXpress Logistics Platform",

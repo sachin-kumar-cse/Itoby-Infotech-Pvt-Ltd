@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/kaspereye-security.jpg";
-import freightxpressImage from "@/assets/portfolio/freightxpress-logistics.jpg";
-import rainfraImage from "@/assets/portfolio/rainfra-architecture.jpg";
+import heroImage from "@/assets/portfolio/kaspereye-security.webp";
+import freightxpressImage from "@/assets/portfolio/freightxpress-logistics.webp";
+import rainfraImage from "@/assets/portfolio/rainfra-architecture.webp";
 
 const caseStudy = {
   title: "Kaspereye Security Solutions",

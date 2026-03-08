@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/luxe-fashion.jpg";
-import techflowImage from "@/assets/portfolio/techflow-saas.jpg";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.jpg";
+import heroImage from "@/assets/portfolio/luxe-fashion.webp";
+import techflowImage from "@/assets/portfolio/techflow-saas.webp";
+import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
 
 const caseStudy = {
   title: "Luxe Fashion E-commerce",

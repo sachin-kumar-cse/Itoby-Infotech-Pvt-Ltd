@@ -66,6 +66,7 @@ const tabMeta: Record<string, { title: string; desc: string }> = {
   "projects-mgmt": { title: "Portfolio Projects", desc: "Add and manage portfolio case studies." },
   "jobs-mgmt": { title: "Job Postings", desc: "Manage career listings and job openings." },
   subscribers: { title: "Newsletter Subscribers", desc: "View and manage newsletter subscribers." },
+  "drip-campaigns": { title: "Drip Campaigns", desc: "Create and manage automated email sequences." },
   analytics: { title: "Analytics", desc: "Visualize submission trends and insights." },
   "web-analytics": { title: "Website Analytics", desc: "Monitor website traffic via Google Analytics." },
   profile: { title: "Profile Settings", desc: "Manage your account settings." },

@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 
-const categories = ["All", "Design", "Development", "SEO", "Marketing", "Technology", "Case Study"];
+// Categories are now dynamically extracted from posts
 
 interface BlogPost {
   id: string;

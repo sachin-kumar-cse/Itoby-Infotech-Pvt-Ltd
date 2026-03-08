@@ -424,7 +424,14 @@ const AdminDashboard = () => {
                       <Mail className="w-5 h-5 text-primary" /> Contact Form Submissions
                       {unreadContacts > 0 && <Badge variant="destructive" className="ml-2">{unreadContacts} new</Badge>}
                     </CardTitle>
-                    <CardDescription>All contact inquiries from your website</CardDescription>
+                    <div className="flex items-center gap-2">
+                      <CardDescription>All contact inquiries from your website</CardDescription>
+                      {unreadContacts > 0 && (
+                        <Button variant="outline" size="sm" className="text-xs gap-1.5 ml-auto" onClick={bulkMarkContactsRead}>
+                          <CheckCircle className="w-3.5 h-3.5" /> Mark All Read
+                        </Button>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent>
                     {isLoading ? (

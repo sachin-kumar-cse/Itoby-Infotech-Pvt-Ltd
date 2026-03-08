@@ -46,11 +46,27 @@ const projects = [
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const { dbProjects } = useDbProjects();
+
+  // Merge hardcoded + DB projects, DB projects shown first
+  const allProjects = [
+    ...dbProjects.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      category: p.category,
+      description: p.description,
+      image: p.image,
+      results: p.results || "",
+      tech: p.tech || [],
+      client: p.client || "",
+    })),
+    ...projects,
+  ];
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      ? allProjects
+      : allProjects.filter((p) => p.category === activeCategory);
 
   return (
     <Layout>

@@ -555,6 +555,7 @@ const AdminDashboard = () => {
                 {activeTab === "applications" && "Job Applications"}
                 {activeTab === "subscribers" && "Newsletter Subscribers"}
                 {activeTab === "analytics" && "Analytics"}
+                {activeTab === "web-analytics" && "Website Analytics"}
                 {activeTab === "profile" && "Profile Settings"}
               </h1>
               <p className="text-muted-foreground">

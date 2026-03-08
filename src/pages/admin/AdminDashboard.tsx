@@ -485,7 +485,14 @@ const AdminDashboard = () => {
                       <Briefcase className="w-5 h-5 text-emerald-500" /> Job Applications
                       {unreadApplications > 0 && <Badge variant="destructive" className="ml-2">{unreadApplications} new</Badge>}
                     </CardTitle>
-                    <CardDescription>Review and manage all job applications</CardDescription>
+                    <div className="flex items-center gap-2">
+                      <CardDescription>Review and manage all job applications</CardDescription>
+                      {unreadApplications > 0 && (
+                        <Button variant="outline" size="sm" className="text-xs gap-1.5 ml-auto" onClick={bulkMarkApplicationsRead}>
+                          <CheckCircle className="w-3.5 h-3.5" /> Mark All Read
+                        </Button>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent>
                     {isLoading ? (

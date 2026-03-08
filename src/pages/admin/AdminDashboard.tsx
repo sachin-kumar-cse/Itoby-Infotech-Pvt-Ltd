@@ -519,6 +519,7 @@ const AdminDashboard = () => {
               { id: "applications", label: "Jobs", icon: Briefcase },
               { id: "subscribers", label: "Subs", icon: Newspaper },
               { id: "analytics", label: "Charts", icon: BarChart3 },
+              { id: "web-analytics", label: "Web", icon: Globe },
               { id: "profile", label: "Profile", icon: User },
             ].map((item) => (
               <Button

@@ -8,6 +8,7 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { CursorGlow } from "@/components/ui/cursor-glow";
 import { PageTransition } from "@/components/ui/page-transition";
 import { AIChatbot } from "@/components/ui/ai-chatbot";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
+  usePageTracking();
 
   return (
     <div className="min-h-screen flex flex-col">

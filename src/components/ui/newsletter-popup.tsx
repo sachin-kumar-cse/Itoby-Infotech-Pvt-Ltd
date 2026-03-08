@@ -17,10 +17,14 @@ export const NewsletterPopup = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
     const subscribed = localStorage.getItem(POPUP_SUBSCRIBED_KEY);
+    if (subscribed) return;
 
-    if (dismissed || subscribed) return;
+    const dismissedAt = localStorage.getItem(POPUP_DISMISSED_KEY);
+    if (dismissedAt && Date.now() < Number(dismissedAt)) return;
+
+    // Clear expired dismissal
+    if (dismissedAt) localStorage.removeItem(POPUP_DISMISSED_KEY);
 
     const timer = setTimeout(() => {
       setIsVisible(true);

@@ -324,9 +324,9 @@ export const Footer = () => {
             <Link to="/terms" className="hover:text-primary transition-colors">
               Terms of Service
             </Link>
-            <Link to="/sitemap" className="hover:text-primary transition-colors">
+            <a href="/sitemap.xml" className="hover:text-primary transition-colors">
               Sitemap
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -424,7 +424,7 @@ export const Header = () => {
                   className="mt-8 pt-6 border-t border-border"
                 >
                   <Button variant="hero" size="lg" className="w-full text-base" asChild>
-                    <Link to="/contact">Get a Free Quote</Link>
+                    <Link to="/request-quote">Get a Free Quote</Link>
                   </Button>
                 </motion.div>
 

@@ -175,16 +175,16 @@ export const HeroSection = () => {
                 <motion.span 
                   custom={1}
                   variants={textRevealVariants}
-                  className="block gradient-text"
+                  className="block"
                 >
-                  {headlineText.split("").map((letter, i) => (
+                  {"High-Converting".split("").map((letter, i) => (
                     <motion.span
                       key={i}
                       custom={i}
                       variants={letterVariants}
                       initial="hidden"
                       animate="visible"
-                      className="inline-block"
+                      className="inline-block gradient-text"
                     >
                       {letter === " " ? "\u00A0" : letter}
                     </motion.span>
@@ -195,7 +195,21 @@ export const HeroSection = () => {
                   variants={textRevealVariants}
                   className="block"
                 >
-                  Digital Experiences
+                  Digital{" "}
+                  <span className="inline-block relative h-[1.1em] overflow-hidden align-bottom">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={wordIndex}
+                        initial={{ y: 40, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -40, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="inline-block gradient-text"
+                      >
+                        {rotatingWords[wordIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </motion.span>
               </motion.h1>
             </div>

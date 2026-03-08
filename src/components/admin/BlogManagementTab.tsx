@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, Eye, EyeOff, RefreshCw, FileText, Star } from "lucide-react";
+import { Plus, Pencil, Trash2, Eye, EyeOff, RefreshCw, FileText, Star, Upload, Image, X, Loader2 } from "lucide-react";
 
 interface BlogPost {
   id: string;
@@ -64,6 +64,8 @@ export const BlogManagementTab = () => {
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [formData, setFormData] = useState(emptyPost);
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchPosts();
@@ -87,6 +89,32 @@ export const BlogManagementTab = () => {
 
   const generateSlug = (title: string) =>
     title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image file");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("Image must be less than 5MB");
+      return;
+    }
+    setIsUploading(true);
+    const ext = file.name.split(".").pop();
+    const fileName = `blog-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage.from("blog-images").upload(fileName, file, { upsert: true });
+    if (error) {
+      toast.error("Upload failed: " + error.message);
+      setIsUploading(false);
+      return;
+    }
+    const { data: urlData } = supabase.storage.from("blog-images").getPublicUrl(fileName);
+    setFormData({ ...formData, image: urlData.publicUrl });
+    toast.success("Image uploaded!");
+    setIsUploading(false);
+  };
 
   const openCreate = () => {
     setEditingPost(null);
@@ -363,14 +391,48 @@ export const BlogManagementTab = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label>Image URL</Label>
+              <div className="space-y-2 sm:col-span-2">
+                <Label>Image</Label>
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageUpload}
+                />
+                {formData.image ? (
+                  <div className="relative group w-full h-40 rounded-lg overflow-hidden border border-border/50">
+                    <img src={formData.image} alt="Preview" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                      <Button type="button" size="sm" variant="secondary" onClick={() => fileInputRef.current?.click()} disabled={isUploading}>
+                        {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
+                        Replace
+                      </Button>
+                      <Button type="button" size="sm" variant="destructive" onClick={() => setFormData({ ...formData, image: "" })}>
+                        <X className="w-4 h-4" /> Remove
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => !isUploading && fileInputRef.current?.click()}
+                    className="w-full h-40 rounded-lg border-2 border-dashed border-border/50 hover:border-primary/50 transition-colors flex flex-col items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {isUploading ? (
+                      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                    ) : (
+                      <>
+                        <Image className="w-8 h-8 text-muted-foreground" />
+                        <span className="text-sm text-muted-foreground">Click to upload image</span>
+                      </>
+                    )}
+                  </div>
+                )}
                 <Input
                   value={formData.image}
-                  onChange={(e) =>
-                    setFormData({ ...formData, image: e.target.value })
-                  }
-                  placeholder="https://images.unsplash.com/..."
+                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  placeholder="Or paste image URL..."
+                  className="mt-1 text-xs"
                 />
               </div>
             </div>

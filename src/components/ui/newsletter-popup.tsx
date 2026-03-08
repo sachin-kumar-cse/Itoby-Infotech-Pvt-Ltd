@@ -57,6 +57,10 @@ export const NewsletterPopup = () => {
         }
       } else {
         toast.success("Welcome aboard! 🚀");
+        // Trigger drip campaign for new subscribers
+        supabase.functions.invoke("process-drip-emails", {
+          body: { trigger_event: "newsletter", recipient_email: email.trim(), recipient_name: "" },
+        }).catch(() => {});
       }
 
       setIsSuccess(true);

@@ -1159,6 +1159,12 @@ const AdminDashboard = () => {
               </motion.div>
             )}
 
+            {/* Blog Management Tab */}
+            {activeTab === "blog-mgmt" && <BlogManagementTab />}
+
+            {/* Jobs Management Tab */}
+            {activeTab === "jobs-mgmt" && <JobsManagementTab />}
+
             {/* Web Analytics Tab */}
             {activeTab === "web-analytics" && <WebAnalyticsTab />}
 

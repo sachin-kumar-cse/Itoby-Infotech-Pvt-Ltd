@@ -49,13 +49,13 @@ export const ClientsMarqueeSection = () => {
         
         {/* Scrolling Content */}
         <motion.div
-          animate={{ x: [0, -1920] }}
+          animate={{ x: [0, -1200] }}
           transition={{ 
-            duration: 30, 
+            duration: 25, 
             repeat: Infinity, 
             ease: "linear" 
           }}
-          className="flex gap-8 sm:gap-12"
+          className="flex gap-4 sm:gap-8 md:gap-12"
         >
           {[...clients, ...clients, ...clients].map((client, index) => (
             <motion.div

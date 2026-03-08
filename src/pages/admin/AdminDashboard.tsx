@@ -539,6 +539,7 @@ const AdminDashboard = () => {
 
             {activeTab === "subscribers" && <SubscribersTab />}
             {activeTab === "blog-mgmt" && <BlogManagementTab />}
+            {activeTab === "projects-mgmt" && <ProjectsManagementTab />}
             {activeTab === "jobs-mgmt" && <JobsManagementTab />}
             {activeTab === "web-analytics" && <WebAnalyticsTab />}
 

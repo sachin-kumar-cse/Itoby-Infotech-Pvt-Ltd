@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { BlogGridSkeleton } from "@/components/ui/skeleton-cards";
 import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
-import { Calendar, ArrowRight, Search, Clock, TrendingUp, Sparkles, BookOpen } from "lucide-react";
+import { Calendar, ArrowRight, Search, Clock, TrendingUp, Sparkles, BookOpen, Rss, Tag, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

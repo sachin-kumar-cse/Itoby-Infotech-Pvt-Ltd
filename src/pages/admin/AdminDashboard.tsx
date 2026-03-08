@@ -183,6 +183,39 @@ const AdminDashboard = () => {
     setQuotes(prev => prev.filter(q => q.id !== id));
     setSelectedQuote(null); toast.success("Quote request deleted");
   };
+
+  // Bulk actions
+  const bulkMarkContactsRead = async () => {
+    const unread = contacts.filter(c => !c.is_read);
+    if (unread.length === 0) return;
+    const ids = unread.map(c => c.id);
+    const { error } = await supabase.from('contact_submissions').update({ is_read: true }).in('id', ids);
+    if (!error) {
+      setContacts(prev => prev.map(c => ({ ...c, is_read: true })));
+      toast.success(`${unread.length} contacts marked as read`);
+    }
+  };
+  const bulkMarkApplicationsRead = async () => {
+    const unread = applications.filter(a => !a.is_read);
+    if (unread.length === 0) return;
+    const ids = unread.map(a => a.id);
+    const { error } = await supabase.from('job_applications').update({ is_read: true }).in('id', ids);
+    if (!error) {
+      setApplications(prev => prev.map(a => ({ ...a, is_read: true })));
+      toast.success(`${unread.length} applications marked as read`);
+    }
+  };
+  const bulkMarkQuotesRead = async () => {
+    const unread = quotes.filter(q => !q.is_read);
+    if (unread.length === 0) return;
+    const ids = unread.map(q => q.id);
+    const { error } = await supabase.from('quote_requests').update({ is_read: true }).in('id', ids);
+    if (!error) {
+      setQuotes(prev => prev.map(q => ({ ...q, is_read: true })));
+      toast.success(`${unread.length} quotes marked as read`);
+    }
+  };
+
   const downloadResume = async (resumePath: string) => {
     try {
       const { data, error } = await supabase.storage.from('resumes').download(resumePath);

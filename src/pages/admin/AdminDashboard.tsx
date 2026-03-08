@@ -433,6 +433,7 @@ const AdminDashboard = () => {
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
               { id: "subscribers", label: "Subscribers", icon: Newspaper },
               { id: "analytics", label: "Analytics", icon: BarChart3 },
+              { id: "web-analytics", label: "Web Analytics", icon: Globe },
               { id: "profile", label: "Profile", icon: User },
             ].map((item, index) => (
               <motion.button

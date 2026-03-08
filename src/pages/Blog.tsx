@@ -205,12 +205,7 @@ const Blog = () => {
 
           {/* Posts */}
           {isLoading ? (
-            <div className="text-center py-16">
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-card/50 backdrop-blur-xl border border-border/50">
-                <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                <p className="text-muted-foreground">Loading articles...</p>
-              </div>
-            </div>
+            <BlogGridSkeleton count={6} />
           ) : filteredPosts.length > 0 ? (
             <AnimatePresence mode="wait">
               <motion.div

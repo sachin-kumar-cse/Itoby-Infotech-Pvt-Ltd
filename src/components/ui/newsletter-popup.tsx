@@ -21,6 +21,11 @@ export const NewsletterPopup = () => {
     const subscribed = localStorage.getItem(POPUP_SUBSCRIBED_KEY);
     if (subscribed) return;
 
+    // Only show once per day
+    const today = new Date().toDateString();
+    const shownDate = localStorage.getItem(POPUP_SHOWN_TODAY_KEY);
+    if (shownDate === today) return;
+
     const dismissedAt = localStorage.getItem(POPUP_DISMISSED_KEY);
     if (dismissedAt && Date.now() < Number(dismissedAt)) return;
 
@@ -28,6 +33,7 @@ export const NewsletterPopup = () => {
     if (dismissedAt) localStorage.removeItem(POPUP_DISMISSED_KEY);
 
     const timer = setTimeout(() => {
+      localStorage.setItem(POPUP_SHOWN_TODAY_KEY, today);
       setIsVisible(true);
     }, POPUP_DELAY_MS);
 

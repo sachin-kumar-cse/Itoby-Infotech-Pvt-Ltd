@@ -78,6 +78,10 @@ const Contact = () => {
         body: { name: formData.name.trim(), email: formData.email.trim(), phone: formData.phone.trim() || undefined, service: formData.service, message: formData.message.trim() },
       });
       if (emailError) console.error("Email notification failed:", emailError);
+      // Trigger drip campaign
+      supabase.functions.invoke("process-drip-emails", {
+        body: { trigger_event: "contact_form", recipient_email: formData.email.trim(), recipient_name: formData.name.trim() },
+      }).catch((err) => console.error("Drip trigger failed:", err));
       setIsSuccess(true);
       toast({ title: "Message Sent Successfully! ✨", description: "We'll get back to you within 24 hours." });
       setFormData({ name: "", email: "", phone: "", service: "", company: "", budget: "", message: "" });

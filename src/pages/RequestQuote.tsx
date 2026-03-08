@@ -112,6 +112,10 @@ const RequestQuote = () => {
         timeline: selectedTimeline, description, estimated_cost: estimatedCost,
       });
       if (error) throw error;
+      // Trigger drip campaign
+      supabase.functions.invoke("process-drip-emails", {
+        body: { trigger_event: "quote_request", recipient_email: email.trim(), recipient_name: name.trim() },
+      }).catch((err) => console.error("Drip trigger failed:", err));
       setIsSubmitted(true);
       toast.success("Quote request submitted successfully!");
     } catch {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BlogGridSkeleton } from "@/components/ui/skeleton-cards";
 import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -143,6 +144,7 @@ const Blog = () => {
                       <img
                         src={post.image}
                         alt={post.title}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
@@ -204,12 +206,7 @@ const Blog = () => {
 
           {/* Posts */}
           {isLoading ? (
-            <div className="text-center py-16">
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-card/50 backdrop-blur-xl border border-border/50">
-                <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                <p className="text-muted-foreground">Loading articles...</p>
-              </div>
-            </div>
+            <BlogGridSkeleton count={6} />
           ) : filteredPosts.length > 0 ? (
             <AnimatePresence mode="wait">
               <motion.div
@@ -226,11 +223,12 @@ const Blog = () => {
                       className="group block rounded-3xl overflow-hidden bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)] h-full"
                     >
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
                         <div className="absolute top-4 left-4">
                           <Badge className="bg-primary/90 backdrop-blur-sm border-none">{post.category}</Badge>

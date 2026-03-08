@@ -8,6 +8,7 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { CursorGlow } from "@/components/ui/cursor-glow";
 import { PageTransition } from "@/components/ui/page-transition";
 import { AIChatbot } from "@/components/ui/ai-chatbot";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
 interface LayoutProps {
@@ -20,6 +21,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
+      <ScrollProgress />
       <CursorGlow />
       <Header />
       <main className="flex-1">

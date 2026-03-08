@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { JobListSkeleton } from "@/components/ui/skeleton-cards";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";
@@ -282,12 +283,7 @@ const Careers = () => {
           </motion.div>
 
           {isLoading ? (
-            <div className="text-center py-12">
-              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-card/50 backdrop-blur-xl border border-border/50">
-                <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                <p className="text-muted-foreground">Loading positions...</p>
-              </div>
-            </div>
+            <JobListSkeleton count={4} />
           ) : jobs.length === 0 ? (
             <div className="text-center py-12">
               <div className="inline-block p-8 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50">

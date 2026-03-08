@@ -90,6 +90,32 @@ export const BlogManagementTab = () => {
   const generateSlug = (title: string) =>
     title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image file");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("Image must be less than 5MB");
+      return;
+    }
+    setIsUploading(true);
+    const ext = file.name.split(".").pop();
+    const fileName = `blog-${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+    const { error } = await supabase.storage.from("blog-images").upload(fileName, file, { upsert: true });
+    if (error) {
+      toast.error("Upload failed: " + error.message);
+      setIsUploading(false);
+      return;
+    }
+    const { data: urlData } = supabase.storage.from("blog-images").getPublicUrl(fileName);
+    setFormData({ ...formData, image: urlData.publicUrl });
+    toast.success("Image uploaded!");
+    setIsUploading(false);
+  };
+
   const openCreate = () => {
     setEditingPost(null);
     setFormData(emptyPost);

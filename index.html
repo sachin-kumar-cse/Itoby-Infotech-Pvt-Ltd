@@ -35,15 +35,25 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://uvpxfbucgcpsjwahmvjy.supabase.co">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     
-    <!-- Google Analytics (GA4) -->
+    <!-- Resource hints for critical assets -->
+    <link rel="preload" as="image" href="https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png" fetchpriority="high">
+    
+    <!-- Google Analytics (GA4) - deferred -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5G3MH5KZK"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-M5G3MH5KZK');
+      gtag('config', 'G-M5G3MH5KZK', { send_page_view: false });
     </script>
+    
+    <!-- Security headers via meta -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
   </head>
   <body>
     <div id="root"></div>

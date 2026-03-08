@@ -183,6 +183,39 @@ const AdminDashboard = () => {
     setQuotes(prev => prev.filter(q => q.id !== id));
     setSelectedQuote(null); toast.success("Quote request deleted");
   };
+
+  // Bulk actions
+  const bulkMarkContactsRead = async () => {
+    const unread = contacts.filter(c => !c.is_read);
+    if (unread.length === 0) return;
+    const ids = unread.map(c => c.id);
+    const { error } = await supabase.from('contact_submissions').update({ is_read: true }).in('id', ids);
+    if (!error) {
+      setContacts(prev => prev.map(c => ({ ...c, is_read: true })));
+      toast.success(`${unread.length} contacts marked as read`);
+    }
+  };
+  const bulkMarkApplicationsRead = async () => {
+    const unread = applications.filter(a => !a.is_read);
+    if (unread.length === 0) return;
+    const ids = unread.map(a => a.id);
+    const { error } = await supabase.from('job_applications').update({ is_read: true }).in('id', ids);
+    if (!error) {
+      setApplications(prev => prev.map(a => ({ ...a, is_read: true })));
+      toast.success(`${unread.length} applications marked as read`);
+    }
+  };
+  const bulkMarkQuotesRead = async () => {
+    const unread = quotes.filter(q => !q.is_read);
+    if (unread.length === 0) return;
+    const ids = unread.map(q => q.id);
+    const { error } = await supabase.from('quote_requests').update({ is_read: true }).in('id', ids);
+    if (!error) {
+      setQuotes(prev => prev.map(q => ({ ...q, is_read: true })));
+      toast.success(`${unread.length} quotes marked as read`);
+    }
+  };
+
   const downloadResume = async (resumePath: string) => {
     try {
       const { data, error } = await supabase.storage.from('resumes').download(resumePath);
@@ -391,7 +424,14 @@ const AdminDashboard = () => {
                       <Mail className="w-5 h-5 text-primary" /> Contact Form Submissions
                       {unreadContacts > 0 && <Badge variant="destructive" className="ml-2">{unreadContacts} new</Badge>}
                     </CardTitle>
-                    <CardDescription>All contact inquiries from your website</CardDescription>
+                    <div className="flex items-center gap-2">
+                      <CardDescription>All contact inquiries from your website</CardDescription>
+                      {unreadContacts > 0 && (
+                        <Button variant="outline" size="sm" className="text-xs gap-1.5 ml-auto" onClick={bulkMarkContactsRead}>
+                          <CheckCircle className="w-3.5 h-3.5" /> Mark All Read
+                        </Button>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent>
                     {isLoading ? (
@@ -445,7 +485,14 @@ const AdminDashboard = () => {
                       <Briefcase className="w-5 h-5 text-emerald-500" /> Job Applications
                       {unreadApplications > 0 && <Badge variant="destructive" className="ml-2">{unreadApplications} new</Badge>}
                     </CardTitle>
-                    <CardDescription>Review and manage all job applications</CardDescription>
+                    <div className="flex items-center gap-2">
+                      <CardDescription>Review and manage all job applications</CardDescription>
+                      {unreadApplications > 0 && (
+                        <Button variant="outline" size="sm" className="text-xs gap-1.5 ml-auto" onClick={bulkMarkApplicationsRead}>
+                          <CheckCircle className="w-3.5 h-3.5" /> Mark All Read
+                        </Button>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent>
                     {isLoading ? (
@@ -502,7 +549,14 @@ const AdminDashboard = () => {
                       <IndianRupee className="w-5 h-5 text-violet-500" /> Quote Requests
                       {unreadQuotes > 0 && <Badge variant="destructive" className="ml-2">{unreadQuotes} new</Badge>}
                     </CardTitle>
-                    <CardDescription>Review project quote requests from potential clients</CardDescription>
+                    <div className="flex items-center gap-2">
+                      <CardDescription>Review project quote requests from potential clients</CardDescription>
+                      {unreadQuotes > 0 && (
+                        <Button variant="outline" size="sm" className="text-xs gap-1.5 ml-auto" onClick={bulkMarkQuotesRead}>
+                          <CheckCircle className="w-3.5 h-3.5" /> Mark All Read
+                        </Button>
+                      )}
+                    </div>
                   </CardHeader>
                   <CardContent>
                     {quotes.length === 0 ? (

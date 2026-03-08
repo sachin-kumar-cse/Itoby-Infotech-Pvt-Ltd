@@ -12,6 +12,7 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { NewsletterPopup } from "@/components/ui/newsletter-popup";
 import { ExitIntentPopup } from "@/components/ui/exit-intent-popup";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 
 interface LayoutProps {
   children: ReactNode;
@@ -20,7 +21,7 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   usePageTracking();
-
+  useKeyboardShortcuts();
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <ScrollProgress />

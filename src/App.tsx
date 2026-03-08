@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/ui/loading-screen";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Eagerly load the home page for fast first paint
 import Index from "./pages/Index";
@@ -50,56 +51,58 @@ const Install = lazy(() => import("./pages/Install"));
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Suspense fallback={<LoadingScreen />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/web-design" element={<WebDesign />} />
-              <Route path="/services/mobile-app" element={<MobileApp />} />
-              <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
-              <Route path="/services/software-solutions" element={<SoftwareSolutions />} />
-              <Route path="/services/microsoft-365" element={<Microsoft365 />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/portfolio/techflow" element={<TechFlow />} />
-              <Route path="/portfolio/luxe-fashion" element={<LuxeFashion />} />
-              <Route path="/portfolio/fittrack" element={<FitTrack />} />
-              <Route path="/portfolio/quickpay" element={<QuickPay />} />
-              <Route path="/portfolio/restaurant-chain" element={<RestaurantChain />} />
-              <Route path="/portfolio/b2b-saas" element={<B2BSaas />} />
-              <Route path="/portfolio/manufacturing-erp" element={<ManufacturingERP />} />
-              <Route path="/portfolio/healthcare-portal" element={<HealthcarePortal />} />
-              <Route path="/portfolio/law-firm-m365" element={<LawFirmM365 />} />
-              <Route path="/portfolio/retail-m365" element={<RetailM365 />} />
-              <Route path="/portfolio/kaspereye-security" element={<KaspereyeSecurity />} />
-              <Route path="/portfolio/freightxpress" element={<FreightXpress />} />
-              <Route path="/portfolio/rainfra-studio" element={<RainfraStudio />} />
-              <Route path="/portfolio/easy2buy" element={<Easy2Buy />} />
-              <Route path="/portfolio/:slug" element={<DynamicPortfolio />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/careers/:id" element={<JobDetails />} />
-              <Route path="/request-quote" element={<RequestQuote />} />
-              <Route path="/privacy" element={<PrivacyPolicy />} />
-              <Route path="/terms" element={<TermsOfService />} />
-              <Route path="/admin" element={<AdminLogin />} />
-              <Route path="/install" element={<Install />} />
-              <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ThemeProvider>
+  <ErrorBoundary>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Suspense fallback={<LoadingScreen />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/services/web-design" element={<WebDesign />} />
+                <Route path="/services/mobile-app" element={<MobileApp />} />
+                <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
+                <Route path="/services/software-solutions" element={<SoftwareSolutions />} />
+                <Route path="/services/microsoft-365" element={<Microsoft365 />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/portfolio/techflow" element={<TechFlow />} />
+                <Route path="/portfolio/luxe-fashion" element={<LuxeFashion />} />
+                <Route path="/portfolio/fittrack" element={<FitTrack />} />
+                <Route path="/portfolio/quickpay" element={<QuickPay />} />
+                <Route path="/portfolio/restaurant-chain" element={<RestaurantChain />} />
+                <Route path="/portfolio/b2b-saas" element={<B2BSaas />} />
+                <Route path="/portfolio/manufacturing-erp" element={<ManufacturingERP />} />
+                <Route path="/portfolio/healthcare-portal" element={<HealthcarePortal />} />
+                <Route path="/portfolio/law-firm-m365" element={<LawFirmM365 />} />
+                <Route path="/portfolio/retail-m365" element={<RetailM365 />} />
+                <Route path="/portfolio/kaspereye-security" element={<KaspereyeSecurity />} />
+                <Route path="/portfolio/freightxpress" element={<FreightXpress />} />
+                <Route path="/portfolio/rainfra-studio" element={<RainfraStudio />} />
+                <Route path="/portfolio/easy2buy" element={<Easy2Buy />} />
+                <Route path="/portfolio/:slug" element={<DynamicPortfolio />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/careers/:id" element={<JobDetails />} />
+                <Route path="/request-quote" element={<RequestQuote />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/admin" element={<AdminLogin />} />
+                <Route path="/install" element={<Install />} />
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
+  </ErrorBoundary>
 );
 
 export default App;

@@ -19,7 +19,7 @@ export const Layout = ({ children }: LayoutProps) => {
   usePageTracking();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <CursorGlow />
       <Header />
       <main className="flex-1">

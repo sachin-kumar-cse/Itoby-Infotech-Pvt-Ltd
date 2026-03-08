@@ -153,7 +153,7 @@ const BlogPost = () => {
       <section className="pb-20">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-[1fr_280px] gap-12">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8 lg:gap-12">
               {/* Main Content */}
               <motion.article
                 initial={{ opacity: 0, y: 20 }}

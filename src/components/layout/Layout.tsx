@@ -10,6 +10,7 @@ import { PageTransition } from "@/components/ui/page-transition";
 import { AIChatbot } from "@/components/ui/ai-chatbot";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { NewsletterPopup } from "@/components/ui/newsletter-popup";
+import { ExitIntentPopup } from "@/components/ui/exit-intent-popup";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
 interface LayoutProps {
@@ -34,6 +35,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <WhatsAppButton />
       <AIChatbot />
       <NewsletterPopup />
+      <ExitIntentPopup />
       <BackToTop />
     </div>
   );

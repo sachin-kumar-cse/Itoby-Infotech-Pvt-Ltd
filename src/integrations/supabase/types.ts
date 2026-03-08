@@ -98,6 +98,110 @@ export type Database = {
         }
         Relationships: []
       }
+      email_drip_emails: {
+        Row: {
+          body_html: string
+          created_at: string
+          delay_hours: number
+          id: string
+          sequence_id: string
+          sort_order: number
+          subject: string
+        }
+        Insert: {
+          body_html: string
+          created_at?: string
+          delay_hours?: number
+          id?: string
+          sequence_id: string
+          sort_order?: number
+          subject: string
+        }
+        Update: {
+          body_html?: string
+          created_at?: string
+          delay_hours?: number
+          id?: string
+          sequence_id?: string
+          sort_order?: number
+          subject?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "email_drip_emails_sequence_id_fkey"
+            columns: ["sequence_id"]
+            isOneToOne: false
+            referencedRelation: "email_drip_sequences"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      email_drip_log: {
+        Row: {
+          email_id: string
+          id: string
+          recipient_email: string
+          sent_at: string
+          sequence_id: string
+          status: string
+        }
+        Insert: {
+          email_id: string
+          id?: string
+          recipient_email: string
+          sent_at?: string
+          sequence_id: string
+          status?: string
+        }
+        Update: {
+          email_id?: string
+          id?: string
+          recipient_email?: string
+          sent_at?: string
+          sequence_id?: string
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "email_drip_log_email_id_fkey"
+            columns: ["email_id"]
+            isOneToOne: false
+            referencedRelation: "email_drip_emails"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "email_drip_log_sequence_id_fkey"
+            columns: ["sequence_id"]
+            isOneToOne: false
+            referencedRelation: "email_drip_sequences"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      email_drip_sequences: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          trigger_event: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          trigger_event?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          trigger_event?: string
+        }
+        Relationships: []
+      }
       job_applications: {
         Row: {
           cover_letter: string | null

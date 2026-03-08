@@ -69,6 +69,7 @@ export const AdminMobileNav = ({
         { id: "blog-mgmt", label: "Blog CMS", icon: FileText },
         { id: "jobs-mgmt", label: "Job Postings", icon: Briefcase },
         { id: "subscribers", label: "Subscribers", icon: Newspaper },
+        { id: "drip-campaigns", label: "Drip Campaigns", icon: Zap },
       ],
     },
     {

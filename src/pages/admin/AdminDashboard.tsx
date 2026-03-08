@@ -24,6 +24,7 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SubscribersTab } from "@/components/admin/SubscribersTab";
 import { WebAnalyticsTab } from "@/components/admin/WebAnalyticsTab";
+import { AnalyticsTab } from "@/components/admin/AnalyticsTab";
 import { BlogManagementTab } from "@/components/admin/BlogManagementTab";
 import { JobsManagementTab } from "@/components/admin/JobsManagementTab";
 import { ProjectsManagementTab } from "@/components/admin/ProjectsManagementTab";

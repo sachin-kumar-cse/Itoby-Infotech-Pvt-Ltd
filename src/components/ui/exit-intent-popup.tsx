@@ -102,6 +102,11 @@ export const ExitIntentPopup = () => {
         },
       }).catch(() => {});
 
+      // Trigger drip campaign
+      supabase.functions.invoke("process-drip-emails", {
+        body: { trigger_event: "contact_form", recipient_email: email.trim(), recipient_name: name.trim() },
+      }).catch(() => {});
+
       setIsSuccess(true);
       localStorage.setItem(EXIT_POPUP_CONVERTED_KEY, "true");
       toast.success("We'll contact you shortly! 🎉");

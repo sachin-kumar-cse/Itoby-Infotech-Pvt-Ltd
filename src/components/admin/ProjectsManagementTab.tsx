@@ -55,6 +55,8 @@ export const ProjectsManagementTab = () => {
   const [form, setForm] = useState(emptyProject);
   const [techInput, setTechInput] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => { fetchProjects(); }, []);
 

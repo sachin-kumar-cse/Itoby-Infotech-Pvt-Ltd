@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -16,7 +16,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import {
-  Plus, Pencil, Trash2, FolderOpen, Eye, EyeOff, RefreshCw, X, Image,
+  Plus, Pencil, Trash2, FolderOpen, Eye, EyeOff, RefreshCw, X, Image, Upload, Loader2,
 } from "lucide-react";
 
 interface Project {
@@ -55,6 +55,8 @@ export const ProjectsManagementTab = () => {
   const [form, setForm] = useState(emptyProject);
   const [techInput, setTechInput] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => { fetchProjects(); }, []);
 
@@ -105,6 +107,42 @@ export const ProjectsManagementTab = () => {
 
   const removeTech = (t: string) => {
     setForm({ ...form, tech: form.tech.filter(x => x !== t) });
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image file");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("Image must be less than 5MB");
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      const ext = file.name.split(".").pop();
+      const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${ext}`;
+      const { error } = await supabase.storage
+        .from("project-images")
+        .upload(fileName, file, { upsert: true });
+      if (error) throw error;
+
+      const { data: urlData } = supabase.storage
+        .from("project-images")
+        .getPublicUrl(fileName);
+
+      setForm({ ...form, image: urlData.publicUrl });
+      toast.success("Image uploaded successfully");
+    } catch (err: any) {
+      toast.error(err.message || "Failed to upload image");
+    } finally {
+      setIsUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
   };
 
   const handleSave = async (e: React.FormEvent) => {
@@ -357,11 +395,62 @@ export const ProjectsManagementTab = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label>Image URL</Label>
+                <Label>Project Image</Label>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                />
+                {form.image ? (
+                  <div className="relative group">
+                    <img
+                      src={form.image}
+                      alt="Preview"
+                      className="w-full h-32 rounded-lg object-cover border border-border/50"
+                    />
+                    <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center gap-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={isUploading}
+                      >
+                        {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
+                        Replace
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setForm({ ...form, image: "" })}
+                      >
+                        <X className="w-4 h-4" /> Remove
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={isUploading}
+                    className="w-full h-32 rounded-lg border-2 border-dashed border-border/50 hover:border-primary/50 transition-colors flex flex-col items-center justify-center gap-2 text-muted-foreground hover:text-foreground"
+                  >
+                    {isUploading ? (
+                      <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                    ) : (
+                      <Upload className="w-6 h-6" />
+                    )}
+                    <span className="text-sm">{isUploading ? "Uploading..." : "Click to upload image"}</span>
+                  </button>
+                )}
                 <Input
                   value={form.image}
                   onChange={(e) => setForm({ ...form, image: e.target.value })}
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="Or paste image URL"
+                  className="text-xs"
                 />
               </div>
               <div className="space-y-2">

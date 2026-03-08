@@ -5,6 +5,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Globe, Smartphone, TrendingUp, Code2, Cloud, ArrowRight, Sparkles, CheckCircle } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { ServiceComparisonSection } from "@/components/sections/ServiceComparisonSection";
 
 const services = [
   {

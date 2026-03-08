@@ -64,8 +64,8 @@ export const BlogManagementTab = () => {
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [formData, setFormData] = useState(emptyPost);
   const [isSaving, setIsSaving] = useState(false);
-
-  useEffect(() => {
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
     fetchPosts();
   }, []);
 

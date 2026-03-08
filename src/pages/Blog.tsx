@@ -110,21 +110,42 @@ const Blog = () => {
               development, digital marketing, and real-world case studies.
             </p>
 
-            {/* Search - Glassmorphism */}
+            {/* Search + RSS */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="relative max-w-md mx-auto"
+              className="flex gap-3 items-center max-w-lg mx-auto"
             >
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
-              <Input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 h-12 bg-card/50 backdrop-blur-xl border-border/50 rounded-xl"
-              />
+              <div className="relative flex-1">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+                <Input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 h-12 bg-card/50 backdrop-blur-xl border-border/50 rounded-xl"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+              <motion.a
+                href={rssUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="shrink-0 w-12 h-12 rounded-xl bg-card/50 backdrop-blur-xl border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+                title="RSS Feed"
+              >
+                <Rss size={20} />
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

@@ -187,21 +187,33 @@ const Blog = () => {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center gap-3 mb-12 p-4 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 max-w-fit mx-auto"
           >
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedCategory === category
-                    ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
-                    : "bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`}
-              >
-                {category}
-              </motion.button>
-            ))}
+            {categories.map((category) => {
+              const count = category === "All" ? posts.length : posts.filter(p => p.category === category).length;
+              return (
+                <motion.button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
+                    selectedCategory === category
+                      ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+                      : "bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
+                >
+                  {category}
+                  {count > 0 && (
+                    <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                      selectedCategory === category
+                        ? "bg-primary-foreground/20 text-primary-foreground"
+                        : "bg-muted-foreground/20 text-muted-foreground"
+                    }`}>
+                      {count}
+                    </span>
+                  )}
+                </motion.button>
+              );
+            })}
           </motion.div>
 
           {/* Posts */}

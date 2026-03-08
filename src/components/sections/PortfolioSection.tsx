@@ -134,26 +134,38 @@ export const PortfolioSection = () => {
           </p>
         </motion.div>
 
-        {/* Filters */}
+        {/* Filters with count badges */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-12 p-4 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 max-w-fit mx-auto"
         >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(75_100%_50%/0.3)]"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+          {categories.map((category) => {
+            const count = category === "All" ? allProjects.length : allProjects.filter(p => p.category === category).length;
+            return (
+              <motion.button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
+                  activeCategory === category
+                    ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+                    : "bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                {category}
+                <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                  activeCategory === category
+                    ? "bg-primary-foreground/20 text-primary-foreground"
+                    : "bg-muted-foreground/20 text-muted-foreground"
+                }`}>
+                  {count}
+                </span>
+              </motion.button>
+            );
+          })}
         </motion.div>
 
         {/* Projects Grid */}
@@ -172,20 +184,21 @@ export const PortfolioSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
               >
                 <Link
                   to={`/portfolio/${project.slug}`}
-                  className="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300"
+                  className="group block rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/50 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)] transition-all duration-500"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <ArrowUpRight className="text-primary-foreground" size={24} />
                     </div>
                   </div>
@@ -193,7 +206,7 @@ export const PortfolioSection = () => {
                     <span className="text-primary text-sm font-medium">
                       {project.category}
                     </span>
-                    <h3 className="font-display text-xl font-bold mt-2 mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-display text-xl font-bold mt-2 mb-2 group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
                     <p className="text-muted-foreground text-sm">

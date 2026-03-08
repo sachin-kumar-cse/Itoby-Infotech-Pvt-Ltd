@@ -434,6 +434,8 @@ const AdminDashboard = () => {
               { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
               { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+              { id: "blog-mgmt", label: "Blog CMS", icon: FileText },
+              { id: "jobs-mgmt", label: "Job Postings", icon: Briefcase },
               { id: "subscribers", label: "Subscribers", icon: Newspaper },
               { id: "analytics", label: "Analytics", icon: BarChart3 },
               { id: "web-analytics", label: "Web Analytics", icon: Globe },

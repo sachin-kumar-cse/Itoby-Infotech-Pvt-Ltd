@@ -391,14 +391,48 @@ export const BlogManagementTab = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
-                <Label>Image URL</Label>
+              <div className="space-y-2 sm:col-span-2">
+                <Label>Image</Label>
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageUpload}
+                />
+                {formData.image ? (
+                  <div className="relative group w-full h-40 rounded-lg overflow-hidden border border-border/50">
+                    <img src={formData.image} alt="Preview" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                      <Button type="button" size="sm" variant="secondary" onClick={() => fileInputRef.current?.click()} disabled={isUploading}>
+                        {isUploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
+                        Replace
+                      </Button>
+                      <Button type="button" size="sm" variant="destructive" onClick={() => setFormData({ ...formData, image: "" })}>
+                        <X className="w-4 h-4" /> Remove
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => !isUploading && fileInputRef.current?.click()}
+                    className="w-full h-40 rounded-lg border-2 border-dashed border-border/50 hover:border-primary/50 transition-colors flex flex-col items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {isUploading ? (
+                      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                    ) : (
+                      <>
+                        <Image className="w-8 h-8 text-muted-foreground" />
+                        <span className="text-sm text-muted-foreground">Click to upload image</span>
+                      </>
+                    )}
+                  </div>
+                )}
                 <Input
                   value={formData.image}
-                  onChange={(e) =>
-                    setFormData({ ...formData, image: e.target.value })
-                  }
-                  placeholder="https://images.unsplash.com/..."
+                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  placeholder="Or paste image URL..."
+                  className="mt-1 text-xs"
                 />
               </div>
             </div>

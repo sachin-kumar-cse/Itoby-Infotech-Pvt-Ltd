@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { BlogGridSkeleton } from "@/components/ui/skeleton-cards";
 import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
-import { Calendar, ArrowRight, Search, Clock, TrendingUp, Sparkles, BookOpen } from "lucide-react";
+import { Calendar, ArrowRight, Search, Clock, TrendingUp, Sparkles, BookOpen, Rss, Tag, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 
-const categories = ["All", "Design", "Development", "SEO", "Marketing", "Technology", "Case Study"];
+// Categories are now dynamically extracted from posts
 
 interface BlogPost {
   id: string;
@@ -57,6 +57,12 @@ const Blog = () => {
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
+  // Extract unique categories from actual posts
+  const dynamicCategories = useMemo(() => {
+    const cats = [...new Set(posts.map(p => p.category))];
+    return ["All", ...cats.sort()];
+  }, [posts]);
+
   const filteredPosts = posts.filter(post => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -65,6 +71,11 @@ const Blog = () => {
   });
 
   const featuredPosts = posts.filter(post => post.featured);
+
+  const rssUrl = `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/rss-feed`;
+
+  const hasActiveFilters = selectedCategory !== "All" || searchQuery.length > 0;
+  const clearFilters = () => { setSelectedCategory("All"); setSearchQuery(""); };
 
   return (
     <Layout>
@@ -99,21 +110,42 @@ const Blog = () => {
               development, digital marketing, and real-world case studies.
             </p>
 
-            {/* Search - Glassmorphism */}
+            {/* Search + RSS */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="relative max-w-md mx-auto"
+              className="flex gap-3 items-center max-w-lg mx-auto"
             >
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
-              <Input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 h-12 bg-card/50 backdrop-blur-xl border-border/50 rounded-xl"
-              />
+              <div className="relative flex-1">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+                <Input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 h-12 bg-card/50 backdrop-blur-xl border-border/50 rounded-xl"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground"
+                  >
+                    <X size={14} />
+                  </button>
+                )}
+              </div>
+              <motion.a
+                href={rssUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="shrink-0 w-12 h-12 rounded-xl bg-card/50 backdrop-blur-xl border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+                title="RSS Feed"
+              >
+                <Rss size={20} />
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>
@@ -180,40 +212,78 @@ const Blog = () => {
       <section className="section-padding relative overflow-hidden">
         <div className="absolute top-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
         <div className="container-wide relative z-10">
-          {/* Categories - Glassmorphism filter bar */}
+          {/* Categories with active filter chips */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-3 mb-12 p-4 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 max-w-fit mx-auto"
+            className="mb-12"
           >
-            {categories.map((category) => {
-              const count = category === "All" ? posts.length : posts.filter(p => p.category === category).length;
-              return (
-                <motion.button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
-                    selectedCategory === category
-                      ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
-                      : "bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  }`}
-                >
-                  {category}
-                  {count > 0 && (
-                    <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+            <div className="flex items-center gap-2 mb-4">
+              <Tag className="text-primary" size={16} />
+              <span className="text-sm font-medium text-muted-foreground">Filter by category</span>
+            </div>
+            <div className="flex flex-wrap gap-3 p-4 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30">
+              {dynamicCategories.map((category) => {
+                const count = category === "All" ? posts.length : posts.filter(p => p.category === category).length;
+                return (
+                  <motion.button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`px-5 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 ${
                       selectedCategory === category
-                        ? "bg-primary-foreground/20 text-primary-foreground"
-                        : "bg-muted-foreground/20 text-muted-foreground"
-                    }`}>
-                      {count}
-                    </span>
-                  )}
-                </motion.button>
-              );
-            })}
+                        ? "bg-primary text-primary-foreground shadow-[0_0_20px_hsl(var(--primary)/0.3)]"
+                        : "bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
+                  >
+                    {category}
+                    {count > 0 && (
+                      <span className={`text-xs px-1.5 py-0.5 rounded-full ${
+                        selectedCategory === category
+                          ? "bg-primary-foreground/20 text-primary-foreground"
+                          : "bg-muted-foreground/20 text-muted-foreground"
+                      }`}>
+                        {count}
+                      </span>
+                    )}
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            {/* Active filters summary */}
+            {hasActiveFilters && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                className="flex items-center gap-3 mt-4 flex-wrap"
+              >
+                <span className="text-sm text-muted-foreground">
+                  {filteredPosts.length} {filteredPosts.length === 1 ? "result" : "results"}
+                </span>
+                {selectedCategory !== "All" && (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20">
+                    {selectedCategory}
+                    <button onClick={() => setSelectedCategory("All")} className="hover:text-primary-foreground">
+                      <X size={12} />
+                    </button>
+                  </span>
+                )}
+                {searchQuery && (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20">
+                    "{searchQuery}"
+                    <button onClick={() => setSearchQuery("")} className="hover:text-primary-foreground">
+                      <X size={12} />
+                    </button>
+                  </span>
+                )}
+                <button onClick={clearFilters} className="text-xs text-muted-foreground hover:text-primary underline">
+                  Clear all
+                </button>
+              </motion.div>
+            )}
           </motion.div>
 
           {/* Posts */}

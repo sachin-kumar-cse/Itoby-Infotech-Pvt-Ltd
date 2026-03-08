@@ -38,6 +38,7 @@ import KaspereyeSecurity from "./pages/portfolio/KaspereyeSecurity";
 import FreightXpress from "./pages/portfolio/FreightXpress";
 import RainfraStudio from "./pages/portfolio/RainfraStudio";
 import Easy2Buy from "./pages/portfolio/Easy2Buy";
+import DynamicPortfolio from "./pages/portfolio/DynamicPortfolio";
 
 const queryClient = new QueryClient();
 

@@ -9,6 +9,7 @@ import { toast } from "sonner";
 
 const EXIT_POPUP_DISMISSED_KEY = "itoby-exit-popup-dismissed";
 const EXIT_POPUP_CONVERTED_KEY = "itoby-exit-popup-converted";
+const EXIT_POPUP_SHOWN_TODAY_KEY = "itoby-exit-popup-shown-date";
 
 export const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);

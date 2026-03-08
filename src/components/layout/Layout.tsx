@@ -33,6 +33,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <WhatsAppButton />
       <AIChatbot />
+      <NewsletterPopup />
       <BackToTop />
     </div>
   );

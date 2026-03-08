@@ -1149,6 +1149,9 @@ const AdminDashboard = () => {
               </motion.div>
             )}
 
+            {/* Web Analytics Tab */}
+            {activeTab === "web-analytics" && <WebAnalyticsTab />}
+
             {/* Profile Tab */}
             {activeTab === "profile" && (
               <motion.div

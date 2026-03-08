@@ -223,11 +223,12 @@ const Blog = () => {
                       className="group block rounded-3xl overflow-hidden bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)] h-full"
                     >
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
                         <div className="absolute top-4 left-4">
                           <Badge className="bg-primary/90 backdrop-blur-sm border-none">{post.category}</Badge>

@@ -168,7 +168,7 @@ const BlogPost = () => {
               />
 
               {/* Sidebar */}
-              <aside className="space-y-6">
+              <aside className="space-y-6 order-first lg:order-last">
                 {/* Author Card */}
                 <Card className="bg-card border-border sticky top-24">
                   <CardContent className="p-6">

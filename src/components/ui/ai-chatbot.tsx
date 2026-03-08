@@ -300,7 +300,7 @@ export const AIChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-120px)] rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-border/50 bg-card/80 backdrop-blur-xl"
+            className="fixed bottom-24 right-6 z-[60] w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-120px)] rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-border/50 bg-card/80 backdrop-blur-xl"
           >
             {/* Header with glassmorphism */}
             <div className="px-4 py-3 border-b border-border/30 bg-card/60 backdrop-blur-md flex items-center justify-between shrink-0 relative overflow-hidden">

@@ -1,10 +1,12 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Code, Globe, Smartphone, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+
+const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];
 
 const stats = [
   { value: 100, suffix: "+", label: "Projects Delivered" },

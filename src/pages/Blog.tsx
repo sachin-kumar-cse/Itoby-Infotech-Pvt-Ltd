@@ -57,6 +57,12 @@ const Blog = () => {
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
+  // Extract unique categories from actual posts
+  const dynamicCategories = useMemo(() => {
+    const cats = [...new Set(posts.map(p => p.category))];
+    return ["All", ...cats.sort()];
+  }, [posts]);
+
   const filteredPosts = posts.filter(post => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -65,6 +71,11 @@ const Blog = () => {
   });
 
   const featuredPosts = posts.filter(post => post.featured);
+
+  const rssUrl = `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/rss-feed`;
+
+  const hasActiveFilters = selectedCategory !== "All" || searchQuery.length > 0;
+  const clearFilters = () => { setSelectedCategory("All"); setSearchQuery(""); };
 
   return (
     <Layout>

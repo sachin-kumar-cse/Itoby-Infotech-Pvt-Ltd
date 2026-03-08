@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BlogGridSkeleton } from "@/components/ui/skeleton-cards";
 import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";

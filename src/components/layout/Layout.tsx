@@ -21,6 +21,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
+      <ScrollProgress />
       <CursorGlow />
       <Header />
       <main className="flex-1">

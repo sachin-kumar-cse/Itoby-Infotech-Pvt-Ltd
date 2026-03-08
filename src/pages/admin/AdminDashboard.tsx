@@ -36,6 +36,7 @@ import {
   IndianRupee,
   BarChart3,
   Newspaper,
+  Globe,
 } from "lucide-react";
 import {
   AreaChart,
@@ -58,7 +59,7 @@ import {
 } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SubscribersTab } from "@/components/admin/SubscribersTab";
-
+import { WebAnalyticsTab } from "@/components/admin/WebAnalyticsTab";
 interface ContactSubmission {
   id: string;
   name: string;
@@ -433,6 +434,7 @@ const AdminDashboard = () => {
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
               { id: "subscribers", label: "Subscribers", icon: Newspaper },
               { id: "analytics", label: "Analytics", icon: BarChart3 },
+              { id: "web-analytics", label: "Web Analytics", icon: Globe },
               { id: "profile", label: "Profile", icon: User },
             ].map((item, index) => (
               <motion.button
@@ -518,6 +520,7 @@ const AdminDashboard = () => {
               { id: "applications", label: "Jobs", icon: Briefcase },
               { id: "subscribers", label: "Subs", icon: Newspaper },
               { id: "analytics", label: "Charts", icon: BarChart3 },
+              { id: "web-analytics", label: "Web", icon: Globe },
               { id: "profile", label: "Profile", icon: User },
             ].map((item) => (
               <Button
@@ -552,6 +555,7 @@ const AdminDashboard = () => {
                 {activeTab === "applications" && "Job Applications"}
                 {activeTab === "subscribers" && "Newsletter Subscribers"}
                 {activeTab === "analytics" && "Analytics"}
+                {activeTab === "web-analytics" && "Website Analytics"}
                 {activeTab === "profile" && "Profile Settings"}
               </h1>
               <p className="text-muted-foreground">
@@ -561,6 +565,7 @@ const AdminDashboard = () => {
                 {activeTab === "applications" && "Review and process job applications."}
                 {activeTab === "subscribers" && "View and manage newsletter email subscribers."}
                 {activeTab === "analytics" && "Visualize submission trends and insights."}
+                {activeTab === "web-analytics" && "Monitor website traffic via Google Analytics."}
                 {activeTab === "profile" && "Manage your account settings."}
               </p>
             </div>
@@ -1143,6 +1148,9 @@ const AdminDashboard = () => {
                 </motion.div>
               </motion.div>
             )}
+
+            {/* Web Analytics Tab */}
+            {activeTab === "web-analytics" && <WebAnalyticsTab />}
 
             {/* Profile Tab */}
             {activeTab === "profile" && (

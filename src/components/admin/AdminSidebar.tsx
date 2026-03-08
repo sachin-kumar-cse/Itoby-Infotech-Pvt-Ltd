@@ -19,6 +19,7 @@ import {
   ChevronLeft,
   ChevronRight,
   PanelLeft,
+  FolderOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";

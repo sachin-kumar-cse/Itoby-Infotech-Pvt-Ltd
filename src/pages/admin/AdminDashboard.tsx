@@ -565,6 +565,7 @@ const AdminDashboard = () => {
                 {activeTab === "applications" && "Review and process job applications."}
                 {activeTab === "subscribers" && "View and manage newsletter email subscribers."}
                 {activeTab === "analytics" && "Visualize submission trends and insights."}
+                {activeTab === "web-analytics" && "Monitor website traffic via Google Analytics."}
                 {activeTab === "profile" && "Manage your account settings."}
               </p>
             </div>

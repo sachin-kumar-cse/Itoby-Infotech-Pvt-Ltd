@@ -28,6 +28,7 @@ import { AnalyticsTab } from "@/components/admin/AnalyticsTab";
 import { BlogManagementTab } from "@/components/admin/BlogManagementTab";
 import { JobsManagementTab } from "@/components/admin/JobsManagementTab";
 import { ProjectsManagementTab } from "@/components/admin/ProjectsManagementTab";
+import { DripCampaignTab } from "@/components/admin/DripCampaignTab";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AdminMobileNav } from "@/components/admin/AdminMobileNav";
 import { cn } from "@/lib/utils";

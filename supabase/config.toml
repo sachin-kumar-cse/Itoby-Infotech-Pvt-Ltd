@@ -2,3 +2,6 @@ project_id = "uvpxfbucgcpsjwahmvjy"
 
 [functions.chat]
 verify_jwt = false
+
+[functions.generate-sitemap]
+verify_jwt = false

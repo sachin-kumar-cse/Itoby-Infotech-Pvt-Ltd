@@ -546,49 +546,7 @@ const AdminDashboard = () => {
 
             {/* Analytics Tab */}
             {activeTab === "analytics" && (
-              <motion.div key="analytics" variants={containerVariants} initial="hidden" animate="visible" exit={{ opacity: 0, y: -20 }} className="space-y-6">
-                <motion.div variants={itemVariants}>
-                  <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-                    <CardHeader><CardTitle className="flex items-center gap-2"><TrendingUp className="w-5 h-5 text-primary" />Submissions Over Last 7 Days</CardTitle></CardHeader>
-                    <CardContent>
-                      <div className="h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <AreaChart data={chartData}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                            <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                            <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} allowDecimals={false} />
-                            <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "0.75rem", color: "hsl(var(--foreground))" }} />
-                            <Area type="monotone" dataKey="contacts" stackId="1" stroke="hsl(200, 80%, 50%)" fill="hsl(200, 80%, 50%)" fillOpacity={0.3} name="Contacts" />
-                            <Area type="monotone" dataKey="quotes" stackId="1" stroke="hsl(270, 70%, 60%)" fill="hsl(270, 70%, 60%)" fillOpacity={0.3} name="Quotes" />
-                            <Area type="monotone" dataKey="applications" stackId="1" stroke="hsl(150, 70%, 45%)" fill="hsl(150, 70%, 45%)" fillOpacity={0.3} name="Applications" />
-                          </AreaChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                  <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-                    <CardHeader><CardTitle className="flex items-center gap-2"><BarChart3 className="w-5 h-5 text-primary" />Service Inquiry Distribution</CardTitle></CardHeader>
-                    <CardContent>
-                      {serviceDistribution.length > 0 ? (
-                        <div className="h-[300px]">
-                          <ResponsiveContainer width="100%" height="100%">
-                            <PieChart>
-                              <Pie data={serviceDistribution} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}>
-                                {serviceDistribution.map((_, index) => <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />)}
-                              </Pie>
-                              <Tooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "0.75rem", color: "hsl(var(--foreground))" }} />
-                            </PieChart>
-                          </ResponsiveContainer>
-                        </div>
-                      ) : (
-                        <div className="text-center py-12 text-muted-foreground"><BarChart3 className="w-10 h-10 mx-auto mb-2 opacity-50" /><p>No data available yet</p></div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </motion.div>
+              <AnalyticsTab contacts={contacts} applications={applications} quotes={quotes} />
             )}
 
             {/* Profile Tab */}

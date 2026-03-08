@@ -8,9 +8,9 @@ interface AnimatedIconProps {
   hoverEffect?: "bounce" | "spin" | "pulse" | "wiggle";
 }
 
-const hoverAnimations = {
-  bounce: { y: [0, -8, 0], transition: { duration: 0.5, ease: "easeOut" } },
-  spin: { rotate: 360, transition: { duration: 0.6, ease: "easeInOut" } },
+const hoverAnimations: Record<string, object> = {
+  bounce: { y: [0, -8, 0], transition: { duration: 0.5 } },
+  spin: { rotate: 360, transition: { duration: 0.6 } },
   pulse: { scale: [1, 1.2, 1], transition: { duration: 0.4 } },
   wiggle: { rotate: [0, -10, 10, -10, 0], transition: { duration: 0.5 } },
 };
@@ -23,7 +23,7 @@ export const AnimatedIcon = ({
 }: AnimatedIconProps) => {
   return (
     <motion.div
-      whileHover={hoverAnimations[hoverEffect]}
+      whileHover={hoverAnimations[hoverEffect] as any}
       className={`inline-flex items-center justify-center ${className}`}
     >
       <Icon size={size} />
@@ -49,53 +49,11 @@ export const FloatingElement = ({
   return (
     <motion.div
       animate={{ y: [-distance, distance, -distance] }}
-      transition={{ duration, repeat: Infinity, delay, ease: "easeInOut" }}
+      transition={{ duration, repeat: Infinity, delay, ease: "easeInOut" as const }}
       className={className}
     >
       {children}
     </motion.div>
-  );
-};
-
-interface CountUpProps {
-  end: number;
-  duration?: number;
-  suffix?: string;
-  prefix?: string;
-  className?: string;
-}
-
-export const CountUp = ({
-  end,
-  duration = 2,
-  suffix = "",
-  prefix = "",
-  className = "",
-}: CountUpProps) => {
-  return (
-    <motion.span
-      className={className}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
-      <motion.span
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        {prefix}
-        <motion.span
-          initial={0}
-          whileInView={end}
-          viewport={{ once: true }}
-          transition={{ duration, ease: "easeOut" }}
-        >
-          {end}
-        </motion.span>
-        {suffix}
-      </motion.span>
-    </motion.span>
   );
 };
 
@@ -115,7 +73,7 @@ export const MorphingShape = ({ className = "" }: MorphingShapeProps) => {
         ],
         scale: [1, 1.1, 1],
       }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" as const }}
     />
   );
 };

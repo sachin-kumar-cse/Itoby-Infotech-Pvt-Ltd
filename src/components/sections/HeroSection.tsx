@@ -81,7 +81,7 @@ export const HeroSection = () => {
             opacity: [0.3, 0.5, 0.3] 
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-primary/30 to-transparent blur-[120px]"
+          className="absolute -top-1/2 -left-1/4 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-gradient-to-br from-primary/30 to-transparent blur-[80px] sm:blur-[120px]"
         />
         <motion.div
           animate={{ 
@@ -90,21 +90,21 @@ export const HeroSection = () => {
             opacity: [0.2, 0.4, 0.2] 
           }}
           transition={{ duration: 20, repeat: Infinity, delay: 2, ease: "easeInOut" }}
-          className="absolute -bottom-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-gradient-to-tl from-glow-secondary/30 to-transparent blur-[120px]"
+          className="absolute -bottom-1/2 -right-1/4 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-gradient-to-tl from-glow-secondary/30 to-transparent blur-[80px] sm:blur-[120px]"
         />
-        {/* Additional moving gradient */}
+        {/* Additional moving gradient - hidden on mobile for performance */}
         <motion.div
           animate={{ 
             x: ["-20%", "20%", "-20%"],
             y: ["-10%", "10%", "-10%"],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[100px]"
+          className="absolute top-1/3 left-1/3 w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] rounded-full bg-primary/10 blur-[60px] sm:blur-[100px] hidden sm:block"
         />
       </div>
 
-      {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
+      {/* Floating Particles - fewer on mobile */}
+      {[...Array(8)].map((_, i) => (
         <motion.div
           key={i}
           initial={{ opacity: 0 }}
@@ -119,7 +119,7 @@ export const HeroSection = () => {
             delay: Math.random() * 3,
             ease: "easeOut",
           }}
-          className="absolute w-1 h-1 rounded-full bg-primary/50"
+          className="absolute w-1 h-1 rounded-full bg-primary/50 hidden sm:block"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${60 + Math.random() * 40}%`,

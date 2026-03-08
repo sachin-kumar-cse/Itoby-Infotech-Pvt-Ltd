@@ -153,7 +153,7 @@ const BlogPost = () => {
       <section className="pb-20">
         <div className="container-wide">
           <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-[1fr_280px] gap-12">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8 lg:gap-12">
               {/* Main Content */}
               <motion.article
                 initial={{ opacity: 0, y: 20 }}
@@ -168,7 +168,7 @@ const BlogPost = () => {
               />
 
               {/* Sidebar */}
-              <aside className="space-y-6">
+              <aside className="space-y-6 order-first lg:order-last">
                 {/* Author Card */}
                 <Card className="bg-card border-border sticky top-24">
                   <CardContent className="p-6">
@@ -222,7 +222,7 @@ const BlogPost = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <h2 className="font-display text-2xl font-bold mb-8">Related Articles</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {relatedPosts.map((relPost) => (
                 <Link
                   key={relPost.id}

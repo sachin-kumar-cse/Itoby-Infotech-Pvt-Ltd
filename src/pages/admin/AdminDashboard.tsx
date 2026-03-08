@@ -90,16 +90,17 @@ const AdminDashboard = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [isUpdatingPassword, setIsUpdatingPassword] = useState(false);
 
-  useEffect(() => { checkAuth(); fetchData(); }, []);
+  useEffect(() => { checkAuthAndFetch(); }, []);
 
-  const checkAuth = async () => {
+  const checkAuthAndFetch = async () => {
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) { navigate("/admin"); return; }
     setUserEmail(session.user.email || "");
     const { data: roleData } = await supabase
       .from('user_roles').select('role')
       .eq('user_id', session.user.id).eq('role', 'admin').maybeSingle();
-    if (!roleData) { await supabase.auth.signOut(); navigate("/admin"); }
+    if (!roleData) { await supabase.auth.signOut(); navigate("/admin"); return; }
+    fetchData();
   };
 
   const fetchData = async () => {

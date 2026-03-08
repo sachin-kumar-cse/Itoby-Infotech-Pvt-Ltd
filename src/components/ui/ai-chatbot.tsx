@@ -269,33 +269,26 @@ export const AIChatbot = () => {
       {/* Chat Toggle Button with unread badge */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOpen(true)}
-            className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center relative group"
+            className="fixed bottom-24 right-6 z-[60]"
           >
-            <Bot className="w-6 h-6" />
-            {/* Pulse ring */}
-            <span className="absolute inset-0 rounded-full bg-primary/30 animate-ping" />
+            <button
+              onClick={() => setIsOpen(true)}
+              className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center relative hover:scale-110 active:scale-95 transition-transform"
+            >
+              <Bot className="w-6 h-6 relative z-10" />
 
-            {/* Unread badge */}
-            <AnimatePresence>
+              {/* Unread badge */}
               {unreadCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
-                  className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs font-bold flex items-center justify-center"
-                >
+                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs font-bold flex items-center justify-center z-20">
                   {unreadCount}
-                </motion.span>
+                </span>
               )}
-            </AnimatePresence>
-          </motion.button>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 

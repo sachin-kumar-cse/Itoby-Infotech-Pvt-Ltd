@@ -269,33 +269,26 @@ export const AIChatbot = () => {
       {/* Chat Toggle Button with unread badge */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOpen(true)}
-            className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center relative group"
+            className="fixed bottom-24 right-6 z-[60]"
           >
-            <Bot className="w-6 h-6" />
-            {/* Pulse ring */}
-            <span className="absolute inset-0 rounded-full bg-primary/30 animate-ping" />
+            <button
+              onClick={() => setIsOpen(true)}
+              className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center relative hover:scale-110 active:scale-95 transition-transform"
+            >
+              <Bot className="w-6 h-6 relative z-10" />
 
-            {/* Unread badge */}
-            <AnimatePresence>
+              {/* Unread badge */}
               {unreadCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0 }}
-                  className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs font-bold flex items-center justify-center"
-                >
+                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-destructive text-destructive-foreground text-xs font-bold flex items-center justify-center z-20">
                   {unreadCount}
-                </motion.span>
+                </span>
               )}
-            </AnimatePresence>
-          </motion.button>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -307,7 +300,7 @@ export const AIChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-120px)] rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-border/50 bg-card/80 backdrop-blur-xl"
+            className="fixed bottom-24 right-6 z-[60] w-[380px] max-w-[calc(100vw-48px)] h-[520px] max-h-[calc(100vh-120px)] rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-border/50 bg-card/80 backdrop-blur-xl"
           >
             {/* Header with glassmorphism */}
             <div className="px-4 py-3 border-b border-border/30 bg-card/60 backdrop-blur-md flex items-center justify-between shrink-0 relative overflow-hidden">

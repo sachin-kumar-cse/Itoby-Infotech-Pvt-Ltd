@@ -8,6 +8,7 @@ import { toast } from "sonner";
 
 const POPUP_DISMISSED_KEY = "itoby-newsletter-dismissed";
 const POPUP_SUBSCRIBED_KEY = "itoby-newsletter-subscribed";
+const POPUP_SHOWN_TODAY_KEY = "itoby-newsletter-shown-date";
 const POPUP_DELAY_MS = 15000; // 15 seconds
 
 export const NewsletterPopup = () => {

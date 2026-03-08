@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/rainfra-architecture.jpg";
-import luxeImage from "@/assets/portfolio/luxe-fashion.jpg";
-import kaspereyeImage from "@/assets/portfolio/kaspereye-security.jpg";
+import heroImage from "@/assets/portfolio/rainfra-architecture.webp";
+import luxeImage from "@/assets/portfolio/luxe-fashion.webp";
+import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 
 const caseStudy = {
   title: "RA Infra Studio – Architecture Portfolio",

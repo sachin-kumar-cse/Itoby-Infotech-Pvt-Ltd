@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/restaurant-marketing.jpg";
-import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.jpg";
-import retailImage from "@/assets/portfolio/retail-m365.jpg";
+import heroImage from "@/assets/portfolio/restaurant-marketing.webp";
+import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.webp";
+import retailImage from "@/assets/portfolio/retail-m365.webp";
 
 const caseStudy = {
   title: "Local Restaurant Chain",

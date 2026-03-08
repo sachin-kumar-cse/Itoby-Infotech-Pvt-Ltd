@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/techflow-saas.jpg";
-import luxeFashionImage from "@/assets/portfolio/luxe-fashion.jpg";
-import fittrackImage from "@/assets/portfolio/fittrack-app.jpg";
+import heroImage from "@/assets/portfolio/techflow-saas.webp";
+import luxeFashionImage from "@/assets/portfolio/luxe-fashion.webp";
+import fittrackImage from "@/assets/portfolio/fittrack-app.webp";
 
 const caseStudy = {
   title: "TechFlow SaaS Platform",

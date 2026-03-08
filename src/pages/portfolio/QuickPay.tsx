@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/quickpay-fintech.jpg";
-import fittrackImage from "@/assets/portfolio/fittrack-app.jpg";
-import manufacturingImage from "@/assets/portfolio/manufacturing-erp.jpg";
+import heroImage from "@/assets/portfolio/quickpay-fintech.webp";
+import fittrackImage from "@/assets/portfolio/fittrack-app.webp";
+import manufacturingImage from "@/assets/portfolio/manufacturing-erp.webp";
 
 const caseStudy = {
   title: "QuickPay Fintech App",

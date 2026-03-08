@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/healthcare-portal.jpg";
-import manufacturingImage from "@/assets/portfolio/manufacturing-erp.jpg";
-import lawFirmImage from "@/assets/portfolio/law-firm-m365.jpg";
+import heroImage from "@/assets/portfolio/healthcare-portal.webp";
+import manufacturingImage from "@/assets/portfolio/manufacturing-erp.webp";
+import lawFirmImage from "@/assets/portfolio/law-firm-m365.webp";
 
 const caseStudy = {
   title: "Healthcare Patient Portal",

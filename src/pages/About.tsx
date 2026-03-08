@@ -8,7 +8,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { TechStackSection } from "@/components/sections/TechStackSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import aboutTeam from "@/assets/about-team.jpg";
+import aboutTeam from "@/assets/about-team.webp";
 
 const whyChooseUs = [
   { icon: Zap, title: "Transparent Process", description: "Clear communication and regular updates throughout the project lifecycle.", color: "from-yellow-500/20 to-amber-500/20" },

@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/manufacturing-erp.jpg";
-import healthcareImage from "@/assets/portfolio/healthcare-portal.jpg";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.jpg";
+import heroImage from "@/assets/portfolio/manufacturing-erp.webp";
+import healthcareImage from "@/assets/portfolio/healthcare-portal.webp";
+import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
 
 const caseStudy = {
   title: "Manufacturing ERP System",

@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/retail-m365.jpg";
-import lawFirmImage from "@/assets/portfolio/law-firm-m365.jpg";
-import restaurantImage from "@/assets/portfolio/restaurant-marketing.jpg";
+import heroImage from "@/assets/portfolio/retail-m365.webp";
+import lawFirmImage from "@/assets/portfolio/law-firm-m365.webp";
+import restaurantImage from "@/assets/portfolio/restaurant-marketing.webp";
 
 const caseStudy = {
   title: "Retail Chain Collaboration",

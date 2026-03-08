@@ -4,12 +4,12 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 
-import kaspereyeImg from "@/assets/portfolio/kaspereye-security.jpg";
-import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.jpg";
-import rainfraImg from "@/assets/portfolio/rainfra-architecture.jpg";
-import easy2buyImg from "@/assets/portfolio/easy2buy-ecommerce.jpg";
-import techflowImg from "@/assets/portfolio/techflow-saas.jpg";
-import fittrackImg from "@/assets/portfolio/fittrack-app.jpg";
+import kaspereyeImg from "@/assets/portfolio/kaspereye-security.webp";
+import freightxpressImg from "@/assets/portfolio/freightxpress-logistics.webp";
+import rainfraImg from "@/assets/portfolio/rainfra-architecture.webp";
+import easy2buyImg from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import techflowImg from "@/assets/portfolio/techflow-saas.webp";
+import fittrackImg from "@/assets/portfolio/fittrack-app.webp";
 
 const projects = [
   { title: "Kaspereye Security Solutions", category: "Website", description: "Premium security solutions website with smart surveillance showcase and lead generation.", image: kaspereyeImg, link: "/portfolio/kaspereye-security", tags: ["React", "Tailwind CSS", "Node.js"], results: "+180% Leads" },

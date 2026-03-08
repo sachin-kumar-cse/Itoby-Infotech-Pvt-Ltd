@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutTeam from "@/assets/about-team.jpg";
+import aboutTeam from "@/assets/about-team.webp";
 import { useRef } from "react";
 
 const features = [

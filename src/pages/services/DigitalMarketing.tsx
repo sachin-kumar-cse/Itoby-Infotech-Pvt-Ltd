@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
-import restaurantImage from "@/assets/portfolio/restaurant-marketing.jpg";
-import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.jpg";
+import restaurantImage from "@/assets/portfolio/restaurant-marketing.webp";
+import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.webp";
 import { Button } from "@/components/ui/button";
 import { 
   Search,

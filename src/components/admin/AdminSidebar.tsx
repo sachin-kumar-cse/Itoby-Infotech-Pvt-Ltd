@@ -20,6 +20,7 @@ import {
   ChevronRight,
   PanelLeft,
   FolderOpen,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -75,6 +76,7 @@ export const AdminSidebar = ({
         { id: "blog-mgmt", label: "Blog CMS", icon: FileText, group: "content" },
         { id: "jobs-mgmt", label: "Job Postings", icon: Briefcase, group: "content" },
         { id: "subscribers", label: "Subscribers", icon: Newspaper, group: "content" },
+        { id: "drip-campaigns", label: "Drip Campaigns", icon: Zap, group: "content" },
       ] as NavItem[],
     },
     {

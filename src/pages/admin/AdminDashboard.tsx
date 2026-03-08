@@ -28,6 +28,7 @@ import { AnalyticsTab } from "@/components/admin/AnalyticsTab";
 import { BlogManagementTab } from "@/components/admin/BlogManagementTab";
 import { JobsManagementTab } from "@/components/admin/JobsManagementTab";
 import { ProjectsManagementTab } from "@/components/admin/ProjectsManagementTab";
+import { DripCampaignTab } from "@/components/admin/DripCampaignTab";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AdminMobileNav } from "@/components/admin/AdminMobileNav";
 import { cn } from "@/lib/utils";
@@ -65,6 +66,7 @@ const tabMeta: Record<string, { title: string; desc: string }> = {
   "projects-mgmt": { title: "Portfolio Projects", desc: "Add and manage portfolio case studies." },
   "jobs-mgmt": { title: "Job Postings", desc: "Manage career listings and job openings." },
   subscribers: { title: "Newsletter Subscribers", desc: "View and manage newsletter subscribers." },
+  "drip-campaigns": { title: "Drip Campaigns", desc: "Create and manage automated email sequences." },
   analytics: { title: "Analytics", desc: "Visualize submission trends and insights." },
   "web-analytics": { title: "Website Analytics", desc: "Monitor website traffic via Google Analytics." },
   profile: { title: "Profile Settings", desc: "Manage your account settings." },
@@ -543,6 +545,11 @@ const AdminDashboard = () => {
             {activeTab === "projects-mgmt" && <ProjectsManagementTab />}
             {activeTab === "jobs-mgmt" && <JobsManagementTab />}
             {activeTab === "web-analytics" && <WebAnalyticsTab />}
+
+            {/* Drip Campaigns Tab */}
+            {activeTab === "drip-campaigns" && (
+              <DripCampaignTab />
+            )}
 
             {/* Analytics Tab */}
             {activeTab === "analytics" && (

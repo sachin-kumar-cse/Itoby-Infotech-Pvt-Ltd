@@ -222,7 +222,7 @@ const BlogPost = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <h2 className="font-display text-2xl font-bold mb-8">Related Articles</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {relatedPosts.map((relPost) => (
                 <Link
                   key={relPost.id}

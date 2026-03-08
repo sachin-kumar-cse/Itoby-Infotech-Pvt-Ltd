@@ -118,10 +118,10 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="absolute -bottom-6 -right-6 w-36 h-36 rounded-2xl bg-card/80 backdrop-blur-xl border border-border/50 flex flex-col items-center justify-center shadow-2xl"
+                className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-28 h-28 sm:w-36 sm:h-36 rounded-2xl bg-card/80 backdrop-blur-xl border border-border/50 flex flex-col items-center justify-center shadow-2xl"
               >
-                <span className="text-3xl font-display font-bold text-primary">11+</span>
-                <span className="text-sm text-muted-foreground">Years</span>
+                <span className="text-2xl sm:text-3xl font-display font-bold text-primary">11+</span>
+                <span className="text-xs sm:text-sm text-muted-foreground">Years</span>
               </motion.div>
             </motion.div>
 

@@ -1,10 +1,12 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Code, Globe, Smartphone, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+
+const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];
 
 const stats = [
   { value: 100, suffix: "+", label: "Projects Delivered" },
@@ -57,7 +59,14 @@ export const HeroSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const headlineText = "High-Converting";
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
@@ -166,16 +175,16 @@ export const HeroSection = () => {
                 <motion.span 
                   custom={1}
                   variants={textRevealVariants}
-                  className="block gradient-text"
+                  className="block"
                 >
-                  {headlineText.split("").map((letter, i) => (
+                  {"High-Converting".split("").map((letter, i) => (
                     <motion.span
                       key={i}
                       custom={i}
                       variants={letterVariants}
                       initial="hidden"
                       animate="visible"
-                      className="inline-block"
+                      className="inline-block gradient-text"
                     >
                       {letter === " " ? "\u00A0" : letter}
                     </motion.span>
@@ -186,7 +195,21 @@ export const HeroSection = () => {
                   variants={textRevealVariants}
                   className="block"
                 >
-                  Digital Experiences
+                  Digital{" "}
+                  <span className="inline-block relative h-[1.1em] overflow-hidden align-bottom">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={wordIndex}
+                        initial={{ y: 40, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -40, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="inline-block gradient-text"
+                      >
+                        {rotatingWords[wordIndex]}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </motion.span>
               </motion.h1>
             </div>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, Target, Eye, Zap, Shield, Clock, HeartHandshake, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CTASection } from "@/components/sections/CTASection";
-import { TeamSection } from "@/components/sections/TeamSection";
+
 import { TimelineSection } from "@/components/sections/TimelineSection";
 import { TechStackSection } from "@/components/sections/TechStackSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";

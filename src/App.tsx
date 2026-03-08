@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { lazy, Suspense } from "react";
 import { LoadingScreen } from "@/components/ui/loading-screen";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Eagerly load the home page for fast first paint
 import Index from "./pages/Index";

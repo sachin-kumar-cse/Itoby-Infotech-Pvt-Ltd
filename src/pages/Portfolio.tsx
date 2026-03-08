@@ -164,6 +164,7 @@ const Portfolio = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.08 }}
+                  whileHover={{ y: -8 }}
                 >
                   <Link
                     to={`/portfolio/${project.slug}`}

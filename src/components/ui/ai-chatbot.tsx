@@ -320,7 +320,7 @@ export const AIChatbot = () => {
                 <div>
                   <p className="font-semibold text-sm">Itoby AI Assistant</p>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-chart-2 animate-pulse" />
                     <p className="text-xs text-muted-foreground">Online • Instant replies</p>
                   </div>
                 </div>

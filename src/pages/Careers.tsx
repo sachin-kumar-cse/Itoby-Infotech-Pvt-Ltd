@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { JobListSkeleton } from "@/components/ui/skeleton-cards";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { motion } from "framer-motion";

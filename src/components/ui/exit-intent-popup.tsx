@@ -24,9 +24,15 @@ export const ExitIntentPopup = () => {
     const converted = localStorage.getItem(EXIT_POPUP_CONVERTED_KEY);
     if (converted) return;
 
+    // Only show once per day
+    const today = new Date().toDateString();
+    const shownDate = localStorage.getItem(EXIT_POPUP_SHOWN_TODAY_KEY);
+    if (shownDate === today) return;
+
     const dismissedAt = localStorage.getItem(EXIT_POPUP_DISMISSED_KEY);
     if (dismissedAt && Date.now() < Number(dismissedAt)) return;
 
+    localStorage.setItem(EXIT_POPUP_SHOWN_TODAY_KEY, today);
     setIsVisible(true);
   }, []);
 

@@ -60,6 +60,8 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SubscribersTab } from "@/components/admin/SubscribersTab";
 import { WebAnalyticsTab } from "@/components/admin/WebAnalyticsTab";
+import { BlogManagementTab } from "@/components/admin/BlogManagementTab";
+import { JobsManagementTab } from "@/components/admin/JobsManagementTab";
 interface ContactSubmission {
   id: string;
   name: string;
@@ -432,6 +434,8 @@ const AdminDashboard = () => {
               { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
               { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
               { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+              { id: "blog-mgmt", label: "Blog CMS", icon: FileText },
+              { id: "jobs-mgmt", label: "Job Postings", icon: Briefcase },
               { id: "subscribers", label: "Subscribers", icon: Newspaper },
               { id: "analytics", label: "Analytics", icon: BarChart3 },
               { id: "web-analytics", label: "Web Analytics", icon: Globe },
@@ -517,7 +521,9 @@ const AdminDashboard = () => {
               { id: "overview", label: "Overview", icon: Activity },
               { id: "contacts", label: "Contacts", icon: Mail },
               { id: "quotes", label: "Quotes", icon: IndianRupee },
-              { id: "applications", label: "Jobs", icon: Briefcase },
+              { id: "applications", label: "Apps", icon: Briefcase },
+              { id: "blog-mgmt", label: "Blog", icon: FileText },
+              { id: "jobs-mgmt", label: "Jobs", icon: Briefcase },
               { id: "subscribers", label: "Subs", icon: Newspaper },
               { id: "analytics", label: "Charts", icon: BarChart3 },
               { id: "web-analytics", label: "Web", icon: Globe },
@@ -553,6 +559,8 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Contact Submissions"}
                 {activeTab === "quotes" && "Quote Requests"}
                 {activeTab === "applications" && "Job Applications"}
+                {activeTab === "blog-mgmt" && "Blog Management"}
+                {activeTab === "jobs-mgmt" && "Job Postings Management"}
                 {activeTab === "subscribers" && "Newsletter Subscribers"}
                 {activeTab === "analytics" && "Analytics"}
                 {activeTab === "web-analytics" && "Website Analytics"}
@@ -563,6 +571,8 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Manage and respond to contact inquiries."}
                 {activeTab === "quotes" && "Review and manage project quote requests."}
                 {activeTab === "applications" && "Review and process job applications."}
+                {activeTab === "blog-mgmt" && "Create, edit and manage blog posts."}
+                {activeTab === "jobs-mgmt" && "Manage career listings and job openings."}
                 {activeTab === "subscribers" && "View and manage newsletter email subscribers."}
                 {activeTab === "analytics" && "Visualize submission trends and insights."}
                 {activeTab === "web-analytics" && "Monitor website traffic via Google Analytics."}
@@ -1148,6 +1158,12 @@ const AdminDashboard = () => {
                 </motion.div>
               </motion.div>
             )}
+
+            {/* Blog Management Tab */}
+            {activeTab === "blog-mgmt" && <BlogManagementTab />}
+
+            {/* Jobs Management Tab */}
+            {activeTab === "jobs-mgmt" && <JobsManagementTab />}
 
             {/* Web Analytics Tab */}
             {activeTab === "web-analytics" && <WebAnalyticsTab />}

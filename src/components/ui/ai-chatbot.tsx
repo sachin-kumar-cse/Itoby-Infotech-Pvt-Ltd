@@ -439,6 +439,31 @@ export const AIChatbot = () => {
                 </motion.div>
               )}
 
+              {/* Follow-up suggestions after assistant reply */}
+              {!showSuggestions && !isLoading && messages.length > 2 && messages[messages.length - 1]?.role === "assistant" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="pt-1"
+                >
+                  <div className="flex flex-wrap gap-1.5">
+                    {followUpSuggestions.map((q, i) => (
+                      <motion.button
+                        key={i}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5 + i * 0.06 }}
+                        onClick={() => send(q)}
+                        className="px-3 py-1.5 text-xs rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 text-primary transition-all duration-200"
+                      >
+                        {q}
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               <div ref={chatEndRef} />
             </div>
 

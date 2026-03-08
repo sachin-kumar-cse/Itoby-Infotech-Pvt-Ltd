@@ -45,6 +45,7 @@ const FreightXpress = lazy(() => import("./pages/portfolio/FreightXpress"));
 const RainfraStudio = lazy(() => import("./pages/portfolio/RainfraStudio"));
 const Easy2Buy = lazy(() => import("./pages/portfolio/Easy2Buy"));
 const DynamicPortfolio = lazy(() => import("./pages/portfolio/DynamicPortfolio"));
+const Install = lazy(() => import("./pages/Install"));
 
 const queryClient = new QueryClient();
 
@@ -90,6 +91,7 @@ const App = () => (
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/admin" element={<AdminLogin />} />
+              <Route path="/install" element={<Install />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

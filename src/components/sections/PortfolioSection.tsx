@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { useDbProjects } from "@/hooks/useDbProjects";
 
 // Import portfolio images
 import techflowImg from "@/assets/portfolio/techflow-saas.jpg";

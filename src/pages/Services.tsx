@@ -225,6 +225,7 @@ const Services = () => {
         </div>
       </section>
 
+      <ServiceComparisonSection />
       <TestimonialsSection />
       <CTASection />
     </Layout>

@@ -30,6 +30,13 @@ const suggestedQuestions = [
   "⚡ What's your tech stack?",
 ];
 
+const followUpSuggestions = [
+  "Tell me more",
+  "Show portfolio",
+  "Get a quote",
+  "Book a call",
+];
+
 const defaultMessage: Msg = {
   role: "assistant",
   content:

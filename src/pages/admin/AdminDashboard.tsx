@@ -546,6 +546,11 @@ const AdminDashboard = () => {
             {activeTab === "jobs-mgmt" && <JobsManagementTab />}
             {activeTab === "web-analytics" && <WebAnalyticsTab />}
 
+            {/* Drip Campaigns Tab */}
+            {activeTab === "drip-campaigns" && (
+              <DripCampaignTab />
+            )}
+
             {/* Analytics Tab */}
             {activeTab === "analytics" && (
               <AnalyticsTab contacts={contacts} applications={applications} quotes={quotes} />

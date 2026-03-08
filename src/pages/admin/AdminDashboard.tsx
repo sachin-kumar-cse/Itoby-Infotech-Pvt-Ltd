@@ -559,6 +559,8 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Contact Submissions"}
                 {activeTab === "quotes" && "Quote Requests"}
                 {activeTab === "applications" && "Job Applications"}
+                {activeTab === "blog-mgmt" && "Blog Management"}
+                {activeTab === "jobs-mgmt" && "Job Postings Management"}
                 {activeTab === "subscribers" && "Newsletter Subscribers"}
                 {activeTab === "analytics" && "Analytics"}
                 {activeTab === "web-analytics" && "Website Analytics"}
@@ -569,6 +571,8 @@ const AdminDashboard = () => {
                 {activeTab === "contacts" && "Manage and respond to contact inquiries."}
                 {activeTab === "quotes" && "Review and manage project quote requests."}
                 {activeTab === "applications" && "Review and process job applications."}
+                {activeTab === "blog-mgmt" && "Create, edit and manage blog posts."}
+                {activeTab === "jobs-mgmt" && "Manage career listings and job openings."}
                 {activeTab === "subscribers" && "View and manage newsletter email subscribers."}
                 {activeTab === "analytics" && "Visualize submission trends and insights."}
                 {activeTab === "web-analytics" && "Monitor website traffic via Google Analytics."}

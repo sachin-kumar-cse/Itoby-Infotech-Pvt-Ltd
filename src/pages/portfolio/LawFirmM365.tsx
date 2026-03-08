@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/law-firm-m365.jpg";
-import retailImage from "@/assets/portfolio/retail-m365.jpg";
-import healthcareImage from "@/assets/portfolio/healthcare-portal.jpg";
+import heroImage from "@/assets/portfolio/law-firm-m365.webp";
+import retailImage from "@/assets/portfolio/retail-m365.webp";
+import healthcareImage from "@/assets/portfolio/healthcare-portal.webp";
 
 const caseStudy = {
   title: "Law Firm M365 Migration",

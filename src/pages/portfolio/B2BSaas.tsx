@@ -1,7 +1,7 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
-import heroImage from "@/assets/portfolio/b2b-saas-marketing.jpg";
-import restaurantImage from "@/assets/portfolio/restaurant-marketing.jpg";
-import techflowImage from "@/assets/portfolio/techflow-saas.jpg";
+import heroImage from "@/assets/portfolio/b2b-saas-marketing.webp";
+import restaurantImage from "@/assets/portfolio/restaurant-marketing.webp";
+import techflowImage from "@/assets/portfolio/techflow-saas.webp";
 
 const caseStudy = {
   title: "B2B SaaS Company",

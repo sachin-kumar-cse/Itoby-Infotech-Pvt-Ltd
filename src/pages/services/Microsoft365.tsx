@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
-import lawFirmImage from "@/assets/portfolio/law-firm-m365.jpg";
-import retailImage from "@/assets/portfolio/retail-m365.jpg";
+import lawFirmImage from "@/assets/portfolio/law-firm-m365.webp";
+import retailImage from "@/assets/portfolio/retail-m365.webp";
 import { Button } from "@/components/ui/button";
 import { 
   Cloud,

@@ -9,6 +9,7 @@ import { CursorGlow } from "@/components/ui/cursor-glow";
 import { PageTransition } from "@/components/ui/page-transition";
 import { AIChatbot } from "@/components/ui/ai-chatbot";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { NewsletterPopup } from "@/components/ui/newsletter-popup";
 import { usePageTracking } from "@/hooks/usePageTracking";
 
 interface LayoutProps {
@@ -32,6 +33,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <WhatsAppButton />
       <AIChatbot />
+      <NewsletterPopup />
       <BackToTop />
     </div>
   );

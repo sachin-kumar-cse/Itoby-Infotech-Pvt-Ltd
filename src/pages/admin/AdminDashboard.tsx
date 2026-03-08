@@ -60,6 +60,8 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SubscribersTab } from "@/components/admin/SubscribersTab";
 import { WebAnalyticsTab } from "@/components/admin/WebAnalyticsTab";
+import { BlogManagementTab } from "@/components/admin/BlogManagementTab";
+import { JobsManagementTab } from "@/components/admin/JobsManagementTab";
 interface ContactSubmission {
   id: string;
   name: string;

@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      blog_posts: {
+        Row: {
+          author: string
+          author_role: string
+          category: string
+          content: string
+          created_at: string
+          excerpt: string
+          featured: boolean
+          id: string
+          image: string
+          is_published: boolean
+          read_time: string
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author?: string
+          author_role?: string
+          category: string
+          content: string
+          created_at?: string
+          excerpt: string
+          featured?: boolean
+          id?: string
+          image?: string
+          is_published?: boolean
+          read_time?: string
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author?: string
+          author_role?: string
+          category?: string
+          content?: string
+          created_at?: string
+          excerpt?: string
+          featured?: boolean
+          id?: string
+          image?: string
+          is_published?: boolean
+          read_time?: string
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           created_at: string
@@ -89,6 +140,63 @@ export type Database = {
           phone?: string | null
           portfolio_url?: string | null
           resume_path?: string | null
+        }
+        Relationships: []
+      }
+      jobs: {
+        Row: {
+          benefits: string[]
+          created_at: string
+          department: string
+          description: string
+          experience: string
+          id: string
+          is_active: boolean
+          location: string
+          nice_to_have: string[]
+          requirements: string[]
+          responsibilities: string[]
+          salary: string
+          skills: string[]
+          title: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          benefits?: string[]
+          created_at?: string
+          department: string
+          description: string
+          experience: string
+          id?: string
+          is_active?: boolean
+          location: string
+          nice_to_have?: string[]
+          requirements?: string[]
+          responsibilities?: string[]
+          salary: string
+          skills?: string[]
+          title: string
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          benefits?: string[]
+          created_at?: string
+          department?: string
+          description?: string
+          experience?: string
+          id?: string
+          is_active?: boolean
+          location?: string
+          nice_to_have?: string[]
+          requirements?: string[]
+          responsibilities?: string[]
+          salary?: string
+          skills?: string[]
+          title?: string
+          type?: string
+          updated_at?: string
         }
         Relationships: []
       }

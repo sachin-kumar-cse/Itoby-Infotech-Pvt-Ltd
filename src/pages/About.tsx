@@ -251,8 +251,6 @@ const About = () => {
       {/* Timeline */}
       <TimelineSection />
 
-      {/* Team */}
-      <TeamSection />
 
       {/* Stats */}
       <section className="section-padding bg-card/30">

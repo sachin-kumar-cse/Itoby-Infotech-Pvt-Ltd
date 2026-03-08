@@ -114,6 +114,10 @@ export const Footer = () => {
                     }
                   } else {
                     toast.success("Successfully subscribed! 🎉");
+                    // Trigger drip campaign
+                    supabase.functions.invoke("process-drip-emails", {
+                      body: { trigger_event: "newsletter", recipient_email: trimmed, recipient_name: "" },
+                    }).catch(() => {});
                   }
                   setIsSubscribed(true);
                   setEmail("");

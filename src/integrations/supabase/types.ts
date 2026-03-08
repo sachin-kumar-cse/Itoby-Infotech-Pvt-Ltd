@@ -221,6 +221,51 @@ export type Database = {
         }
         Relationships: []
       }
+      projects: {
+        Row: {
+          category: string
+          client: string
+          created_at: string
+          description: string
+          id: string
+          image: string
+          is_active: boolean
+          results: string
+          slug: string
+          tech: string[]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          client?: string
+          created_at?: string
+          description: string
+          id?: string
+          image?: string
+          is_active?: boolean
+          results?: string
+          slug: string
+          tech?: string[]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          client?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image?: string
+          is_active?: boolean
+          results?: string
+          slug?: string
+          tech?: string[]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       quote_requests: {
         Row: {
           budget: string

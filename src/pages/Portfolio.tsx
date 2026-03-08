@@ -3,6 +3,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { useDbProjects } from "@/hooks/useDbProjects";
 import { ArrowUpRight, Filter, Sparkles } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
 import { PortfolioStatsSection } from "@/components/sections/PortfolioStatsSection";
@@ -45,11 +46,27 @@ const projects = [
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const { dbProjects } = useDbProjects();
+
+  // Merge hardcoded + DB projects, DB projects shown first
+  const allProjects = [
+    ...dbProjects.map(p => ({
+      slug: p.slug,
+      title: p.title,
+      category: p.category,
+      description: p.description,
+      image: p.image,
+      results: p.results || "",
+      tech: p.tech || [],
+      client: p.client || "",
+    })),
+    ...projects,
+  ];
 
   const filteredProjects =
     activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      ? allProjects
+      : allProjects.filter((p) => p.category === activeCategory);
 
   return (
     <Layout>

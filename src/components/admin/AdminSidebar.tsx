@@ -19,6 +19,7 @@ import {
   ChevronLeft,
   ChevronRight,
   PanelLeft,
+  FolderOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -70,6 +71,7 @@ export const AdminSidebar = ({
     {
       label: "Content",
       items: [
+        { id: "projects-mgmt", label: "Projects", icon: FolderOpen, group: "content" },
         { id: "blog-mgmt", label: "Blog CMS", icon: FileText, group: "content" },
         { id: "jobs-mgmt", label: "Job Postings", icon: Briefcase, group: "content" },
         { id: "subscribers", label: "Subscribers", icon: Newspaper, group: "content" },

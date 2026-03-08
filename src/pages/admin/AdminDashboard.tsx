@@ -26,6 +26,7 @@ import { SubscribersTab } from "@/components/admin/SubscribersTab";
 import { WebAnalyticsTab } from "@/components/admin/WebAnalyticsTab";
 import { BlogManagementTab } from "@/components/admin/BlogManagementTab";
 import { JobsManagementTab } from "@/components/admin/JobsManagementTab";
+import { ProjectsManagementTab } from "@/components/admin/ProjectsManagementTab";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AdminMobileNav } from "@/components/admin/AdminMobileNav";
 import { cn } from "@/lib/utils";
@@ -60,6 +61,7 @@ const tabMeta: Record<string, { title: string; desc: string }> = {
   quotes: { title: "Quote Requests", desc: "Review and manage project quote requests." },
   applications: { title: "Job Applications", desc: "Review and process job applications." },
   "blog-mgmt": { title: "Blog Management", desc: "Create, edit and manage blog posts." },
+  "projects-mgmt": { title: "Portfolio Projects", desc: "Add and manage portfolio case studies." },
   "jobs-mgmt": { title: "Job Postings", desc: "Manage career listings and job openings." },
   subscribers: { title: "Newsletter Subscribers", desc: "View and manage newsletter subscribers." },
   analytics: { title: "Analytics", desc: "Visualize submission trends and insights." },
@@ -537,6 +539,7 @@ const AdminDashboard = () => {
 
             {activeTab === "subscribers" && <SubscribersTab />}
             {activeTab === "blog-mgmt" && <BlogManagementTab />}
+            {activeTab === "projects-mgmt" && <ProjectsManagementTab />}
             {activeTab === "jobs-mgmt" && <JobsManagementTab />}
             {activeTab === "web-analytics" && <WebAnalyticsTab />}
 

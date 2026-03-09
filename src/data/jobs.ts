@@ -107,7 +107,7 @@ export const jobOpenings: Job[] = [
     id: "mobile-app-developer",
     title: "Mobile App Developer",
     department: "Engineering",
-    location: "Patna, Bihar (On-site)",
+    location: "Noida, UP (On-site)",
     type: "Full-time",
     experience: "3+ years",
     salary: "₹12-20 LPA",

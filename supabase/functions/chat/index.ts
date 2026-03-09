@@ -34,7 +34,7 @@ About Itoby Infotech:
 - Premier digital agency based in Patna, Bihar, India
 - Services: Web Design & Development, Mobile App Development, Digital Marketing (SEO/SEM/Social Media), Custom Software Solutions, Microsoft 365 Solutions
 - Operating since 2013
-- Contact: info@itobyinfotech.in, +91 98765 43210
+- Contact: info@itobyinfotech.com, +91 9142773500
 
 Pricing Ranges (approximate):
 - Web Design: Starting ₹25,000

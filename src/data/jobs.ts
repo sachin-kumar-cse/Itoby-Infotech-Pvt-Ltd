@@ -239,7 +239,7 @@ export const jobOpenings: Job[] = [
     id: "project-manager",
     title: "Project Manager",
     department: "Operations",
-    location: "Patna, Bihar (On-site)",
+    location: "Noida, UP (On-site)",
     type: "Full-time",
     experience: "5+ years",
     salary: "₹12-22 LPA",

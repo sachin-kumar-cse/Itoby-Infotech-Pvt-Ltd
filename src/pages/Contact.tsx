@@ -22,7 +22,7 @@ import { FAQSection } from "@/components/sections/FAQSection";
 const contactInfo = [
   { icon: Mail, title: "Email Us", value: "info@itobyinfotech.in", href: "mailto:info@itobyinfotech.in", color: "text-blue-500", bg: "bg-blue-500/10", hoverBg: "group-hover:bg-blue-500" },
   { icon: Phone, title: "Call Us", value: "+91 98765 43210", href: "tel:+919876543210", color: "text-emerald-500", bg: "bg-emerald-500/10", hoverBg: "group-hover:bg-emerald-500" },
-  { icon: MapPin, title: "Visit Us", value: "Patna, Bihar, India", href: "#", color: "text-violet-500", bg: "bg-violet-500/10", hoverBg: "group-hover:bg-violet-500" },
+  { icon: MapPin, title: "Visit Us", value: "Sector-4, Noida, UP", href: "#", color: "text-violet-500", bg: "bg-violet-500/10", hoverBg: "group-hover:bg-violet-500" },
   { icon: MessageCircle, title: "WhatsApp", value: "Chat with us", href: "https://wa.me/919876543210", color: "text-primary", bg: "bg-primary/10", hoverBg: "group-hover:bg-primary" },
 ];
 

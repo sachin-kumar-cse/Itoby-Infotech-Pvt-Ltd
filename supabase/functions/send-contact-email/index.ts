@@ -176,7 +176,7 @@ const handler = async (req: Request): Promise<Response> => {
                 <p>Best regards,<br><strong>The Itoby Infotech Team</strong></p>
                 <div class="footer">
                   <p>Itoby Infotech Pvt. Ltd.<br>
-                  Patna, Bihar, India<br>
+                  Sector-4, Noida, UP, India<br>
                   <a href="mailto:info@itobyinfotech.in">info@itobyinfotech.in</a></p>
                 </div>
               </div>

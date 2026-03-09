@@ -31,7 +31,7 @@ serve(async (req) => {
               content: `You are the Itoby Infotech AI Assistant. You help visitors learn about the company's services and answer their questions.
 
 About Itoby Infotech:
-- Premier digital agency based in Patna, Bihar, India
+- Premier digital agency based in Sector-4, Noida, UP, India
 - Services: Web Design & Development, Mobile App Development, Digital Marketing (SEO/SEM/Social Media), Custom Software Solutions, Microsoft 365 Solutions
 - Operating since 2013
 - Contact: info@itobyinfotech.com, +91 9142773500

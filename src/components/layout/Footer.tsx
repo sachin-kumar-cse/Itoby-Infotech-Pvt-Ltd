@@ -268,7 +268,7 @@ export const Footer = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                      Patna, Bihar, India
+                      Sector-4, Noida, UP
                     </p>
                     <p className="text-xs text-muted-foreground/70">Head Office</p>
                   </div>

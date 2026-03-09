@@ -3,9 +3,9 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const offices = [
   {
-    city: "Patna",
+    city: "Noida",
     country: "India (HQ)",
-    address: "123 Tech Park, Boring Road, Patna, Bihar 800001",
+    address: "Sector-4, Noida, Uttar Pradesh 201301",
     phone: "+91 98765 43210",
     email: "patna@itobyinfotech.in",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM",

@@ -195,7 +195,7 @@ export const jobOpenings: Job[] = [
     id: "devops-engineer",
     title: "DevOps Engineer",
     department: "Engineering",
-    location: "Patna, Bihar (Hybrid)",
+    location: "Noida, UP (Hybrid)",
     type: "Full-time",
     experience: "4+ years",
     salary: "₹15-25 LPA",

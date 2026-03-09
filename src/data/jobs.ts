@@ -19,7 +19,7 @@ export const jobOpenings: Job[] = [
     id: "senior-full-stack-developer",
     title: "Senior Full Stack Developer",
     department: "Engineering",
-    location: "Patna, Bihar (Hybrid)",
+    location: "Noida, UP (Hybrid)",
     type: "Full-time",
     experience: "5+ years",
     salary: "₹15-25 LPA",

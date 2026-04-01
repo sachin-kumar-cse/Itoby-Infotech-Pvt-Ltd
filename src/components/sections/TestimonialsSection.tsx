@@ -9,7 +9,7 @@ const testimonials = [
     role: "CEO, TechStart Solutions",
     content: "Itoby Infotech transformed our digital presence completely. Their team delivered a stunning website that increased our conversions by 200%. Truly exceptional work!",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const testimonials = [
     role: "Marketing Director, GrowthHub",
     content: "The SEO and digital marketing services from Itoby have been game-changing. We've seen a 300% increase in organic traffic and our lead generation has never been better.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const testimonials = [
     role: "Product Manager, FinanceApp",
     content: "The mobile app Itoby developed exceeded all our expectations. The UI/UX is flawless, and our user engagement metrics have improved dramatically.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const testimonials = [
     role: "CTO, CloudWorks",
     content: "Working with Itoby for our Microsoft 365 migration was seamless. Their expertise and support made the transition completely hassle-free for our team.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face",
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const testimonials = [
     role: "Owner, Luxe Fashion",
     content: "Our e-commerce store has seen a 400% increase in sales since Itoby redesigned it. Their understanding of user behavior and conversion optimization is remarkable.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=100&h=100&fit=crop&crop=face",
   },
 ];
 

@@ -9,8 +9,8 @@ const videoTestimonials = [
     role: "CEO, TechStart Solutions",
     quote: "Itoby Infotech transformed our digital presence completely. Exceptional work!",
     rating: 5,
-    thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=300&fit=crop&crop=face",
+    videoUrl: "https://www.youtube.com/embed/3JZ_D3ELwOQ",
   },
   {
     id: 2,
@@ -18,8 +18,8 @@ const videoTestimonials = [
     role: "Marketing Director, GrowthHub",
     quote: "300% increase in organic traffic. Game-changing results!",
     rating: 5,
-    thumbnail: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop&crop=face",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop&crop=face",
+    videoUrl: "https://www.youtube.com/embed/ZXsQAXx_ao0",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const videoTestimonials = [
     quote: "The custom ERP streamlined our entire operation beautifully.",
     rating: 5,
     thumbnail: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop&crop=face",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/9bZkp7q19f0",
   },
 ];
 

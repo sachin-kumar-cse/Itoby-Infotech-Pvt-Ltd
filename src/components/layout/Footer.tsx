@@ -83,7 +83,7 @@ export const Footer = () => {
             animate={newsletterInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">
                 Stay Updated with <span className="gradient-text">Our Insights</span>
               </h3>

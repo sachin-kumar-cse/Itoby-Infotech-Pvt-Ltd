@@ -29,7 +29,7 @@ const Index = () => {
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "Itoby Infotech",
-          url: "https://itobyinfotech.in",
+          url: "https://itobyinfotech.com",
           logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
           description: "Premier digital agency delivering exceptional web design, app development, and marketing solutions.",
           foundingDate: "2013",

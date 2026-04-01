@@ -9,7 +9,7 @@ interface SEOHeadProps {
   jsonLd?: Record<string, unknown>;
 }
 
-const SITE_URL = "https://itobyinfotech.in";
+const SITE_URL = "https://itobyinfotech.com";
 const DEFAULT_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png";
 
 export const SEOHead = ({
@@ -20,7 +20,7 @@ export const SEOHead = ({
   image = DEFAULT_IMAGE,
   jsonLd,
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | Itoby Infotech`;
+  const fullTitle = `${title} | Itoby Infotech - A Group of Services`;
   const url = `${SITE_URL}${path}`;
 
   return (

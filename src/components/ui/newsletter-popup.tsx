@@ -99,7 +99,7 @@ export const NewsletterPopup = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[71] w-[420px] max-w-[calc(100vw-32px)] rounded-3xl bg-card/90 backdrop-blur-xl border border-border/50 shadow-2xl overflow-hidden"
+            className="fixed top-8 left-4 sm:top-12 sm:left-8 z-[71] w-[420px] max-w-[calc(100vw-32px)] rounded-3xl bg-card/90 backdrop-blur-xl border border-border/50 shadow-2xl overflow-hidden"
           >
             {/* Ambient glow */}
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-[80px]" />

@@ -78,19 +78,19 @@ export const Footer = () => {
       <div className="relative border-b border-border" ref={newsletterRef}>
         <div className="container-wide py-12 sm:py-16">
           <motion.div 
-            className="flex flex-col lg:flex-row items-center justify-between gap-8"
+            className="flex flex-col items-center gap-8 text-center"
             initial={{ opacity: 0, y: 40 }}
             animate={newsletterInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="text-center lg:text-left">
+            <div className="text-center">
               <h3 className="font-display text-2xl sm:text-3xl font-bold mb-2">
                 Stay Updated with <span className="gradient-text">Our Insights</span>
               </h3>
               <p className="text-muted-foreground">Get the latest trends, tips, and news delivered to your inbox.</p>
             </div>
             <motion.form
-              className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto"
+              className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center justify-center"
               initial={{ opacity: 0, x: 30 }}
               animate={newsletterInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ delay: 0.2, duration: 0.6 }}

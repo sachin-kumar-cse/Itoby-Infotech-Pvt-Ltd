@@ -146,7 +146,7 @@ export const TestimonialsSection = () => {
               className="relative p-6 sm:p-8 md:p-12 rounded-3xl bg-card border border-border"
             >
               {/* Quote Icon */}
-              <Quote className="absolute top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 text-primary/20" />
+              <Quote className="absolute top-3 left-4 sm:top-4 sm:left-6 w-10 h-10 sm:w-12 sm:h-12 text-primary/20" />
 
               <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center">
                 {/* Image */}

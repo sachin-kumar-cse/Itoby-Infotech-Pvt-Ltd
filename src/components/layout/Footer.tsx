@@ -90,7 +90,7 @@ export const Footer = () => {
               <p className="text-muted-foreground">Get the latest trends, tips, and news delivered to your inbox.</p>
             </div>
             <motion.form
-              className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto"
+              className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center justify-center"
               initial={{ opacity: 0, x: 30 }}
               animate={newsletterInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ delay: 0.2, duration: 0.6 }}

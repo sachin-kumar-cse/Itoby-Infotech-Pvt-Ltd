@@ -78,7 +78,7 @@ export const Footer = () => {
       <div className="relative border-b border-border" ref={newsletterRef}>
         <div className="container-wide py-12 sm:py-16">
           <motion.div 
-            className="flex flex-col lg:flex-row items-center justify-between gap-8"
+            className="flex flex-col items-center gap-8 text-center"
             initial={{ opacity: 0, y: 40 }}
             animate={newsletterInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.7 }}

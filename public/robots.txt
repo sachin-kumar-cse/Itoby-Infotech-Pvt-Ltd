@@ -3,7 +3,7 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/dashboard
 
-Sitemap: https://itobyinfotech.in/sitemap.xml
+Sitemap: https://itobyinfotech.com/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

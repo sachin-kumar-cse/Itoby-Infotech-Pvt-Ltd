@@ -20,7 +20,7 @@ export const SEOHead = ({
   image = DEFAULT_IMAGE,
   jsonLd,
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | Itoby Infotech`;
+  const fullTitle = `${title} | Itoby Infotech - A Group of Services`;
   const url = `${SITE_URL}${path}`;
 
   return (

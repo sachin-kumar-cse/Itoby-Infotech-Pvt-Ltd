@@ -191,6 +191,18 @@ const handler = async (req: Request): Promise<Response> => {
       console.error("Failed to send user confirmation email:", await userEmailRes.text());
     }
 
+    // Trigger webhook notification (fire & forget)
+    const SUPABASE_URL = Deno.env.get('SUPABASE_URL') ?? '';
+    const SUPABASE_ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY') ?? '';
+    fetch(`${SUPABASE_URL}/functions/v1/send-webhook-notification`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ type: "contact", data: { name, email, phone, service, message } }),
+    }).catch((e) => console.error("Webhook notify failed:", e));
+
     return new Response(
       JSON.stringify({ success: true, message: "Emails sent successfully" }),
       { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }

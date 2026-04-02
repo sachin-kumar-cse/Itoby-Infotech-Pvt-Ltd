@@ -281,6 +281,22 @@ export const AIChatbot = () => {
     const msgText = (text || input).trim();
     if (!msgText || isLoading) return;
 
+    // Detect human handoff request
+    const handoffKeywords = ["talk to a human", "talk to human", "human agent", "real person", "connect to team", "🤝"];
+    const isHandoff = handoffKeywords.some((k) => msgText.toLowerCase().includes(k));
+
+    if (isHandoff) {
+      const userMsg: Msg = { role: "user", content: msgText };
+      const botMsg: Msg = {
+        role: "assistant",
+        content: "I understand you'd like to speak with a human! 😊 Here are the best ways to reach our team:",
+      };
+      setMessages((prev) => [...prev, userMsg, botMsg]);
+      setShowHandoff(true);
+      setInput("");
+      if (soundEnabled) playNotificationSound();
+      return;
+    }
     const userMsg: Msg = { role: "user", content: msgText };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");

@@ -246,6 +246,7 @@ export const AIChatbot = () => {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [unreadCount, setUnreadCount] = useState(0);
   const [showScrollDown, setShowScrollDown] = useState(false);
+  const [showHandoff, setShowHandoff] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 

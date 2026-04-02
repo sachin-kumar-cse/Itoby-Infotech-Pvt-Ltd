@@ -344,6 +344,7 @@ export const AIChatbot = () => {
 
   const clearChat = () => {
     setMessages([defaultMessage]);
+    setShowHandoff(false);
     localStorage.removeItem(STORAGE_KEY);
   };
 

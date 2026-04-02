@@ -39,6 +39,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <NewsletterPopup />
       <ExitIntentPopup />
       <BackToTop />
+      <PWAInstallBanner />
     </div>
   );
 };

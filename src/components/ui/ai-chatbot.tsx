@@ -37,7 +37,7 @@ const followUpSuggestions = [
   "Tell me more",
   "Show portfolio",
   "Get a quote",
-  "Book a call",
+  "🤝 Talk to a human",
 ];
 
 const defaultMessage: Msg = {

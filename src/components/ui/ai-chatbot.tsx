@@ -15,6 +15,9 @@ import {
   VolumeX,
   RotateCcw,
   ArrowDown,
+  Phone,
+  Mail,
+  MessageSquare,
 } from "lucide-react";
 
 type Msg = { role: "user" | "assistant"; content: string };

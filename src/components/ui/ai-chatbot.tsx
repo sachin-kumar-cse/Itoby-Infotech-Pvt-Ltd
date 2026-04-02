@@ -180,6 +180,64 @@ const TypingIndicator = () => (
   </div>
 );
 
+// Human handoff card
+const HumanHandoffCard = ({ lastMessage }: { lastMessage: string }) => {
+  const handleHandoff = async (channel: string) => {
+    // Fire webhook notification
+    try {
+      fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-webhook-notification`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
+          type: "chat_handoff",
+          data: { lastMessage, channel, timestamp: new Date().toISOString() },
+        }),
+      }).catch(() => {});
+    } catch {}
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="mx-1 p-3 rounded-xl bg-secondary/60 border border-border/40 space-y-2.5"
+    >
+      <p className="text-xs font-medium text-foreground">Connect with our team:</p>
+      <div className="flex flex-col gap-1.5">
+        <a
+          href="https://wa.me/919142773500?text=Hi%2C%20I%20was%20chatting%20with%20your%20AI%20assistant%20and%20need%20human%20help."
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => handleHandoff("whatsapp")}
+          className="flex items-center gap-2 px-3 py-2 rounded-lg bg-green-500/10 border border-green-500/20 hover:bg-green-500/20 transition-colors text-xs font-medium text-green-600 dark:text-green-400"
+        >
+          <Phone className="w-3.5 h-3.5" />
+          WhatsApp — Instant Reply
+        </a>
+        <a
+          href="mailto:info@itobyinfotech.com?subject=Chat%20Inquiry&body=Hi%2C%20I%20was%20chatting%20on%20your%20website%20and%20need%20assistance."
+          onClick={() => handleHandoff("email")}
+          className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors text-xs font-medium text-blue-600 dark:text-blue-400"
+        >
+          <Mail className="w-3.5 h-3.5" />
+          Email — Detailed Response
+        </a>
+        <a
+          href="tel:+919142773500"
+          onClick={() => handleHandoff("phone")}
+          className="flex items-center gap-2 px-3 py-2 rounded-lg bg-violet-500/10 border border-violet-500/20 hover:bg-violet-500/20 transition-colors text-xs font-medium text-violet-600 dark:text-violet-400"
+        >
+          <MessageSquare className="w-3.5 h-3.5" />
+          Call — +91 9142773500
+        </a>
+      </div>
+    </motion.div>
+  );
+};
+
 export const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>(loadHistory);

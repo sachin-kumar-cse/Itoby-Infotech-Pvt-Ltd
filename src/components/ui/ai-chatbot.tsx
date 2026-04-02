@@ -542,6 +542,11 @@ export const AIChatbot = () => {
                 </motion.div>
               )}
 
+              {/* Human handoff card */}
+              {showHandoff && (
+                <HumanHandoffCard lastMessage={messages[messages.length - 2]?.content || ""} />
+              )}
+
               <div ref={chatEndRef} />
             </div>
 

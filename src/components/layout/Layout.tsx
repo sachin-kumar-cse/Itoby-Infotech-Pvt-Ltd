@@ -11,6 +11,7 @@ import { AIChatbot } from "@/components/ui/ai-chatbot";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { NewsletterPopup } from "@/components/ui/newsletter-popup";
 import { ExitIntentPopup } from "@/components/ui/exit-intent-popup";
+import { PWAInstallBanner } from "@/components/ui/pwa-install-banner";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 

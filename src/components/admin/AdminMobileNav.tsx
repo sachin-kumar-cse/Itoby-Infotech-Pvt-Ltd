@@ -80,6 +80,7 @@ export const AdminMobileNav = ({
       items: [
         { id: "analytics", label: "Analytics", icon: BarChart3 },
         { id: "web-analytics", label: "Web Analytics", icon: Globe },
+        { id: "lead-scoring", label: "Lead Scoring", icon: Target },
       ],
     },
     {

@@ -116,6 +116,10 @@ const RequestQuote = () => {
       supabase.functions.invoke("process-drip-emails", {
         body: { trigger_event: "quote_request", recipient_email: email.trim(), recipient_name: name.trim() },
       }).catch((err) => console.error("Drip trigger failed:", err));
+      // Trigger webhook notification (fire & forget)
+      supabase.functions.invoke("send-webhook-notification", {
+        body: { type: "quote", data: { name, email, company, services: selectedServices, budget: selectedBudget, timeline: selectedTimeline } },
+      }).catch((err) => console.error("Webhook notify failed:", err));
       setIsSubmitted(true);
       toast.success("Quote request submitted successfully!");
     } catch {

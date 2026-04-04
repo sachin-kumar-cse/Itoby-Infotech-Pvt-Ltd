@@ -63,6 +63,7 @@ export const AdminMobileNav = ({
         { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
         { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
         { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+        { id: "appointments", label: "Appointments", icon: Calendar },
       ],
     },
     {

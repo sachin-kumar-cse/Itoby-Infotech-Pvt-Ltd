@@ -120,6 +120,10 @@ const RequestQuote = () => {
       supabase.functions.invoke("send-webhook-notification", {
         body: { type: "quote", data: { name, email, company, services: selectedServices, budget: selectedBudget, timeline: selectedTimeline } },
       }).catch((err) => console.error("Webhook notify failed:", err));
+      // Lead scoring
+      supabase.functions.invoke("update-lead-score", {
+        body: { email: email.trim(), name: name.trim(), action: "quote_request", service: selectedServices.join(", "), budget: selectedBudget },
+      }).catch((err) => console.error("Lead score failed:", err));
       setIsSubmitted(true);
       toast.success("Quote request submitted successfully!");
     } catch {

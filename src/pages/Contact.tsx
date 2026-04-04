@@ -82,6 +82,10 @@ const Contact = () => {
       supabase.functions.invoke("process-drip-emails", {
         body: { trigger_event: "contact_form", recipient_email: formData.email.trim(), recipient_name: formData.name.trim() },
       }).catch((err) => console.error("Drip trigger failed:", err));
+      // Lead scoring
+      supabase.functions.invoke("update-lead-score", {
+        body: { email: formData.email.trim(), name: formData.name.trim(), action: "contact_form", service: formData.service },
+      }).catch((err) => console.error("Lead score failed:", err));
       setIsSuccess(true);
       toast({ title: "Message Sent Successfully! ✨", description: "We'll get back to you within 24 hours." });
       setFormData({ name: "", email: "", phone: "", service: "", company: "", budget: "", message: "" });

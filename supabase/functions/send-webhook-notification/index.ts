@@ -56,6 +56,11 @@ serve(async (req) => {
         message = `**Email:** ${data.email}`;
         color = "#f59e0b";
         break;
+      case "appointment":
+        title = "📅 New Appointment Booked";
+        message = `**Name:** ${data.name}\n**Email:** ${data.email}\n**Service:** ${data.service}\n**Date:** ${data.date}\n**Time:** ${data.time_slot}\n**Company:** ${data.company || "N/A"}`;
+        color = "#06b6d4";
+        break;
       case "chat_handoff":
         title = "🤝 Chat Human Handoff Requested";
         message = `**Visitor wants to talk to a human**\n**Last message:** ${data.lastMessage || "N/A"}\n**Via:** ${data.channel || "Chat"}`;

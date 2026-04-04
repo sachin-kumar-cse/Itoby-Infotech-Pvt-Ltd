@@ -9,6 +9,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { PortfolioStatsSection } from "@/components/sections/PortfolioStatsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { WorkProcessSection } from "@/components/sections/WorkProcessSection";
+import ROICalculatorSection from "@/components/sections/ROICalculatorSection";
 
 import techflowImg from "@/assets/portfolio/techflow-saas.webp";
 import luxeImg from "@/assets/portfolio/luxe-fashion.webp";

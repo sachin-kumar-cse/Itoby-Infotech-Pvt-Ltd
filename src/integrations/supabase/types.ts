@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      appointments: {
+        Row: {
+          company: string | null
+          created_at: string
+          date: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          service: string
+          status: string
+          time_slot: string
+          updated_at: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          date: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          service: string
+          status?: string
+          time_slot: string
+          updated_at?: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          date?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          service?: string
+          status?: string
+          time_slot?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       blog_posts: {
         Row: {
           author: string
@@ -300,6 +345,48 @@ export type Database = {
           skills?: string[]
           title?: string
           type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      lead_scores: {
+        Row: {
+          activity_log: Json
+          budget_range: string | null
+          created_at: string
+          email: string
+          id: string
+          last_activity_at: string
+          name: string
+          score: number
+          services_interested: string[]
+          source: string | null
+          updated_at: string
+        }
+        Insert: {
+          activity_log?: Json
+          budget_range?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          last_activity_at?: string
+          name?: string
+          score?: number
+          services_interested?: string[]
+          source?: string | null
+          updated_at?: string
+        }
+        Update: {
+          activity_log?: Json
+          budget_range?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          last_activity_at?: string
+          name?: string
+          score?: number
+          services_interested?: string[]
+          source?: string | null
           updated_at?: string
         }
         Relationships: []

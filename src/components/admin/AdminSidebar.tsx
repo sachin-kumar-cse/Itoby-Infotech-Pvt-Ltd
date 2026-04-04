@@ -21,6 +21,8 @@ import {
   PanelLeft,
   FolderOpen,
   Zap,
+  Calendar,
+  Target,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -67,6 +69,7 @@ export const AdminSidebar = ({
         { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts, group: "inbox" },
         { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes, group: "inbox" },
         { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications, group: "inbox" },
+        { id: "appointments", label: "Appointments", icon: Calendar, group: "inbox" },
       ] as NavItem[],
     },
     {
@@ -84,6 +87,7 @@ export const AdminSidebar = ({
       items: [
         { id: "analytics", label: "Analytics", icon: BarChart3, group: "insights" },
         { id: "web-analytics", label: "Web Analytics", icon: Globe, group: "insights" },
+        { id: "lead-scoring", label: "Lead Scoring", icon: Target, group: "insights" },
       ] as NavItem[],
     },
     {

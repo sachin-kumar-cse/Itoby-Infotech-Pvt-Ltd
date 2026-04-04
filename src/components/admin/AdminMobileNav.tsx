@@ -20,6 +20,8 @@ import {
   Menu,
   RefreshCw,
   Zap,
+  Calendar,
+  Target,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -61,6 +63,7 @@ export const AdminMobileNav = ({
         { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts },
         { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes },
         { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications },
+        { id: "appointments", label: "Appointments", icon: Calendar },
       ],
     },
     {
@@ -77,6 +80,7 @@ export const AdminMobileNav = ({
       items: [
         { id: "analytics", label: "Analytics", icon: BarChart3 },
         { id: "web-analytics", label: "Web Analytics", icon: Globe },
+        { id: "lead-scoring", label: "Lead Scoring", icon: Target },
       ],
     },
     {

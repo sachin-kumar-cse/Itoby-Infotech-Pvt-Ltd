@@ -47,6 +47,7 @@ const RainfraStudio = lazy(() => import("./pages/portfolio/RainfraStudio"));
 const Easy2Buy = lazy(() => import("./pages/portfolio/Easy2Buy"));
 const DynamicPortfolio = lazy(() => import("./pages/portfolio/DynamicPortfolio"));
 const Install = lazy(() => import("./pages/Install"));
+const BookAppointment = lazy(() => import("./pages/BookAppointment"));
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,7 @@ const App = () => (
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/install" element={<Install />} />
+                <Route path="/book-appointment" element={<BookAppointment />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

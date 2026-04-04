@@ -71,6 +71,8 @@ const tabMeta: Record<string, { title: string; desc: string }> = {
   "drip-campaigns": { title: "Drip Campaigns", desc: "Create and manage automated email sequences." },
   analytics: { title: "Analytics", desc: "Visualize submission trends and insights." },
   "web-analytics": { title: "Website Analytics", desc: "Monitor website traffic via Google Analytics." },
+  appointments: { title: "Appointments", desc: "Manage booked discovery calls and meetings." },
+  "lead-scoring": { title: "Lead Scoring", desc: "Track and prioritize leads by engagement score." },
   profile: { title: "Profile Settings", desc: "Manage your account settings." },
 };
 

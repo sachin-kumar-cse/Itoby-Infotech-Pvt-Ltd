@@ -87,6 +87,7 @@ export const AdminSidebar = ({
       items: [
         { id: "analytics", label: "Analytics", icon: BarChart3, group: "insights" },
         { id: "web-analytics", label: "Web Analytics", icon: Globe, group: "insights" },
+        { id: "lead-scoring", label: "Lead Scoring", icon: Target, group: "insights" },
       ] as NavItem[],
     },
     {

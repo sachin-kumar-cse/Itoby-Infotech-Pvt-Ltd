@@ -95,6 +95,7 @@ const App = () => (
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/install" element={<Install />} />
+                <Route path="/book-appointment" element={<BookAppointment />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

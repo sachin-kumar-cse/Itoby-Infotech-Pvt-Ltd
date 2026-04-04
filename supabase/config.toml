@@ -11,3 +11,6 @@ verify_jwt = false
 
 [functions.process-drip-emails]
 verify_jwt = false
+
+[functions.update-lead-score]
+verify_jwt = false

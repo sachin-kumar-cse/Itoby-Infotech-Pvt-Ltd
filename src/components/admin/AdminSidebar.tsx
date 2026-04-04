@@ -69,6 +69,7 @@ export const AdminSidebar = ({
         { id: "contacts", label: "Contacts", icon: Mail, badge: unreadContacts, group: "inbox" },
         { id: "quotes", label: "Quotes", icon: IndianRupee, badge: unreadQuotes, group: "inbox" },
         { id: "applications", label: "Applications", icon: Briefcase, badge: unreadApplications, group: "inbox" },
+        { id: "appointments", label: "Appointments", icon: Calendar, group: "inbox" },
       ] as NavItem[],
     },
     {

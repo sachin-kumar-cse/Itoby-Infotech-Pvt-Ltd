@@ -22,7 +22,8 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, Eye, EyeOff, RefreshCw, FileText, Star, Upload, Image, X, Loader2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Eye, EyeOff, RefreshCw, FileText, Star, Upload, Image, X, Loader2, Search } from "lucide-react";
+import { computeSEOScore } from "@/hooks/useBlogSEO";
 
 interface BlogPost {
   id: string;

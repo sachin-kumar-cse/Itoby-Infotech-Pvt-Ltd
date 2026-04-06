@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Calendar, Clock, ArrowLeft, Share2, Linkedin, Twitter, Facebook, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
+import { generateBlogJsonLd, generateBreadcrumbJsonLd } from "@/hooks/useBlogSEO";
 
 interface BlogPostData {
   id: string;

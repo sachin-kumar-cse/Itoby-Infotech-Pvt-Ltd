@@ -60,6 +60,7 @@ export const HeroSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const heroCtaVariant = useABTest(AB_TESTS.heroCtaText);
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {

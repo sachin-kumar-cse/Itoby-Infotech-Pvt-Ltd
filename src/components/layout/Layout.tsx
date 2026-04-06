@@ -24,6 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   usePageTracking();
   useKeyboardShortcuts();
+  usePerformanceMonitoring();
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <ScrollProgress />

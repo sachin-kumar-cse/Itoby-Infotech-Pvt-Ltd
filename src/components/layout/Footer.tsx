@@ -311,6 +311,35 @@ export const Footer = () => {
         </div>
       </motion.div>
 
+      {/* Book Appointment CTA */}
+      <div className="relative border-t border-border">
+        <div className="container-wide py-8 sm:py-10">
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-between gap-6 p-6 sm:p-8 rounded-2xl bg-primary/10 border border-primary/20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-center sm:text-left">
+              <h3 className="font-display text-xl sm:text-2xl font-bold mb-1">
+                Ready to Start Your Project?
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Book a free consultation with our experts and bring your vision to life.
+              </p>
+            </div>
+            <Link to="/book-appointment">
+              <Button variant="hero" size="lg" className="group shrink-0">
+                <CalendarDays size={18} />
+                Book Appointment
+                <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-border py-6 relative">
         <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">

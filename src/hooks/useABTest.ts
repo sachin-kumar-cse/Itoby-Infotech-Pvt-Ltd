@@ -26,7 +26,7 @@ function storeVariant(testId: string, variantId: string) {
   localStorage.setItem(AB_STORAGE_KEY, JSON.stringify(stored));
 }
 
-function pickVariant(variants: ABTestVariant[]): string {
+function pickVariant(variants: readonly ABTestVariant[]): string {
   const rand = Math.random() * 100;
   let cumulative = 0;
   for (const v of variants) {

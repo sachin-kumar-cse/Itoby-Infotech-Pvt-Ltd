@@ -89,8 +89,26 @@ const BlogPost = () => {
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
+  const blogJsonLd = post ? generateBlogJsonLd(post) : undefined;
+  const breadcrumbJsonLd = post ? generateBreadcrumbJsonLd(post) : undefined;
+
   return (
     <Layout>
+      {post && (
+        <>
+          <SEOHead
+            title={post.title}
+            description={post.excerpt}
+            path={`/blog/${post.slug}`}
+            type="article"
+            image={post.image}
+            jsonLd={blogJsonLd}
+          />
+          {breadcrumbJsonLd && (
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+          )}
+        </>
+      )}
       {/* Hero */}
       <section className="pt-32 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.1),transparent_50%)]" />

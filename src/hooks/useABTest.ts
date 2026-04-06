@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 export interface ABTestVariant {
-  id: string;
-  weight: number; // 0-100
+  readonly id: string;
+  readonly weight: number;
 }
 
 export interface ABTest {
-  id: string;
-  variants: ABTestVariant[];
+  readonly id: string;
+  readonly variants: readonly ABTestVariant[];
 }
 
 const AB_STORAGE_KEY = "itoby-ab-tests";

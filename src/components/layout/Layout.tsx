@@ -14,6 +14,7 @@ import { ExitIntentPopup } from "@/components/ui/exit-intent-popup";
 import { PWAInstallBanner } from "@/components/ui/pwa-install-banner";
 import { usePageTracking } from "@/hooks/usePageTracking";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
+import { usePerformanceMonitoring } from "@/hooks/usePerformanceMonitoring";
 
 interface LayoutProps {
   children: ReactNode;
@@ -23,6 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   usePageTracking();
   useKeyboardShortcuts();
+  usePerformanceMonitoring();
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <ScrollProgress />

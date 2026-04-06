@@ -4,6 +4,7 @@ import { ArrowRight, Play, Code, Globe, Smartphone, TrendingUp, Sparkles } from 
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { useRef, useState, useEffect } from "react";
+import { useABTest, AB_TESTS } from "@/hooks/useABTest";
 import heroBg from "@/assets/hero-bg.webp";
 
 const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];

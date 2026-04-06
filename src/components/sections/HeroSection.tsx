@@ -234,7 +234,7 @@ export const HeroSection = () => {
             >
               <Button variant="hero" size="lg" className="w-full sm:w-auto group" asChild>
                 <Link to="/contact">
-                  Get a Free Consultation
+                  {heroCtaVariant === "variant-b" ? "Start Your Project Today" : "Get a Free Consultation"}
                   <motion.span
                     className="inline-block"
                     animate={{ x: [0, 4, 0] }}

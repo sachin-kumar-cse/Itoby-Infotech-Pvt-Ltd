@@ -142,7 +142,7 @@ export const ExitIntentPopup = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 40 }}
             transition={{ type: "spring", damping: 20, stiffness: 250 }}
-            className="fixed top-8 left-4 sm:top-12 sm:left-8 z-[81] w-[480px] max-w-[calc(100vw-32px)] rounded-3xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-2xl overflow-hidden"
+            className="fixed inset-x-4 top-1/2 -translate-y-1/2 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 z-[81] w-auto sm:w-[480px] max-w-[calc(100vw-32px)] rounded-3xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
           >
             {/* Ambient glow */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-[100px]" />

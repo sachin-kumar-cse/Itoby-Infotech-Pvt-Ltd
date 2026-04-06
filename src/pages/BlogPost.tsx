@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { Calendar, Clock, ArrowLeft, Share2, Linkedin, Twitter, Facebook, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
+import { generateBlogJsonLd, generateBreadcrumbJsonLd } from "@/hooks/useBlogSEO";
 
 interface BlogPostData {
   id: string;
@@ -87,8 +89,26 @@ const BlogPost = () => {
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
+  const blogJsonLd = post ? generateBlogJsonLd(post) : undefined;
+  const breadcrumbJsonLd = post ? generateBreadcrumbJsonLd(post) : undefined;
+
   return (
     <Layout>
+      {post && (
+        <>
+          <SEOHead
+            title={post.title}
+            description={post.excerpt}
+            path={`/blog/${post.slug}`}
+            type="article"
+            image={post.image}
+            jsonLd={blogJsonLd}
+          />
+          {breadcrumbJsonLd && (
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+          )}
+        </>
+      )}
       {/* Hero */}
       <section className="pt-32 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.1),transparent_50%)]" />

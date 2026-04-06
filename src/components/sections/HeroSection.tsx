@@ -4,6 +4,7 @@ import { ArrowRight, Play, Code, Globe, Smartphone, TrendingUp, Sparkles } from 
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { useRef, useState, useEffect } from "react";
+import { useABTest, AB_TESTS } from "@/hooks/useABTest";
 import heroBg from "@/assets/hero-bg.webp";
 
 const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];
@@ -59,6 +60,7 @@ export const HeroSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const heroCtaVariant = useABTest(AB_TESTS.heroCtaText);
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
@@ -233,7 +235,7 @@ export const HeroSection = () => {
             >
               <Button variant="hero" size="lg" className="w-full sm:w-auto group" asChild>
                 <Link to="/contact">
-                  Get a Free Consultation
+                  {heroCtaVariant === "variant-b" ? "Start Your Project Today" : "Get a Free Consultation"}
                   <motion.span
                     className="inline-block"
                     animate={{ x: [0, 4, 0] }}

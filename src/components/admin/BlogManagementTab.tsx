@@ -22,7 +22,8 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, Eye, EyeOff, RefreshCw, FileText, Star, Upload, Image, X, Loader2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Eye, EyeOff, RefreshCw, FileText, Star, Upload, Image, X, Loader2, Search } from "lucide-react";
+import { computeSEOScore } from "@/hooks/useBlogSEO";
 
 interface BlogPost {
   id: string;
@@ -272,6 +273,14 @@ export const BlogManagementTab = () => {
                       <span className="text-xs text-muted-foreground">
                         {new Date(post.created_at).toLocaleDateString()}
                       </span>
+                      {(() => {
+                        const { score } = computeSEOScore(post);
+                        return (
+                          <Badge variant={score >= 70 ? "default" : score >= 40 ? "secondary" : "destructive"} className="text-xs">
+                            SEO {score}%
+                          </Badge>
+                        );
+                      })()}
                     </div>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">

@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { generateBlogJsonLd, generateBreadcrumbJsonLd } from "@/hooks/useBlogSEO";
+import { fallbackBlogs } from "@/data/blogsData";
 
 interface BlogPostData {
   id: string;
@@ -34,28 +35,52 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       setIsLoading(true);
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("slug", slug || "")
-        .eq("is_published", true)
-        .maybeSingle();
-
-      if (error || !data) {
-        setPost(null);
-      } else {
-        setPost(data as BlogPostData);
-        // Fetch related
-        const { data: related } = await supabase
+      try {
+        const { data, error } = await supabase
           .from("blog_posts")
-          .select("id, slug, title, excerpt, category, image, read_time, created_at, author, author_role, content")
+          .select("*")
+          .eq("slug", slug || "")
           .eq("is_published", true)
-          .eq("category", data.category)
-          .neq("id", data.id)
-          .limit(3);
-        setRelatedPosts((related as BlogPostData[]) || []);
+          .maybeSingle();
+
+        if (!error && data) {
+          setPost(data as BlogPostData);
+          const { data: related } = await supabase
+            .from("blog_posts")
+            .select("id, slug, title, excerpt, category, image, read_time, created_at, author, author_role, content")
+            .eq("is_published", true)
+            .eq("category", data.category)
+            .neq("id", data.id)
+            .limit(3);
+
+          if (related && related.length > 0) {
+            setRelatedPosts(related as BlogPostData[]);
+          } else {
+            const localRelated = fallbackBlogs.filter((b) => b.category === data.category && b.slug !== data.slug).slice(0, 3);
+            setRelatedPosts(localRelated as BlogPostData[]);
+          }
+        } else {
+          const localPost = fallbackBlogs.find((b) => b.slug === slug);
+          if (localPost) {
+            setPost(localPost as BlogPostData);
+            const localRelated = fallbackBlogs.filter((b) => b.category === localPost.category && b.slug !== localPost.slug).slice(0, 3);
+            setRelatedPosts(localRelated as BlogPostData[]);
+          } else {
+            setPost(null);
+          }
+        }
+      } catch {
+        const localPost = fallbackBlogs.find((b) => b.slug === slug);
+        if (localPost) {
+          setPost(localPost as BlogPostData);
+          const localRelated = fallbackBlogs.filter((b) => b.category === localPost.category && b.slug !== localPost.slug).slice(0, 3);
+          setRelatedPosts(localRelated as BlogPostData[]);
+        } else {
+          setPost(null);
+        }
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     fetchPost();
   }, [slug]);

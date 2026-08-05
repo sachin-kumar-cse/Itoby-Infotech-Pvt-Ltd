@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
+import { fallbackBlogs } from "@/data/blogsData";
 
 // Categories are now dynamically extracted from posts
 
@@ -43,14 +44,23 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("id, slug, title, excerpt, category, image, read_time, featured, created_at")
-        .eq("is_published", true)
-        .order("created_at", { ascending: false });
+      try {
+        const { data, error } = await supabase
+          .from("blog_posts")
+          .select("id, slug, title, excerpt, category, image, read_time, featured, created_at")
+          .eq("is_published", true)
+          .order("created_at", { ascending: false });
 
-      if (!error && data) setPosts(data as BlogPost[]);
-      setIsLoading(false);
+        if (!error && data && data.length > 0) {
+          setPosts(data as BlogPost[]);
+        } else {
+          setPosts(fallbackBlogs as BlogPost[]);
+        }
+      } catch {
+        setPosts(fallbackBlogs as BlogPost[]);
+      } finally {
+        setIsLoading(false);
+      }
     };
     fetchPosts();
   }, []);

@@ -88,7 +88,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-between p-4 sm:p-6 relative overflow-hidden selection:bg-primary selection:text-primary-foreground">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-between p-6 sm:p-10 lg:p-12 gap-8 sm:gap-12 relative overflow-y-auto selection:bg-primary selection:text-primary-foreground">
       <SEOHead
         title="Admin Portal Login | Itoby Infotech"
         description="Encrypted Administrator Authentication Portal for Itoby Infotech Pvt Ltd."
@@ -103,8 +103,8 @@ const AdminLogin = () => {
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Header Bar */}
-      <header className="w-full max-w-5xl flex items-center justify-between py-4 relative z-10">
+      {/* Header Bar with Generous Margins & Glass Border */}
+      <header className="w-full max-w-5xl flex items-center justify-between py-4 sm:py-5 px-6 rounded-2xl bg-card/40 border border-border/50 backdrop-blur-md shadow-sm relative z-10 mb-4 sm:mb-8 mt-2 sm:mt-4">
         <a href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center font-display font-extrabold text-primary-foreground shadow-md shadow-primary/20 group-hover:scale-105 transition-transform">
             IIPL
@@ -114,20 +114,20 @@ const AdminLogin = () => {
           </span>
         </a>
 
-        <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground bg-card/60 border border-border/60 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm">
+        <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground bg-card/80 border border-border/70 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm">
           <ShieldCheck size={14} className="text-primary" />
           <span>256-Bit SSL Encrypted</span>
         </div>
       </header>
 
-      {/* Main Login Box */}
-      <main className="w-full max-w-md my-auto relative z-10 py-6">
+      {/* Main Login Box with Top & Bottom Spacing */}
+      <main className="w-full max-w-md my-auto relative z-10 py-6 sm:py-10 my-4 sm:my-8">
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Card className="bg-card/85 backdrop-blur-2xl border-primary/30 shadow-[0_20px_80px_-15px_hsl(var(--primary)/0.2)] rounded-3xl overflow-hidden p-2 sm:p-4">
+          <Card className="bg-card/85 backdrop-blur-2xl border-primary/30 shadow-[0_20px_80px_-15px_hsl(var(--primary)/0.25)] rounded-3xl overflow-hidden p-3 sm:p-5">
             <CardHeader className="text-center pb-4 pt-6 space-y-3">
               {/* Top Shield Icon */}
               <motion.div
@@ -261,14 +261,14 @@ const AdminLogin = () => {
         </motion.div>
       </main>
 
-      {/* Bottom Footer Bar */}
-      <footer className="w-full max-w-5xl py-4 text-center text-xs text-muted-foreground/80 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-border/40">
+      {/* Bottom Footer Bar with Spacing & Top Border */}
+      <footer className="w-full max-w-5xl py-5 sm:py-6 px-6 mb-2 sm:mb-4 rounded-2xl bg-card/40 border border-border/50 backdrop-blur-md text-center text-xs text-muted-foreground/80 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
         <p>© {new Date().getFullYear()} Itoby Infotech Pvt Ltd. All rights reserved.</p>
         <div className="flex items-center gap-4 text-[11px]">
           <span className="flex items-center gap-1 text-primary font-semibold">
             <CheckCircle2 size={12} /> System Status: Operational
           </span>
-          <span className="text-muted-foreground">V3.4.0 High-Security</span>
+          <span className="text-muted-foreground font-medium">V3.4.0 High-Security</span>
         </div>
       </footer>
     </div>

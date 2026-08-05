@@ -207,7 +207,7 @@ const handler = async (req: Request): Promise<Response> => {
       JSON.stringify({ success: true, message: "Emails sent successfully" }),
       { status: 200, headers: { "Content-Type": "application/json", ...corsHeaders } }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
       JSON.stringify({ error: "An unexpected error occurred" }),

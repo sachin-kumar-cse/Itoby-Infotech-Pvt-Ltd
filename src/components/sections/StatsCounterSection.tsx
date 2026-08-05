@@ -4,12 +4,11 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { Code2, Users, Trophy, Clock, Briefcase, Globe } from "lucide-react";
 
 const stats = [
-  { icon: Code2, value: 500, suffix: "+", label: "Projects Delivered", description: "Successfully completed projects" },
-  { icon: Users, value: 150, suffix: "+", label: "Happy Clients", description: "Satisfied customers worldwide" },
+  { icon: Code2, value: 1200, suffix: "+", label: "Projects Delivered", description: "Successfully completed projects" },
   { icon: Trophy, value: 25, suffix: "+", label: "Awards Won", description: "Industry recognitions" },
   { icon: Clock, value: 11, suffix: "+", label: "Years Experience", description: "Delivering excellence" },
   { icon: Briefcase, value: 50, suffix: "+", label: "Team Members", description: "Expert professionals" },
-  { icon: Globe, value: 15, suffix: "+", label: "Countries Served", description: "Global presence" },
+  { icon: Globe, value: 8, suffix: "+", label: "Countries Served", description: "Global presence" },
 ];
 
 const staggerContainer = {
@@ -47,12 +46,13 @@ export const StatsCounterSection = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Our Impact</span>
+          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Proven Track Record</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Numbers That <span className="gradient-text">Speak</span>
+            Numbers That Validate <span className="gradient-text">Our Success</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Our track record of success speaks for itself. Here's a glimpse of our journey and achievements.
+            A glance at the milestones that define our journey as a leading digital agency, delivering premium web design, 
+            custom software development, and digital marketing solutions globally.
           </p>
         </motion.div>
 
@@ -61,7 +61,7 @@ export const StatsCounterSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {stats.map((stat) => (
             <motion.div
@@ -80,11 +80,7 @@ export const StatsCounterSection = () => {
                     <stat.icon className="text-primary" size={24} />
                   </motion.div>
                   <p className="text-3xl sm:text-4xl font-display font-bold text-primary mb-1">
-                    {isInView ? (
-                      <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={2.5} />
-                    ) : (
-                      "0" + stat.suffix
-                    )}
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={2.5} margin="0px" />
                   </p>
                   <p className="font-medium text-foreground text-sm mb-1">{stat.label}</p>
                   <p className="text-muted-foreground text-xs hidden sm:block">{stat.description}</p>

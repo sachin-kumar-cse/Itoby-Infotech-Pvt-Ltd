@@ -1,8 +1,11 @@
+"use client";
+
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, Play, Code, Globe, Smartphone, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
+import { GlowingParticles3D } from "@/components/ui/glowing-particles-3d";
 import { useRef, useState, useEffect } from "react";
 import { useABTest, AB_TESTS } from "@/hooks/useABTest";
 import heroBg from "@/assets/hero-bg.webp";
@@ -10,7 +13,7 @@ import heroBg from "@/assets/hero-bg.webp";
 const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];
 
 const stats = [
-  { value: 100, suffix: "+", label: "Projects Delivered" },
+  { value: 1200, suffix: "+", label: "Projects Delivered" },
   { value: 50, suffix: "+", label: "Happy Clients" },
   { value: 11, suffix: "+", label: "Years Experience" },
 ];
@@ -58,56 +61,88 @@ export const HeroSection = () => {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const [wordIndex, setWordIndex] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const heroCtaVariant = useABTest(AB_TESTS.heroCtaText);
-  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 2500);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    const x = (clientX / innerWidth - 0.5) * 20;
+    const y = (clientY / innerHeight - 0.5) * 20;
+    setMousePos({ x, y });
+  };
+
+  const bgUrl = typeof heroBg === "string" ? heroBg : (heroBg as any)?.src || heroBg;
+
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Parallax Background */}
-      <motion.div style={{ y: backgroundY }} className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt="Digital innovation background"
-          className="w-full h-full object-cover opacity-30"
-          loading="eager"
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-background"
+    >
+      {/* Interactive 3D Glowing Particle Canvas */}
+      <GlowingParticles3D count={60} interactive={true} />
+
+      {/* Background Image with Parallax */}
+      <motion.div
+        style={{ y: backgroundY }}
+        className="absolute inset-0 z-0 overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 scale-105"
+          style={{ backgroundImage: `url(${bgUrl})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
       </motion.div>
 
-      {/* Animated Gradient Mesh Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Cyber Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+      {/* Ambient Glows */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-            opacity: [0.3, 0.5, 0.3] 
+            opacity: [0.3, 0.5, 0.3],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/2 -left-1/4 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-gradient-to-br from-primary/30 to-transparent blur-[80px] sm:blur-[120px]"
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-primary/10 blur-[80px] sm:blur-[140px]"
         />
         <motion.div
-          animate={{ 
-            scale: [1, 1.3, 1],
-            rotate: [0, -90, 0],
-            opacity: [0.2, 0.4, 0.2] 
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
           }}
-          transition={{ duration: 20, repeat: Infinity, delay: 2, ease: "easeInOut" }}
-          className="absolute -bottom-1/2 -right-1/4 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-gradient-to-tl from-glow-secondary/30 to-transparent blur-[80px] sm:blur-[120px]"
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/4 right-10 w-[250px] sm:w-[400px] lg:w-[600px] h-[250px] sm:h-[400px] lg:h-[600px] rounded-full bg-glow-secondary/10 blur-[80px] sm:blur-[120px]"
         />
-        {/* Additional moving gradient - hidden on mobile for performance */}
+
+        {/* 3D Glass Orbs */}
         <motion.div
-          animate={{ 
-            x: ["-20%", "20%", "-20%"],
-            y: ["-10%", "10%", "-10%"],
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -30, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-20 left-10 w-24 sm:w-32 h-24 sm:h-32 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-3xl hidden md:block"
+        />
+        <motion.div
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+            rotate: [360, 180, 0],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/3 left-1/3 w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] rounded-full bg-primary/10 blur-[60px] sm:blur-[100px] hidden sm:block"
@@ -115,25 +150,34 @@ export const HeroSection = () => {
       </div>
 
       {/* Floating Particles - fewer on mobile */}
-      {[...Array(8)].map((_, i) => (
+      {[
+        { left: "15.5%", top: "72.4%", duration: 3.5, delay: 0.2, x: 15 },
+        { left: "35.2%", top: "85.1%", duration: 4.2, delay: 1.1, x: -20 },
+        { left: "55.8%", top: "65.3%", duration: 3.8, delay: 0.5, x: 25 },
+        { left: "75.1%", top: "90.2%", duration: 4.8, delay: 1.8, x: -15 },
+        { left: "25.4%", top: "75.7%", duration: 3.2, delay: 2.3, x: 10 },
+        { left: "45.9%", top: "94.6%", duration: 4.5, delay: 0.8, x: -25 },
+        { left: "65.3%", top: "80.4%", duration: 3.9, delay: 1.4, x: 20 },
+        { left: "85.7%", top: "68.9%", duration: 4.1, delay: 2.1, x: -10 },
+      ].map((particle, i) => (
         <motion.div
           key={i}
           initial={{ opacity: 0 }}
           animate={{
             opacity: [0, 0.5, 0],
             y: [0, -100],
-            x: [0, Math.random() * 50 - 25],
+            x: [0, particle.x],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 3,
+            delay: particle.delay,
             ease: "easeOut",
           }}
           className="absolute w-1 h-1 rounded-full bg-primary/50 hidden sm:block"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${60 + Math.random() * 40}%`,
+            left: particle.left,
+            top: particle.top,
           }}
         />
       ))}
@@ -155,7 +199,7 @@ export const HeroSection = () => {
                 className="w-2 h-2 rounded-full bg-primary"
               />
               <span className="text-xs sm:text-sm font-medium text-primary">
-                Digital Excellence Since 2013
+                Award-Winning Web Design & App Development Agency
               </span>
               <Sparkles size={14} className="text-primary" />
             </motion.div>
@@ -165,7 +209,7 @@ export const HeroSection = () => {
               <motion.h1
                 initial="hidden"
                 animate="visible"
-                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1]"
+                className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1]"
               >
                 <motion.span 
                   custom={0}
@@ -222,8 +266,9 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="text-base sm:text-lg text-muted-foreground max-w-xl"
             >
-              Itoby Infotech helps brands grow with premium websites, powerful apps, 
-              and performance marketing. Transform your vision into digital reality.
+              Itoby Infotech is a leading digital agency providing custom software development, 
+              premium web design, mobile app development, and data-driven digital marketing solutions 
+              globally. Partner with experts to accelerate your business growth.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -234,7 +279,7 @@ export const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <Button variant="hero" size="lg" className="w-full sm:w-auto group" asChild>
-                <Link to="/contact">
+                <Link href="/contact">
                   {heroCtaVariant === "variant-b" ? "Start Your Project Today" : "Get a Free Consultation"}
                   <motion.span
                     className="inline-block"
@@ -246,7 +291,7 @@ export const HeroSection = () => {
                 </Link>
               </Button>
               <Button variant="hero-outline" size="lg" className="w-full sm:w-auto group" asChild>
-                <Link to="/portfolio">
+                <Link href="/portfolio">
                   <motion.span
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -293,6 +338,55 @@ export const HeroSection = () => {
             className="hidden lg:block relative"
           >
             <div className="relative w-full aspect-square max-w-lg mx-auto">
+              {/* Interactive Floating Widgets */}
+              <motion.div
+                style={{
+                  x: mousePos.x * 1.2,
+                  y: mousePos.y * 1.2,
+                }}
+                className="absolute -top-6 -left-16 z-20 hidden xl:flex items-center gap-3 p-4 rounded-2xl bg-card/60 backdrop-blur-xl border border-border/80 shadow-2xl hover:border-primary/50 transition-colors cursor-pointer"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <TrendingUp size={20} className="text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Conversion</p>
+                  <h4 className="text-sm font-bold font-display text-foreground">+124% Growth</h4>
+                </div>
+              </motion.div>
+
+              <motion.div
+                style={{
+                  x: -mousePos.x * 0.8,
+                  y: -mousePos.y * 0.8,
+                }}
+                className="absolute top-1/2 -right-20 z-20 hidden xl:flex items-center gap-3 p-4 rounded-2xl bg-card/60 backdrop-blur-xl border border-border/80 shadow-2xl hover:border-primary/50 transition-colors cursor-pointer"
+              >
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                  <Globe size={20} className="text-cyan-400" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">SEO Traffic</p>
+                  <h4 className="text-sm font-bold font-display text-foreground">+340% Traffic</h4>
+                </div>
+              </motion.div>
+
+              <motion.div
+                style={{
+                  x: mousePos.x * 0.5,
+                  y: -mousePos.y * 0.5,
+                }}
+                className="absolute -bottom-8 left-8 z-20 hidden xl:flex items-center gap-3 p-4 rounded-2xl bg-card/60 backdrop-blur-xl border border-border/80 shadow-2xl hover:border-primary/50 transition-colors cursor-pointer"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center relative">
+                  <span className="absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+                  <Code size={20} className="text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Active Delivery</p>
+                  <h4 className="text-sm font-bold font-display text-foreground">24/7 Support</h4>
+                </div>
+              </motion.div>
               {/* Animated Rings */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -319,7 +413,7 @@ export const HeroSection = () => {
                     }}
                     className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-primary flex items-center justify-center shadow-[0_0_40px_hsl(75_100%_50%/0.4)]"
                   >
-                    <span className="text-4xl font-display font-bold text-primary-foreground">I</span>
+                    <span className="text-4xl font-display font-bold text-primary-foreground">IIPL</span>
                   </motion.div>
                   <motion.p 
                     className="font-display font-bold text-xl"

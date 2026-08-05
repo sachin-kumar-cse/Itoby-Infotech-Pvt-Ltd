@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 export interface ABTestVariant {
@@ -13,6 +15,7 @@ export interface ABTest {
 const AB_STORAGE_KEY = "itoby-ab-tests";
 
 function getStoredVariants(): Record<string, string> {
+  if (typeof window === "undefined") return {};
   try {
     return JSON.parse(localStorage.getItem(AB_STORAGE_KEY) || "{}");
   } catch {
@@ -21,6 +24,7 @@ function getStoredVariants(): Record<string, string> {
 }
 
 function storeVariant(testId: string, variantId: string) {
+  if (typeof window === "undefined") return;
   const stored = getStoredVariants();
   stored[testId] = variantId;
   localStorage.setItem(AB_STORAGE_KEY, JSON.stringify(stored));
@@ -37,13 +41,18 @@ function pickVariant(variants: readonly ABTestVariant[]): string {
 }
 
 export function useABTest(test: ABTest): string {
-  const [variant, setVariant] = useState<string>(() => {
+  const [variant, setVariant] = useState<string>(test.variants[0].id);
+
+  useEffect(() => {
     const stored = getStoredVariants();
-    if (stored[test.id]) return stored[test.id];
-    const picked = pickVariant(test.variants);
-    storeVariant(test.id, picked);
-    return picked;
-  });
+    if (stored[test.id]) {
+      setVariant(stored[test.id]);
+    } else {
+      const picked = pickVariant(test.variants);
+      storeVariant(test.id, picked);
+      setVariant(picked);
+    }
+  }, [test.id, test.variants]);
 
   return variant;
 }

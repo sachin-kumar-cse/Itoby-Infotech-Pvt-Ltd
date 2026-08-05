@@ -1,10 +1,20 @@
+"use client";
+
 import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 interface PerformanceMetric {
   name: string;
   value: number;
   rating: "good" | "needs-improvement" | "poor";
 }
+
+const isDev = process.env.NODE_ENV !== "production";
 
 const getRating = (name: string, value: number): PerformanceMetric["rating"] => {
   const thresholds: Record<string, [number, number]> = {
@@ -22,7 +32,7 @@ const getRating = (name: string, value: number): PerformanceMetric["rating"] => 
 };
 
 const reportToGA = (metric: PerformanceMetric) => {
-  if (window.gtag) {
+  if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "web_vitals", {
       event_category: "Web Vitals",
       event_label: metric.name,
@@ -34,115 +44,111 @@ const reportToGA = (metric: PerformanceMetric) => {
 };
 
 const observePaint = (entryName: string, metricName: string) => {
+  if (typeof PerformanceObserver === "undefined") return;
+
   try {
     const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
+      list.getEntries().forEach((entry) => {
         if (entry.name === entryName) {
-          const metric: PerformanceMetric = {
-            name: metricName,
-            value: entry.startTime,
-            rating: getRating(metricName, entry.startTime),
-          };
+          const value = entry.startTime;
+          const rating = getRating(metricName, value);
+          const metric = { name: metricName, value, rating };
+
+          if (isDev) {
+            console.log(`[Perf] ${metricName}: ${Math.round(value)}ms (${rating})`);
+          }
           reportToGA(metric);
-          if (import.meta.env.DEV) console.log(`[Perf] ${metricName}: ${entry.startTime.toFixed(1)}ms (${metric.rating})`);
         }
-      }
+      });
     });
+
     observer.observe({ type: "paint", buffered: true });
-  } catch { /* unsupported */ }
-};
-
-const observeLCP = () => {
-  try {
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries();
-      const last = entries[entries.length - 1];
-      if (last) {
-        const metric: PerformanceMetric = {
-          name: "LCP",
-          value: last.startTime,
-          rating: getRating("LCP", last.startTime),
-        };
-        reportToGA(metric);
-        if (import.meta.env.DEV) console.log(`[Perf] LCP: ${last.startTime.toFixed(1)}ms (${metric.rating})`);
-      }
-    });
-    observer.observe({ type: "largest-contentful-paint", buffered: true });
-  } catch { /* unsupported */ }
-};
-
-const observeCLS = () => {
-  try {
-    let clsValue = 0;
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (!(entry as any).hadRecentInput) {
-          clsValue += (entry as any).value;
-        }
-      }
-    });
-    observer.observe({ type: "layout-shift", buffered: true });
-
-    // Report on page hide
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") {
-        const metric: PerformanceMetric = {
-          name: "CLS",
-          value: clsValue,
-          rating: getRating("CLS", clsValue),
-        };
-        reportToGA(metric);
-        if (import.meta.env.DEV) console.log(`[Perf] CLS: ${clsValue.toFixed(4)} (${metric.rating})`);
-      }
-    }, { once: true });
-  } catch { /* unsupported */ }
-};
-
-const observeINP = () => {
-  try {
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        const duration = entry.duration;
-        const metric: PerformanceMetric = {
-          name: "INP",
-          value: duration,
-          rating: getRating("INP", duration),
-        };
-        reportToGA(metric);
-        if (import.meta.env.DEV) console.log(`[Perf] INP: ${duration.toFixed(1)}ms (${metric.rating})`);
-      }
-    });
-    observer.observe({ type: "event", buffered: true, durationThreshold: 40 } as any);
-  } catch { /* unsupported */ }
-};
-
-const measureTTFB = () => {
-  try {
-    const nav = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
-    if (nav) {
-      const ttfb = nav.responseStart - nav.requestStart;
-      const metric: PerformanceMetric = {
-        name: "TTFB",
-        value: ttfb,
-        rating: getRating("TTFB", ttfb),
-      };
-      reportToGA(metric);
-      if (import.meta.env.DEV) console.log(`[Perf] TTFB: ${ttfb.toFixed(1)}ms (${metric.rating})`);
-    }
-  } catch { /* unsupported */ }
+  } catch (e) {
+    // Observer not supported
+  }
 };
 
 export const usePerformanceMonitoring = () => {
   useEffect(() => {
-    // Defer to avoid impacting page load
-    const timeout = setTimeout(() => {
-      observePaint("first-contentful-paint", "FCP");
-      observeLCP();
-      observeCLS();
-      observeINP();
-      measureTTFB();
-    }, 1000);
+    if (typeof window === "undefined") return;
 
-    return () => clearTimeout(timeout);
+    // Observe Paint Timing (FCP)
+    observePaint("first-contentful-paint", "FCP");
+
+    // Observe LCP
+    if (typeof PerformanceObserver !== "undefined") {
+      try {
+        const lcpObserver = new PerformanceObserver((list) => {
+          const entries = list.getEntries();
+          const lastEntry = entries[entries.length - 1];
+          if (lastEntry) {
+            const value = lastEntry.startTime;
+            const rating = getRating("LCP", value);
+            const metric = { name: "LCP", value, rating };
+
+            if (isDev) {
+              console.log(`[Perf] LCP: ${Math.round(value)}ms (${rating})`);
+            }
+            reportToGA(metric);
+          }
+        });
+        lcpObserver.observe({ type: "largest-contentful-paint", buffered: true });
+      } catch (e) {}
+
+      // Observe CLS
+      try {
+        let clsValue = 0;
+        const clsObserver = new PerformanceObserver((list) => {
+          list.getEntries().forEach((entry: any) => {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value;
+            }
+          });
+
+          const rating = getRating("CLS", clsValue);
+          const metric = { name: "CLS", value: clsValue, rating };
+
+          if (isDev) {
+            console.log(`[Perf] CLS: ${clsValue.toFixed(3)} (${rating})`);
+          }
+          reportToGA(metric);
+        });
+        clsObserver.observe({ type: "layout-shift", buffered: true });
+      } catch (e) {}
+
+      // Observe INP / FID
+      try {
+        const fidObserver = new PerformanceObserver((list) => {
+          list.getEntries().forEach((entry: any) => {
+            const value = entry.processingStart - entry.startTime;
+            const rating = getRating("FID", value);
+            const metric = { name: "FID", value, rating };
+
+            if (isDev) {
+              console.log(`[Perf] FID: ${Math.round(value)}ms (${rating})`);
+            }
+            reportToGA(metric);
+          });
+        });
+        fidObserver.observe({ type: "first-input", buffered: true });
+      } catch (e) {}
+    }
+
+    // Navigation Timing (TTFB)
+    if (performance && performance.getEntriesByType) {
+      const navEntries = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[];
+      if (navEntries.length > 0) {
+        const ttfb = navEntries[0].responseStart;
+        if (ttfb > 0) {
+          const rating = getRating("TTFB", ttfb);
+          const metric = { name: "TTFB", value: ttfb, rating };
+
+          if (isDev) {
+            console.log(`[Perf] TTFB: ${Math.round(ttfb)}ms (${rating})`);
+          }
+          reportToGA(metric);
+        }
+      }
+    }
   }, []);
 };

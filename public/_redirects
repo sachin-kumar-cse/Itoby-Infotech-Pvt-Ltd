@@ -1,0 +1,4 @@
+http://www.itobyinfotech.com/* https://itobyinfotech.com/:splat 301!
+https://www.itobyinfotech.com/* https://itobyinfotech.com/:splat 301!
+http://itobyinfotech.com/* https://itobyinfotech.com/:splat 301!
+/* /index.html 200

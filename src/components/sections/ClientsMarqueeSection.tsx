@@ -1,19 +1,23 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { 
+  Cpu, ShoppingCart, Activity, GraduationCap, DollarSign, 
+  Utensils, Plane, Car, Leaf, Tv, Trophy, Shirt 
+} from "lucide-react";
 
 const clients = [
-  "TechFlow Inc.",
-  "RetailMax",
-  "HealthFirst",
-  "EduLearn",
-  "FinanceHub",
-  "FoodChain",
-  "TravelEase",
-  "AutoDrive",
-  "GreenEnergy",
-  "MediaPro",
-  "SportZone",
-  "FashionX",
+  { name: "TechFlow Inc.", icon: Cpu },
+  { name: "RetailMax", icon: ShoppingCart },
+  { name: "HealthFirst", icon: Activity },
+  { name: "EduLearn", icon: GraduationCap },
+  { name: "FinanceHub", icon: DollarSign },
+  { name: "FoodChain", icon: Utensils },
+  { name: "TravelEase", icon: Plane },
+  { name: "AutoDrive", icon: Car },
+  { name: "GreenEnergy", icon: Leaf },
+  { name: "MediaPro", icon: Tv },
+  { name: "SportZone", icon: Trophy },
+  { name: "FashionX", icon: Shirt },
 ];
 
 export const ClientsMarqueeSection = () => {
@@ -44,32 +48,38 @@ export const ClientsMarqueeSection = () => {
         transition={{ delay: 0.2, duration: 0.6 }}
       >
         {/* Gradient Overlays */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
-        {/* Scrolling Content */}
-        <motion.div
-          animate={{ x: [0, -1200] }}
-          transition={{ 
-            duration: 25, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="flex gap-4 sm:gap-8 md:gap-12"
-        >
-          {[...clients, ...clients, ...clients].map((client, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -3 }}
-              transition={{ duration: 0.2 }}
-              className="flex-shrink-0 px-4 sm:px-6 py-2 sm:py-3 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 hover:bg-card transition-colors cursor-default"
-            >
-              <span className="text-sm sm:text-base font-medium text-muted-foreground whitespace-nowrap">
-                {client}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Scrolling Content Container */}
+        <div className="flex overflow-hidden select-none gap-4 sm:gap-8 md:gap-12 group">
+          <div className="flex shrink-0 justify-around gap-4 sm:gap-8 md:gap-12 min-w-full animate-marquee group-hover:[animation-play-state:paused]">
+            {clients.map((client, index) => (
+              <div
+                key={`marquee-1-${index}`}
+                className="group/logo flex items-center gap-2.5 flex-shrink-0 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 hover:bg-card hover:shadow-[0_0_25px_hsl(var(--primary)/0.25)] transition-all duration-300 transform hover:-translate-y-1 cursor-default"
+              >
+                <client.icon className="text-muted-foreground/60 group-hover/logo:text-primary transition-colors" size={18} />
+                <span className="text-sm sm:text-base font-medium text-muted-foreground group-hover/logo:text-primary transition-colors whitespace-nowrap">
+                  {client.name}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="flex shrink-0 justify-around gap-4 sm:gap-8 md:gap-12 min-w-full animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
+            {clients.map((client, index) => (
+              <div
+                key={`marquee-2-${index}`}
+                className="group/logo flex items-center gap-2.5 flex-shrink-0 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/50 hover:bg-card hover:shadow-[0_0_25px_hsl(var(--primary)/0.25)] transition-all duration-300 transform hover:-translate-y-1 cursor-default"
+              >
+                <client.icon className="text-muted-foreground/60 group-hover/logo:text-primary transition-colors" size={18} />
+                <span className="text-sm sm:text-base font-medium text-muted-foreground group-hover/logo:text-primary transition-colors whitespace-nowrap">
+                  {client.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   );

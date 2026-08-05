@@ -58,7 +58,7 @@ export const FAQSection = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
             >
               {[
-                { val: "100+", label: "Projects Delivered" },
+                { val: "1200+", label: "Projects Delivered" },
                 { val: "99%", label: "Client Satisfaction" },
               ].map((s) => (
                 <motion.div

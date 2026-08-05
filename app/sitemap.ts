@@ -1,0 +1,49 @@
+import { MetadataRoute } from 'next';
+
+const baseUrl = 'https://itobyinfotech.com';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const routes = [
+    '',
+    '/about',
+    '/services',
+    '/services/web-design',
+    '/services/mobile-app',
+    '/services/digital-marketing',
+    '/services/software-solutions',
+    '/services/microsoft-365',
+    '/portfolio',
+    '/portfolio/techflow',
+    '/portfolio/luxe-fashion',
+    '/portfolio/fittrack',
+    '/portfolio/quickpay',
+    '/portfolio/restaurant-chain',
+    '/portfolio/b2b-saas',
+    '/portfolio/manufacturing-erp',
+    '/portfolio/healthcare-portal',
+    '/portfolio/law-firm-m365',
+    '/portfolio/retail-m365',
+    '/portfolio/kaspereye-security',
+    '/portfolio/freightxpress',
+    '/portfolio/rainfra-studio',
+    '/portfolio/easy2buy',
+    '/portfolio/solidedgeconstructions',
+    '/portfolio/juxtudio',
+    '/portfolio/rent-itoby',
+    '/portfolio/lead-itoby',
+    '/blog',
+    '/careers',
+    '/contact',
+    '/request-quote',
+    '/book-appointment',
+    '/privacy',
+    '/terms',
+  ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: route === '' ? 'daily' : 'weekly',
+    priority: route === '' ? 1.0 : route.startsWith('/services') ? 0.9 : 0.8,
+  }));
+}

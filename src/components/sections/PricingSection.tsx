@@ -1,11 +1,14 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { CheckCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCurrency } from "@/hooks/useCurrency";
 
 interface PricingTier {
   name: string;
-  price: string;
+  price: string | Record<string, string>;
   period?: string;
   description: string;
   features: string[];
@@ -24,6 +27,13 @@ export const PricingSection = ({
   subtitle = "Choose the perfect plan for your needs",
   tiers 
 }: PricingSectionProps) => {
+  const { currency } = useCurrency();
+
+  const getPrice = (priceVal: string | Record<string, string>) => {
+    if (typeof priceVal === "string") return priceVal;
+    return priceVal[currency] || priceVal["USD"] || "";
+  };
+
   return (
     <section className="section-padding">
       <div className="container-wide">
@@ -59,7 +69,7 @@ export const PricingSection = ({
             >
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1 px-4 py-1 rounded-full bg-primary text-primary-foreground text-sm font-medium">
+                  <span className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-primary text-primary-foreground text-sm font-medium">
                     <Star size={14} fill="currentColor" />
                     Most Popular
                   </span>
@@ -70,7 +80,7 @@ export const PricingSection = ({
                 <h3 className="font-display text-2xl font-bold mb-2">{tier.name}</h3>
                 <p className="text-muted-foreground text-sm mb-6">{tier.description}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold">{tier.price}</span>
+                  <span className="text-4xl font-bold">{getPrice(tier.price)}</span>
                   {tier.period && (
                     <span className="text-muted-foreground">/{tier.period}</span>
                   )}
@@ -92,7 +102,7 @@ export const PricingSection = ({
                 className="w-full"
                 size="lg"
               >
-                <Link to="/contact">{tier.cta || "Get Started"}</Link>
+                <Link href="/contact">{tier.cta || "Get Started"}</Link>
               </Button>
             </motion.div>
           ))}
@@ -105,7 +115,7 @@ export const PricingSection = ({
           className="text-center text-muted-foreground text-sm mt-12"
         >
           All prices are starting points. Final pricing depends on project complexity.{" "}
-          <Link to="/contact" className="text-primary hover:underline">
+          <Link href="/contact" className="text-primary hover:underline">
             Contact us
           </Link>{" "}
           for a custom quote.

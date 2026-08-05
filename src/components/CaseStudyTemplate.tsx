@@ -1,7 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
-import { Layout } from "@/components/layout/Layout";
-import { SEOHead } from "@/components/SEOHead";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink, CheckCircle } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
@@ -12,7 +13,7 @@ interface CaseStudy {
   client: string;
   duration: string;
   year: string;
-  heroImage: string;
+  heroImage: any;
   overview: string;
   challenge: string[];
   solution: string[];
@@ -29,7 +30,7 @@ interface CaseStudy {
   relatedProjects: {
     title: string;
     category: string;
-    image: string;
+    image: any;
     path: string;
   }[];
 }
@@ -38,25 +39,13 @@ interface CaseStudyTemplateProps {
   caseStudy: CaseStudy;
 }
 
+const getImgSrc = (img: any) => typeof img === "string" ? img : img?.src || img;
+
 export const CaseStudyTemplate = ({ caseStudy }: CaseStudyTemplateProps) => {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
   return (
-    <Layout>
-      <SEOHead
-        title={`${caseStudy.title} - Case Study`}
-        description={`${caseStudy.overview.slice(0, 155)}…`}
-        path={pathname}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          "name": caseStudy.title,
-          "description": caseStudy.overview,
-          "author": { "@type": "Organization", "name": "Itoby Infotech" },
-          "about": { "@type": "Thing", "name": caseStudy.category },
-          "url": `https://itobyinfotech.in${pathname}`
-        }}
-      />
+    <>
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(75_100%_50%/0.1),transparent_50%)]" />
@@ -67,7 +56,7 @@ export const CaseStudyTemplate = ({ caseStudy }: CaseStudyTemplateProps) => {
             animate={{ opacity: 1, y: 0 }}
           >
             <Link 
-              to="/portfolio" 
+              href="/portfolio" 
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft size={16} />
@@ -109,7 +98,7 @@ export const CaseStudyTemplate = ({ caseStudy }: CaseStudyTemplateProps) => {
                 className="relative aspect-video rounded-2xl overflow-hidden border border-border"
               >
                 <img
-                  src={caseStudy.heroImage}
+                  src={getImgSrc(caseStudy.heroImage)}
                   alt={caseStudy.title}
                   className="w-full h-full object-cover"
                 />
@@ -285,12 +274,12 @@ export const CaseStudyTemplate = ({ caseStudy }: CaseStudyTemplateProps) => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <Link
-                    to={project.path}
+                    href={project.path}
                     className="group block overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
                   >
                     <div className="aspect-video overflow-hidden">
                       <img
-                        src={project.image}
+                        src={getImgSrc(project.image)}
                         alt={project.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -310,6 +299,6 @@ export const CaseStudyTemplate = ({ caseStudy }: CaseStudyTemplateProps) => {
       )}
 
       <CTASection />
-    </Layout>
+    </>
   );
 };

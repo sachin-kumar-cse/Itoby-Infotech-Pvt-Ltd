@@ -72,7 +72,7 @@ serve(async (req) => {
     }
 
     // Detect webhook type and format payload
-    let payload: any;
+    let payload: Record<string, unknown>;
 
     if (WEBHOOK_URL.includes("hooks.slack.com")) {
       // Slack format

@@ -1,5 +1,7 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, Calendar } from "lucide-react";
 
 const posts = [
@@ -37,7 +39,7 @@ export const BlogPreviewSection = () => {
             </h2>
           </div>
           <Link
-            to="/blog"
+            href="/blog"
             className="inline-flex items-center gap-2 text-primary font-medium hover:gap-4 transition-all"
           >
             View All Articles
@@ -56,7 +58,7 @@ export const BlogPreviewSection = () => {
           {posts.map((post) => (
             <motion.article key={post.id} variants={fadeUp}>
               <Link
-                to={`/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
                 className="group block rounded-3xl overflow-hidden bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">

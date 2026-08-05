@@ -2,6 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { Search, Palette, Code, TestTube, Rocket } from "lucide-react";
 import { useRef } from "react";
 
+import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
+
 const steps = [
   { icon: Search, number: "01", title: "Discover & Strategy", description: "We analyze your business goals, target audience, and competition to create a winning strategy." },
   { icon: Palette, number: "02", title: "UI/UX Design", description: "Our designers craft intuitive, beautiful interfaces that resonate with your users." },
@@ -26,6 +28,7 @@ export const ProcessSection = () => {
 
   return (
     <section className="section-padding relative overflow-hidden">
+      <Floating3DBubbles count={15} />
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
       <div className="container-wide relative z-10">
         <motion.div
@@ -46,15 +49,14 @@ export const ProcessSection = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Connecting Line */}
-          <motion.div
-            className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border/30 -translate-y-1/2"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-            style={{ transformOrigin: "left" }}
-          />
+          {/* Animated 3D Neon Connecting Beam */}
+          <div className="hidden lg:block absolute top-1/3 left-10 right-10 h-1 bg-gradient-to-r from-primary/10 via-primary/60 to-primary/10 rounded-full shadow-[0_0_15px_hsl(var(--primary))] overflow-hidden -translate-y-1/2">
+            <motion.div
+              className="w-24 h-full bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_20px_#fff]"
+              animate={{ x: ["-100%", "1000%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
 
           <motion.div
             ref={ref}

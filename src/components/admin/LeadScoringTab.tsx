@@ -8,12 +8,18 @@ import { Trash2, Search, TrendingUp, Users, Star, Activity } from "lucide-react"
 import { toast } from "sonner";
 import { format } from "date-fns";
 
+interface ActivityLogEntry {
+  action: string;
+  timestamp: string;
+  details?: Record<string, unknown>;
+}
+
 interface LeadScore {
   id: string;
   email: string;
   name: string;
   score: number;
-  activity_log: any[];
+  activity_log: ActivityLogEntry[];
   services_interested: string[];
   budget_range: string | null;
   source: string;

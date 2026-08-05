@@ -4,6 +4,8 @@ import {
   Factory, Plane, Utensils, Banknote, Scale, Building
 } from "lucide-react";
 
+import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
+
 const industries = [
   { icon: Banknote, name: "Fintech & Banking", projects: 25 },
   { icon: ShoppingCart, name: "E-commerce & Retail", projects: 40 },
@@ -30,6 +32,7 @@ const fadeUp = {
 export const IndustriesSection = () => {
   return (
     <section className="section-padding bg-card/30 relative overflow-hidden">
+      <Floating3DBubbles count={16} />
       <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
       <div className="container-wide relative z-10">
         <motion.div
@@ -38,12 +41,13 @@ export const IndustriesSection = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Industries We Serve</span>
+          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Global Industry Solutions</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Expertise Across <span className="gradient-text">Industries</span>
+            Digital Innovation Across <span className="gradient-text">Key Industries</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            We've helped businesses across diverse industries achieve digital transformation with tailored solutions.
+            We deliver bespoke web design, custom software development, and digital marketing services 
+            tailored to help businesses across key global industries scale successfully.
           </p>
         </motion.div>
 
@@ -61,15 +65,12 @@ export const IndustriesSection = () => {
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              <div className="p-6 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 transition-all duration-500 text-center h-full cursor-pointer overflow-hidden relative">
+              <div className="p-6 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-500 text-center h-full cursor-pointer overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.15, rotate: 10 }}
-                    className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all"
-                  >
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6">
                     <industry.icon className="text-primary" size={28} />
-                  </motion.div>
+                  </div>
                   <h3 className="font-medium text-sm mb-1 group-hover:text-primary transition-colors">
                     {industry.name}
                   </h3>

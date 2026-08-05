@@ -1,6 +1,8 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowUpRight, TrendingUp, Layers } from "lucide-react";
 import { useDbProjects } from "@/hooks/useDbProjects";
 
@@ -105,7 +107,7 @@ export const PortfolioSection = () => {
                   className="group"
                 >
                   <Link
-                    to={`/portfolio/${project.slug}`}
+                    href={`/portfolio/${project.slug}`}
                     className="block rounded-3xl overflow-hidden bg-card/40 backdrop-blur-xl border border-border/40 hover:border-primary/50 hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.2)] transition-all duration-500"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden">

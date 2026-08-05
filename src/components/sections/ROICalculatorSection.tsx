@@ -1,11 +1,14 @@
+"use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, TrendingUp, DollarSign, BarChart3, ArrowRight } from "lucide-react";
+import { Calculator, TrendingUp, DollarSign, BarChart3, ArrowRight, Gauge, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { SiteAuditModal } from "@/components/ui/site-audit-modal";
 
 interface ROIResult {
   projectedRevenue: number;
@@ -22,17 +25,38 @@ const serviceMultipliers: Record<string, { revenueMultiplier: number; growthRate
   m365: { revenueMultiplier: 2.0, growthRate: 25, label: "Microsoft 365 Services" },
 };
 
-const formatCurrency = (value: number) => {
-  if (value >= 10000000) return `₹${(value / 10000000).toFixed(1)} Cr`;
-  if (value >= 100000) return `₹${(value / 100000).toFixed(1)} L`;
-  return `₹${value.toLocaleString("en-IN")}`;
+const formatCurrency = (value: number, currency: string) => {
+  if (currency === "INR") {
+    if (value >= 10000000) return `₹${(value / 10000000).toFixed(1)} Cr`;
+    if (value >= 100000) return `₹${(value / 100000).toFixed(1)} L`;
+    return `₹${value.toLocaleString("en-IN")}`;
+  }
+  
+  const symbol = currency === "AUD" ? "A$" : currency === "CAD" ? "C$" : "$";
+  if (value >= 1000000) return `${symbol}${(value / 1000000).toFixed(1)}M`;
+  if (value >= 1000) return `${symbol}${(value / 1000).toFixed(0)}K`;
+  return `${symbol}${value.toLocaleString("en-US")}`;
 };
 
 const ROICalculatorSection = () => {
+  const [currency, setCurrency] = useState<"USD" | "AUD" | "CAD" | "INR">("USD");
   const [service, setService] = useState("web");
-  const [currentRevenue, setCurrentRevenue] = useState("500000");
-  const [investmentAmount, setInvestmentAmount] = useState([300000]);
+  const [currentRevenue, setCurrentRevenue] = useState("15000");
+  const [investmentAmount, setInvestmentAmount] = useState([10000]);
   const [result, setResult] = useState<ROIResult | null>(null);
+  const [isAuditOpen, setIsAuditOpen] = useState(false);
+
+  const handleCurrencyChange = (cur: "USD" | "AUD" | "CAD" | "INR") => {
+    setCurrency(cur);
+    setResult(null);
+    if (cur === "INR") {
+      setCurrentRevenue("500000");
+      setInvestmentAmount([300000]);
+    } else {
+      setCurrentRevenue("15000");
+      setInvestmentAmount([10000]);
+    }
+  };
 
   const calculate = () => {
     const rev = parseInt(currentRevenue) || 0;
@@ -79,6 +103,27 @@ const ROICalculatorSection = () => {
             viewport={{ once: true }}
             className="bg-card border border-border rounded-2xl p-6 space-y-6"
           >
+            {/* Currency Selector */}
+            <div>
+              <label className="text-sm font-medium text-foreground mb-2 block">Currency</label>
+              <div className="grid grid-cols-4 gap-2">
+                {(["USD", "AUD", "CAD", "INR"] as const).map((cur) => (
+                  <button
+                    key={cur}
+                    type="button"
+                    onClick={() => handleCurrencyChange(cur)}
+                    className={`py-2 text-xs sm:text-sm font-semibold rounded-xl border transition-all ${
+                      currency === cur
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-background text-muted-foreground border-border hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {cur === "AUD" ? "A$ (AUD)" : cur === "CAD" ? "C$ (CAD)" : cur === "INR" ? "₹ (INR)" : "$ (USD)"}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div>
               <label className="text-sm font-medium text-foreground mb-2 block">Service Type</label>
               <Select value={service} onValueChange={setService}>
@@ -92,31 +137,33 @@ const ROICalculatorSection = () => {
             </div>
 
             <div>
-              <label className="text-sm font-medium text-foreground mb-2 block">Current Monthly Revenue (₹)</label>
+              <label className="text-sm font-medium text-foreground mb-2 block">
+                Current Monthly Revenue ({currency === "INR" ? "₹" : "$"})
+              </label>
               <Input
                 type="number"
                 value={currentRevenue}
                 onChange={(e) => setCurrentRevenue(e.target.value)}
-                placeholder="500000"
+                placeholder={currency === "INR" ? "500000" : "15000"}
                 className="bg-background"
               />
             </div>
 
             <div>
               <label className="text-sm font-medium text-foreground mb-2 block">
-                Investment Amount: <span className="text-primary font-bold">{formatCurrency(investmentAmount[0])}</span>
+                Investment Amount: <span className="text-primary font-bold">{formatCurrency(investmentAmount[0], currency)}</span>
               </label>
               <Slider
                 value={investmentAmount}
                 onValueChange={setInvestmentAmount}
-                min={50000}
-                max={5000000}
-                step={50000}
+                min={currency === "INR" ? 50000 : 1000}
+                max={currency === "INR" ? 5000000 : 150000}
+                step={currency === "INR" ? 50000 : 2500}
                 className="my-4"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>₹50K</span>
-                <span>₹50L</span>
+                <span>{currency === "INR" ? "₹50K" : "$1K"}</span>
+                <span>{currency === "INR" ? "₹50L" : "$150K"}</span>
               </div>
             </div>
 
@@ -144,7 +191,7 @@ const ROICalculatorSection = () => {
                   </div>
                   <div className="bg-primary/10 rounded-xl p-4 text-center">
                     <DollarSign className="w-6 h-6 text-primary mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-foreground">{formatCurrency(result.projectedRevenue)}</div>
+                    <div className="text-2xl font-bold text-foreground">{formatCurrency(result.projectedRevenue, currency)}</div>
                     <div className="text-xs text-muted-foreground">Monthly Revenue</div>
                   </div>
                   <div className="bg-primary/10 rounded-xl p-4 text-center">
@@ -164,7 +211,7 @@ const ROICalculatorSection = () => {
                 </p>
 
                 <Button variant="hero" className="w-full" asChild>
-                  <Link to="/request-quote">
+                  <Link href="/request-quote">
                     Get Started <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
@@ -176,13 +223,40 @@ const ROICalculatorSection = () => {
                 </div>
                 <h3 className="text-lg font-display font-bold text-foreground mb-2">Ready to Calculate?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Fill in the details and click "Calculate ROI" to see your projected returns.
+                  Select your currency, fill in the details, and click "Calculate ROI" to see your projected returns.
                 </p>
               </div>
             )}
           </motion.div>
         </div>
+
+        {/* Instant Website Audit Banner */}
+        <div className="mt-12 p-6 rounded-3xl bg-card border border-primary/20 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+              <Gauge className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h4 className="font-display font-bold text-foreground text-base">Want to analyze your existing website?</h4>
+              <p className="text-xs text-muted-foreground">Run an instant AI performance, speed & mobile UX audit on your domain.</p>
+            </div>
+          </div>
+
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setIsAuditOpen(true)}
+            className="rounded-xl gap-2 text-xs border-primary/40 text-primary hover:bg-primary/10 shrink-0"
+          >
+            <Zap className="w-3.5 h-3.5" /> Run Instant Site Audit
+          </Button>
+        </div>
       </div>
+
+      <SiteAuditModal
+        isOpen={isAuditOpen}
+        onClose={() => setIsAuditOpen(false)}
+      />
     </section>
   );
 };

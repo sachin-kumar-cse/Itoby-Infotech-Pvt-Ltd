@@ -22,7 +22,10 @@ import {
 
 type Msg = { role: "user" | "assistant"; content: string };
 
-const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://uvpxfbucgcpsjwahmvjy.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2cHhmYnVjZ2Nwc2p3YWhtdmp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgyODc4MzIsImV4cCI6MjA4Mzg2MzgzMn0.cyfjlAm-k3g4vDF814UGYdnb9vhvBfkcMFhFpwSGRIE";
+
+const CHAT_URL = `${SUPABASE_URL}/functions/v1/chat`;
 const STORAGE_KEY = "itoby-chat-history";
 
 const suggestedQuestions = [
@@ -53,20 +56,26 @@ function loadHistory(): Msg[] {
       const parsed = JSON.parse(saved) as Msg[];
       if (Array.isArray(parsed) && parsed.length > 0) return parsed;
     }
-  } catch {}
+  } catch (error) {
+    // localStorage not available or corrupted
+    console.warn("Failed to load chat history from localStorage");
+  }
   return [defaultMessage];
 }
 
 function saveHistory(msgs: Msg[]) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
-  } catch {}
+  } catch (error) {
+    // localStorage not available or quota exceeded
+    console.warn("Failed to save chat history to localStorage");
+  }
 }
 
 // Notification sound using Web Audio API
 function playNotificationSound() {
   try {
-    const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    const ctx = new (window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
     const oscillator = ctx.createOscillator();
     const gain = ctx.createGain();
     oscillator.connect(gain);
@@ -77,7 +86,10 @@ function playNotificationSound() {
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
     oscillator.start(ctx.currentTime);
     oscillator.stop(ctx.currentTime + 0.25);
-  } catch {}
+  } catch (error) {
+    // Web Audio API not supported
+    console.warn("Web Audio API not supported for notification sound");
+  }
 }
 
 async function streamChat({
@@ -95,7 +107,7 @@ async function streamChat({
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+      Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
     },
     body: JSON.stringify({ messages }),
   });
@@ -140,7 +152,8 @@ async function streamChat({
         const parsed = JSON.parse(jsonStr);
         const content = parsed.choices?.[0]?.delta?.content as string | undefined;
         if (content) onDelta(content);
-      } catch {
+      } catch (error) {
+        // JSON parsing failed, add to buffer
         textBuffer = line + "\n" + textBuffer;
         break;
       }
@@ -159,7 +172,10 @@ async function streamChat({
         const parsed = JSON.parse(jsonStr);
         const content = parsed.choices?.[0]?.delta?.content as string | undefined;
         if (content) onDelta(content);
-      } catch {}
+      } catch (error) {
+        // Skip invalid JSON chunks in streaming response
+        console.warn("Failed to parse streaming chunk:", jsonStr);
+      }
     }
   }
 
@@ -185,18 +201,20 @@ const HumanHandoffCard = ({ lastMessage }: { lastMessage: string }) => {
   const handleHandoff = async (channel: string) => {
     // Fire webhook notification
     try {
-      fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-webhook-notification`, {
+      fetch(`${SUPABASE_URL}/functions/v1/send-webhook-notification`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
         },
         body: JSON.stringify({
           type: "chat_handoff",
           data: { lastMessage, channel, timestamp: new Date().toISOString() },
         }),
-      }).catch(() => {});
-    } catch {}
+      }).catch((error) => console.warn("Webhook notification failed:", error));
+    } catch (error) {
+      console.warn("Failed to send webhook notification:", error);
+    }
   };
 
   return (
@@ -333,7 +351,8 @@ export const AIChatbot = () => {
           setIsLoading(false);
         },
       });
-    } catch {
+    } catch (error) {
+      console.error("Chat error:", error);
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: "Sorry, something went wrong. Please try again." },

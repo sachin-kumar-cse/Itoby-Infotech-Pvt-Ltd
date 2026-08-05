@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -69,8 +67,8 @@
     --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(75 100% 50% / 0.3);
-    --shadow-glow-lg: 0 0 60px hsl(75 100% 50% / 0.4);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    --shadow-glow-lg: 0 0 60px hsl(var(--primary) / 0.4);
     --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
   }
 
@@ -138,7 +136,6 @@
 @layer base {
   * {
     @apply border-border;
-    transition: background-color 0.3s ease, color 0.15s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   html {
@@ -250,6 +247,44 @@
     }
   }
 
+  .animate-smooth-marquee {
+    display: flex;
+    width: max-content;
+    animation: smoothMarquee 65s linear infinite;
+  }
+
+  .animate-smooth-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Hover Shine Shimmer for Best Box Design */
+  .card-shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shimmer-effect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 45%,
+      rgba(255, 255, 255, 0.12) 50%,
+      transparent 55%
+    );
+    transform: rotate(30deg) translateY(-100%);
+    transition: transform 0.8s ease-in-out;
+    pointer-events: none;
+  }
+
+  .card-shimmer-effect:hover::after {
+    transform: rotate(30deg) translateY(100%);
+  }
+
   /* Hover Lift Effect */
   .hover-lift {
     @apply transition-all duration-300 ease-out;
@@ -331,6 +366,33 @@
       transform: rotate(360deg);
     }
   }
+
+  /* Scrolling background waves moving upwards */
+  @keyframes wavesUpFast {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-200px);
+    }
+  }
+
+  @keyframes wavesUpSlow {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-200px);
+    }
+  }
+
+  .animate-waves-up-fast {
+    animation: wavesUpFast 9s linear infinite;
+  }
+
+  .animate-waves-up-slow {
+    animation: wavesUpSlow 16s linear infinite;
+  }
 }
 
 /* Custom Scrollbar */
@@ -356,3 +418,14 @@
   background: hsl(var(--primary) / 0.3);
   color: hsl(var(--foreground));
 }
+
+/* Smooth Infinite Horizontal Marquee Keyframes */
+@keyframes smoothMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+

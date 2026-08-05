@@ -1,13 +1,14 @@
+"use client";
+
 import { useEffect, useCallback } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 interface ShortcutMap {
   [key: string]: () => void;
 }
 
 export const useKeyboardShortcuts = (additionalShortcuts?: ShortcutMap) => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -22,24 +23,22 @@ export const useKeyboardShortcuts = (additionalShortcuts?: ShortcutMap) => {
       // Global shortcuts
       if (isCtrl && key === "k") {
         e.preventDefault();
-        // Could open search/command palette in future
         return;
       }
 
       // Navigation shortcuts (Alt + key)
       if (e.altKey) {
         switch (key) {
-          case "h": e.preventDefault(); navigate("/"); break;
-          case "a": e.preventDefault(); navigate("/about"); break;
-          case "s": e.preventDefault(); navigate("/services"); break;
-          case "p": e.preventDefault(); navigate("/portfolio"); break;
-          case "b": e.preventDefault(); navigate("/blog"); break;
-          case "c": e.preventDefault(); navigate("/contact"); break;
+          case "h": e.preventDefault(); router.push("/"); break;
+          case "a": e.preventDefault(); router.push("/about"); break;
+          case "s": e.preventDefault(); router.push("/services"); break;
+          case "p": e.preventDefault(); router.push("/portfolio"); break;
+          case "b": e.preventDefault(); router.push("/blog"); break;
+          case "c": e.preventDefault(); router.push("/contact"); break;
         }
         return;
       }
 
-      // Escape to close modals (handled by components individually)
       // Back to top with 't'
       if (key === "t" && !isCtrl && !e.altKey && !e.shiftKey) {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -51,7 +50,7 @@ export const useKeyboardShortcuts = (additionalShortcuts?: ShortcutMap) => {
         additionalShortcuts[key]();
       }
     },
-    [navigate, additionalShortcuts]
+    [router, additionalShortcuts]
   );
 
   useEffect(() => {

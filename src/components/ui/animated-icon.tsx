@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, TargetAndTransition } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 
 interface AnimatedIconProps {
@@ -8,7 +8,7 @@ interface AnimatedIconProps {
   hoverEffect?: "bounce" | "spin" | "pulse" | "wiggle";
 }
 
-const hoverAnimations: Record<string, object> = {
+const hoverAnimations: Record<string, TargetAndTransition> = {
   bounce: { y: [0, -8, 0], transition: { duration: 0.5 } },
   spin: { rotate: 360, transition: { duration: 0.6 } },
   pulse: { scale: [1, 1.2, 1], transition: { duration: 0.4 } },
@@ -23,7 +23,7 @@ export const AnimatedIcon = ({
 }: AnimatedIconProps) => {
   return (
     <motion.div
-      whileHover={hoverAnimations[hoverEffect] as any}
+      whileHover={hoverAnimations[hoverEffect]}
       className={`inline-flex items-center justify-center ${className}`}
     >
       <Icon size={size} />

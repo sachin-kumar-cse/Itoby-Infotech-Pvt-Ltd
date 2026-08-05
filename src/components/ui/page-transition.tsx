@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -33,11 +35,11 @@ const pageVariants = {
 };
 
 export const PageTransition = ({ children }: PageTransitionProps) => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <motion.div
-      key={location.pathname}
+      key={pathname}
       variants={pageVariants}
       initial="initial"
       animate="animate"

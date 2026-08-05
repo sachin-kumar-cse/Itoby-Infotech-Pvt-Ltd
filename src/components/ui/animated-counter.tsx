@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { motion, useInView, useSpring, useTransform, UseInViewOptions } from "framer-motion";
 
 interface AnimatedCounterProps {
   value: number;
   suffix?: string;
   duration?: number;
   className?: string;
+  margin?: UseInViewOptions["margin"];
 }
 
 export const AnimatedCounter = ({
@@ -13,9 +14,10 @@ export const AnimatedCounter = ({
   suffix = "",
   duration = 2,
   className = "",
+  margin = "0px",
 }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin });
   const [hasAnimated, setHasAnimated] = useState(false);
 
   const spring = useSpring(0, {

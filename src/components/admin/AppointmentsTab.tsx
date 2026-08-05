@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Trash2, Calendar, Clock, CheckCircle, XCircle, AlertCircle } from "lucide-react";
+import { Trash2, Calendar, Clock, CheckCircle, XCircle, AlertCircle, type LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -22,7 +22,7 @@ interface Appointment {
   created_at: string;
 }
 
-const statusConfig: Record<string, { icon: any; color: string; label: string }> = {
+const statusConfig: Record<string, { icon: LucideIcon; color: string; label: string }> = {
   pending: { icon: AlertCircle, color: "bg-yellow-500", label: "Pending" },
   confirmed: { icon: CheckCircle, color: "bg-green-500", label: "Confirmed" },
   completed: { icon: CheckCircle, color: "bg-primary", label: "Completed" },

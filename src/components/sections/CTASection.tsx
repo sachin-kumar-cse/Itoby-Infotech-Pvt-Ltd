@@ -1,15 +1,19 @@
+"use client";
+
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
 
 export const CTASection = () => {
-  const whatsappNumber = "919876543210";
+  const whatsappNumber = "919142773500";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your digital services. Can we discuss my project?");
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <section className="section-padding relative overflow-hidden">
+      <Floating3DBubbles count={15} />
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -74,7 +78,7 @@ export const CTASection = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Button variant="hero" size="xl" className="w-full sm:w-auto group" asChild>
-                <Link to="/contact">
+                <Link href="/contact">
                   Get Free Consultation
                   <motion.span
                     animate={{ x: [0, 4, 0] }}

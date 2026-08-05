@@ -7,6 +7,7 @@ interface SEOHeadProps {
   type?: "website" | "article";
   image?: string;
   jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const SITE_URL = "https://itobyinfotech.com";
@@ -19,8 +20,9 @@ export const SEOHead = ({
   type = "website",
   image = DEFAULT_IMAGE,
   jsonLd,
+  noindex = false,
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | Itoby Infotech - A Group of Services`;
+  const fullTitle = title.includes("Itoby Infotech") ? title : `${title} | Itoby Infotech`;
   const url = `${SITE_URL}${path}`;
 
   return (
@@ -28,6 +30,11 @@ export const SEOHead = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      {noindex ? (
+        <meta name="robots" content="noindex, nofollow" />
+      ) : (
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      )}
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />

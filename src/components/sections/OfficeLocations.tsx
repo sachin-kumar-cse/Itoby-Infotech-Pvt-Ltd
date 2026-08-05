@@ -1,36 +1,61 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Globe, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { GlobalOfficeMapModal } from "@/components/ui/global-office-map-modal";
 
 const offices = [
   {
     city: "Noida",
     country: "India (HQ)",
     address: "Sector-4, Noida, Uttar Pradesh 201301",
-    phone: "+91 98765 43210",
-    email: "patna@itobyinfotech.in",
+    phone: "+91 91427 73500",
+    email: "info@itobyinfotech.com",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM",
   },
   {
-    city: "Delhi NCR",
-    country: "India",
-    address: "456 Cyber Hub, DLF Phase 2, Gurugram, Haryana 122002",
-    phone: "+91 11 4567 8901",
-    email: "delhi@itobyinfotech.in",
-    hours: "Mon - Sat: 9:00 AM - 7:00 PM",
+    city: "New York",
+    country: "United States",
+    address: "100 Church St, New York, NY 10007",
+    phone: "+1 646 558 6338",
+    email: "usa@itobyinfotech.com",
+    hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
+  },
+  {
+    city: "Sydney",
+    country: "Australia",
+    address: "135 King St, Sydney NSW 2000",
+    phone: "+61 2 9233 1111",
+    email: "au@itobyinfotech.com",
+    hours: "Mon - Fri: 9:00 AM - 5:00 PM AEST",
+  },
+  {
+    city: "Toronto",
+    country: "Canada",
+    address: "120 Adelaide St W, Toronto, ON M5H 1T1",
+    phone: "+1 416 364 8888",
+    email: "ca@itobyinfotech.com",
+    hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
   },
   {
     city: "Dubai",
     country: "UAE",
     address: "789 Business Bay, Dubai, UAE",
-    phone: "+971 4 123 4567",
-    email: "dubai@itobyinfotech.in",
+    phone: "+91 91427 73500",
+    email: "dubai@itobyinfotech.com",
     hours: "Sun - Thu: 9:00 AM - 6:00 PM",
   },
 ];
 
 export const OfficeLocations = () => {
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
   return (
     <section className="section-padding bg-card/30">
+      <GlobalOfficeMapModal
+        isOpen={isMapOpen}
+        onClose={() => setIsMapOpen(false)}
+      />
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,7 +74,7 @@ export const OfficeLocations = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {offices.map((office, index) => (
             <motion.div
               key={office.city}
@@ -95,6 +120,18 @@ export const OfficeLocations = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Global Map & Live Clocks Button */}
+        <div className="text-center">
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => setIsMapOpen(true)}
+            className="rounded-2xl gap-2 border-primary/40 text-primary hover:bg-primary/10 shadow-lg shadow-primary/10"
+          >
+            <Globe className="w-4 h-4" /> Open Interactive Global Map & Live Timezones <ArrowRight className="w-4 h-4" />
+          </Button>
         </div>
       </div>
     </section>

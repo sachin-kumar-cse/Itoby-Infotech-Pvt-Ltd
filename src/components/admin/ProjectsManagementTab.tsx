@@ -137,8 +137,9 @@ export const ProjectsManagementTab = () => {
 
       setForm({ ...form, image: urlData.publicUrl });
       toast.success("Image uploaded successfully");
-    } catch (err: any) {
-      toast.error(err.message || "Failed to upload image");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Failed to upload image";
+      toast.error(errorMessage);
     } finally {
       setIsUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -170,8 +171,9 @@ export const ProjectsManagementTab = () => {
       }
       setShowDialog(false);
       fetchProjects();
-    } catch (error: any) {
-      toast.error(error.message || "Failed to save project");
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "Failed to save project";
+      toast.error(errorMessage);
     } finally {
       setIsSaving(false);
     }

@@ -117,6 +117,57 @@ const jsonLdWebsite = {
   },
 };
 
+const jsonLdSaasProducts = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "IIPL Lead",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "url": "https://lead.itobyinfotech.com",
+      "description": "AI B2B Lead Generation & Cold Email Automation CRM with Google Maps Scraper and 15-Second AI Site Auditor.",
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "IIPL Renting",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "url": "https://rent.itobyinfotech.com",
+      "description": "Commercial Office Leasing & Tenant Management CRM for real estate property managers.",
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "IIPL Billing",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "url": "https://billing.itobyinfotech.com",
+      "description": "Enterprise GST Invoicing & Client Revenue Software with E-Way Bill API sync and retainer billing.",
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "IIPL Cashmemo",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web Browser",
+      "url": "https://cashmemo.itobyinfotech.com",
+      "description": "Instant Digital Cash Memo & Retail Receipt Builder with direct WhatsApp PDF sharing.",
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "IIPL Calling",
+      "applicationCategory": "CommunicationsApplication",
+      "operatingSystem": "Web Browser",
+      "url": "https://royalblue-ant-234341.hostingersite.com/",
+      "description": "Conversational AI Voice Calling Agents for Restaurant Table Bookings & Insurance Renewal Reminders.",
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -142,6 +193,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSaasProducts) }}
         />
       </head>
       <body className="bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">

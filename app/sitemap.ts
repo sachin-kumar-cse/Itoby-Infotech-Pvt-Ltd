@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
+import { fallbackBlogs } from '@/data/blogsData';
 
 const baseUrl = 'https://itobyinfotech.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
+  const staticRoutes = [
     '',
     '/about',
     '/services',
@@ -40,10 +41,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms',
   ];
 
-  return routes.map((route) => ({
+  const blogRoutes = fallbackBlogs.map((b) => `/blog/${b.slug}`);
+
+  const allRoutes = [...staticRoutes, ...blogRoutes];
+
+  return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === '' ? 'daily' : 'weekly',
-    priority: route === '' ? 1.0 : route.startsWith('/services') ? 0.9 : 0.8,
+    changeFrequency: route === '' ? 'daily' : route.startsWith('/blog') ? 'weekly' : 'monthly',
+    priority: route === '' ? 1.0 : route.startsWith('/services') ? 0.9 : route.startsWith('/blog') ? 0.8 : 0.7,
   }));
 }

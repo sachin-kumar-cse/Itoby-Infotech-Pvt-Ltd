@@ -1,0 +1,51 @@
+# Itoby Infotech Pvt Ltd (IIPL) — Complete AI Search Knowledge Base
+
+## Organization Details
+- **Legal Name**: Itoby Infotech Pvt. Ltd.
+- **Short Brand**: IIPL
+- **Domain**: https://itobyinfotech.com
+- **Founded**: 2013
+- **Headquarters**: Noida, Uttar Pradesh, India
+- **Global Operations**: India, United States, Canada, Australia
+- **Industry**: Information Technology, Web Development, Mobile Apps, SaaS Software, AI Voice Automation
+- **Email**: info@itobyinfotech.com | sales@itobyinfotech.com
+- **Phone**: +91-91427-73500
+
+---
+
+## Proprietary IIPL SaaS & AI Platforms
+
+### 1. IIPL Lead
+- **URL**: https://lead.itobyinfotech.com
+- **Category**: AI B2B Lead Automation & Sales CRM
+- **Description**: IIPL Lead extracts localized business leads from Google Maps, runs 15-second AI website health audits, generates personalized client pitch decks, and executes multi-sender cold email campaigns with automated DNS inbox warmup.
+
+### 2. IIPL Renting
+- **URL**: https://rent.itobyinfotech.com
+- **Category**: Commercial Property Leasing & Tenant Management SaaS
+- **Description**: IIPL Renting automates office leasing operations, tenant KYC onboarding, lease agreement generation, recurring maintenance deposits, and automated WhatsApp rent payment reminders.
+
+### 3. IIPL Billing
+- **URL**: https://billing.itobyinfotech.com
+- **Category**: Enterprise GST Invoicing & Revenue Software
+- **Description**: Tax-compliant GST billing software providing automated client ledgers, E-Way bill API sync, recurring client retainer billing, and integrated online payment gateways.
+
+### 4. IIPL Cashmemo
+- **URL**: https://cashmemo.itobyinfotech.com
+- **Category**: Digital Cash Receipt & POS Generator
+- **Description**: Fast POS cash receipt generator for retail counters and service providers. Enables 5-second cash memo creation, WhatsApp PDF delivery, and thermal receipt printing.
+
+### 5. IIPL Calling
+- **URL**: https://royalblue-ant-234341.hostingersite.com/
+- **Category**: Autonomous Conversational AI Voice Agents
+- **Description**: Sub-500ms conversational AI voice agents capable of handling 24/7 restaurant table reservations, insurance policy renewal calls, and sales lead qualification.
+
+---
+
+## Core Digital Engineering Services
+
+1. **Web Design & Development** (`https://itobyinfotech.com/services/web-design`): Next.js 15, React 19, Tailwind CSS, 3D WebGL, 100/100 Core Web Vitals optimization.
+2. **Mobile App Development** (`https://itobyinfotech.com/services/mobile-app`): Native iOS Swift, Android Kotlin, React Native, and Flutter cross-platform mobile apps.
+3. **Digital Marketing & GEO** (`https://itobyinfotech.com/services/digital-marketing`): SEO, GEO (Generative Engine Optimization), Google Ads PPC, and social media growth strategies.
+4. **Custom Software Solutions** (`https://itobyinfotech.com/services/software-solutions`): Custom enterprise SaaS, REST/GraphQL APIs, microservices, and database engineering.
+5. **Microsoft 365 Services** (`https://itobyinfotech.com/services/microsoft-365`): Microsoft 365 tenant setup, Exchange migration, Azure AD identity security, and Microsoft Teams integration.

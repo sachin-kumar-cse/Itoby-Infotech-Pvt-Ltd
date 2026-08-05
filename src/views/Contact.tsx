@@ -130,7 +130,11 @@ const Contact = () => {
 
   return (
     <Layout>
-      <SEOHead title="Contact Our Digital Agency & Developers" description="Get in touch with Itoby Infotech for web design, app development, and digital marketing inquiries." path="/contact" />
+      <SEOHead
+        title="Contact Us | Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Developers"
+        description="Get in touch with Itoby Infotech Pvt Ltd (IIPL) for web design, app development, custom software, digital marketing & IIPL SaaS inquiries across India, USA, Canada, Australia, Dubai (UAE) & UK."
+        path="/contact"
+      />
 
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner

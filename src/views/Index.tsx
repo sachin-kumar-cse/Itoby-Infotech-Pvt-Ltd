@@ -25,19 +25,19 @@ const Index = () => {
   return (
     <Layout>
       <SEOHead
-        title="Itoby Infotech - Global Digital Agency & SaaS Products"
-        description="Itoby Infotech Pvt Ltd (IIPL) is a leading global digital agency & SaaS product engineering firm behind IIPL Lead, IIPL Renting, IIPL Billing, IIPL Cashmemo & IIPL Calling."
+        title="Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Enterprise SaaS Lab"
+        description="Itoby Infotech Pvt Ltd (IIPL) is a premier global digital agency & SaaS software lab. We engineer Next.js web applications, mobile apps, custom software, digital marketing & proprietary SaaS (IIPL Lead, Renting, Billing, Cashmemo & Calling) for clients across India, USA, Canada, Australia, Dubai (UAE), UK & worldwide."
         path="/"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Itoby Infotech Pvt Ltd",
+          name: "Itoby Infotech Pvt Ltd (IIPL)",
           alternateName: ["IIPL", "Itoby Infotech", "Itoby Infotech Private Limited"],
           url: "https://itobyinfotech.com",
           logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-          description: "Global digital agency & SaaS software builder. Developer of IIPL Lead, IIPL Renting, IIPL Billing, IIPL Cashmemo and IIPL Calling AI voice agents.",
+          description: "Global digital agency & SaaS software builder behind IIPL Lead, IIPL Renting, IIPL Billing, IIPL Cashmemo and IIPL Calling AI voice agents.",
           foundingDate: "2013",
-          areaServed: ["US", "CA", "AU", "IN"],
+          areaServed: ["IN", "US", "CA", "AU", "AE", "GB"],
           address: { "@type": "PostalAddress", addressLocality: "Noida", addressRegion: "Uttar Pradesh", addressCountry: "IN" },
           contactPoint: { "@type": "ContactPoint", telephone: "+91-9142773500", contactType: "sales", email: "info@itobyinfotech.com" },
           sameAs: [

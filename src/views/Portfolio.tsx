@@ -180,7 +180,11 @@ const Portfolio = () => {
 
   return (
     <Layout>
-      <SEOHead title="Web & App Development Portfolio" description="Browse Itoby Infotech's portfolio of successful web design, app development, and digital marketing projects across industries." path="/portfolio" />
+      <SEOHead
+        title="Our Portfolio | Itoby Infotech Pvt Ltd (IIPL) - Web & Mobile Case Studies"
+        description="Explore case studies and software projects engineered by Itoby Infotech Pvt Ltd (IIPL) for clients in India, USA, Canada, Australia, Dubai (UAE) & UK."
+        path="/portfolio"
+      />
 
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner

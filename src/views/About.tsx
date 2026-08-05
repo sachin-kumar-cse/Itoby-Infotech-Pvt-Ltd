@@ -54,13 +54,13 @@ const About = () => {
   return (
     <Layout>
       <SEOHead
-        title="About Itoby Infotech - Global Digital & Software Engineering Agency"
-        description="Learn about Itoby Infotech — a leading global digital agency delivering custom web design, mobile app development, and software solutions for clients in USA, Canada, Australia, UK, UAE & India."
+        title="About Us | Itoby Infotech Pvt Ltd (IIPL) - Global Digital & Software Engineering Agency"
+        description="Learn about Itoby Infotech Pvt Ltd (IIPL) — a leading global digital agency delivering custom web design, mobile app development, software solutions & proprietary SaaS for clients in India, USA, Canada, Australia, Dubai (UAE) & UK."
         path="/about"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Itoby Infotech",
+          name: "Itoby Infotech Pvt Ltd (IIPL)",
           url: "https://itobyinfotech.com/about",
           logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
           description: "Global digital agency providing custom web design, app development, and software solutions since 2013.",

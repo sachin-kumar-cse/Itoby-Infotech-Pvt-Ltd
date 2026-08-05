@@ -198,8 +198,8 @@ export const HeroSection = () => {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="w-2 h-2 rounded-full bg-primary"
               />
-              <span className="text-xs sm:text-sm font-medium text-primary">
-                Award-Winning Web Design & App Development Agency
+              <span className="text-xs sm:text-sm font-semibold text-primary">
+                Itoby Infotech Pvt Ltd (IIPL) • Global Digital Agency & Enterprise SaaS Lab
               </span>
               <Sparkles size={14} className="text-primary" />
             </motion.div>
@@ -264,11 +264,10 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base sm:text-lg text-muted-foreground max-w-xl"
+              className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
             >
-              Itoby Infotech is a leading digital agency providing custom software development, 
-              premium web design, mobile app development, and data-driven digital marketing solutions 
-              globally. Partner with experts to accelerate your business growth.
+              <strong className="text-foreground font-bold">Itoby Infotech Pvt Ltd (IIPL)</strong> is a premier global digital engineering agency and SaaS software lab. 
+              We build Next.js applications, mobile apps, custom software, digital marketing, and proprietary <span className="text-primary font-semibold">IIPL SaaS & AI Voice Platforms</span> for clients across India, USA, Canada, Australia, Dubai (UAE), UK & worldwide.
             </motion.p>
 
             {/* CTA Buttons */}

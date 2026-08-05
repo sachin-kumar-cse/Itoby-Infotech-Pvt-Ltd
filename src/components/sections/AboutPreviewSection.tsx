@@ -180,17 +180,19 @@ export const AboutPreviewSection = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
             className="space-y-6"
           >
-            <span className="text-primary font-semibold uppercase tracking-wider text-sm inline-block">About Our Agency</span>
+            <span className="text-primary font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 inline-block shadow-sm">
+              About Itoby Infotech Pvt Ltd (IIPL)
+            </span>
 
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              A Strategic Digital Partner{" "}
-              <span className="gradient-text">Built for Business Growth</span>
+              A Global Digital Engineering Partner{" "}
+              <span className="gradient-text">Built to Scale Enterprises Worldwide</span>
             </h2>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              We don't just build websites—we engineer custom software solutions and high-converting web applications.
-              From premium UI/UX design to full-stack development and digital marketing, we deliver 
-              result-driven solutions for modern global businesses.
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+              At <strong className="text-foreground font-bold">Itoby Infotech Pvt Ltd (IIPL)</strong>, we don't just build websites—we engineer enterprise SaaS applications, 
+              custom software, AI voice calling bots, and high-converting web apps. Serving clients across <span className="text-foreground font-semibold">India, USA, Canada, Australia, Dubai (UAE) & UK</span>, 
+              we combine bespoke software development with our suite of 5 proprietary IIPL SaaS platforms.
             </p>
 
             <motion.ul

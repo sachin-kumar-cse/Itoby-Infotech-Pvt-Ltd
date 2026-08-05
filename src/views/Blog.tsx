@@ -91,7 +91,18 @@ const Blog = () => {
 
   return (
     <Layout>
-      <SEOHead title="Blog - Insights & Tips" description="Read the latest articles on web design, development, SEO, digital marketing, and technology trends from Itoby Infotech." path="/blog" type="website" jsonLd={{ "@context": "https://schema.org", "@type": "Blog", name: "Itoby Infotech Blog", description: "Latest insights on web design, development, and digital marketing." }} />
+      <SEOHead
+        title="Tech Insights & AI Trends | Itoby Infotech Pvt Ltd (IIPL) - Engineering Blog"
+        description="Read authoritative articles on Next.js 15, AI Voice Agents, B2B Lead Automation, PropTech, FinTech & Core Web Vitals from Itoby Infotech Pvt Ltd (IIPL)."
+        path="/blog"
+        type="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          name: "Itoby Infotech Pvt Ltd (IIPL) Tech Blog",
+          description: "Authoritative software engineering, AI, and digital growth insights.",
+        }}
+      />
 
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner

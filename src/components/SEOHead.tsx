@@ -12,6 +12,7 @@ interface SEOHeadProps {
 
 const SITE_URL = "https://itobyinfotech.com";
 const DEFAULT_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png";
+const BRAND_TAGLINE = "Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & SaaS Lab";
 
 export const SEOHead = ({
   title,
@@ -22,7 +23,14 @@ export const SEOHead = ({
   jsonLd,
   noindex = false,
 }: SEOHeadProps) => {
-  const fullTitle = title.includes("Itoby Infotech") ? title : `${title} | Itoby Infotech`;
+  let fullTitle = title;
+  if (!fullTitle.includes("Itoby Infotech Pvt Ltd (IIPL)")) {
+    if (fullTitle.includes("Itoby Infotech")) {
+      fullTitle = fullTitle.replace("Itoby Infotech", "Itoby Infotech Pvt Ltd (IIPL)");
+    } else {
+      fullTitle = `${title} | ${BRAND_TAGLINE}`;
+    }
+  }
   const url = `${SITE_URL}${path}`;
 
   return (

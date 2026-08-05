@@ -76,7 +76,22 @@ const fadeUp = {
 const Services = () => {
   return (
     <Layout>
-      <SEOHead title="Digital Marketing, Web Design & Software Services" description="Explore Itoby Infotech's services: Web Design, Mobile App Development, Digital Marketing, Custom Software Solutions, and Microsoft 365." path="/services" jsonLd={{ "@context": "https://schema.org", "@type": "Service", provider: { "@type": "Organization", name: "Itoby Infotech" }, serviceType: "Digital Agency Services" }} />
+      <SEOHead
+        title="Services & SaaS Suite | Itoby Infotech Pvt Ltd (IIPL) - Web Design, Apps & Software"
+        description="Explore digital agency services & proprietary SaaS by Itoby Infotech Pvt Ltd (IIPL): Web Design, Mobile Apps, Digital Marketing, Custom Software, Microsoft 365, IIPL Lead, Renting, Billing, Cashmemo & Calling for clients in India, USA, Canada, Australia, Dubai (UAE) & UK."
+        path="/services"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          provider: {
+            "@type": "Organization",
+            name: "Itoby Infotech Pvt Ltd (IIPL)",
+            url: "https://itobyinfotech.com",
+          },
+          serviceType: "Global Digital Agency & SaaS Engineering Services",
+          areaServed: ["IN", "US", "CA", "AU", "AE", "GB"],
+        }}
+      />
 
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner

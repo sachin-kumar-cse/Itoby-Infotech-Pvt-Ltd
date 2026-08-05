@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { ChevronDown, ArrowRight, Mail, Phone, LogIn, Globe, Search, ExternalLink, Bot, Sparkles, Code2 } from "lucide-react";
+import { ChevronDown, ArrowRight, Mail, Phone, LogIn, Globe, Search, ExternalLink, Bot, Sparkles, Code2, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ThemeAccentPicker } from "@/components/ui/theme-accent-picker";
@@ -41,8 +41,8 @@ const menuItemVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: i * 0.08,
-      duration: 0.4,
+      delay: i * 0.06,
+      duration: 0.35,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   }),
@@ -50,7 +50,7 @@ const menuItemVariants = {
     opacity: 0,
     x: 50,
     transition: {
-      delay: i * 0.03,
+      delay: i * 0.02,
       duration: 0.2,
     },
   }),
@@ -92,6 +92,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
@@ -117,6 +118,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
   }, [pathname]);
 
   // Prevent body scroll when mobile menu is open
@@ -343,13 +345,13 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
             <ThemeToggle />
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-foreground relative w-10 h-10 flex items-center justify-center cursor-pointer"
+              className="p-2 text-foreground relative w-10 h-10 flex items-center justify-center cursor-pointer rounded-xl bg-secondary/50 border border-border/60"
               aria-label="Toggle menu"
               whileTap={{ scale: 0.9 }}
             >
-              <div className="relative w-6 h-5 flex flex-col justify-between">
+              <div className="relative w-5 h-4 flex flex-col justify-between">
                 <motion.span
-                  animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                  animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3 }}
                   className="w-full h-0.5 bg-foreground rounded-full block origin-center"
                 />
@@ -359,7 +361,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                   className="w-full h-0.5 bg-foreground rounded-full block"
                 />
                 <motion.span
-                  animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                  animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
                   transition={{ duration: 0.3 }}
                   className="w-full h-0.5 bg-foreground rounded-full block origin-center"
                 />
@@ -373,91 +375,158 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden glass-dark bg-background/95 backdrop-blur-2xl pt-24 pb-8 px-6 overflow-y-auto"
+            className="fixed inset-0 z-40 lg:hidden glass-dark bg-background/98 backdrop-blur-3xl pt-20 pb-8 px-5 overflow-y-auto"
           >
-            <div className="flex flex-col justify-between min-h-full">
+            <div className="flex flex-col justify-between min-h-full space-y-6 pt-4">
               {/* Navigation Links */}
-              <nav className="flex flex-col space-y-4">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.path}
-                    custom={i}
-                    variants={menuItemVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <Link
-                      href={link.path}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`text-2xl font-display font-bold tracking-tight block transition-colors ${
-                        location.pathname === link.path
-                          ? "text-primary"
-                          : "text-foreground hover:text-primary"
-                      }`}
+              <nav className="flex flex-col space-y-3">
+                {navLinks.map((link, i) => {
+                  if (link.hasDropdown) {
+                    return (
+                      <motion.div
+                        key={link.path}
+                        custom={i}
+                        variants={menuItemVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="rounded-2xl bg-card/40 border border-border/50 overflow-hidden"
+                      >
+                        <div className="flex items-center justify-between p-3.5">
+                          <Link
+                            href={link.path}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors flex items-center gap-2"
+                          >
+                            <Layers size={18} className="text-primary" />
+                            {link.name}
+                          </Link>
+
+                          <button
+                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                            className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                            aria-label="Toggle Services Dropdown"
+                          >
+                            <ChevronDown
+                              size={18}
+                              className={`transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : ""}`}
+                            />
+                          </button>
+                        </div>
+
+                        {/* Collapsible Mobile Dropdown Accordion */}
+                        <AnimatePresence>
+                          {isMobileServicesOpen && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden border-t border-border/50 bg-secondary/30 p-3 space-y-4"
+                            >
+                              {/* Sub-Group 1: Digital Agency Services */}
+                              <div>
+                                <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
+                                  <Code2 size={13} /> Digital Services
+                                </p>
+                                <div className="space-y-1 pl-2">
+                                  {serviceLinks.map((svc) => (
+                                    <Link
+                                      key={svc.path}
+                                      href={svc.path}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="block py-1.5 px-2.5 rounded-lg text-xs font-semibold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                                    >
+                                      {svc.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Sub-Group 2: IIPL SaaS Platforms */}
+                              <div>
+                                <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
+                                  <Sparkles size={13} className="animate-pulse" /> IIPL SaaS Suite
+                                </p>
+                                <div className="space-y-1.5 pl-2">
+                                  {saasProductNavLinks.map((prod) => (
+                                    <a
+                                      key={prod.name}
+                                      href={prod.path}
+                                      target={prod.isExternal ? "_blank" : "_self"}
+                                      rel="noopener noreferrer"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="flex items-center justify-between py-1.5 px-2.5 rounded-lg bg-card/60 border border-border/40 text-xs font-semibold text-foreground hover:text-primary transition-colors"
+                                    >
+                                      <span className="flex items-center gap-1.5 truncate">
+                                        {prod.isExternal ? (
+                                          <ExternalLink size={12} className="text-primary shrink-0" />
+                                        ) : (
+                                          <Bot size={12} className="text-primary shrink-0" />
+                                        )}
+                                        {prod.name}
+                                      </span>
+                                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary shrink-0">
+                                        {prod.badge}
+                                      </span>
+                                    </a>
+                                  ))}
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    );
+                  }
+
+                  return (
+                    <motion.div
+                      key={link.path}
+                      custom={i}
+                      variants={menuItemVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
                     >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={link.path}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`text-xl font-display font-bold tracking-tight block px-3 py-2 rounded-xl transition-colors ${
+                          location.pathname === link.path
+                            ? "text-primary bg-primary/10 border border-primary/20"
+                            : "text-foreground hover:text-primary hover:bg-card/40"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </nav>
 
-              {/* IIPL SaaS Products Mobile Section */}
-              <div className="mt-6 pt-4 border-t border-border">
-                <p className="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                  <Sparkles size={13} />
-                  IIPL SaaS Products
-                </p>
-                <div className="grid grid-cols-1 gap-2">
-                  {saasProductNavLinks.map((prod) => (
-                    prod.isExternal ? (
-                      <a
-                        key={prod.name}
-                        href={prod.path}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center justify-between p-2.5 rounded-xl bg-secondary/50 hover:bg-primary/10 text-xs font-semibold text-foreground transition-colors"
-                      >
-                        <span className="flex items-center gap-1.5">
-                          <ExternalLink size={13} className="text-primary" />
-                          {prod.name}
-                        </span>
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary">
-                          {prod.badge}
-                        </span>
-                      </a>
-                    ) : (
-                      <Link
-                        key={prod.name}
-                        href={prod.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center justify-between p-2.5 rounded-xl bg-secondary/50 hover:bg-primary/10 text-xs font-semibold text-foreground transition-colors"
-                      >
-                        <span className="flex items-center gap-1.5">
-                          <Bot size={13} className="text-primary" />
-                          {prod.name}
-                        </span>
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary">
-                          {prod.badge}
-                        </span>
-                      </Link>
-                    )
-                  ))}
-                </div>
+              {/* Admin Portal Quick Link */}
+              <div className="pt-2">
+                <Link
+                  href="/admin"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-card/60 border border-border/60 text-xs font-bold text-foreground hover:text-primary transition-colors"
+                >
+                  <LogIn size={15} className="text-primary" /> Admin Portal Sign In
+                </Link>
               </div>
 
-              {/* CTA */}
-              <div className="mt-6 pt-4 border-t border-border space-y-4">
-                <Button variant="hero" size="lg" className="w-full text-base" asChild>
+              {/* CTA & Email */}
+              <div className="pt-3 border-t border-border/60 space-y-3">
+                <Button variant="hero" size="lg" className="w-full text-base font-extrabold h-12 rounded-xl shadow-lg" asChild>
                   <Link href="/request-quote" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Quote</Link>
                 </Button>
-                <a href="mailto:info@itobyinfotech.com" className="flex items-center gap-3 text-xs text-muted-foreground hover:text-foreground transition-colors py-1">
-                  <Mail size={16} className="text-primary" />
+                <a href="mailto:info@itobyinfotech.com" className="flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors py-1">
+                  <Mail size={15} className="text-primary" />
                   info@itobyinfotech.com
                 </a>
               </div>

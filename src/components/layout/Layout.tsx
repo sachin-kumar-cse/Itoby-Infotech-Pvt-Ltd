@@ -39,6 +39,21 @@ export const Layout = ({ children }: LayoutProps) => {
     return () => window.removeEventListener("openCommandPalette", handleOpenCommand);
   }, []);
 
+  const isAdminPage = pathname?.startsWith("/admin");
+
+  if (isAdminPage) {
+    return (
+      <div className="min-h-screen flex flex-col overflow-x-hidden bg-background">
+        <CursorGlow />
+        <CyberCursorTrail />
+        <main className="flex-1">{children}</main>
+        <Suspense fallback={null}>
+          <CommandPaletteModal isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)} />
+        </Suspense>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <ScrollProgress />

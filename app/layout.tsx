@@ -98,13 +98,6 @@ const jsonLdOrganization = {
   alternateName: ["IIPL", "Itoby Infotech"],
   url: "https://itobyinfotech.com",
   logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-  founder: {
-    "@type": "Person",
-    name: "Sachin Kumar",
-    jobTitle: "Founder & Engineering Director",
-    url: "https://itobyinfotech.com/about",
-    sameAs: ["https://www.linkedin.com/in/sachin-kumar-cse/"]
-  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-91427-73500",

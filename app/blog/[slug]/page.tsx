@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = post?.excerpt || "Read this article on Itoby Infotech's official tech blog.";
 
   return {
-    title: `${title} | Itoby Infotech Blog`,
+    title: `${title} - Blog`,
     description,
     openGraph: {
       title,

@@ -137,12 +137,22 @@ export const PageHeroBanner = ({
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((item, idx) => ({
-      "@type": "ListItem",
-      position: idx + 1,
-      name: item.label,
-      item: item.path ? `https://itobyinfotech.com${item.path}` : undefined,
-    })),
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://itobyinfotech.com",
+      },
+      ...breadcrumbs.map((item, idx) => ({
+        "@type": "ListItem",
+        position: idx + 2,
+        name: item.label,
+        item: item.path
+          ? `https://itobyinfotech.com${item.path.startsWith("/") ? item.path : "/" + item.path}`
+          : "https://itobyinfotech.com",
+      })),
+    ],
   };
 
   return (

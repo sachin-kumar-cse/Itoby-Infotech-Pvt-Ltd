@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import SoftwareSolutionsClient from "./SoftwareSolutionsClient";
 
 export const metadata: Metadata = {
-  title: "Custom Software Solutions - CRM, ERP & Enterprise Automation",
+  title: "Custom Enterprise Software Solutions",
   description:
-    "Bespoke software development, custom CRM/ERP platforms, enterprise admin dashboards, and automation tools engineered by Itoby Infotech.",
+    "Bespoke enterprise software development, custom CRM and ERP platforms, admin dashboards, and business automation engineered by Itoby Infotech.",
   alternates: {
     canonical: "https://itobyinfotech.com/services/software-solutions",
   },

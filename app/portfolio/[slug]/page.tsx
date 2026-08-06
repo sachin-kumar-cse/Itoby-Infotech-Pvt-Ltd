@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .join(" ");
 
   return {
-    title: `${formattedTitle} - Case Study | Itoby Infotech`,
+    title: `${formattedTitle} - Case Study`,
     description: `Explore the ${formattedTitle} case study and see how Itoby Infotech delivered digital transformation and measurable business results.`,
     alternates: {
       canonical: `https://itobyinfotech.com/portfolio/${slug}`,

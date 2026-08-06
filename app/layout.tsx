@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "@/index.css";
-import "@/App.css";
 import { Providers } from "./providers";
 import { Layout } from "@/components/layout/Layout";
 
@@ -15,15 +14,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://itobyinfotech.com"),
   title: {
-    default: "Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Enterprise SaaS Lab",
-    template: "%s | Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Enterprise SaaS Lab",
+    default: "Itoby Infotech - Global Digital Agency & SaaS Lab",
+    template: "%s | Itoby Infotech",
   },
   description:
-    "Itoby Infotech Pvt Ltd (IIPL) is a premier global digital agency & SaaS software lab. We engineer Next.js websites, mobile apps, custom software, digital marketing & proprietary SaaS (IIPL Lead, Renting, Billing, Cashmemo & Calling) for clients in India, USA, Canada, Australia, Dubai (UAE), UK & worldwide.",
+    "Itoby Infotech is a premier global digital agency engineering custom web applications, mobile apps, custom software, and enterprise AI SaaS solutions.",
   keywords: [
     "Itoby Infotech Pvt Ltd",
     "IIPL",
-    "Itoby Infotech Pvt Ltd (IIPL)",
+    "Itoby Infotech",
     "IIPL SaaS",
     "web design agency USA Canada Australia Dubai UAE India",
     "custom software development company Dubai UAE",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     "Microsoft 365 migration agency",
     "enterprise React Next.js agency",
   ],
-  authors: [{ name: "Itoby Infotech Pvt. Ltd. (IIPL)" }],
+  authors: [{ name: "Itoby Infotech Pvt. Ltd." }],
   robots: {
     index: true,
     follow: true,
@@ -47,30 +46,30 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   alternates: {
-    canonical: "https://itobyinfotech.com/",
+    canonical: "https://itobyinfotech.com",
     languages: {
-      "en-US": "https://itobyinfotech.com/",
-      "en-CA": "https://itobyinfotech.com/",
-      "en-AU": "https://itobyinfotech.com/",
-      "en-GB": "https://itobyinfotech.com/",
-      "en-AE": "https://itobyinfotech.com/",
-      "en-IN": "https://itobyinfotech.com/",
-      "x-default": "https://itobyinfotech.com/",
+      "en-US": "https://itobyinfotech.com",
+      "en-CA": "https://itobyinfotech.com",
+      "en-AU": "https://itobyinfotech.com",
+      "en-GB": "https://itobyinfotech.com",
+      "en-AE": "https://itobyinfotech.com",
+      "en-IN": "https://itobyinfotech.com",
+      "x-default": "https://itobyinfotech.com",
     },
   },
   openGraph: {
     type: "website",
-    url: "https://itobyinfotech.com/",
-    title: "Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Enterprise SaaS Lab",
+    url: "https://itobyinfotech.com",
+    title: "Itoby Infotech - Global Digital Agency & SaaS Lab",
     description:
-      "Transforming business growth worldwide across India, USA, Canada, Australia, Dubai (UAE) & UK with custom software, web design, mobile apps & IIPL SaaS platforms.",
-    siteName: "Itoby Infotech Pvt Ltd (IIPL)",
+      "Transforming business growth worldwide across India, USA, Canada, Australia, Dubai (UAE) & UK with custom software, web design, mobile apps & SaaS platforms.",
+    siteName: "Itoby Infotech",
     images: [
       {
         url: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
         width: 1200,
         height: 630,
-        alt: "Itoby Infotech Pvt Ltd (IIPL) Logo",
+        alt: "Itoby Infotech Logo",
       },
     ],
     locale: "en_US",
@@ -78,9 +77,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@itobyinfotech",
-    title: "Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Enterprise SaaS Lab",
+    title: "Itoby Infotech - Global Digital Agency & SaaS Lab",
     description:
-      "Transforming business growth worldwide across India, USA, Canada, Australia, Dubai (UAE) & UK with custom software, web design, mobile apps & IIPL SaaS platforms.",
+      "Transforming business growth worldwide across India, USA, Canada, Australia, Dubai (UAE) & UK with custom software, web design, mobile apps & SaaS platforms.",
     images: [
       "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
     ],
@@ -122,7 +121,10 @@ const jsonLdWebsite = {
   url: "https://itobyinfotech.com",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://itobyinfotech.com/search?q={search_term_string}",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://itobyinfotech.com/search?q={search_term_string}",
+    },
     "query-input": "required name=search_term_string",
   },
 };
@@ -137,7 +139,8 @@ const jsonLdSaasProducts = {
       "operatingSystem": "Web Browser",
       "url": "https://lead.itobyinfotech.com",
       "description": "AI B2B Lead Generation & Cold Email Automation CRM with Google Maps Scraper and 15-Second AI Site Auditor.",
-      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     },
     {
       "@type": "SoftwareApplication",
@@ -146,7 +149,8 @@ const jsonLdSaasProducts = {
       "operatingSystem": "Web Browser",
       "url": "https://rent.itobyinfotech.com",
       "description": "Commercial Office Leasing & Tenant Management CRM for real estate property managers.",
-      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     },
     {
       "@type": "SoftwareApplication",
@@ -155,7 +159,8 @@ const jsonLdSaasProducts = {
       "operatingSystem": "Web Browser",
       "url": "https://billing.itobyinfotech.com",
       "description": "Enterprise GST Invoicing & Client Revenue Software with E-Way Bill API sync and retainer billing.",
-      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     },
     {
       "@type": "SoftwareApplication",
@@ -164,7 +169,8 @@ const jsonLdSaasProducts = {
       "operatingSystem": "Web Browser",
       "url": "https://cashmemo.itobyinfotech.com",
       "description": "Instant Digital Cash Memo & Retail Receipt Builder with direct WhatsApp PDF sharing.",
-      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     },
     {
       "@type": "SoftwareApplication",
@@ -173,7 +179,8 @@ const jsonLdSaasProducts = {
       "operatingSystem": "Web Browser",
       "url": "https://royalblue-ant-234341.hostingersite.com/",
       "description": "Conversational AI Voice Calling Agents for Restaurant Table Bookings & Insurance Renewal Reminders.",
-      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." }
+      "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
     }
   ]
 };

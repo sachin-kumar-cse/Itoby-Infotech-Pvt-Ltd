@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BlogClient from "./BlogClient";
 
 export const metadata: Metadata = {
-  title: "Blog & Tech Insights - Software Engineering & Digital Strategy",
+  title: "Tech Blog & Insights",
   description:
-    "Explore the latest insights, tutorials, software engineering guides, and digital marketing trends from the Itoby Infotech team.",
+    "Explore the latest software engineering guides, Next.js tutorials, AI trends, and digital growth strategies from the Itoby Infotech team.",
   alternates: {
     canonical: "https://itobyinfotech.com/blog",
   },

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TermsOfServiceClient from "./TermsOfServiceClient";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - Itoby Infotech",
+  title: "Terms of Service",
   description:
-    "Read the terms of service and conditions for using Itoby Infotech's web, app, and software development services.",
+    "Read the official Terms of Service and legal agreements governing the use of Itoby Infotech web design, software development, and SaaS products.",
   alternates: {
     canonical: "https://itobyinfotech.com/terms",
   },

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = job?.description || "Apply for this open position at Itoby Infotech.";
 
   return {
-    title: `${title} - Careers | Itoby Infotech`,
+    title: `${title} - Careers`,
     description,
     alternates: {
       canonical: `https://itobyinfotech.com/careers/${id}`,

@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/book-appointment',
     '/privacy',
     '/terms',
+    '/install',
   ];
 
   const blogRoutes = fallbackBlogs.map((b) => `/blog/${b.slug}`);

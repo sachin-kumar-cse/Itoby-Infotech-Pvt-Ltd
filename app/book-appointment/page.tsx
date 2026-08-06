@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import BookAppointmentClient from "./BookAppointmentClient";
 
 export const metadata: Metadata = {
-  title: "Book an Appointment - Free Consultation | Itoby Infotech",
+  title: "Book a Free Consultation",
   description:
-    "Schedule a free 30-minute consultation call with our digital experts to discuss your project requirements.",
+    "Schedule a free 30-minute 1-on-1 strategy call with our software engineering & digital transformation architects at Itoby Infotech.",
   alternates: {
     canonical: "https://itobyinfotech.com/book-appointment",
   },

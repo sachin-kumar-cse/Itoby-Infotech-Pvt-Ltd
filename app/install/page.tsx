@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import InstallClient from "./InstallClient";
 
 export const metadata: Metadata = {
-  title: "Install Web App - Itoby Infotech PWA",
+  title: "Install App - Progressive Web App",
   description:
-    "Install the Itoby Infotech Progressive Web App (PWA) on your mobile device or desktop for instant loading and offline access.",
+    "Install the official Itoby Infotech Progressive Web App (PWA) on your mobile device or desktop for instant loading and offline capability.",
   alternates: {
     canonical: "https://itobyinfotech.com/install",
   },

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import DigitalMarketingClient from "./DigitalMarketingClient";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Services - SEO, PPC, Meta Ads & Lead Gen",
+  title: "Digital Marketing & SEO Services",
   description:
-    "Data-driven digital marketing, SEO, Google Ads, Meta Ads & lead generation services by Itoby Infotech.",
+    "Drive target traffic and conversions with data-driven digital marketing, SEO, Google Ads, Meta Ads, and AI search optimization by Itoby Infotech.",
   alternates: {
     canonical: "https://itobyinfotech.com/services/digital-marketing",
   },

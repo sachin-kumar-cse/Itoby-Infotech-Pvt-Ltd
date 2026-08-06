@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Microsoft365Client from "./Microsoft365Client";
 
 export const metadata: Metadata = {
-  title: "Microsoft Office 365 Services - Setup, Cloud Migration & Support",
+  title: "Microsoft 365 Migration & Support",
   description:
-    "Seamless Microsoft 365 setup, Exchange business email, SharePoint architecture, Microsoft Teams integration, and cloud migration by Itoby Infotech.",
+    "Seamless Microsoft 365 deployment, Exchange email, SharePoint architecture, Teams integration, and enterprise cloud migration by Itoby Infotech.",
   alternates: {
     canonical: "https://itobyinfotech.com/services/microsoft-365",
   },

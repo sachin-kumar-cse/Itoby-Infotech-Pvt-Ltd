@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import RequestQuoteClient from "./RequestQuoteClient";
 
 export const metadata: Metadata = {
-  title: "Request a Quote - Custom Project Estimate | Itoby Infotech",
+  title: "Request a Quote - Project Estimate",
   description:
-    "Get an instant custom price estimate for your web design, mobile app, digital marketing, or software development project.",
+    "Get a custom price estimate for your web design, mobile app, digital marketing, or enterprise software project from Itoby Infotech.",
   alternates: {
     canonical: "https://itobyinfotech.com/request-quote",
   },

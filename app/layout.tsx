@@ -3,6 +3,7 @@ import Script from "next/script";
 import "@/index.css";
 import { Providers } from "./providers";
 import { Layout } from "@/components/layout/Layout";
+import { AnalyticsScripts } from "@/components/AnalyticsScripts";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -250,24 +251,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-M5G3MH5KZK"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-M5G3MH5KZK', { send_page_view: false });
-          `}
-        </Script>
-        <Script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="s4fMLQyoVzP9NLSXPjog5Q"
-          strategy="afterInteractive"
-        />
-
+        <AnalyticsScripts />
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

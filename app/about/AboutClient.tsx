@@ -52,9 +52,26 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Itoby Infotech Pvt. Ltd.",
+  url: "https://itobyinfotech.com/about",
+  description: "Learn about Itoby Infotech — a premier global digital agency engineering custom web design, mobile apps, software solutions, and AI SaaS platforms.",
+  publisher: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png"
+  }
+};
+
 export default function AboutClient() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
       <PageHeroBanner
         badge="Who We Are"
         title="Engineering Digital Solutions for Global Leaders"

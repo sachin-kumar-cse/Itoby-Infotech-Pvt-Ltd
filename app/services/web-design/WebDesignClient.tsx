@@ -146,9 +146,27 @@ const caseStudies = [
   },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Web Design & Development Services",
+  serviceType: "Website Development",
+  provider: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    url: "https://itobyinfotech.com"
+  },
+  areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
+  description: "Custom web design and Next.js development services by Itoby Infotech. UI/UX design, e-commerce development, landing pages, and speed optimization."
+};
+
 export default function WebDesignClient() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner
         title="Web Design & High-Performance Development"

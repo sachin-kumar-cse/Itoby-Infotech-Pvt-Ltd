@@ -14,28 +14,23 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://itobyinfotech.com"),
   title: {
-    default: "Itoby Infotech - Global Digital Agency & SaaS Lab",
+    default: "Website Development Company | AI, SaaS & Software | Itoby Infotech",
     template: "%s | Itoby Infotech",
   },
   description:
-    "Itoby Infotech is a premier global digital agency engineering custom web applications, mobile apps, custom software, and enterprise AI SaaS solutions.",
+    "Itoby Infotech Pvt. Ltd. is a premier website development company & SaaS lab engineering custom software, mobile apps, digital marketing & AI solutions.",
   keywords: [
+    "Website Development Company",
     "Itoby Infotech Pvt Ltd",
     "IIPL",
     "Itoby Infotech",
     "IIPL SaaS",
+    "custom software development company",
+    "mobile app development agency",
     "web design agency USA Canada Australia Dubai UAE India",
-    "custom software development company Dubai UAE",
-    "mobile app development agency New York London Sydney Dubai Noida",
-    "AI voice calling agents IIPL Calling",
-    "B2B lead generation tool IIPL Lead",
-    "commercial property leasing CRM IIPL Renting",
-    "GST invoicing software IIPL Billing",
-    "instant cash memo generator IIPL Cashmemo",
-    "generative engine optimization GEO agency",
-    "AEO voice search optimization",
-    "Microsoft 365 migration agency",
-    "enterprise React Next.js agency",
+    "AI voice calling agents",
+    "B2B lead generation tool",
+    "Generative engine optimization GEO agency",
   ],
   authors: [{ name: "Itoby Infotech Pvt. Ltd." }],
   robots: {
@@ -60,9 +55,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://itobyinfotech.com",
-    title: "Itoby Infotech - Global Digital Agency & SaaS Lab",
+    title: "Website Development Company | AI, SaaS & Software | Itoby Infotech",
     description:
-      "Transforming business growth worldwide across India, USA, Canada, Australia, Dubai (UAE) & UK with custom software, web design, mobile apps & SaaS platforms.",
+      "Itoby Infotech Pvt. Ltd. is a premier website development company & SaaS lab engineering custom software, mobile apps, digital marketing & AI solutions.",
     siteName: "Itoby Infotech",
     images: [
       {
@@ -77,9 +72,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@itobyinfotech",
-    title: "Itoby Infotech - Global Digital Agency & SaaS Lab",
+    title: "Website Development Company | AI, SaaS & Software | Itoby Infotech",
     description:
-      "Transforming business growth worldwide across India, USA, Canada, Australia, Dubai (UAE) & UK with custom software, web design, mobile apps & SaaS platforms.",
+      "Itoby Infotech Pvt. Ltd. is a premier website development company & SaaS lab engineering custom software, mobile apps, digital marketing & AI solutions.",
     images: [
       "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
     ],
@@ -115,6 +110,36 @@ const jsonLdOrganization = {
     "https://facebook.com/itobyinfotech",
     "https://youtube.com/@itobyinfotech",
   ],
+};
+
+const jsonLdLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Itoby Infotech Pvt. Ltd.",
+  image: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+  "@id": "https://itobyinfotech.com",
+  url: "https://itobyinfotech.com",
+  telephone: "+91-91427-73500",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Sector-4",
+    addressLocality: "Noida",
+    addressRegion: "Uttar Pradesh",
+    postalCode: "201301",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.58,
+    longitude: 77.33,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
 };
 
 const jsonLdWebsite = {
@@ -206,10 +231,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://uvpxfbucgcpsjwahmvjy.supabase.co" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
-        {/* Organization & Website JSON-LD */}
+        {/* Organization, LocalBusiness & Website JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocalBusiness) }}
         />
         <script
           type="application/ld+json"

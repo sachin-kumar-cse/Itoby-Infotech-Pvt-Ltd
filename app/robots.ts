@@ -8,6 +8,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/admin', '/admin/*'],
       },
+      {
+        userAgent: ['Googlebot', 'Bingbot', 'Twitterbot', 'facebookexternalhit', 'GPTBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', 'Amazonbot'],
+        allow: '/',
+      },
     ],
     sitemap: 'https://itobyinfotech.com/sitemap.xml',
   };

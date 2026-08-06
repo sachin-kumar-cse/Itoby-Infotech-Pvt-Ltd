@@ -1,43 +1,41 @@
-"use client";
+import type { Metadata } from "next";
+import HomeClient from "./HomeClient";
 
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ClientsMarqueeSection } from "@/components/sections/ClientsMarqueeSection";
-import { StatsCounterSection } from "@/components/sections/StatsCounterSection";
-import { AboutPreviewSection } from "@/components/sections/AboutPreviewSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection";
-import { AwardsSection } from "@/components/sections/AwardsSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { TechStackSection } from "@/components/sections/TechStackSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { BlogPreviewSection } from "@/components/sections/BlogPreviewSection";
-import { CTASection } from "@/components/sections/CTASection";
-import { useDbProjects } from "@/hooks/useDbProjects";
+export const metadata: Metadata = {
+  title: "Website Development Company | AI, SaaS & Software Solutions",
+  description:
+    "Itoby Infotech Pvt. Ltd. provides Website Development, Custom Software, SaaS Development, AI Solutions, Mobile Apps, UI/UX Design and Digital Transformation services.",
+  alternates: {
+    canonical: "https://itobyinfotech.com",
+  },
+  openGraph: {
+    title: "Website Development Company | AI, SaaS & Software Solutions",
+    description:
+      "Itoby Infotech Pvt. Ltd. provides Website Development, Custom Software, SaaS Development, AI Solutions, Mobile Apps, UI/UX Design and Digital Transformation services.",
+    url: "https://itobyinfotech.com",
+    type: "website",
+    siteName: "Itoby Infotech",
+    images: [
+      {
+        url: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Itoby Infotech Website Development Company",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@itobyinfotech",
+    title: "Website Development Company | AI, SaaS & Software Solutions",
+    description:
+      "Itoby Infotech Pvt. Ltd. provides Website Development, Custom Software, SaaS Development, AI Solutions, Mobile Apps, UI/UX Design and Digital Transformation services.",
+    images: [
+      "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
+    ],
+  },
+};
 
 export default function HomePage() {
-  // Preload projects immediately when the page loads
-  useDbProjects();
-
-  return (
-    <>
-      <HeroSection />
-      <ClientsMarqueeSection />
-      <StatsCounterSection />
-      <AboutPreviewSection />
-      <ServicesSection />
-      <IndustriesSection />
-      <WhyChooseUsSection />
-      <ProcessSection />
-      <FeaturedProjectsSection />
-      <AwardsSection />
-      <TestimonialsSection />
-      <TechStackSection />
-      <FAQSection />
-      <BlogPreviewSection />
-      <CTASection />
-    </>
-  );
+  return <HomeClient />;
 }

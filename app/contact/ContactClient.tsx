@@ -47,6 +47,27 @@ const contactSchema = z.object({
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
 });
 
+const contactSchemaLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Itoby Infotech Pvt. Ltd.",
+  url: "https://itobyinfotech.com/contact",
+  description: "Get in touch with Itoby Infotech Pvt. Ltd. Request a free quote, book a strategy call, or visit our software engineering offices in Noida.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    telephone: "+91-91427-73500",
+    email: "info@itobyinfotech.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Sector-4",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN"
+    }
+  }
+};
+
 export default function ContactClient() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);

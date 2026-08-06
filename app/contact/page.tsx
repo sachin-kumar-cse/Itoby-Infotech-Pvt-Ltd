@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Digital Agency",
+  title: "Contact Itoby Infotech Pvt. Ltd. | Free Consultation",
   description:
-    "Get in touch with Itoby Infotech. Request a proposal, book a consultation call, or contact our engineering teams in USA, UAE, and India.",
+    "Get in touch with Itoby Infotech Pvt. Ltd. Request a free quote, book a strategy call, or visit our software engineering offices in Noida & global hubs.",
   alternates: {
     canonical: "https://itobyinfotech.com/contact",
+  },
+  openGraph: {
+    title: "Contact Itoby Infotech Pvt. Ltd. | Free Consultation",
+    description:
+      "Get in touch with Itoby Infotech Pvt. Ltd. Request a free quote, book a strategy call, or visit our software engineering offices in Noida & global hubs.",
+    url: "https://itobyinfotech.com/contact",
   },
 };
 

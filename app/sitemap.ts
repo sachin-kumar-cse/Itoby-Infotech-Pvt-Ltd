@@ -2,6 +2,9 @@ import { MetadataRoute } from 'next';
 import { fallbackBlogs } from '@/data/blogsData';
 import { industriesList } from '@/data/industriesData';
 import { technologyList } from '@/data/technologyData';
+import { pricingGuidesList } from '@/data/pricingData';
+import { comparisonList } from '@/data/comparisonData';
+import { resourcesList } from '@/data/resourcesData';
 
 const baseUrl = 'https://itobyinfotech.com';
 
@@ -47,8 +50,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes = fallbackBlogs.map((b) => `/blog/${b.slug}`);
   const industryRoutes = industriesList.map((i) => `/industries/${i.slug}`);
   const techRoutes = technologyList.map((t) => `/technology/${t.slug}`);
+  const pricingRoutes = pricingGuidesList.map((p) => `/pricing/${p.slug}`);
+  const compareRoutes = comparisonList.map((c) => `/comparison/${c.slug}`);
+  const resourceRoutes = resourcesList.map((r) => `/resources/${r.slug}`);
 
-  const allRoutes = [...staticRoutes, ...blogRoutes, ...industryRoutes, ...techRoutes];
+  const allRoutes = [
+    ...staticRoutes,
+    ...blogRoutes,
+    ...industryRoutes,
+    ...techRoutes,
+    ...pricingRoutes,
+    ...compareRoutes,
+    ...resourceRoutes,
+  ];
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,

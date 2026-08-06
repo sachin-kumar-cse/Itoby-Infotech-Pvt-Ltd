@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import BlogPostClient from "./BlogPostClient";
-import { supabase } from "@/integrations/supabase/client";
+import { fallbackBlogs } from "@/data/blogsData";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -9,17 +9,13 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   
-  const { data: post } = await supabase
-    .from("blog_posts")
-    .select("title, excerpt, image, category")
-    .eq("slug", slug)
-    .maybeSingle();
+  const post = fallbackBlogs.find((b) => b.slug === slug);
 
   const title = post?.title || `${slug.replace(/-/g, " ")} - Blog`;
   const description = post?.excerpt || "Read this article on Itoby Infotech's official tech blog.";
 
   return {
-    title: `${title} - Blog`,
+    title: `${title} | Itoby Infotech`,
     description,
     openGraph: {
       title,

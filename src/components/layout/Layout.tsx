@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, useState, useEffect, lazy, Suspense } from "react";
+import { ReactNode, useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import { Header } from "./Header";
@@ -15,11 +16,11 @@ import { usePageTracking } from "@/hooks/usePageTracking";
 import { useKeyboardShortcuts } from "@/hooks/useKeyboardShortcuts";
 import { usePerformanceMonitoring } from "@/hooks/usePerformanceMonitoring";
 
-// Lazy load non-critical overlay components for fast first paint
-const AIChatbot = lazy(() => import("@/components/ui/ai-chatbot").then(m => ({ default: m.AIChatbot })));
-const PWAInstallBanner = lazy(() => import("@/components/ui/pwa-install-banner").then(m => ({ default: m.PWAInstallBanner })));
-const CommandPaletteModal = lazy(() => import("@/components/ui/command-palette-modal").then(m => ({ default: m.CommandPaletteModal })));
-const LiveActivityToast = lazy(() => import("@/components/ui/live-activity-toast").then(m => ({ default: m.LiveActivityToast })));
+// Dynamically import overlay components with ssr: false for Next.js App Router stability
+const AIChatbot = dynamic(() => import("@/components/ui/ai-chatbot").then(m => m.AIChatbot), { ssr: false });
+const PWAInstallBanner = dynamic(() => import("@/components/ui/pwa-install-banner").then(m => m.PWAInstallBanner), { ssr: false });
+const CommandPaletteModal = dynamic(() => import("@/components/ui/command-palette-modal").then(m => m.CommandPaletteModal), { ssr: false });
+const LiveActivityToast = dynamic(() => import("@/components/ui/live-activity-toast").then(m => m.LiveActivityToast), { ssr: false });
 
 interface LayoutProps {
   children: ReactNode;
@@ -47,9 +48,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <CursorGlow />
         <CyberCursorTrail />
         <main className="flex-1">{children}</main>
-        <Suspense fallback={null}>
-          <CommandPaletteModal isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)} />
-        </Suspense>
+        <CommandPaletteModal isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)} />
       </div>
     );
   }
@@ -68,12 +67,10 @@ export const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <WhatsAppButton />
       <BackToTop />
-      <Suspense fallback={null}>
-        <AIChatbot />
-        <PWAInstallBanner />
-        <LiveActivityToast />
-        <CommandPaletteModal isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)} />
-      </Suspense>
+      <AIChatbot />
+      <PWAInstallBanner />
+      <LiveActivityToast />
+      <CommandPaletteModal isOpen={isCommandOpen} onClose={() => setIsCommandOpen(false)} />
     </div>
   );
 };

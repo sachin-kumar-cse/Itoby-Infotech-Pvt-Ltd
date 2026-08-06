@@ -5,6 +5,7 @@ import { technologyList } from '@/data/technologyData';
 import { pricingGuidesList } from '@/data/pricingData';
 import { comparisonList } from '@/data/comparisonData';
 import { resourcesList } from '@/data/resourcesData';
+import { locationsList } from '@/data/locationsData';
 
 const baseUrl = 'https://itobyinfotech.com';
 
@@ -53,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pricingRoutes = pricingGuidesList.map((p) => `/pricing/${p.slug}`);
   const compareRoutes = comparisonList.map((c) => `/comparison/${c.slug}`);
   const resourceRoutes = resourcesList.map((r) => `/resources/${r.slug}`);
+  const locationRoutes = locationsList.map((l) => `/locations/${l.citySlug}/${l.serviceSlug}`);
 
   const allRoutes = [
     ...staticRoutes,
@@ -62,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pricingRoutes,
     ...compareRoutes,
     ...resourceRoutes,
+    ...locationRoutes,
   ];
 
   return allRoutes.map((route) => ({

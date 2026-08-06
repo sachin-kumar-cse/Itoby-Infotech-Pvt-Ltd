@@ -56,29 +56,41 @@ const processSteps = [
 ];
 
 const tools = [
-  "React", "Next.js", "TypeScript", "Tailwind CSS", "Figma", "WordPress", "Shopify", "Webflow"
+  "React", "Next.js 15", "TypeScript", "Tailwind CSS", "Node.js", "Supabase", "Figma", "WordPress", "Shopify", "Vercel"
 ];
 
 const faqs = [
   {
-    question: "How long does it take to build a website?",
-    answer: "Typically, a standard website takes 4-8 weeks from discovery to launch. Complex e-commerce or custom web applications may take 8-16 weeks depending on requirements."
+    question: "What is custom website development by Itoby Infotech?",
+    answer: "Custom website development by Itoby Infotech Pvt. Ltd. is bespoke engineering using Next.js 15, React, and TypeScript to build ultra-fast, secure, and SEO-optimized web applications tailored to your business goals with sub-second page loads and zero layout shifts."
   },
   {
-    question: "Do you provide website hosting?",
-    answer: "Yes, we offer managed hosting solutions with 99.9% uptime guarantee, daily backups, and SSL certificates included."
+    question: "How long does it take to build a custom website?",
+    answer: "A standard corporate website takes 2-4 weeks from discovery to deployment. Custom enterprise SaaS portals, e-commerce platforms, or full-stack web applications take 6-12 weeks depending on technical specifications, API integrations, and custom UI/UX design."
   },
   {
-    question: "Can I update the website myself?",
-    answer: "Absolutely! We build websites with user-friendly content management systems and provide training so you can make updates independently."
+    question: "Why choose Next.js 15 and React for modern web development?",
+    answer: "Next.js 15 and React 19 offer server-side rendering (SSR), partial prerendering (PPR), automatic code splitting, and built-in image optimization. This ensures 100/100 Core Web Vitals, top Google search rankings, and instant page navigation."
   },
   {
-    question: "What's included in maintenance support?",
-    answer: "Our maintenance packages include security updates, performance monitoring, regular backups, bug fixes, and priority support."
+    question: "Do you optimize websites for AI Search engines like ChatGPT, Gemini, and Perplexity?",
+    answer: "Yes! Every website built by Itoby Infotech includes Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), Schema.org JSON-LD structured data, and semantic HTML5 so LLMs and AI Search Overviews can cite and index your business as an industry authority."
   },
   {
-    question: "Do you redesign existing websites?",
-    answer: "Yes, we specialize in website redesigns and can modernize your existing site while preserving your SEO rankings and content."
+    question: "Is mobile responsiveness and Core Web Vitals optimization included?",
+    answer: "Yes. All web applications are engineered mobile-first and tested across iOS, Android, and desktop viewports to guarantee 100/100 Core Web Vitals scores for Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS)."
+  },
+  {
+    question: "Can I update website content independently after launch?",
+    answer: "Yes. We integrate user-friendly headless CMS solutions (WordPress, Supabase Studio, Sanity, or Strapi) and provide full training so your team can publish blogs, landing pages, and portfolio items effortlessly without writing code."
+  },
+  {
+    question: "What is included in website maintenance and post-launch support?",
+    answer: "Our maintenance packages include 24/7 uptime monitoring, automated cloud backups, SSL renewals, security vulnerability patching, performance audits, and dedicated SLA technical support by our engineering team."
+  },
+  {
+    question: "Do you offer custom e-commerce and web application development?",
+    answer: "Yes. We build high-converting e-commerce platforms and SaaS applications integrated with Stripe, Razorpay, PayPal, GST billing, inventory management, and custom REST & GraphQL APIs."
   },
 ];
 

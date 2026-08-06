@@ -57,29 +57,41 @@ const processSteps = [
 ];
 
 const tools = [
-  "Node.js", "Python", "PostgreSQL", "MongoDB", "Redis", "AWS", "Docker", "Kubernetes"
+  "Node.js", "Python", "PostgreSQL", "Supabase", "Redis", "AWS", "Docker", "Kubernetes", "REST & GraphQL APIs"
 ];
 
 const faqs = [
   {
-    question: "How do you ensure the software fits our specific needs?",
-    answer: "We begin with a comprehensive discovery phase to understand your business processes, pain points, and goals. We then create detailed specifications and prototypes for your approval before development begins."
+    question: "What custom software & enterprise automation solutions does Itoby Infotech build?",
+    answer: "Itoby Infotech Pvt. Ltd. builds enterprise CRM/ERP systems, client portals, automated GST billing software, property leasing platforms, AI voice agents, and custom workflow microservices using Node.js, Python, PostgreSQL, and AWS."
   },
   {
-    question: "Can you integrate with our existing systems?",
-    answer: "Yes, we specialize in system integrations. Whether you use legacy systems, modern SaaS tools, or a mix of both, we can create seamless connections between your platforms."
+    question: "How do you ensure custom software architecture is scalable and secure?",
+    answer: "We design modular microservices architecture with cloud auto-scaling (AWS/Docker/Kubernetes), PostgreSQL database indexing, Redis caching, AES-256 encryption, role-based access control (RBAC), and strict OWASP security standards."
   },
   {
-    question: "How long does custom software development take?",
-    answer: "Timelines vary based on complexity. A simple automation tool might take 4-8 weeks, while a full CRM/ERP system can take 6-12 months. We provide detailed estimates after the discovery phase."
+    question: "How long does custom enterprise software development take?",
+    answer: "Custom business automation tools take 4-8 weeks. Complex multi-tenant SaaS platforms, enterprise ERP systems, or custom CRM portals take 12-24 weeks with bi-weekly agile sprint demos."
   },
   {
-    question: "What about ongoing maintenance and updates?",
-    answer: "We offer flexible maintenance packages including bug fixes, security updates, performance optimization, and feature enhancements. We also provide 24/7 monitoring for critical systems."
+    question: "Can you integrate custom software with legacy databases and third-party APIs?",
+    answer: "Yes! We specialize in custom REST & GraphQL API integrations connecting legacy SQL/Oracle databases, SAP, Salesforce, QuickBooks, Stripe, Razorpay, and cloud SaaS platforms with zero data loss."
   },
   {
-    question: "Do you provide training for our team?",
-    answer: "Absolutely! We provide comprehensive training for all users, including documentation, video tutorials, and hands-on sessions. We ensure your team is confident using the new system."
+    question: "Do you provide source code ownership and IP rights for custom software?",
+    answer: "Yes. 100% of the custom source code, intellectual property (IP) rights, database schemas, and deployment credentials are fully owned by your company upon project completion."
+  },
+  {
+    question: "How do you handle system maintenance, uptime monitoring, and SLA support?",
+    answer: "We provide 24/7 server health monitoring, automated cloud backups, SSL renewals, vulnerability patching, and SLA-guaranteed technical support by dedicated DevOps and full-stack engineers."
+  },
+  {
+    question: "What built-in SaaS products has Itoby Infotech engineered?",
+    answer: "Our in-house SaaS lab engineered IIPL Lead (B2B Lead Gen CRM), IIPL Renting (Leasing Management), IIPL Billing (GST Enterprise Invoicing), IIPL Cashmemo (Instant PDF Receipt Builder), and IIPL Calling (AI Voice Agents)."
+  },
+  {
+    question: "Do you provide user training and technical documentation?",
+    answer: "Yes. Every custom software project includes comprehensive API documentation, admin user guides, video walkthroughs, and live interactive training sessions for your operational team."
   },
 ];
 
@@ -146,9 +158,27 @@ const caseStudies = [
   },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Custom Software Solutions & Enterprise Automation",
+  serviceType: "Software Engineering Company",
+  provider: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    url: "https://itobyinfotech.com"
+  },
+  areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
+  description: "Custom ERP, CRM, portal, microservices, and workflow automation development services by Itoby Infotech using Node.js, Python, PostgreSQL, and AWS."
+};
+
 export default function SoftwareSolutionsClient() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <PageHeroBanner
         title="Custom Enterprise Software Solutions & Automation"
         description="Tailored software solutions that automate workflows, streamline operations, and give your business a competitive edge."

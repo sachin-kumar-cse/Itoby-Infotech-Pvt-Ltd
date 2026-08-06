@@ -57,29 +57,41 @@ const processSteps = [
 ];
 
 const tools = [
-  "Microsoft 365", "Azure AD", "Exchange Online", "SharePoint", "Teams", "OneDrive", "Power Automate", "Intune"
+  "Microsoft 365", "Azure Active Directory", "Exchange Online", "SharePoint", "Teams", "OneDrive", "Power Automate", "Microsoft Intune"
 ];
 
 const faqs = [
   {
-    question: "How long does a Microsoft 365 migration take?",
-    answer: "A typical migration takes 2-6 weeks depending on the size of your organization, amount of data, and complexity of your current setup. We work to minimize disruption to your daily operations."
+    question: "What Microsoft 365 migration & cloud setup services does Itoby Infotech provide?",
+    answer: "Itoby Infotech Pvt. Ltd. provides complete Microsoft 365 tenant deployment, zero-downtime email migration (Exchange Online), SharePoint intranet setup, Microsoft Teams integration, Azure AD SSO, and Intune mobile device management."
   },
   {
-    question: "Will we lose any emails or files during migration?",
-    answer: "No. We use proven migration tools and processes that ensure complete data integrity. We perform multiple verification checks before, during, and after migration."
+    question: "How do you guarantee zero downtime and zero data loss during M365 email migration?",
+    answer: "We perform staged cutover or hybrid migrations using encrypted sync protocols. Dual-delivery MX routing ensures all incoming emails, calendars, contacts, and historical archives transfer smoothly with 100% data integrity and zero business disruption."
   },
   {
-    question: "Do you provide training for our staff?",
-    answer: "Yes, we provide comprehensive training including live sessions, video tutorials, and documentation. We ensure your team is comfortable with all M365 tools."
+    question: "How long does enterprise Microsoft 365 migration take?",
+    answer: "Small business tenant setups (1-50 users) take 1-2 weeks. Enterprise migrations (100-1000+ mailboxes with custom SharePoint structure) take 3-6 weeks with pre-migration staging and post-migration validation."
   },
   {
-    question: "What Microsoft 365 plans do you recommend?",
-    answer: "We help you choose the right plan based on your needs. Common choices include Business Basic, Business Standard, or Enterprise plans depending on features required."
+    question: "How do you configure security and compliance in Microsoft 365?",
+    answer: "We enforce Multi-Factor Authentication (MFA), Conditional Access policies, Anti-Phishing & Anti-Spam protection (Defender for Office 365), Data Loss Prevention (DLP) rules, and automated cloud backup retention."
   },
   {
-    question: "Can you help with ongoing M365 administration?",
-    answer: "Absolutely! We offer managed services for ongoing administration including user management, security monitoring, updates, and technical support."
+    question: "Can Microsoft Power Automate streamline our business workflows?",
+    answer: "Yes. We build custom Power Automate flows that automate invoice approval chains, email attachments to SharePoint sync, contract signature notifications, and CRM task automation."
+  },
+  {
+    question: "Which Microsoft 365 license plan is best for my business?",
+    answer: "We analyze your staff requirements to recommend optimal licensing across Business Basic, Business Standard, Business Premium, or E3/E5 enterprise plans, ensuring you pay only for active user features."
+  },
+  {
+    question: "Do you provide staff training and change management support?",
+    answer: "Yes. We conduct interactive video training, produce customized user cheat-sheets, and provide dedicated helpdesk support so your team adopts Microsoft Teams, OneDrive, and SharePoint with ease."
+  },
+  {
+    question: "What is included in ongoing Microsoft 365 managed administration?",
+    answer: "Our M365 managed IT SLA includes user onboarding/offboarding, license optimization, 24/7 security threat monitoring, SharePoint permissions auditing, and dedicated SLA technical support."
   },
 ];
 
@@ -146,9 +158,27 @@ const caseStudies = [
   },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Microsoft 365 Cloud Migration & Managed Services",
+  serviceType: "Cloud IT Consulting & Managed Services",
+  provider: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    url: "https://itobyinfotech.com"
+  },
+  areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
+  description: "Microsoft 365 migration, SharePoint intranet, Teams deployment, and Azure AD security services by Itoby Infotech."
+};
+
 export default function Microsoft365Client() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <PageHeroBanner
         title="Microsoft 365 Cloud Migration & Managed Services"
         description="Complete Microsoft 365 deployment, cloud migration, SharePoint, and 24/7 support services to modernize your workplace."

@@ -57,29 +57,41 @@ const processSteps = [
 ];
 
 const tools = [
-  "Google Ads", "Google Analytics", "Meta Ads Manager", "SEMrush", "Ahrefs", "HubSpot", "Mailchimp", "Hootsuite"
+  "Google Ads", "Google Analytics 4", "Meta Ads Manager", "SEMrush", "Ahrefs", "HubSpot", "OpenAI GEO Tools", "Google Search Console"
 ];
 
 const faqs = [
   {
-    question: "How long does it take to see results from SEO?",
-    answer: "SEO is a long-term strategy. You can expect to see initial improvements within 3-6 months, with significant results typically appearing after 6-12 months of consistent effort."
+    question: "What digital marketing & SEO services does Itoby Infotech provide?",
+    answer: "Itoby Infotech Pvt. Ltd. provides performance digital marketing, Technical SEO, Generative Engine Optimization (GEO), Answer Engine Optimization (AEO), Google Ads (PPC), Meta Ads (Facebook/Instagram), B2B lead generation, and multi-channel conversion funnel tracking."
   },
   {
-    question: "What's the minimum budget for Google Ads?",
-    answer: "We recommend a minimum monthly ad spend of $1,000-$2,000 plus management fees. However, optimal budgets vary based on your industry, competition, and goals."
+    question: "What is Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO)?",
+    answer: "GEO and AEO optimize your brand's content so AI Search engines like Google AI Overviews, ChatGPT Search, Gemini, Perplexity, and Copilot index and cite your business as a direct answer in conversational search results."
   },
   {
-    question: "Do you offer social media management?",
-    answer: "Yes, we provide comprehensive social media management including content creation, scheduling, community management, and paid advertising across all major platforms."
+    question: "How long does it take to see organic rankings and traffic from SEO?",
+    answer: "Technical SEO and on-page optimization show measurable ranking improvements within 4-8 weeks. Sustained #1 Google search positions and domain authority growth occur within 3-6 months of technical, semantic, and backlink execution."
   },
   {
-    question: "How do you measure campaign success?",
-    answer: "We track key metrics aligned with your goals including traffic, conversions, cost per acquisition, ROI, engagement rates, and lead quality. You receive detailed monthly reports."
+    question: "What is the recommended budget for Google Ads and Meta Ads campaigns?",
+    answer: "We recommend a starting monthly ad spend of $1,000–$3,000 depending on industry competitiveness. Our PPC specialists continuously perform A/B testing, negative keyword filtering, and conversion rate optimization (CRO) to maximize your ROAS."
   },
   {
-    question: "Can you work with our existing marketing team?",
-    answer: "Absolutely! We frequently collaborate with in-house teams, providing specialized expertise and additional resources while ensuring seamless integration with your existing efforts."
+    question: "How do you track conversions and ROI for digital marketing campaigns?",
+    answer: "We set up end-to-end conversion tracking using Google Analytics 4 (GA4), Meta Pixel, Google Tag Manager (GTM), and CRM lead integration. You receive real-time monthly dashboards showing exact Cost Per Lead (CPL) and Return on Ad Spend (ROAS)."
+  },
+  {
+    question: "Do you offer localized SEO for target regions like USA, UK, UAE, Australia & India?",
+    answer: "Yes! We specialize in regional and multi-geo SEO targeting local entities in New York, London, Sydney, Dubai, and Delhi-NCR with localized Schema.org markup, Google Business Profile optimization, and geotargeted content."
+  },
+  {
+    question: "Can your marketing team collaborate with our internal marketing staff?",
+    answer: "Yes. We operate as an extended growth team providing dedicated SEO strategists, media buyers, copywriters, and analytics engineers who integrate seamlessly with your internal workflow."
+  },
+  {
+    question: "What is included in monthly digital marketing retainer contracts?",
+    answer: "Our monthly retainers include Technical SEO audits, weekly ad campaign management, A/B ad creative testing, high-quality blog content creation, conversion rate optimization, and dedicated SLA account support."
   },
 ];
 
@@ -148,9 +160,27 @@ const caseStudies = [
   },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Digital Marketing & SEO Services",
+  serviceType: "Digital Marketing Agency",
+  provider: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    url: "https://itobyinfotech.com"
+  },
+  areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
+  description: "Data-driven SEO, Generative Engine Optimization (GEO), Google Ads PPC, Meta Ads, and conversion rate optimization services by Itoby Infotech."
+};
+
 export default function DigitalMarketingClient() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <PageHeroBanner
         title="Data-Driven Digital Marketing & SEO Solutions"
         description="Results-oriented digital marketing strategies, SEO, PPC advertising, and conversion optimization that generate qualified leads and revenue."

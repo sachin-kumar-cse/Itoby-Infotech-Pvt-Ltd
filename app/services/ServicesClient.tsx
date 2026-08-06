@@ -73,9 +73,26 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const servicesListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Digital Services & Enterprise Software Engineering Solutions by Itoby Infotech",
+  itemListElement: services.map((s, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: s.title,
+    description: s.description,
+    url: `https://itobyinfotech.com${s.path}`,
+  })),
+};
+
 export default function ServicesClient() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesListSchema) }}
+      />
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner
         title="Complete Digital Solutions & Engineering"

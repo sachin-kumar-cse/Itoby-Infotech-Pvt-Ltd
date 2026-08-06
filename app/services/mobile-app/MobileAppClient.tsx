@@ -57,29 +57,41 @@ const processSteps = [
 ];
 
 const tools = [
-  "Flutter", "React Native", "Swift", "Kotlin", "Firebase", "AWS", "GraphQL", "REST APIs"
+  "Flutter", "React Native", "Swift", "Kotlin", "Firebase", "Supabase", "AWS", "REST & GraphQL APIs"
 ];
 
 const faqs = [
   {
-    question: "Should I build native or cross-platform apps?",
-    answer: "It depends on your requirements. Native apps offer the best performance and platform-specific features, while cross-platform (Flutter/React Native) reduces development time and cost by using a single codebase for both iOS and Android."
+    question: "What mobile app development services does Itoby Infotech provide?",
+    answer: "Itoby Infotech Pvt. Ltd. provides native iOS (Swift), native Android (Kotlin), and cross-platform (Flutter & React Native) mobile app development integrated with real-time cloud backends, secure authentication, and App Store Optimization (ASO)."
   },
   {
-    question: "How long does mobile app development take?",
-    answer: "A simple app takes 3-4 months, while complex apps with advanced features can take 6-12 months. We provide detailed timelines during the discovery phase."
+    question: "Should I choose Flutter cross-platform or native app development?",
+    answer: "Flutter cross-platform development allows you to deploy native-performance iOS and Android apps from a single codebase, saving up to 40% in cost and time. Native Swift and Kotlin are recommended for complex hardware integrations or intensive graphics applications."
   },
   {
-    question: "Do you help with app store submission?",
-    answer: "Yes, we handle the entire submission process for both Apple App Store and Google Play Store, including app store optimization (ASO) for better visibility."
+    question: "How long does custom mobile app development take?",
+    answer: "An MVP mobile app takes 6-10 weeks from prototype to launch. Enterprise mobile applications with multi-tier roles, payment gateways, and real-time syncing take 12-20 weeks depending on custom feature requirements."
   },
   {
-    question: "Can you integrate with our existing backend?",
-    answer: "Absolutely! We have extensive experience integrating mobile apps with various backend systems, APIs, and third-party services."
+    question: "Do you handle App Store and Google Play Store submission?",
+    answer: "Yes. We manage the full app publishing lifecycle for Apple App Store and Google Play Store, ensuring 100% compliance with guidelines, human review requirements, privacy manifest standards, and App Store Optimization (ASO)."
   },
   {
-    question: "What happens after the app is launched?",
-    answer: "We offer maintenance packages that include bug fixes, performance monitoring, security updates, and feature enhancements to keep your app competitive."
+    question: "Can your mobile apps work offline?",
+    answer: "Yes. We build offline-first mobile architecture using local SQLite/WatermelonDB storage with automatic background cloud synchronization (Supabase/Firebase/AWS) when internet connectivity is restored."
+  },
+  {
+    question: "Can you integrate our mobile app with existing enterprise REST & GraphQL APIs?",
+    answer: "Yes. We seamlessly connect mobile applications with existing enterprise backends, ERP/CRM databases, custom Node.js/Python microservices, and third-party APIs (Stripe, Twilio, Google Maps, Razorpay)."
+  },
+  {
+    question: "How do you ensure mobile app data security and GDPR compliance?",
+    answer: "We implement AES-256 data encryption at rest, TLS/SSL encryption in transit, biometric authentication (Face ID & Touch ID), OAuth 2.0 security, and strict OWASP mobile security guidelines."
+  },
+  {
+    question: "What is included in mobile app post-launch maintenance?",
+    answer: "Our maintenance SLA includes OS version compatibility updates (iOS & Android updates), crash analytics monitoring (Sentry), push notification management, server monitoring, and continuous bug resolution."
   },
 ];
 
@@ -148,9 +160,27 @@ const caseStudies = [
   },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Mobile App Development Services",
+  serviceType: "Mobile Application Development",
+  provider: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    url: "https://itobyinfotech.com"
+  },
+  areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
+  description: "Native iOS, Android, and Flutter mobile app development services by Itoby Infotech with real-time sync, top performance, and intuitive UI/UX design."
+};
+
 export default function MobileAppClient() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <PageHeroBanner
         title="Mobile Apps Built for Speed, Scale & User Engagement"
         description="We build high-performance iOS and Android mobile applications using Flutter and React Native with seamless cloud integrations."

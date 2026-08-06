@@ -94,22 +94,33 @@ const jsonLdOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Itoby Infotech Pvt. Ltd.",
-  alternateName: "IIPL",
+  legalName: "Itoby Infotech Private Limited",
+  alternateName: ["IIPL", "Itoby Infotech"],
   url: "https://itobyinfotech.com",
   logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+  founder: {
+    "@type": "Person",
+    name: "Sachin Kumar",
+    jobTitle: "Founder & Engineering Director",
+    url: "https://itobyinfotech.com/about",
+    sameAs: ["https://www.linkedin.com/in/sachin-kumar-cse/"]
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-91427-73500",
     contactType: "customer service",
-    areaServed: ["US", "CA", "AU", "IN"],
-    availableLanguage: "en",
+    email: "info@itobyinfotech.com",
+    areaServed: ["US", "CA", "AU", "IN", "GB", "AE"],
+    availableLanguage: ["en", "hi"],
   },
   sameAs: [
     "https://linkedin.com/company/itobyinfotech",
+    "https://github.com/sachin-kumar-cse/Itoby-Infotech-Pvt-Ltd",
     "https://twitter.com/itobyinfotech",
     "https://instagram.com/itobyinfotech",
     "https://facebook.com/itobyinfotech",
     "https://youtube.com/@itobyinfotech",
+    "https://www.crunchbase.com/organization/itoby-infotech",
   ],
 };
 

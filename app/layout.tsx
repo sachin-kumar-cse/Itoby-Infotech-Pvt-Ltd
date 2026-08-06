@@ -89,6 +89,9 @@ export const metadata: Metadata = {
     apple: "/pwa-192x192.png",
   },
   manifest: "/manifest.webmanifest",
+  verification: {
+    google: "xGvhsBlP0jK8nOcsUSrBBDy19jI3xN1lQff_vQLkF58",
+  },
 };
 
 const jsonLdOrganization = {
@@ -193,6 +196,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark font-sans" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="xGvhsBlP0jK8nOcsUSrBBDy19jI3xN1lQff_vQLkF58" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

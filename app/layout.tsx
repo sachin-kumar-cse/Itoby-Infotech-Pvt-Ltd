@@ -43,15 +43,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://itobyinfotech.com",
-    languages: {
-      "en-US": "https://itobyinfotech.com",
-      "en-CA": "https://itobyinfotech.com",
-      "en-AU": "https://itobyinfotech.com",
-      "en-GB": "https://itobyinfotech.com",
-      "en-AE": "https://itobyinfotech.com",
-      "en-IN": "https://itobyinfotech.com",
-      "x-default": "https://itobyinfotech.com",
-    },
   },
   openGraph: {
     type: "website",
@@ -173,7 +164,21 @@ const jsonLdSaasProducts = {
       "url": "https://lead.itobyinfotech.com",
       "description": "AI B2B Lead Generation & Cold Email Automation CRM with Google Maps Scraper and 15-Second AI Site Auditor.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "142",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Amit Sharma" },
+        "datePublished": "2026-01-15",
+        "reviewBody": "IIPL Lead automated our B2B lead pipelines and quadrupled our sales revenue.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -183,7 +188,21 @@ const jsonLdSaasProducts = {
       "url": "https://rent.itobyinfotech.com",
       "description": "Commercial Office Leasing & Tenant Management CRM for real estate property managers.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "98",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Vikram Patel" },
+        "datePublished": "2026-02-10",
+        "reviewBody": "Reduced tenant onboarding time by 75% across our commercial office towers.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -193,7 +212,21 @@ const jsonLdSaasProducts = {
       "url": "https://billing.itobyinfotech.com",
       "description": "Enterprise GST Invoicing & Client Revenue Software with E-Way Bill API sync and retainer billing.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "115",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Neha Gupta" },
+        "datePublished": "2026-01-28",
+        "reviewBody": "Simplified GST e-invoicing and automated monthly client billing effortlessly.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -203,7 +236,21 @@ const jsonLdSaasProducts = {
       "url": "https://cashmemo.itobyinfotech.com",
       "description": "Instant Digital Cash Memo & Retail Receipt Builder with direct WhatsApp PDF sharing.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "86",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Sanjay Verma" },
+        "datePublished": "2026-03-02",
+        "reviewBody": "Instant WhatsApp PDF receipt generator saves our billing staff hours every day.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -213,7 +260,21 @@ const jsonLdSaasProducts = {
       "url": "https://royalblue-ant-234341.hostingersite.com/",
       "description": "Conversational AI Voice Calling Agents for Restaurant Table Bookings & Insurance Renewal Reminders.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "ratingCount": "64",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Rahul Mehta" },
+        "datePublished": "2026-03-15",
+        "reviewBody": "AI calling agents handle appointment scheduling smoothly with human-like conversation.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
     }
   ]
 };

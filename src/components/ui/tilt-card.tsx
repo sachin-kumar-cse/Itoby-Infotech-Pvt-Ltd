@@ -21,9 +21,22 @@ export const TiltCard: React.FC<TiltCardProps> = ({ children, className = "" }) 
   const springX = useSpring(rotateX, springConfig);
   const springY = useSpring(rotateY, springConfig);
 
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const handleMouseEnter = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
+    let rect = rectRef.current;
+    if (!rect && cardRef.current) {
+      rect = cardRef.current.getBoundingClientRect();
+      rectRef.current = rect;
+    }
+    if (!rect) return;
+
     const width = rect.width;
     const height = rect.height;
 
@@ -36,6 +49,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({ children, className = "" }) 
   };
 
   const handleMouseLeave = () => {
+    rectRef.current = null;
     x.set(0);
     y.set(0);
   };
@@ -48,6 +62,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({ children, className = "" }) 
         rotateY: springY,
         transformStyle: "preserve-3d",
       }}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`relative transition-shadow duration-300 ${className}`}

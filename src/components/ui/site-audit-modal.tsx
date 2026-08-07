@@ -159,10 +159,10 @@ export const SiteAuditModal = ({ isOpen, onClose }: SiteAuditModalProps) => {
                 </div>
                 <div className="w-full max-w-xs mx-auto h-1.5 rounded-full bg-secondary overflow-hidden">
                   <motion.div
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
                     transition={{ duration: 2, ease: "easeInOut" }}
-                    className="h-full bg-primary"
+                    className="h-full w-full bg-primary origin-left"
                   />
                 </div>
               </motion.div>

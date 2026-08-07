@@ -8,7 +8,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { GlowingParticles3D } from "@/components/ui/glowing-particles-3d";
 import { useRef, useState, useEffect } from "react";
 import { useABTest, AB_TESTS } from "@/hooks/useABTest";
-import heroBg from "@/assets/hero-bg.webp";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];
 
@@ -75,12 +75,22 @@ export const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const rafId = useRef<number | null>(null);
+
   const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 20;
-    const y = (clientY / innerHeight - 0.5) * 20;
-    setMousePos({ x, y });
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+
+    if (rafId.current !== null) return;
+
+    rafId.current = requestAnimationFrame(() => {
+      const innerWidth = window.innerWidth || 1200;
+      const innerHeight = window.innerHeight || 800;
+      const x = (clientX / innerWidth - 0.5) * 20;
+      const y = (clientY / innerHeight - 0.5) * 20;
+      setMousePos({ x, y });
+      rafId.current = null;
+    });
   };
 
   const bgUrl = typeof heroBg === "string" ? heroBg : (heroBg as any)?.src || heroBg;

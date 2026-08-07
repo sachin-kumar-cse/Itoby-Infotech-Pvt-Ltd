@@ -110,7 +110,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const whatsappNumber = "919142773500";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your digital services.");
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
 
   const { currency, setCurrency } = useCurrency();
 

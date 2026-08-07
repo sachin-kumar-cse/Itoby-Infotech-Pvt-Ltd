@@ -9,7 +9,7 @@ import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
 export const CTASection = () => {
   const whatsappNumber = "919142773500";
   const whatsappMessage = encodeURIComponent("Hi! I'm interested in your digital services. Can we discuss my project?");
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
 
   return (
     <section className="section-padding relative overflow-hidden">

@@ -226,9 +226,9 @@ const HumanHandoffCard = ({ lastMessage }: { lastMessage: string }) => {
       <p className="text-xs font-medium text-foreground">Connect with our team:</p>
       <div className="flex flex-col gap-1.5">
         <a
-          href="https://wa.me/919142773500?text=Hi%2C%20I%20was%20chatting%20with%20your%20AI%20assistant%20and%20need%20human%20help."
+          href="https://api.whatsapp.com/send?phone=919142773500&text=Hi%2C%20I%20was%20chatting%20with%20your%20AI%20assistant%20and%20need%20human%20help."
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           onClick={() => handleHandoff("whatsapp")}
           className="flex items-center gap-2 px-3 py-2 rounded-lg bg-green-500/10 border border-green-500/20 hover:bg-green-500/20 transition-colors text-xs font-medium text-green-600 dark:text-green-400"
         >

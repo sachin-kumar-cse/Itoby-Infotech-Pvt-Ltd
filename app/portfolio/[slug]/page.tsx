@@ -21,6 +21,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export async function generateStaticParams() {
+  return [
+    { slug: "b2b-saas" },
+    { slug: "easy2buy" },
+    { slug: "fittrack" },
+    { slug: "freightxpress" },
+    { slug: "healthcare-portal" },
+    { slug: "juxtudio" },
+    { slug: "kaspereye-security" },
+    { slug: "law-firm-m365" },
+    { slug: "lead-itoby" },
+    { slug: "luxe-fashion" },
+    { slug: "manufacturing-erp" },
+    { slug: "quickpay" },
+    { slug: "rainfra-studio" },
+    { slug: "rent-itoby" },
+    { slug: "restaurant-chain" },
+    { slug: "retail-m365" },
+    { slug: "solidedgeconstructions" },
+    { slug: "techflow" },
+  ];
+}
+
 export default async function PortfolioSlugPage({ params }: Props) {
   const { slug } = await params;
   return <PortfolioSlugClient slug={slug} />;

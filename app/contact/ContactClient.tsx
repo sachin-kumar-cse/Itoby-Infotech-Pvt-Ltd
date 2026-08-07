@@ -25,7 +25,7 @@ const contactInfo = [
   { icon: Mail, title: "Email Us", value: "info@itobyinfotech.com", href: "mailto:info@itobyinfotech.com", color: "text-blue-500", bg: "bg-blue-500/10", hoverBg: "group-hover:bg-blue-500" },
   { icon: Phone, title: "Call Us", value: "+91 9142773500", href: "tel:+919142773500", color: "text-emerald-500", bg: "bg-emerald-500/10", hoverBg: "group-hover:bg-emerald-500" },
   { icon: MapPin, title: "Visit Us", value: "Sector-4, Noida, UP", href: "#", color: "text-violet-500", bg: "bg-violet-500/10", hoverBg: "group-hover:bg-violet-500" },
-  { icon: MessageCircle, title: "WhatsApp", value: "Chat with us", href: "https://wa.me/919142773500", color: "text-primary", bg: "bg-primary/10", hoverBg: "group-hover:bg-primary" },
+  { icon: MessageCircle, title: "WhatsApp", value: "Chat with us", href: "https://api.whatsapp.com/send?phone=919142773500", color: "text-primary", bg: "bg-primary/10", hoverBg: "group-hover:bg-primary" },
 ];
 
 const services = [

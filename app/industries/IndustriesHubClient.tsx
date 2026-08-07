@@ -4,16 +4,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import { industriesList } from "@/data/industriesData";
-import { Building2, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Building2, ArrowRight } from "lucide-react";
 
 export default function IndustriesHubClient() {
   return (
     <>
       <PageHeroBanner
         badge="Industry Vertical Solutions"
-        title="Bespoke Software Engineering for"
-        highlightText="Global Industries"
-        subtitle="Specialized web development, mobile applications, and AI integrations tailored for enterprise compliance and sector growth."
+        title="Bespoke Software Engineering for Global Industries"
+        description="Specialized web development, mobile applications, and AI integrations tailored for enterprise compliance and sector growth."
         breadcrumbs={[{ label: "Industries", path: "/industries" }]}
       />
 
@@ -37,10 +36,10 @@ export default function IndustriesHubClient() {
                       <Building2 size={24} />
                     </div>
                     <h2 className="font-display font-bold text-xl mb-2 group-hover:text-primary transition-colors">
-                      {ind.name}
+                      {ind.title}
                     </h2>
                     <p className="text-muted-foreground text-xs line-clamp-3 mb-4 leading-relaxed">
-                      {ind.metaDescription}
+                      {ind.heroDescription}
                     </p>
                   </div>
                   <div className="pt-4 border-t border-border/40 flex items-center justify-between text-xs font-bold text-primary">

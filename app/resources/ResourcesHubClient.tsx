@@ -11,9 +11,8 @@ export default function ResourcesHubClient() {
     <>
       <PageHeroBanner
         badge="Developer & Enterprise Toolkits"
-        title="Technical Resources &"
-        highlightText="Developer Guides"
-        subtitle="Actionable SEO audit checklists, web development glossaries, and architectural frameworks curated by IIPL engineering leads."
+        title="Technical Resources & Developer Guides"
+        description="Actionable SEO audit checklists, web development glossaries, and architectural frameworks curated by IIPL engineering leads."
         breadcrumbs={[{ label: "Resources", path: "/resources" }]}
       />
 
@@ -40,7 +39,7 @@ export default function ResourcesHubClient() {
                       {item.title}
                     </h2>
                     <p className="text-muted-foreground text-sm line-clamp-3 mb-6 leading-relaxed">
-                      {item.metaDescription}
+                      {item.heroDescription}
                     </p>
                   </div>
                   <div className="pt-6 border-t border-border/40 flex items-center justify-between text-sm font-bold text-primary">

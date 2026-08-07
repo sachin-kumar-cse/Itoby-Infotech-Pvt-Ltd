@@ -11,9 +11,8 @@ export default function LocationsHubClient() {
     <>
       <PageHeroBanner
         badge="Global Delivery Hubs"
-        title="Regional Tech Hubs &"
-        highlightText="Client Locations"
-        subtitle="Localized web development and software engineering teams serving enterprises across Noida, Delhi NCR, Bangalore, and Dubai UAE."
+        title="Regional Tech Hubs & Client Locations"
+        description="Localized web development and software engineering teams serving enterprises across Noida, Delhi NCR, Bangalore, and Dubai UAE."
         breadcrumbs={[{ label: "Locations", path: "/locations" }]}
       />
 
@@ -43,7 +42,7 @@ export default function LocationsHubClient() {
                       {loc.serviceName}
                     </span>
                     <p className="text-muted-foreground text-xs line-clamp-3 mb-4 leading-relaxed">
-                      {loc.metaDescription}
+                      {loc.heroDescription}
                     </p>
                   </div>
                   <div className="pt-4 border-t border-border/40 flex items-center justify-between text-xs font-bold text-primary">

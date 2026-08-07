@@ -11,9 +11,8 @@ export default function TechHubClient() {
     <>
       <PageHeroBanner
         badge="Enterprise Tech Stacks"
-        title="Modern Software Engineering"
-        highlightText="Technology Hub"
-        subtitle="Cutting-edge frameworks, cloud architectures, and database stacks powering high-throughput SaaS and mobile applications."
+        title="Modern Software Engineering Technology Hub"
+        description="Cutting-edge frameworks, cloud architectures, and database stacks powering high-throughput SaaS and mobile applications."
         breadcrumbs={[{ label: "Technology", path: "/technology" }]}
       />
 
@@ -40,7 +39,7 @@ export default function TechHubClient() {
                       {tech.name}
                     </h2>
                     <p className="text-muted-foreground text-xs line-clamp-3 mb-4 leading-relaxed">
-                      {tech.metaDescription}
+                      {tech.heroDescription}
                     </p>
                   </div>
                   <div className="pt-4 border-t border-border/40 flex items-center justify-between text-xs font-bold text-primary">

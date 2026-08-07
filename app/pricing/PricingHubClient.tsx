@@ -11,9 +11,8 @@ export default function PricingHubClient() {
     <>
       <PageHeroBanner
         badge="Transparent Investment Estimates"
-        title="Development Cost &"
-        highlightText="Pricing Guides"
-        subtitle="Detailed cost breakdowns, hourly rate benchmarks, and budget estimation models for web design and enterprise software."
+        title="Development Cost & Pricing Guides"
+        description="Detailed cost breakdowns, hourly rate benchmarks, and budget estimation models for web design and enterprise software."
         breadcrumbs={[{ label: "Pricing", path: "/pricing" }]}
       />
 
@@ -40,7 +39,7 @@ export default function PricingHubClient() {
                       {guide.title}
                     </h2>
                     <p className="text-muted-foreground text-sm line-clamp-3 mb-6 leading-relaxed">
-                      {guide.metaDescription}
+                      {guide.heroDescription}
                     </p>
                   </div>
                   <div className="pt-6 border-t border-border/40 flex items-center justify-between text-sm font-bold text-primary">

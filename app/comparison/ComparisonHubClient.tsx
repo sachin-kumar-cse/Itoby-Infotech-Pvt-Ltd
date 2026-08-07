@@ -11,9 +11,8 @@ export default function ComparisonHubClient() {
     <>
       <PageHeroBanner
         badge="Architectural Decision Matrix"
-        title="Technology Stack"
-        highlightText="Comparisons & Trade-offs"
-        subtitle="Unbiased engineering analysis comparing framework performance, mobile app development cost, and long-term scalability."
+        title="Technology Stack Comparisons & Trade-offs"
+        description="Unbiased engineering analysis comparing framework performance, mobile app development cost, and long-term scalability."
         breadcrumbs={[{ label: "Comparison", path: "/comparison" }]}
       />
 
@@ -40,7 +39,7 @@ export default function ComparisonHubClient() {
                       {item.title}
                     </h2>
                     <p className="text-muted-foreground text-sm line-clamp-3 mb-6 leading-relaxed">
-                      {item.metaDescription}
+                      {item.heroDescription}
                     </p>
                   </div>
                   <div className="pt-6 border-t border-border/40 flex items-center justify-between text-sm font-bold text-primary">

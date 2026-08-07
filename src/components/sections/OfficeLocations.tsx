@@ -16,7 +16,7 @@ const offices = [
   {
     city: "Delhi",
     country: "India",
-    address: "Connaught Place, New Delhi, Delhi 110001",
+    address: "L100, Laxmi Nagar, Delhi 110092",
     phone: "+91 91427 73500",
     email: "info@itobyinfotech.com",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM IST",

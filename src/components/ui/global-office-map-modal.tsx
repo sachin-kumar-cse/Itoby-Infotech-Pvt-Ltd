@@ -42,7 +42,7 @@ const officeHubs: OfficeHub[] = [
     country: "India",
     flag: "🇮🇳",
     type: "Software Development & Operations",
-    address: "Connaught Place, New Delhi, Delhi 110001",
+    address: "L100, Laxmi Nagar, Delhi 110092",
     timezone: "Asia/Kolkata",
     phone: "+91 91427 73500",
     email: "info@itobyinfotech.com",

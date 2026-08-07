@@ -22,12 +22,12 @@ const offices = [
     hours: "Mon - Sat: 9:00 AM - 6:00 PM IST",
   },
   {
-    city: "New York",
+    city: "California",
     country: "United States",
-    address: "100 Church St, New York, NY 10007",
-    phone: "+1 646 558 6338",
+    address: "513 W Bonaventure Ave, Tracy, CA 95391, USA",
+    phone: "+1 (888) 581-3028",
     email: "usa@itobyinfotech.com",
-    hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
+    hours: "Mon - Fri: 9:00 AM - 5:00 PM PST",
   },
 ];
 

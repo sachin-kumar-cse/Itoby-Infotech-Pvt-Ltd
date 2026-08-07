@@ -125,32 +125,92 @@ const jsonLdOrganization = {
 
 const jsonLdLocalBusiness = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Itoby Infotech Pvt. Ltd.",
-  image: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-  "@id": "https://itobyinfotech.com",
-  url: "https://itobyinfotech.com",
-  telephone: "+91-91427-73500",
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Sector-4",
-    addressLocality: "Noida",
-    addressRegion: "Uttar Pradesh",
-    postalCode: "201301",
-    addressCountry: "IN",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 28.58,
-    longitude: 77.33,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Itoby Infotech Pvt. Ltd. - Noida Global HQ",
+      "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+      "@id": "https://itobyinfotech.com/#noida-hq",
+      "url": "https://itobyinfotech.com",
+      "telephone": "+91-91427-73500",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sector-4",
+        "addressLocality": "Noida",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201301",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.58,
+        "longitude": 77.33
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Itoby Infotech Pvt. Ltd. - Delhi Office",
+      "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+      "@id": "https://itobyinfotech.com/#delhi-office",
+      "url": "https://itobyinfotech.com",
+      "telephone": "+91-91427-73500",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "L100, Laxmi Nagar",
+        "addressLocality": "Delhi",
+        "addressRegion": "Delhi",
+        "postalCode": "110092",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.63,
+        "longitude": 77.28
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Itoby Infotech Pvt. Ltd. - California US Hub",
+      "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+      "@id": "https://itobyinfotech.com/#california-office",
+      "url": "https://itobyinfotech.com",
+      "telephone": "+1-888-581-3028",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "513 W Bonaventure Ave",
+        "addressLocality": "Tracy",
+        "addressRegion": "California",
+        "postalCode": "95391",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.73,
+        "longitude": -121.42
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    }
+  ]
 };
 
 const jsonLdWebsite = {

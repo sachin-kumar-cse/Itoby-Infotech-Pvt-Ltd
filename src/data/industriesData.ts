@@ -162,5 +162,175 @@ export const industriesList: IndustryData[] = [
       title: "Luxe Fashion Headless Store",
       metrics: "+145% organic revenue growth in 90 days"
     }
+  },
+  {
+    slug: "insurance-software-development",
+    title: "Insurance Software Development & Claims Automation",
+    heroBadge: "InsurTech IT Engineering",
+    heroDescription: "Secure InsurTech platforms, automated claims processing portals, AI policy recommendation engines, and customer portals for insurance providers.",
+    overview: "We engineer enterprise InsurTech software, automated claims verification portals, and policy management dashboards enabling insurance companies and brokers to digitize underwriting workflows and reduce claims processing times by 80%.",
+    benefits: [
+      "Automated document verification & AI fraud detection",
+      "Sub-second policy quote generation and digital signing",
+      "Seamless integration with payment gateways & billing systems",
+      "Secure encrypted storage of policyholder PII data",
+      "Automated WhatsApp & SMS policy renewal reminders",
+      "Real-time claims tracking dashboard for customers and adjusters"
+    ],
+    features: [
+      "Digital Claims Submission & Tracking",
+      "AI Underwriting & Quote Generator",
+      "Policyholder Customer Portal",
+      "Automated Premium Renewal Engine",
+      "Regulatory Compliance & Audit Trail",
+      "Broker & Agency Partner Dashboard"
+    ],
+    techStack: ["Next.js 15", "Node.js", "Python", "PostgreSQL", "Supabase", "AWS KMS", "Docker"],
+    faqs: [
+      {
+        question: "How does InsurTech software automate claims processing?",
+        answer: "Our software leverages AI document OCR and automated business rules to instantly verify damage photos, policy limits, and identity documents, routing clean claims for instant approval."
+      }
+    ],
+    caseStudy: {
+      title: "InsureShield Claims Portal",
+      metrics: "Reduced claims processing time from 7 days to 4 hours"
+    }
+  },
+  {
+    slug: "education-software-development",
+    title: "EdTech & Learning Management System (LMS) Development",
+    heroBadge: "EdTech Software Engineering",
+    heroDescription: "Custom EdTech platforms, virtual classroom portals, interactive learning management systems (LMS), and student analytics for institutions.",
+    overview: "Itoby Infotech Pvt. Ltd. builds custom LMS platforms, online assessment portals, and interactive virtual learning environments for universities, K-12 schools, and corporate training academies.",
+    benefits: [
+      "Scalable video streaming for thousands of concurrent students",
+      "Automated grading, quizzes, and digital certificate generation",
+      "Interactive student-teacher portals with live Q&A",
+      "Integrated payment gateways for course subscriptions",
+      "Real-time progress tracking and engagement analytics",
+      "Mobile-friendly responsive UI accessible on any device"
+    ],
+    features: [
+      "Custom Learning Management System (LMS)",
+      "Live Video Classroom Integration",
+      "Student Performance Analytics",
+      "Automate Certificate Verification",
+      "Course Monetization & Subscription Billing",
+      "Interactive Assignments & AI Quizzes"
+    ],
+    techStack: ["Next.js 15", "React", "Node.js", "WebRTC", "PostgreSQL", "Supabase", "Tailwind CSS"],
+    faqs: [
+      {
+        question: "Can custom EdTech platforms handle live video lectures for thousands of students?",
+        answer: "Yes. We implement scalable WebRTC and AWS IVS media streaming pipelines capable of serving tens of thousands of concurrent video viewers with sub-second latency."
+      }
+    ],
+    caseStudy: {
+      title: "EduCampus LMS Portal",
+      metrics: "Enrolled 100,000+ active students with 99.99% uptime"
+    }
+  },
+  {
+    slug: "manufacturing-software-development",
+    title: "Smart Manufacturing & Supply Chain ERP Software",
+    heroBadge: "Manufacturing IT Solutions",
+    heroDescription: "IoT-enabled manufacturing ERP systems, automated shop floor management, inventory control, and supply chain tracking software.",
+    overview: "We engineer industrial manufacturing software, real-time inventory management ERPs, and factory automation dashboards that optimize production efficiency and eliminate inventory stockouts.",
+    benefits: [
+      "Real-time visibility into factory floor production lines",
+      "Automated raw material inventory tracking & reordering",
+      "IoT sensor telemetry integration for predictive maintenance",
+      "Quality assurance inspection & batch tracking",
+      "Reduces production bottlenecks and idle machine time",
+      "Custom executive dashboards for overall equipment effectiveness (OEE)"
+    ],
+    features: [
+      "Shop Floor Execution System (MES)",
+      "Industrial Inventory & Warehouse ERP",
+      "IoT Telemetry & Machine Monitoring",
+      "Automated Bill of Materials (BOM)",
+      "Supply Chain & Procurement Sync",
+      "Quality Control & Audit Logging"
+    ],
+    techStack: ["Next.js 15", "Node.js", "Python", "PostgreSQL", "Supabase", "MQTT", "Docker"],
+    faqs: [
+      {
+        question: "Can your manufacturing software connect with IoT shop floor sensors?",
+        answer: "Yes. We integrate MQTT and HTTP telemetry protocols connecting PLC hardware and IoT sensors to your web dashboard for real-time machine monitoring."
+      }
+    ],
+    caseStudy: {
+      title: "Apex Manufacturing ERP",
+      metrics: "Increased factory OEE by 35% across 8 production facilities"
+    }
+  },
+  {
+    slug: "logistics-software-development",
+    title: "Logistics & Fleet Management Software Development",
+    heroBadge: "Logistics & Transport IT",
+    heroDescription: "Real-time fleet tracking portals, dispatch optimization engines, warehouse management software, and supply chain tracking.",
+    overview: "We build high-capacity logistics software, route optimization tools, driver mobile apps, and warehouse management ERPs that empower transportation providers to track shipments in real time.",
+    benefits: [
+      "Real-time GPS fleet tracking and automated ETA updates",
+      "Route optimization algorithms reducing fuel costs by up to 25%",
+      "Digital Proof of Delivery (e-POD) with signature capture",
+      "Automate freight dispatching and driver job assignment",
+      "Warehouse inventory barcode scanning & picking optimization",
+      "Multi-carrier API integration (FedEx, UPS, DHL, custom fleets)"
+    ],
+    features: [
+      "GPS Fleet & Vessel Tracking Dashboard",
+      "Automated Freight Dispatch & Scheduling",
+      "Driver Mobile App with Offline Maps",
+      "Digital Proof of Delivery (e-POD)",
+      "Warehouse Picking & Packing Management",
+      "Automated Freight Billing & Invoicing"
+    ],
+    techStack: ["Next.js 15", "React Native", "Node.js", "Google Maps API", "PostgreSQL", "Supabase"],
+    faqs: [
+      {
+        question: "Does your logistics software support real-time GPS tracking on mobile?",
+        answer: "Yes. We build driver mobile apps with background GPS location streaming and real-time WebSocket sync to update customer tracking pages instantly."
+      }
+    ],
+    caseStudy: {
+      title: "FreightXpress Global Logistics",
+      metrics: "Dispatched 500,000+ monthly shipments with zero lost packages"
+    }
+  },
+  {
+    slug: "retail-software-development",
+    title: "Retail POS & Multi-Store Inventory Software",
+    heroBadge: "Retail IT Solutions",
+    heroDescription: "Cloud POS systems, multi-branch retail inventory software, instant digital cash memo builders, and omnichannel retail platforms.",
+    overview: "Itoby Infotech Pvt. Ltd. builds omnichannel retail software, cloud Point of Sale (POS) tools, and instant digital cash memo generators (IIPL Cashmemo) that sync inventory across physical stores and e-commerce websites.",
+    benefits: [
+      "Instant checkout with digital WhatsApp receipts (IIPL Cashmemo)",
+      "Real-time multi-branch stock synchronization",
+      "Omnichannel integration connecting POS with e-commerce",
+      "Automated low-stock alerts and purchase order generation",
+      "Customer loyalty & gift card program management",
+      "Detailed daily sales and profit margin analytics"
+    ],
+    features: [
+      "Cloud POS & Barcode Scanner Interface",
+      "Instant WhatsApp Digital Cash Memos",
+      "Multi-Location Inventory Management",
+      "Customer Loyalty & Reward CRM",
+      "E-Commerce & Payment Gateway Sync",
+      "Sales Tax & GST Automated Invoicing"
+    ],
+    techStack: ["Next.js 15", "React", "Node.js", "PostgreSQL", "Supabase", "Stripe API", "Tailwind CSS"],
+    faqs: [
+      {
+        question: "How does IIPL Cashmemo help retail store owners?",
+        answer: "IIPL Cashmemo allows retail cashier staff to generate digital PDF cash memos and send them directly to customers' WhatsApp numbers in seconds, cutting paper receipt costs to zero."
+      }
+    ],
+    caseStudy: {
+      title: "OmniRetail Store Chain",
+      metrics: "Connected 45 physical retail outlets with single-click inventory sync"
+    }
   }
 ];

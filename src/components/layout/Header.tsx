@@ -4,7 +4,16 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { ChevronDown, ArrowRight, Mail, Phone, LogIn, Globe, Search, ExternalLink, Bot, Sparkles, Code2, Layers } from "lucide-react";
+import {
+  ChevronDown,
+  LogIn,
+  Search,
+  ExternalLink,
+  Bot,
+  Sparkles,
+  Code2,
+  Layers,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ThemeAccentPicker } from "@/components/ui/theme-accent-picker";
@@ -15,6 +24,12 @@ const serviceLinks = [
   { name: "Digital Marketing", path: "/services/digital-marketing" },
   { name: "Custom Software Solutions", path: "/services/software-solutions" },
   { name: "Microsoft 365 Services", path: "/services/microsoft-365" },
+  { name: "AI Development", path: "/services/ai-development-company" },
+  { name: "SaaS Development", path: "/services/saas-development-company" },
+  { name: "AI Agent Development", path: "/services/ai-agent-development" },
+  { name: "AI Chatbot Development", path: "/services/ai-chatbot-development" },
+  { name: "ERP Development", path: "/services/erp-development" },
+  { name: "CRM Development", path: "/services/crm-development" },
 ];
 
 const saasProductNavLinks = [
@@ -34,7 +49,6 @@ const navLinks = [
   { name: "Contact", path: "/contact" },
 ];
 
-// Menu item stagger animation variants
 const menuItemVariants = {
   hidden: { opacity: 0, x: 50 },
   visible: (i: number) => ({
@@ -56,34 +70,6 @@ const menuItemVariants = {
   }),
 };
 
-// Magnetic button hook
-const useMagneticButton = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const springX = useSpring(x, { stiffness: 300, damping: 20 });
-  const springY = useSpring(y, { stiffness: 300, damping: 20 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const deltaX = (e.clientX - centerX) * 0.3;
-    const deltaY = (e.clientY - centerY) * 0.3;
-    x.set(deltaX);
-    y.set(deltaY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return { ref, springX, springY, handleMouseMove, handleMouseLeave };
-};
-
 interface HeaderProps {
   onOpenSearch?: () => void;
 }
@@ -93,11 +79,21 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  
+
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
-  const location = { pathname };
-  const { ref: magneticRef, springX, springY, handleMouseMove, handleMouseLeave } = useMagneticButton();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleServicesMouseEnter = () => {
     if (servicesTimeoutRef.current) clearTimeout(servicesTimeoutRef.current);
@@ -105,139 +101,114 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
   };
 
   const handleServicesMouseLeave = () => {
-    servicesTimeoutRef.current = setTimeout(() => setIsServicesOpen(false), 150);
+    servicesTimeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 150);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setIsMobileServicesOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? "glass py-3 shadow-lg shadow-background/20" 
-            : "py-4 sm:py-5"
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? "glass-dark bg-background/90 backdrop-blur-xl border-b border-border/60 py-3 shadow-lg"
+            : "bg-transparent py-5"
         }`}
       >
-        <div className="container-wide flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <motion.div 
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2"
-            >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.5)] transition-shadow duration-300">
-                <span className="text-primary-foreground font-display font-bold text-base sm:text-xl">IIPL</span>
-              </div>
-              <span className="text-foreground font-display font-bold text-sm sm:text-xl">
-                Itoby<span className="text-primary"> Infotech</span>
-              </span>
-            </motion.div>
-          </Link>
+        <div className="container-wide">
+          <div className="flex items-center justify-between">
+            {/* Brand Logo */}
+            <Link href="/" className="flex items-center gap-2 group">
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2"
+              >
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.5)] transition-shadow duration-300">
+                  <span className="text-primary-foreground font-display font-bold text-base sm:text-xl">
+                    IIPL
+                  </span>
+                </div>
+                <span className="text-foreground font-display font-bold text-sm sm:text-xl">
+                  Itoby<span className="text-primary"> Infotech</span>
+                </span>
+              </motion.div>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
-              if (link.hasDropdown) {
-                return (
-                  <div 
-                    key={link.path}
-                    className="relative"
-                    onMouseEnter={handleServicesMouseEnter}
-                    onMouseLeave={handleServicesMouseLeave}
-                  >
-                    <Link
-                      href={link.path}
-                      className={`group flex items-center gap-1 text-sm font-semibold transition-colors relative ${
-                        location.pathname.startsWith('/services')
-                          ? "text-primary"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => {
+                if (link.hasDropdown) {
+                  return (
+                    <div
+                      key={link.path}
+                      className="relative"
+                      onMouseEnter={handleServicesMouseEnter}
+                      onMouseLeave={handleServicesMouseLeave}
                     >
-                      {link.name}
-                      <ChevronDown 
-                        size={14} 
-                        className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} 
-                      />
-                      {location.pathname.startsWith('/services') && (
-                        <motion.span 
-                          layoutId="activeNav"
-                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                      <Link
+                        href={link.path}
+                        className={`group flex items-center gap-1 text-sm font-semibold transition-colors relative py-1 ${
+                          pathname.startsWith("/services")
+                            ? "text-primary"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {link.name}
+                        <ChevronDown
+                          size={14}
+                          className={`transition-transform duration-200 ${isServicesOpen ? "rotate-180 text-primary" : ""}`}
                         />
-                      )}
-                    </Link>
-                    
-                    {/* Megamenu Dropdown combining Services & IIPL SaaS */}
-                    <AnimatePresence>
-                      {isServicesOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 10 }}
-                          transition={{ duration: 0.2 }}
-                          className="absolute top-full -left-20 pt-2 z-50"
-                        >
-                          <div className="w-[580px] rounded-3xl border border-border/80 bg-card/95 backdrop-blur-xl p-4 shadow-2xl grid grid-cols-2 gap-4">
-                            
-                            {/* Col 1: Digital Agency Services */}
-                            <div className="space-y-1 bg-secondary/30 p-3 rounded-2xl border border-border/40">
-                              <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
-                                <Code2 size={14} />
-                                Digital Services
-                              </div>
-                              <Link 
-                                href="/services" 
-                                className="block px-2.5 py-1.5 text-xs font-bold text-foreground hover:text-primary rounded-xl hover:bg-secondary transition-colors"
-                              >
-                                All Services Overview →
-                              </Link>
-                              {serviceLinks.map((service) => (
-                                <Link 
-                                  key={service.path}
-                                  href={service.path} 
-                                  className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
-                                >
-                                  {service.name}
-                                </Link>
-                              ))}
-                            </div>
+                        {pathname.startsWith("/services") && (
+                          <motion.span
+                            layoutId="activeNav"
+                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
+                          />
+                        )}
+                      </Link>
 
-                            {/* Col 2: IIPL SaaS Products */}
-                            <div className="space-y-1 bg-primary/5 p-3 rounded-2xl border border-primary/20">
-                              <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
-                                <Sparkles size={14} className="animate-pulse" />
-                                IIPL SaaS Products
+                      {/* Megamenu Dropdown combining Services & IIPL SaaS */}
+                      <AnimatePresence>
+                        {isServicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full -left-20 pt-2 z-50"
+                          >
+                            <div className="w-[620px] rounded-3xl border border-border/80 bg-card/95 backdrop-blur-xl p-4 shadow-2xl grid grid-cols-2 gap-4">
+                              {/* Col 1: Digital Agency Services */}
+                              <div className="space-y-1 bg-secondary/30 p-3 rounded-2xl border border-border/40 max-h-[380px] overflow-y-auto">
+                                <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
+                                  <Code2 size={14} />
+                                  Digital Services
+                                </div>
+                                <Link
+                                  href="/services"
+                                  className="block px-2.5 py-1.5 text-xs font-bold text-foreground hover:text-primary rounded-xl hover:bg-secondary transition-colors"
+                                >
+                                  All Services Overview →
+                                </Link>
+                                {serviceLinks.map((service) => (
+                                  <Link
+                                    key={service.path}
+                                    href={service.path}
+                                    className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                                  >
+                                    {service.name}
+                                  </Link>
+                                ))}
                               </div>
-                              {saasProductNavLinks.map((prod) => (
-                                prod.isExternal ? (
-                                  <a 
+
+                              {/* Col 2: IIPL SaaS Products */}
+                              <div className="space-y-1 bg-primary/5 p-3 rounded-2xl border border-primary/20">
+                                <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
+                                  <Sparkles size={14} className="animate-pulse" />
+                                  IIPL SaaS Products
+                                </div>
+                                {saasProductNavLinks.map((prod) => (
+                                  <a
                                     key={prod.name}
                                     href={prod.path}
                                     target="_blank"
@@ -252,124 +223,93 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                                       {prod.badge}
                                     </span>
                                   </a>
-                                ) : (
-                                  <Link 
-                                    key={prod.name}
-                                    href={prod.path} 
-                                    className="flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold rounded-xl hover:bg-primary/15 hover:text-primary transition-colors"
-                                  >
-                                    <span className="flex items-center gap-1.5 truncate">
-                                      <Bot size={12} className="text-primary shrink-0" />
-                                      {prod.name}
-                                    </span>
-                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary shrink-0">
-                                      {prod.badge}
-                                    </span>
-                                  </Link>
-                                )
-                              ))}
+                                ))}
+                              </div>
                             </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
 
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                return (
+                  <Link
+                    key={link.path}
+                    href={link.path}
+                    className={`relative text-sm font-medium transition-colors group ${
+                      pathname === link.path
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-0.5 bg-primary rounded-full transition-all duration-300 ${
+                        pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </Link>
                 );
-              }
+              })}
+            </nav>
 
-              return (
-                <Link
-                  key={link.path}
-                  href={link.path}
-                  className={`relative text-sm font-medium transition-colors group ${
-                    location.pathname === link.path
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+            {/* Actions & Theme Toggles */}
+            <div className="hidden lg:flex items-center gap-4">
+              <ThemeAccentPicker />
+              <ThemeToggle />
+              {onOpenSearch && (
+                <button
+                  onClick={onOpenSearch}
+                  className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors cursor-pointer"
+                  aria-label="Search"
                 >
-                  {link.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary rounded-full transition-all duration-300 ${
-                    location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
-                  }`} />
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Theme Toggle & CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <ThemeAccentPicker />
-            <ThemeToggle />
-            {onOpenSearch && (
-              <button
-                onClick={onOpenSearch}
-                className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors cursor-pointer"
-                aria-label="Search"
-                title="Search (Ctrl+K)"
+                  <Search size={20} />
+                </button>
+              )}
+              <Link
+                href="/admin"
+                className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
+                aria-label="Admin Login"
               >
-                <Search size={20} />
-              </button>
-            )}
-            <Link
-              href="/admin"
-              className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
-              aria-label="Admin Login"
-            >
-              <LogIn size={20} />
-            </Link>
-            <motion.div
-              ref={magneticRef}
-              style={{ x: springX, y: springY }}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Button variant="hero" size="lg" className="magnetic-btn" asChild>
+                <LogIn size={20} />
+              </Link>
+              <Button size="lg" className="gap-2 shadow-lg hover:shadow-primary/25" asChild>
                 <Link href="/request-quote">Get a Free Quote</Link>
               </Button>
-            </motion.div>
-          </div>
+            </div>
 
-          {/* Mobile Theme Toggle & Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
-            {onOpenSearch && (
-              <button
-                onClick={onOpenSearch}
-                className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-accent transition-colors cursor-pointer"
-                aria-label="Search"
+            {/* Mobile Toggle */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <ThemeToggle />
+              <motion.button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 rounded-xl bg-card border border-border text-foreground focus:outline-none"
+                aria-label="Toggle Mobile Menu"
+                whileTap={{ scale: 0.9 }}
               >
-                <Search size={20} />
-              </button>
-            )}
-            <ThemeAccentPicker />
-            <ThemeToggle />
-            <motion.button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-foreground relative w-10 h-10 flex items-center justify-center cursor-pointer rounded-xl bg-secondary/50 border border-border/60"
-              aria-label="Toggle menu"
-              whileTap={{ scale: 0.9 }}
-            >
-              <div className="relative w-5 h-4 flex flex-col justify-between">
-                <motion.span
-                  animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full h-0.5 bg-foreground rounded-full block origin-center"
-                />
-                <motion.span
-                  animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                  className="w-full h-0.5 bg-foreground rounded-full block"
-                />
-                <motion.span
-                  animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-full h-0.5 bg-foreground rounded-full block origin-center"
-                />
-              </div>
-            </motion.button>
+                <div className="relative w-5 h-4 flex flex-col justify-between">
+                  <motion.span
+                    animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-0.5 bg-foreground rounded-full block origin-center"
+                  />
+                  <motion.span
+                    animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-full h-0.5 bg-foreground rounded-full block"
+                  />
+                  <motion.span
+                    animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-0.5 bg-foreground rounded-full block origin-center"
+                  />
+                </div>
+              </motion.button>
+            </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Fullscreen Mobile Menu Drawer */}
       <AnimatePresence>
@@ -382,7 +322,6 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
             className="fixed inset-0 z-40 lg:hidden glass-dark bg-background/98 backdrop-blur-3xl pt-20 pb-8 px-5 overflow-y-auto"
           >
             <div className="flex flex-col justify-between min-h-full space-y-6 pt-4">
-              {/* Navigation Links */}
               <nav className="flex flex-col space-y-3">
                 {navLinks.map((link, i) => {
                   if (link.hasDropdown) {
@@ -418,7 +357,6 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                           </button>
                         </div>
 
-                        {/* Collapsible Mobile Dropdown Accordion */}
                         <AnimatePresence>
                           {isMobileServicesOpen && (
                             <motion.div
@@ -428,7 +366,6 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                               transition={{ duration: 0.3 }}
                               className="overflow-hidden border-t border-border/50 bg-secondary/30 p-3 space-y-4"
                             >
-                              {/* Sub-Group 1: Digital Agency Services */}
                               <div>
                                 <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
                                   <Code2 size={13} /> Digital Services
@@ -447,30 +384,21 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                                 </div>
                               </div>
 
-                              {/* Sub-Group 2: IIPL SaaS Platforms */}
                               <div>
                                 <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
-                                  <Sparkles size={13} className="animate-pulse" /> IIPL SaaS Suite
+                                  <Sparkles size={13} /> IIPL SaaS Products
                                 </p>
-                                <div className="space-y-1.5 pl-2">
+                                <div className="space-y-1 pl-2">
                                   {saasProductNavLinks.map((prod) => (
                                     <a
                                       key={prod.name}
                                       href={prod.path}
-                                      target={prod.isExternal ? "_blank" : "_self"}
+                                      target="_blank"
                                       rel="noopener noreferrer"
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                      className="flex items-center justify-between py-1.5 px-2.5 rounded-lg bg-card/60 border border-border/40 text-xs font-semibold text-foreground hover:text-primary transition-colors"
+                                      className="flex items-center justify-between py-1.5 px-2.5 rounded-lg text-xs font-semibold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
                                     >
-                                      <span className="flex items-center gap-1.5 truncate">
-                                        {prod.isExternal ? (
-                                          <ExternalLink size={12} className="text-primary shrink-0" />
-                                        ) : (
-                                          <Bot size={12} className="text-primary shrink-0" />
-                                        )}
-                                        {prod.name}
-                                      </span>
-                                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary shrink-0">
+                                      <span>{prod.name}</span>
+                                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary">
                                         {prod.badge}
                                       </span>
                                     </a>
@@ -496,11 +424,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                       <Link
                         href={link.path}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`text-xl font-display font-bold tracking-tight block px-3 py-2 rounded-xl transition-colors ${
-                          location.pathname === link.path
-                            ? "text-primary bg-primary/10 border border-primary/20"
-                            : "text-foreground hover:text-primary hover:bg-card/40"
-                        }`}
+                        className="block p-3.5 rounded-2xl bg-card/40 border border-border/50 text-xl font-display font-bold text-foreground hover:text-primary transition-colors"
                       >
                         {link.name}
                       </Link>
@@ -509,26 +433,12 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                 })}
               </nav>
 
-              {/* Admin Portal Quick Link */}
-              <div className="pt-2">
-                <Link
-                  href="/admin"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-card/60 border border-border/60 text-xs font-bold text-foreground hover:text-primary transition-colors"
-                >
-                  <LogIn size={15} className="text-primary" /> Admin Portal Sign In
-                </Link>
-              </div>
-
-              {/* CTA & Email */}
-              <div className="pt-3 border-t border-border/60 space-y-3">
-                <Button variant="hero" size="lg" className="w-full text-base font-extrabold h-12 rounded-xl shadow-lg" asChild>
-                  <Link href="/request-quote" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Quote</Link>
+              <div className="pt-4 border-t border-border/40 space-y-3">
+                <Button className="w-full font-bold rounded-2xl py-6" asChild>
+                  <Link href="/request-quote" onClick={() => setIsMobileMenuOpen(false)}>
+                    Get a Free Quote
+                  </Link>
                 </Button>
-                <a href="mailto:info@itobyinfotech.com" className="flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors py-1">
-                  <Mail size={15} className="text-primary" />
-                  info@itobyinfotech.com
-                </a>
               </div>
             </div>
           </motion.div>

@@ -62,5 +62,75 @@ export const pricingGuidesList: PricingGuideData[] = [
         answer: "We offer both fixed-price contracts for well-defined project scopes and time-and-materials / monthly agile sprint team retainers for evolving products."
       }
     ]
+  },
+  {
+    slug: "saas-development-cost",
+    title: "SaaS Development Cost Guide 2026",
+    serviceCategory: "SaaS Product Engineering",
+    heroDescription: "Transparent cost guide for multi-tenant SaaS MVPs, subscription billing engines, and cloud software infrastructure.",
+    overview: "Multi-tenant SaaS development at Itoby Infotech ranges from $10,000 for a seed-stage MVP to $40,000+ for enterprise multi-tenant platforms with automated billing, analytics, and RBAC.",
+    costBreakdown: [
+      { tier: "SaaS MVP Core", estimate: "$10,000 - $18,000", scope: "Multi-tenant auth, Stripe billing, dashboard, PostgreSQL database & 5 core features." },
+      { tier: "Growth SaaS Platform", estimate: "$20,000 - $35,000", scope: "Advanced RLS security, team workspaces, usage metrics, webhooks & API keys." },
+      { tier: "Enterprise Multi-Tenant SaaS", estimate: "$40,000 - $75,000+", scope: "Custom DB schemas, white-label branding, SOC 2 audit logs & 24/7 SLA." }
+    ],
+    factors: [
+      "Tenant Isolation Architecture (Row Level Security vs Separate DB)",
+      "Subscription & Tiered Metered Billing Complexity (Stripe API)",
+      "Integrations with Enterprise Auth (SAML SSO, Okta, OAuth)",
+      "Automated DevOps CI/CD & Multi-Region Cloud Deployment"
+    ],
+    faqs: [
+      {
+        question: "How much does it cost to build a SaaS MVP in 2026?",
+        answer: "A production-ready SaaS MVP with multi-tenant auth, subscription billing, and responsive Next.js 15 UI typically costs between $10,000 and $18,000."
+      }
+    ]
+  },
+  {
+    slug: "ai-development-cost",
+    title: "AI Development & LLM Integration Cost Guide 2026",
+    serviceCategory: "AI Engineering & RAG",
+    heroDescription: "Cost estimation guide for custom AI development, RAG document search engines, LLM fine-tuning, and AI voice agents.",
+    overview: "Custom AI development costs range from $5,000 for a RAG knowledge base chatbot integration to $30,000+ for autonomous multi-agent enterprise automation tools.",
+    costBreakdown: [
+      { tier: "AI Chatbot / RAG Setup", estimate: "$5,000 - $9,500", scope: "PDF/Doc vector embeddings, OpenAI GPT-4o integration, web chat widget & Supabase Pgvector." },
+      { tier: "Conversational AI Voice Agent", estimate: "$12,000 - $22,000", scope: "Real-time speech-to-text, LLM prompt engineering, telephony sync & booking integrations." },
+      { tier: "Autonomous Multi-Agent AI System", estimate: "$25,000 - $50,000+", scope: "Multi-agent coordination (CrewAI/LangChain), tool execution, safety guardrails & human approval portal." }
+    ],
+    factors: [
+      "Model Choice (OpenAI API vs Privately Hosted Llama 3 / DeepSeek)",
+      "Vector Database Scale & Indexing (Pgvector, Pinecone, Qdrant)",
+      "Real-Time Telephony & Voice Audio Streaming Costs",
+      "Human-in-the-Loop Approval Workflow Complexity"
+    ],
+    faqs: [
+      {
+        question: "What is the ongoing API cost of running an AI application?",
+        answer: "API costs depend on usage volume. For example, OpenAI GPT-4o-mini costs pennies per thousand tokens, while high-density enterprise RAG setups typically average $50-$300/month in LLM API fees."
+      }
+    ]
+  },
+  {
+    slug: "custom-crm-development-cost",
+    title: "Custom CRM Development Cost Guide 2026",
+    serviceCategory: "Sales Tech & Automation",
+    heroDescription: "Pricing guide and cost factors for custom sales CRMs, B2B lead scoring tools, and WhatsApp outreach engines.",
+    overview: "Custom CRM development ranges from $9,000 for specialized sales lead tracking tools to $25,000+ for enterprise CRMs with automated WhatsApp routing and multi-branch revenue analytics.",
+    costBreakdown: [
+      { tier: "Sales Lead Tracker CRM", estimate: "$9,000 - $14,000", scope: "Kanban deal pipeline, web form lead capture, activity history & CSV export." },
+      { tier: "Outreach & Automation CRM", estimate: "$15,000 - $25,000", scope: "WhatsApp & cold email sync, automated lead scoring, team metrics & invoicing." }
+    ],
+    factors: [
+      "Number of Custom Sales Stages & Lead Sources",
+      "WhatsApp & Cold Email Automation Engine Integration",
+      "Team Role Permissions & Data Visibility Limits"
+    ],
+    faqs: [
+      {
+        question: "Why invest in a custom CRM instead of Salesforce or HubSpot?",
+        answer: "Custom CRMs carry zero per-user monthly licensing fees, match your exact sales methodology 100%, and offer complete control over your client data without hidden tier upgrades."
+      }
+    ]
   }
 ];

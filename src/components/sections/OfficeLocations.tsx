@@ -22,22 +22,6 @@ const offices = [
     hours: "Mon - Sat: 9:00 AM - 6:00 PM IST",
   },
   {
-    city: "Sydney",
-    country: "Australia",
-    address: "135 King St, Sydney NSW 2000",
-    phone: "+61 2 9233 1111",
-    email: "au@itobyinfotech.com",
-    hours: "Mon - Fri: 9:00 AM - 5:00 PM AEST",
-  },
-  {
-    city: "Toronto",
-    country: "Canada",
-    address: "120 Adelaide St W, Toronto, ON M5H 1T1",
-    phone: "+1 416 364 8888",
-    email: "ca@itobyinfotech.com",
-    hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
-  },
-  {
     city: "New York",
     country: "United States",
     address: "100 Church St, New York, NY 10007",

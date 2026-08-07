@@ -177,7 +177,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                             transition={{ duration: 0.2 }}
                             className="absolute top-full -left-20 pt-2 z-50"
                           >
-                            <div className="w-[620px] rounded-3xl border border-border/80 bg-card/95 backdrop-blur-xl p-4 shadow-2xl grid grid-cols-2 gap-4">
+                            <div className="w-[880px] rounded-3xl border border-border/80 bg-card/95 backdrop-blur-xl p-4 shadow-2xl grid grid-cols-3 gap-4">
                               {/* Col 1: Digital Agency Services */}
                               <div className="space-y-1 bg-secondary/30 p-3 rounded-2xl border border-border/40 max-h-[380px] overflow-y-auto">
                                 <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
@@ -201,11 +201,11 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                                 ))}
                               </div>
 
-                              {/* Col 2: IIPL SaaS Products */}
+                              {/* Col 2: IIPL SaaS Platforms */}
                               <div className="space-y-1 bg-primary/5 p-3 rounded-2xl border border-primary/20">
                                 <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
                                   <Sparkles size={14} className="animate-pulse" />
-                                  IIPL SaaS Products
+                                  Live SaaS Apps
                                 </div>
                                 {saasProductNavLinks.map((prod) => (
                                   <a
@@ -224,6 +224,50 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                                     </span>
                                   </a>
                                 ))}
+                              </div>
+
+                              {/* Col 3: Software Products Hub */}
+                              <div className="space-y-1 bg-secondary/20 p-3 rounded-2xl border border-border/40">
+                                <div className="flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-primary px-2 py-1 mb-1">
+                                  <Layers size={14} />
+                                  Products Hub
+                                </div>
+                                <Link
+                                  href="/products"
+                                  className="block px-2.5 py-1.5 text-xs font-bold text-foreground hover:text-primary rounded-xl hover:bg-secondary transition-colors"
+                                >
+                                  All Products Hub →
+                                </Link>
+                                <Link
+                                  href="/products/leadflow"
+                                  className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                                >
+                                  LeadFlow B2B SaaS
+                                </Link>
+                                <Link
+                                  href="/products/billing"
+                                  className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                                >
+                                  IIPL Billing GST SaaS
+                                </Link>
+                                <Link
+                                  href="/products/whatsapp"
+                                  className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                                >
+                                  IIPL Cashmemo WhatsApp
+                                </Link>
+                                <Link
+                                  href="/products/renting"
+                                  className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                                >
+                                  PropTech Renting CRM
+                                </Link>
+                                <Link
+                                  href="/products/calling"
+                                  className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                                >
+                                  IIPL Calling Voice AI
+                                </Link>
                               </div>
                             </div>
                           </motion.div>

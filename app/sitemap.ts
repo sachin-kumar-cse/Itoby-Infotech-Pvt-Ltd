@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { fallbackBlogs } from '@/data/blogsData';
 import { detailedServicesList } from '@/data/servicesData';
+import { productsList } from '@/data/productsData';
 import { industriesList } from '@/data/industriesData';
 import { technologyList } from '@/data/technologyData';
 import { pricingGuidesList } from '@/data/pricingData';
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/about',
+    '/products',
     '/services',
     '/services/web-design',
     '/services/mobile-app',
@@ -55,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/locations',
   ];
 
+  const productRoutes = productsList.map((p) => `/products/${p.slug}`);
   const serviceRoutes = detailedServicesList.map((s) => `/services/${s.slug}`);
   const blogRoutes = fallbackBlogs.map((b) => `/blog/${b.slug}`);
   const industryRoutes = industriesList.map((i) => `/industries/${i.slug}`);
@@ -66,6 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const allRoutes = [
     ...staticRoutes,
+    ...productRoutes,
     ...serviceRoutes,
     ...blogRoutes,
     ...industryRoutes,

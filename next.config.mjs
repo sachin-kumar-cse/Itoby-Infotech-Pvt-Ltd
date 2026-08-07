@@ -9,7 +9,9 @@ const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
   reactStrictMode: true,
   trailingSlash: false,
+  compress: true,
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

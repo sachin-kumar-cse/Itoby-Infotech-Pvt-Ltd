@@ -1,9 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "@/index.css";
 import { Providers } from "./providers";
 import { Layout } from "@/components/layout/Layout";
 import { AnalyticsScripts } from "@/components/AnalyticsScripts";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -285,15 +300,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark font-sans" suppressHydrationWarning>
+    <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} font-sans`} suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="xGvhsBlP0jK8nOcsUSrBBDy19jI3xN1lQff_vQLkF58" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        />
         <link rel="preconnect" href="https://uvpxfbucgcpsjwahmvjy.supabase.co" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         

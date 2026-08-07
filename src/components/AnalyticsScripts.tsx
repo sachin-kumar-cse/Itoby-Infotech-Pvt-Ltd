@@ -7,10 +7,10 @@ export function AnalyticsScripts() {
     <>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-M5G3MH5KZK"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         onError={() => console.warn("Google Analytics script load skipped or blocked by client")}
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -21,7 +21,7 @@ export function AnalyticsScripts() {
       <Script
         src="https://analytics.ahrefs.com/analytics.js"
         data-key="s4fMLQyoVzP9NLSXPjog5Q"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         onError={() => console.warn("Ahrefs Analytics script load skipped or blocked by client")}
       />
     </>

@@ -46,6 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/privacy',
     '/terms',
     '/install',
+    '/industries',
+    '/technology',
+    '/pricing',
+    '/comparison',
+    '/resources',
+    '/locations',
   ];
 
   const blogRoutes = fallbackBlogs.map((b) => `/blog/${b.slug}`);

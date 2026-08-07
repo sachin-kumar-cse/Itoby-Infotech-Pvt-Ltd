@@ -124,6 +124,19 @@ export default function BlogClient() {
               <Rss size={20} />
             </motion.a>
           </motion.div>
+
+          {/* Editorial Hub Overview */}
+          <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-card/40 border border-border/60 max-w-4xl mx-auto backdrop-blur-xl">
+            <h2 className="font-display font-bold text-lg sm:text-xl mb-3 flex items-center gap-2">
+              <Sparkles size={18} className="text-primary" /> Enterprise Software Engineering & Digital Growth Insights
+            </h2>
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4">
+              Welcome to the official technology engineering blog of <strong>Itoby Infotech Pvt Ltd (IIPL)</strong>. Our principal architects, full-stack developers, UI/UX designers, and SEO strategists regularly publish production-grade technical guides, architecture benchmarks, and digital transformation roadmaps.
+            </p>
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+              Explore in-depth articles covering Next.js 15 App Router performance tuning, autonomous AI voice calling agents, B2B lead generation automation, commercial PropTech solutions, and Generative Engine Optimization (GEO) strategies.
+            </p>
+          </div>
         </div>
       </div>
 

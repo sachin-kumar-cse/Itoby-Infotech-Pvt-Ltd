@@ -275,6 +275,28 @@ export default function BookAppointmentClient() {
               )}
             </AnimatePresence>
           </motion.div>
+
+          {/* Pre-Consultation Guide & Information Section */}
+          <div className="mt-16 max-w-4xl mx-auto space-y-8">
+            <div className="p-8 rounded-3xl bg-card/60 border border-border/80 shadow-xl backdrop-blur-xl">
+              <h2 className="font-display font-extrabold text-xl sm:text-2xl mb-4">
+                What to Expect During Your 1-on-1 Technical Strategy Session
+              </h2>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-4">
+                At <strong>Itoby Infotech Pvt Ltd (IIPL)</strong>, our executive consultation sessions are designed to deliver immediate value. Whether you are a startup founder planning a SaaS MVP or an enterprise director modernizing legacy IT infrastructure, our principal architects conduct a comprehensive discovery call.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 pt-2">
+                <div className="p-4 rounded-2xl bg-secondary/40 border border-border/50">
+                  <h3 className="font-bold text-sm text-primary mb-1">1. Project Scope & Architecture Audit</h3>
+                  <p className="text-xs text-muted-foreground">We review your tech stack requirements, user workflows, security compliance goals, and target release timelines.</p>
+                </div>
+                <div className="p-4 rounded-2xl bg-secondary/40 border border-border/50">
+                  <h3 className="font-bold text-sm text-primary mb-1">2. Transparent Cost & SLA Proposal</h3>
+                  <p className="text-xs text-muted-foreground">Receive clear fixed-price estimates, milestone schedules, and post-launch technical support maintenance plans.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

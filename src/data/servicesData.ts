@@ -78,43 +78,64 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "ai-development-company",
-    title: "AI Development Company & LLM Solutions",
+    title: "AI Development Services",
     heroBadge: "Artificial Intelligence Engineering",
-    heroDescription: "Custom AI development, Large Language Model (LLM) fine-tuning, Retrieval-Augmented Generation (RAG), and predictive analytics.",
-    overview: "We transform enterprises with state-of-the-art Artificial Intelligence solutions. Our AI engineers build domain-specific LLM agents, RAG enterprise search engines, and intelligent voice models that automate operations and uncover high-value data insights.",
+    heroDescription: "Itoby Infotech Pvt. Ltd. delivers custom AI development services, RAG enterprise search engines, LLM fine-tuning, and intelligent automation systems.",
+    overview: "AI development is the engineering process of designing, building, integrating, and deploying artificial intelligence models and microservices into business software. Itoby Infotech Pvt. Ltd. builds custom AI applications, Retrieval-Augmented Generation (RAG) knowledge systems, document intelligence tools, and automated predictive workflows tailored to enterprise operational needs.",
     benefits: [
-      "Privately hosted LLM models with 100% data privacy",
-      "RAG architecture for hallucination-free document search",
-      "Automate up to 80% of routine customer and back-office tasks",
-      "Seamless integration with OpenAI GPT-4o, Claude 3.5, and Llama 3",
-      "Sub-second vector embeddings with Pgvector and Supabase",
-      "Scalable AI microservices deployed on Vercel and AWS"
+      "100% private data security with zero third-party AI model training retention",
+      "RAG architecture for hallucination-free enterprise document search",
+      "Automate up to 80% of repetitive operational and back-office data workflows",
+      "Seamless integration with OpenAI GPT-4o, Claude 3.5, and Llama 3 models",
+      "Sub-second vector retrieval using Pgvector and Supabase vector stores",
+      "Scalable AI microservices backed by 12 months of SLA maintenance"
     ],
     features: [
-      "Custom LLM Fine-Tuning & Prompt Engineering",
-      "Enterprise RAG Document Q&A Engines",
-      "AI Predictive Analytics & Forecasting",
-      "Computer Vision & OCR Data Extraction",
-      "Conversational AI & Voice Agents",
-      "Multi-Agent AI Workflow Orchestration"
+      "Custom LLM Fine-Tuning & Prompt Architecture",
+      "Enterprise RAG Vector Search & Document Engines",
+      "AI Predictive Analytics & Data Pipeline Automation",
+      "Computer Vision, OCR & Document Extraction",
+      "Conversational AI & Autonomous Voice Systems",
+      "Multi-Agent Workflow Orchestration & API Gateways"
     ],
     process: [
-      { step: "01", title: "AI Feasibility & Data Audit", description: "Evaluating clean enterprise data sources, vector readiness, and LLM model selection." },
-      { step: "02", title: "Model Training & RAG Setup", description: "Embedding documents into vector stores and tuning system prompts for accurate outputs." },
-      { step: "03", title: "Integration & Testing", description: "Connecting AI microservices into your web dashboard with real-time streaming UI." },
-      { step: "04", title: "Monitoring & Guardrails", description: "Implementing hallucination filters, latency tracking, and continuous model evaluation." }
+      { step: "01", title: "AI Feasibility & Data Audit", description: "Evaluating enterprise data cleanliness, vector database readiness, and LLM model selection." },
+      { step: "02", title: "RAG Architecture & Model Tuning", description: "Configuring vector embeddings, chunking strategies, and tuning system prompts for accurate retrieval." },
+      { step: "03", title: "Application Integration & UI/UX", description: "Connecting AI microservices into Next.js web dashboards with real-time streaming interfaces." },
+      { step: "04", title: "Guardrails, Security & Testing", description: "Implementing hallucination filters, OWASP input validation, PII redaction, and latency benchmarks." },
+      { step: "05", title: "Deployment & SLA Monitoring", description: "Zero-downtime deployment on Vercel/AWS infrastructure with 24/7 SLA error tracking." }
     ],
-    techStack: ["OpenAI API", "Python", "LangChain", "LlamaIndex", "Pgvector", "Supabase", "Next.js 15", "FastAPI"],
+    techStack: ["OpenAI API", "Python", "LangChain", "LlamaIndex", "Pgvector", "Supabase", "Next.js 15", "FastAPI", "Docker", "AWS"],
     useCases: [
-      "Internal Knowledge Vector Search",
-      "Autonomous Customer Support Agents",
-      "Automated Invoice & Contract Extraction",
-      "Predictive Sales Lead Scoring"
+      "Enterprise Document Vector Search & Knowledge Base",
+      "Autonomous Back-Office Data Extraction & Invoicing",
+      "Predictive Customer Analytics & Lead Scoring",
+      "Smart Recommendation Engines for E-Commerce & SaaS"
     ],
     faqs: [
       {
-        question: "How does Itoby Infotech guarantee AI data privacy and security?",
-        answer: "We ensure zero third-party model training on your data by using zero-retention enterprise API endpoints or deploying open-source models (Llama 3, DeepSeek) inside your private VPC."
+        question: "What is AI development?",
+        answer: "AI development is the engineering process of building, fine-tuning, and integrating artificial intelligence models, vector embeddings, and machine learning algorithms into custom software applications to automate business processes and extract actionable insights."
+      },
+      {
+        question: "What is the difference between custom AI development and AI integration?",
+        answer: "AI integration connects an existing software application to pre-built AI APIs (like OpenAI or Claude). Custom AI development involves building proprietary Retrieval-Augmented Generation (RAG) pipelines, fine-tuning open-source models (like Llama 3) on custom dataset schemas, and orchestrating multi-agent microservices."
+      },
+      {
+        question: "How does Itoby Infotech ensure AI data privacy and security?",
+        answer: "We enforce strict zero-data-retention enterprise API contracts, redact PII (Personally Identifiable Information) before embedding, and deploy open-source LLM models inside private VPC environments (AWS/Azure) so proprietary data is never sent to third-party public models."
+      },
+      {
+        question: "What is the difference between general AI development, AI agents, and AI chatbots?",
+        answer: "General AI development covers broad AI software features like RAG document search, OCR extraction, and predictive analytics. AI chatbots focus specifically on 24/7 conversational customer service, while autonomous AI agents plan and execute multi-step API tool workflows independently."
+      },
+      {
+        question: "How much does custom AI development cost?",
+        answer: "AI development costs depend on data volume, model selection (cloud API vs self-hosted LLM), vector database complexity, and API integrations. We provide fixed-scope or milestone estimates after a technical discovery audit."
+      },
+      {
+        question: "How long does AI software development take?",
+        answer: "A RAG document search or basic AI application MVP takes 6 to 10 weeks. Multi-agent workflow automation systems and enterprise fine-tuned model pipelines take 12 to 18 weeks."
       }
     ]
   },

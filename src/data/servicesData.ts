@@ -506,43 +506,68 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "erp-development",
-    title: "Custom ERP Development Company",
+    title: "ERP Development Services",
     heroBadge: "Enterprise Resource Planning",
-    heroDescription: "Custom ERP software development, inventory tracking engines, supply chain management, and HR portals built for modern business scale.",
-    overview: "Itoby Infotech Pvt. Ltd. engineers bespoke ERP systems that centralize enterprise operations, supply chain logistics, human resources, and financial management into one secure, real-time cloud dashboard.",
+    heroDescription: "Itoby Infotech Pvt. Ltd. engineers custom ERP software systems, inventory engines, procurement automation, and integrated enterprise modules.",
+    overview: "ERP (Enterprise Resource Planning) development is the software engineering process of creating or customizing integrated business management applications. It connects disparate organizational functions—such as procurement, inventory tracking, financial accounting, human resources, and supply chain operations—into a centralized system of record with role-based access controls and real-time operational analytics.",
     benefits: [
-      "Centralizes all business departments into a single source of truth",
-      "Automates inventory management, purchase orders, and billing",
-      "Real-time executive reporting and profit-loss analytics",
-      "Custom role-based permissions protecting sensitive business data",
-      "Zero recurring per-user licensing fees",
-      "High-throughput PostgreSQL architecture supporting millions of records"
+      "Centralizes all enterprise operational departments into a single source of truth",
+      "Automates procurement, inventory tracking, order processing, and GST billing",
+      "100% source code IP ownership with zero recurring per-user monthly licensing fees",
+      "Granular Role-Based Access Control (RBAC) protecting sensitive enterprise data",
+      "Real-time executive reporting dashboards and automated profit-loss analytics",
+      "High-throughput PostgreSQL database architecture backed by 12 months SLA support"
     ],
     features: [
-      "Supply Chain & Inventory Management",
-      "HR & Automated Payroll Processing",
-      "Financial Accounting & GST Invoicing",
-      "Production Planning & Warehouse Logistics",
-      "Custom Executive Analytics Dashboards",
-      "Multi-Branch & Multi-Currency Architecture"
+      "Supply Chain & Warehouse Inventory Tracking",
+      "Financial Accounting & Automated GST Invoicing",
+      "Procurement & Vendor Purchase Order Workflows",
+      "HR, Attendance & Automated Payroll Processing",
+      "Real-Time Executive Analytics & Financial Reporting",
+      "RESTful & GraphQL API Gateways for CRM & ERP Sync"
     ],
     process: [
-      { step: "01", title: "Process Audit", description: "Mapping department workflows, data dependencies, and manual spreadsheets." },
-      { step: "02", title: "Database Architecture", description: "Designing relational schemas and high-speed data indexing." },
-      { step: "03", title: "Module Development", description: "Building Inventory, HR, Billing, and Analytics modules in sprints." },
-      { step: "04", title: "Data Migration & SLA", description: "Migrating legacy data smoothly and providing dedicated 24/7 SLA." }
+      { step: "01", title: "Business Process Audit & Workflow Mapping", description: "Evaluating operational bottlenecks, inventory dependencies, and manual spreadsheets." },
+      { step: "02", title: "Database Architecture & Module Planning", description: "Designing normalized PostgreSQL schemas, relational indexing, and API data contracts." },
+      { step: "03", title: "Agile ERP Sprint Development", description: "Engineering Inventory, Procurement, HR, and Financial Accounting modules in 2-week sprints." },
+      { step: "04", title: "Data Migration & Integration Testing", description: "Migrating legacy data schemas securely and testing multi-branch role permissions." },
+      { step: "05", title: "Production Rollout & 24/7 SLA Support", description: "Deploying on Vercel/AWS infrastructure with full staff training and SLA monitoring." }
     ],
-    techStack: ["Next.js 15", "Node.js", "PostgreSQL", "Supabase", "Docker", "AWS", "Tailwind CSS"],
+    techStack: ["Next.js 15", "TypeScript", "React 19", "Node.js", "Python", "PostgreSQL", "Supabase", "Docker", "AWS", "Tailwind CSS"],
     useCases: [
-      "Manufacturing Plant Operations ERP",
-      "Logistics & Warehouse Management ERP",
-      "Retail Multi-Branch Inventory ERP",
-      "Healthcare Hospital Operations ERP"
+      "Manufacturing Plant Inventory & Production ERP",
+      "Logistics & Multi-Warehouse Supply Chain ERP",
+      "Retail Multi-Branch Inventory & POS ERP",
+      "Healthcare Hospital Operational & Inventory ERP"
     ],
     faqs: [
       {
-        question: "Can custom ERP software replace legacy systems like SAP or Tally?",
-        answer: "Yes. We design custom ERPs that either replace bloated legacy software completely or connect bi-directionally via REST APIs to handle specialized department workflows."
+        question: "What is ERP development?",
+        answer: "ERP development is the software engineering process of building or customizing integrated business applications that manage core operations—such as finance, inventory, procurement, human resources, and supply chain logistics—within a single database framework."
+      },
+      {
+        question: "What is the difference between ERP and CRM software?",
+        answer: "ERP (Enterprise Resource Planning) manages internal operational back-office processes—such as inventory, manufacturing, procurement, and accounting. CRM (Customer Relationship Management) focuses on front-office customer interactions, sales pipelines, lead tracking, and marketing automation."
+      },
+      {
+        question: "Why choose custom ERP development over off-the-shelf software like SAP or Odoo?",
+        answer: "Custom ERP development gives your company 100% source code IP ownership, eliminates expensive monthly per-user licensing fees, adapts perfectly to your proprietary business workflows, and integrates directly with existing legacy databases."
+      },
+      {
+        question: "What modules can be included in a custom ERP system?",
+        answer: "A custom ERP system can include Inventory Management, Procurement, Financial Accounting & GST Billing, Human Resources & Payroll, Warehouse Logistics, Sales Order Processing, and Executive BI Reporting Dashboards."
+      },
+      {
+        question: "Can a custom ERP system integrate with existing business software and accounting APIs?",
+        answer: "Yes. We engineer secure RESTful and GraphQL API gateways that bi-directionally sync custom ERP platforms with Salesforce, Tally, QuickBooks, Stripe, Razorpay, and third-party logistics APIs."
+      },
+      {
+        question: "How much does custom ERP software development cost?",
+        answer: "Custom ERP development costs depend on the number of modules, database complexity, user role permissions, third-party API integrations, and legacy data migration scope. We provide detailed milestone estimates after a technical discovery audit."
+      },
+      {
+        question: "How long does custom ERP development take?",
+        answer: "A core module ERP MVP typically takes 10 to 14 weeks. Comprehensive enterprise ERP systems with multi-branch inventory, automated payroll, and bi-directional API syncing take 16 to 24 weeks."
       }
     ]
   },

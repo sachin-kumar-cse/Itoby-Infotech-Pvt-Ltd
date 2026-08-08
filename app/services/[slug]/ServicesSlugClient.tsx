@@ -228,29 +228,26 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
               <Link href="/services/custom-software-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 Custom Software Development
               </Link>
-              <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                AI Development Services
+              <Link href="/services/erp-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Enterprise ERP Development
               </Link>
-              <Link href="/services/ai-agent-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Autonomous AI Agents
-              </Link>
-              <Link href="/services/ai-chatbot-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                24/7 AI Conversational Chatbots
+              <Link href="/services/crm-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Custom CRM Platforms
               </Link>
               <Link href="/services/saas-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 SaaS Application Development
               </Link>
-              <Link href="/technology/python" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Python AI & LangChain
+              <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                AI Development Services
+              </Link>
+              <Link href="/technology/nodejs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Node.js Microservices
               </Link>
               <Link href="/technology/supabase-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Pgvector & Supabase RLS
+                Supabase PostgreSQL RLS
               </Link>
-              <Link href="/comparison/ai-chatbot-vs-ai-agent" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
-                AI Chatbot vs AI Agent Comparison
-              </Link>
-              <Link href="/case-studies/ai-voice-calling" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                AI Voice Calling Agent Case
+              <Link href="/portfolio/manufacturing-erp" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
+                Manufacturing ERP Case Study
               </Link>
             </div>
           </div>

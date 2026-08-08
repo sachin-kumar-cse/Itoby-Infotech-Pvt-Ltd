@@ -48,6 +48,13 @@ const services = [
 
 const quickLinks = [
   { name: "About Us", path: "/about" },
+  { name: "SaaS Products Hub", path: "/products" },
+  { name: "Client Case Studies", path: "/case-studies" },
+  { name: "Industries Served", path: "/industries" },
+  { name: "Technology Stack", path: "/technology" },
+  { name: "Pricing Guides", path: "/pricing" },
+  { name: "Tech Comparisons", path: "/comparison" },
+  { name: "Resources & Checklists", path: "/resources" },
   { name: "Our Portfolio", path: "/portfolio" },
   { name: "Careers & Hiring", path: "/careers" },
   { name: "Blog & Insights", path: "/blog" },

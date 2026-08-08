@@ -140,6 +140,73 @@ export const detailedServicesList: DetailedServiceData[] = [
     ]
   },
   {
+    slug: "ai-agent-development",
+    title: "AI Agent Development Services",
+    heroBadge: "Autonomous AI Agent Engineering",
+    heroDescription: "Itoby Infotech Pvt. Ltd. builds autonomous AI agents, multi-agent workflow automation systems, tool-calling microservices, and human-in-the-loop enterprise AI assistants.",
+    overview: "An AI agent is an autonomous or semi-autonomous software system designed to interpret business goals, reason through multi-step tasks, invoke API tools, query vector databases, and execute workflows within defined permission boundaries. Unlike simple conversational chatbots, AI agents actively perform multi-step actions, execute tool functions, integrate with enterprise CRM/ERP systems, and incorporate human-in-the-loop approval gates for high-risk operations.",
+    benefits: [
+      "Autonomous multi-step task execution and API tool-calling workflows",
+      "Human-in-the-Loop (HITL) approval gates for sensitive operational actions",
+      "100% private data boundaries with zero public AI model training retention",
+      "Seamless REST & GraphQL API integrations with enterprise ERP and CRM systems",
+      "Sub-second vector knowledge retrieval using Supabase Pgvector stores",
+      "Complete audit logging, guardrails, and 12 months of SLA technical support"
+    ],
+    features: [
+      "Multi-Agent Workflow Orchestration & Task Planning",
+      "Tool & API Function Calling Integration",
+      "Human-in-the-Loop Approval & Governance Controls",
+      "Retrieval-Augmented Generation (RAG) Document Memory",
+      "Role-Based Workspace Access & Permission Enforcement",
+      "Real-Time Agent Execution Telemetry & Audit Logs"
+    ],
+    process: [
+      { step: "01", title: "Use-Case Discovery & Workflow Audit", description: "Analyzing operational bottlenecks, tool API contracts, and human approval triggers." },
+      { step: "02", title: "Agent Architecture & Tool Design", description: "Configuring LLM reasoning loops, tool functions, and RAG vector embeddings." },
+      { step: "03", title: "Agent Development & System Integration", description: "Coding multi-agent orchestration microservices in Python/Node.js and connecting Next.js dashboards." },
+      { step: "04", title: "Security, Guardrails & Evaluation", description: "Implementing input validation, PII redaction, human approval gates, and task accuracy testing." },
+      { step: "05", title: "Production Deployment & SLA Monitoring", description: "Deploying on Vercel/AWS VPC infrastructure backed by 24/7 SLA telemetry monitoring." }
+    ],
+    techStack: ["Python", "LangChain", "LangGraph", "OpenAI API", "Claude 3.5", "Llama 3", "Pgvector", "Supabase", "Next.js 15", "FastAPI", "Docker", "AWS"],
+    useCases: [
+      "Customer Operations & Automated Ticket Resolution Agents",
+      "Automated Lead Qualification & CRM Sync Agents",
+      "Back-Office Document Processing & Invoice Verification Agents",
+      "Autonomous Data Retrieval & Market Intelligence Assistants"
+    ],
+    faqs: [
+      {
+        question: "What is an AI agent?",
+        answer: "An AI agent is an intelligent software system that interprets natural-language goals, breaks them down into sub-tasks, invokes external API tools, queries vector knowledge bases, and executes complex multi-step business workflows autonomously or with human supervision."
+      },
+      {
+        question: "What is the difference between an AI agent and an AI chatbot?",
+        answer: "An AI chatbot focuses on conversational dialogue and information retrieval. An AI agent actively performs multi-step actions—such as updating CRM records, triggering API webhooks, creating support tickets, or generating financial reports—using external tools."
+      },
+      {
+        question: "Can AI agents execute multi-step business tasks independently?",
+        answer: "Yes. AI agents use reasoning frameworks (such as ReAct and Plan-and-Solve) to plan sub-steps, invoke API functions sequentially, verify intermediate outputs, and self-correct when errors occur during execution."
+      },
+      {
+        question: "What is Human-in-the-Loop (HITL) in AI agent workflows?",
+        answer: "Human-in-the-Loop is a governance security mechanism where high-risk or high-value agent actions—such as processing financial payouts, deleting records, or sending external emails—pause for mandatory manager approval before execution."
+      },
+      {
+        question: "Can AI agents connect to existing enterprise APIs, CRMs, and ERPs?",
+        answer: "Yes. We build custom API tool wrappers that allow AI agents to securely connect with Salesforce, HubSpot, SAP, QuickBooks, Stripe, custom PostgreSQL databases, and proprietary REST/GraphQL microservices."
+      },
+      {
+        question: "How much does custom AI agent development cost?",
+        answer: "AI agent development costs depend on workflow complexity, number of tool API integrations, vector database requirements, and human approval controls. We provide detailed milestone estimates after an initial technical discovery session."
+      },
+      {
+        question: "How long does AI agent development take?",
+        answer: "A single-agent proof of concept or MVP takes 6 to 10 weeks. Multi-agent enterprise orchestration platforms with custom API tools take 12 to 18 weeks."
+      }
+    ]
+  },
+  {
     slug: "saas-development-company",
     title: "SaaS Development Services",
     heroBadge: "SaaS Product Engineering",

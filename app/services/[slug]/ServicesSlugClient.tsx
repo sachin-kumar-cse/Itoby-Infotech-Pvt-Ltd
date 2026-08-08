@@ -231,29 +231,23 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
               <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 AI Development Services
               </Link>
-              <Link href="/services/ai-agent-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Autonomous AI Agents
+              <Link href="/services/ai-chatbot-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                24/7 AI Conversational Chatbots
               </Link>
-              <Link href="/technology/nextjs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Next.js SaaS Solutions
+              <Link href="/services/saas-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                SaaS Application Development
               </Link>
-              <Link href="/technology/react" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                React Frontend
-              </Link>
-              <Link href="/technology/nodejs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Node.js Microservices
+              <Link href="/technology/python" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Python AI & LangChain
               </Link>
               <Link href="/technology/supabase-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                Supabase Multi-Tenant RLS
+                Pgvector & Supabase RLS
               </Link>
-              <Link href="/comparison/custom-software-vs-saas" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
-                Custom Software vs SaaS Comparison
+              <Link href="/comparison/ai-chatbot-vs-ai-agent" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
+                AI Chatbot vs AI Agent Comparison
               </Link>
-              <Link href="/products/leadflow" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                IIPL LeadFlow SaaS Case
-              </Link>
-              <Link href="/products/billing" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                IIPL Billing SaaS Case
+              <Link href="/case-studies/ai-voice-calling" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                AI Voice Calling Agent Case
               </Link>
             </div>
           </div>

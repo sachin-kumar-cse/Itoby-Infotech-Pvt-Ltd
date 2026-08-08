@@ -221,22 +221,41 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
 
       {/* Related Services Internal Links */}
       <section className="py-12 bg-background border-t border-border/40">
-        <div className="container-wide">
-          <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-4">Related Engineering Capabilities:</p>
-          <div className="flex flex-wrap gap-3">
-            {detailedServicesList.map((svc) => (
-              <Link
-                key={svc.slug}
-                href={`/services/${svc.slug}`}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-colors ${
-                  svc.slug === service.slug
-                    ? "bg-primary/20 border-primary text-primary"
-                    : "bg-card border-border/60 text-muted-foreground hover:text-primary hover:bg-secondary"
-                }`}
-              >
-                {svc.title}
+        <div className="container-wide space-y-6">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Related Technology & Service Clusters:</p>
+            <div className="flex flex-wrap gap-2.5">
+              <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                AI Development
               </Link>
-            ))}
+              <Link href="/services/saas-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                SaaS Application Development
+              </Link>
+              <Link href="/services/mobile-app" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Mobile App Development
+              </Link>
+              <Link href="/services/erp-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Custom ERP Systems
+              </Link>
+              <Link href="/services/crm-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Custom CRM Development
+              </Link>
+              <Link href="/technology/nextjs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Next.js Solutions
+              </Link>
+              <Link href="/technology/react" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                React Development
+              </Link>
+              <Link href="/technology/nodejs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Node.js Backend
+              </Link>
+              <Link href="/technology/supabase-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Supabase PostgreSQL
+              </Link>
+              <Link href="/comparison/custom-software-vs-saas" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
+                Custom Software vs SaaS Comparison
+              </Link>
+            </div>
           </div>
         </div>
       </section>

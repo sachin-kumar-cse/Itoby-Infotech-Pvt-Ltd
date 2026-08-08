@@ -15,47 +15,64 @@ export interface DetailedServiceData {
 export const detailedServicesList: DetailedServiceData[] = [
   {
     slug: "custom-software-development",
-    title: "Custom Software Development Company",
-    heroBadge: "Enterprise Software Engineering",
-    heroDescription: "End-to-end custom software development, microservices architecture, and cloud-native solutions engineered for enterprise scale.",
-    overview: "Itoby Infotech Pvt. Ltd. delivers high-performance custom software development services. From enterprise ERPs and multi-tenant SaaS to custom workflow automation tools, we build resilient, secure, and scalable software systems tailored to your business objectives.",
+    title: "Custom Software Development Services",
+    heroBadge: "Bespoke Software Engineering",
+    heroDescription: "Itoby Infotech Pvt. Ltd. engineers custom software solutions, enterprise microservices, and automated business applications tailored to your exact operational workflows.",
+    overview: "Custom software development is the process of designing, building, deploying, and maintaining software tailored specifically to a business's unique operational requirements rather than adapting to generic off-the-shelf SaaS tools. Itoby Infotech Pvt. Ltd. delivers custom business applications, multi-tenant portals, legacy software modernization, and API integrations engineered for long-term scalability and 100% IP ownership.",
     benefits: [
-      "Tailored architecture built 100% for your proprietary workflows",
-      "High-throughput microservices and API-first integrations",
-      "Enterprise security with role-based access control (RBAC)",
-      "Automated CI/CD pipelines and cloud DevOps infrastructure",
-      "Sub-second database query execution with PostgreSQL and Redis",
-      "24/7 SLA maintenance and dedicated engineering support"
+      "100% intellectual property ownership with zero recurring per-user seat licenses",
+      "Bespoke database schemas and API integrations built for your unique operations",
+      "Enterprise-grade security with Role-Based Access Control (RBAC) and OAuth 2.0",
+      "High-throughput microservices architecture with sub-second PostgreSQL query speeds",
+      "Seamless integration with legacy databases, CRMs, ERPs, and cloud APIs",
+      "24/7 SLA maintenance, automated CI/CD pipelines, and dedicated engineering support"
     ],
     features: [
-      "Custom Enterprise ERP & CRM Engineering",
-      "Legacy Code & Application Modernization",
-      "Cloud-Native Microservices Architecture",
-      "Real-Time Analytics & BI Dashboards",
-      "RESTful & GraphQL API Gateways",
-      "Automated Workflow & Data Sync Engine"
+      "Custom Enterprise ERP & CRM Software Engineering",
+      "Legacy Codebase Modernization & Cloud Migration",
+      "High-Throughput Microservices & Event-Driven Architecture",
+      "Real-Time Business Intelligence & Financial Analytics",
+      "RESTful & GraphQL API Gateway Integrations",
+      "Automated Workflow & Data Synchronization Pipelines"
     ],
     process: [
-      { step: "01", title: "Discovery & Architecture", description: "Analyzing business requirements, mapping database schemas, and defining API contracts." },
-      { step: "02", title: "Agile Development", description: "Iterative 2-week sprints with automated unit testing and continuous integration." },
-      { step: "03", title: "QA & Security Testing", description: "Comprehensive penetration testing, performance benchmarking, and OWASP compliance." },
-      { step: "04", title: "Deployment & Support", description: "Zero-downtime deployment on AWS/Vercel with 24/7 SLA monitoring." }
+      { step: "01", title: "Discovery & Solution Architecture", description: "Analyzing operational bottlenecks, mapping relational database schemas, and defining API contracts." },
+      { step: "02", title: "UI/UX & Interactive Prototyping", description: "Designing intuitive responsive user interfaces tailored for employee productivity and client portals." },
+      { step: "03", title: "Agile Development Sprints", description: "Executing 2-week development sprints with automated unit testing, continuous integration, and code reviews." },
+      { step: "04", title: "Security & Penetration Testing", description: "Conducting OWASP security audits, input validation, role-based access checks, and load benchmarking." },
+      { step: "05", title: "Production Deployment & SLA Support", description: "Zero-downtime deployment on Vercel/AWS infrastructure backed by 12 months of SLA technical maintenance." }
     ],
-    techStack: ["Next.js 15", "TypeScript", "Node.js", "Python", "PostgreSQL", "Supabase", "Docker", "AWS"],
+    techStack: ["Next.js 15", "TypeScript", "React 19", "Node.js", "Python", "PostgreSQL", "Supabase", "Docker", "AWS"],
     useCases: [
-      "Enterprise Resource Planning (ERP)",
-      "Automated Supply Chain Portals",
-      "Custom Client Financial Dashboards",
-      "B2B SaaS Multi-Tenant Platforms"
+      "Enterprise Resource Planning (ERP) & Inventory Portals",
+      "B2B SaaS Multi-Tenant Platforms & Subscription Engines",
+      "Automated Supply Chain & Logistics Management Systems",
+      "Custom Financial Dashboards & Real-Time Analytics"
     ],
     faqs: [
       {
-        question: "Why choose custom software development over off-the-shelf SaaS?",
-        answer: "Custom software gives you 100% ownership of your IP, zero monthly recurring user licensing costs, complete design and workflow customization, and seamless integration with your internal legacy databases."
+        question: "What is custom software development?",
+        answer: "Custom software development is the creation of bespoke software applications engineered to address the specific workflows, security requirements, and growth objectives of an organization, giving the business full ownership of its source code."
       },
       {
-        question: "How long does custom enterprise software development take?",
-        answer: "A Minimum Viable Product (MVP) custom software build takes 8-12 weeks. Large-scale enterprise ERP systems with complex integrations take 14-24 weeks."
+        question: "Why choose custom software development over off-the-shelf software?",
+        answer: "Custom software provides 100% source code IP ownership, eliminates expensive monthly per-user licensing fees, allows complete customization of business logic, and integrates directly with existing legacy tools without operational compromises."
+      },
+      {
+        question: "How much does custom software development cost?",
+        answer: "Custom software development costs depend on project scope, feature complexity, number of user roles, third-party API integrations, and security requirements. We provide detailed fixed-scope or milestone-based estimates after an initial technical discovery session."
+      },
+      {
+        question: "How long does custom software development take?",
+        answer: "A Minimum Viable Product (MVP) custom software application typically takes 8 to 12 weeks. Large-scale enterprise ERP or multi-tenant SaaS platforms take 14 to 24 weeks depending on architectural complexity."
+      },
+      {
+        question: "Can custom software integrate with existing business systems?",
+        answer: "Yes. We build custom RESTful and GraphQL API gateways that connect your new custom software seamlessly with legacy databases, Salesforce, HubSpot, Stripe, QuickBooks, and internal server infrastructure."
+      },
+      {
+        question: "Who owns the developed custom software source code?",
+        answer: "You own 100% of the custom software source code, intellectual property rights, database schemas, and documentation upon project completion."
       }
     ]
   },

@@ -231,6 +231,9 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
               <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 AI Development Services
               </Link>
+              <Link href="/services/ai-agent-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Autonomous AI Agents
+              </Link>
               <Link href="/services/ai-chatbot-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 24/7 AI Conversational Chatbots
               </Link>

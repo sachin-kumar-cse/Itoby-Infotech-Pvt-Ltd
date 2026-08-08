@@ -207,6 +207,73 @@ export const detailedServicesList: DetailedServiceData[] = [
     ]
   },
   {
+    slug: "ai-chatbot-development",
+    title: "AI Chatbot Development Services",
+    heroBadge: "Conversational AI Engineering",
+    heroDescription: "Itoby Infotech Pvt. Ltd. builds 24/7 AI chatbots, RAG document knowledge assistants, lead qualification bots, and seamless human support handoff systems.",
+    overview: "An AI chatbot is a conversational software application that uses Natural Language Processing (NLP) and Large Language Models (LLMs) to understand user inquiries and deliver context-aware answers. Unlike basic rule-based chatbots with rigid decision trees, modern AI chatbots perform Retrieval-Augmented Generation (RAG) over company documents, qualify sales leads 24/7, and seamlessly transfer complex inquiries to human customer support agents.",
+    benefits: [
+      "24/7 automated customer support with sub-second response times",
+      "RAG-powered document knowledge retrieval for accurate answers",
+      "Seamless human support agent escalation and live chat handoff",
+      "Multi-channel embedding across Next.js websites, mobile apps, and WhatsApp",
+      "Zero public AI model data retention for strict privacy compliance",
+      "Real-time conversation analytics, sentiment tracking, and 12 months SLA support"
+    ],
+    features: [
+      "Conversational NLP & Contextual Dialogue Management",
+      "Enterprise RAG Knowledge Base & PDF Search",
+      "Automated Lead Qualification & CRM Capture",
+      "Human Agent Live Chat Escalation & Handoff",
+      "Multilingual Conversation Processing (50+ Languages)",
+      "Custom UI Widget Integration for Web & Mobile"
+    ],
+    process: [
+      { step: "01", title: "Use-Case Discovery & Knowledge Audit", description: "Evaluating customer inquiry logs, product documentation, and FAQ data schemas." },
+      { step: "02", title: "Conversation Design & RAG Embedding", description: "Designing dialog flows, system prompts, vector chunking strategies, and fallback responses." },
+      { step: "03", title: "Chatbot Engineering & Widget Integration", description: "Developing streaming chat microservices in Python/Node.js and embedding glassmorphic Next.js chat widgets." },
+      { step: "04", title: "Human Handoff & Security Testing", description: "Configuring live agent notification webhooks, PII redaction, and hallucination filters." },
+      { step: "05", title: "Deployment & SLA Optimization", description: "Deploying on Vercel/AWS infrastructure with 24/7 analytics monitoring and ongoing SLA updates." }
+    ],
+    techStack: ["OpenAI API", "Python", "LangChain", "Next.js 15", "React 19", "Supabase", "Pgvector", "Node.js", "FastAPI", "Tailwind CSS", "AWS"],
+    useCases: [
+      "24/7 E-Commerce Product Assistance & Order Tracking",
+      "SaaS Knowledge Base & Technical Support Automation",
+      "B2B Lead Qualification & Appointment Booking Assistants",
+      "Internal Employee HR Policy & IT Knowledge Assistants"
+    ],
+    faqs: [
+      {
+        question: "What is AI chatbot development?",
+        answer: "AI chatbot development is the engineering process of building conversational AI interfaces powered by Large Language Models (LLMs) and Natural Language Processing (NLP) to understand customer intent, answer queries from company knowledge bases, and capture leads 24/7."
+      },
+      {
+        question: "What is the difference between an AI chatbot and an AI agent?",
+        answer: "An AI chatbot focuses primarily on conversational dialogue, FAQ automation, and information retrieval. An AI agent actively performs multi-step tasks, invokes external API functions (like modifying database records), and executes autonomous workflows."
+      },
+      {
+        question: "Can an AI chatbot answer questions using our private company documents?",
+        answer: "Yes. We implement Retrieval-Augmented Generation (RAG) using Supabase Pgvector to ingest your PDFs, knowledge bases, and product manuals, enabling the chatbot to cite accurate source answers without hallucinating."
+      },
+      {
+        question: "How does Human Handoff work when a customer asks a complex question?",
+        answer: "When the AI chatbot detects low confidence, complex customer sentiment, or an explicit request for human help, it smoothly transfers the live chat session and full conversation transcript to your support team via email, Slack, or CRM webhooks."
+      },
+      {
+        question: "Can an AI chatbot be integrated into an existing Next.js or React website?",
+        answer: "Yes. We deliver custom lightweight React and Next.js chat widgets that embed seamlessly into your website footer or layout, styled with your brand colors and fully responsive across mobile and desktop viewports."
+      },
+      {
+        question: "How much does AI chatbot development cost?",
+        answer: "AI chatbot development costs depend on knowledge base volume, custom UI design, RAG vector indexing, and CRM/live chat integrations. We provide transparent milestone estimates after an initial technical discovery session."
+      },
+      {
+        question: "How long does AI chatbot development take?",
+        answer: "A standard RAG-powered website AI chatbot MVP takes 4 to 6 weeks. Enterprise multi-channel chatbots with CRM integrations and live human handoff take 8 to 12 weeks."
+      }
+    ]
+  },
+  {
     slug: "saas-development-company",
     title: "SaaS Development Services",
     heroBadge: "SaaS Product Engineering",

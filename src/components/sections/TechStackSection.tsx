@@ -1,5 +1,6 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
 import { TechStack3DOrbit } from "@/components/ui/tech-stack-3d-orbit";
 import { TechArchitectureModal } from "@/components/ui/tech-architecture-modal";
@@ -7,31 +8,20 @@ import { Button } from "@/components/ui/button";
 import { Activity, ArrowRight } from "lucide-react";
 
 const techStack = [
-  { name: "React", category: "Frontend" },
-  { name: "Next.js", category: "Frontend" },
-  { name: "Vue.js", category: "Frontend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "Laravel", category: "Backend" },
-  { name: "PHP", category: "Backend" },
-  { name: "WordPress", category: "CMS" },
-  { name: "Shopify", category: "E-commerce" },
-  { name: "Flutter", category: "Mobile" },
-  { name: "Android", category: "Mobile" },
-  { name: "iOS", category: "Mobile" },
-  { name: "SEO", category: "Marketing" },
-  { name: "Google Ads", category: "Marketing" },
-  { name: "Meta Ads", category: "Marketing" },
-  { name: "Microsoft 365", category: "Cloud" },
-  { name: "AWS", category: "Cloud" },
+  { name: "Next.js", slug: "nextjs", category: "Frontend" },
+  { name: "React", slug: "react", category: "Frontend" },
+  { name: "Node.js", slug: "nodejs", category: "Backend" },
+  { name: "Python", slug: "python", category: "Backend" },
+  { name: "Supabase", slug: "supabase-development", category: "Cloud" },
+  { name: "PostgreSQL", slug: "postgresql-development", category: "Backend" },
+  { name: "OpenAI API", slug: "openai-integration", category: "AI" },
+  { name: "AI Automation", slug: "ai-automation", category: "AI" },
 ];
 
 const categoryGlows: Record<string, string> = {
   Frontend: "hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(6,182,212,0.25)]",
   Backend: "hover:border-emerald-500/50 hover:shadow-[0_0_25px_rgba(16,185,129,0.25)]",
-  CMS: "hover:border-blue-500/50 hover:shadow-[0_0_25px_rgba(59,130,246,0.25)]",
-  "E-commerce": "hover:border-pink-500/50 hover:shadow-[0_0_25px_rgba(236,72,153,0.25)]",
-  Mobile: "hover:border-violet-500/50 hover:shadow-[0_0_25px_rgba(139,92,246,0.25)]",
-  Marketing: "hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)]",
+  AI: "hover:border-primary/50 hover:shadow-[0_0_25px_hsl(var(--primary)/0.25)]",
   Cloud: "hover:border-sky-500/50 hover:shadow-[0_0_25px_rgba(14,165,233,0.25)]",
 };
 
@@ -45,11 +35,8 @@ export const TechStackSection = () => {
     "All",
     "Frontend",
     "Backend",
-    "Mobile",
-    "CMS",
-    "E-commerce",
+    "AI",
     "Cloud",
-    "Marketing",
   ];
 
   const filteredTech = activeCategory === "All"
@@ -80,7 +67,7 @@ export const TechStackSection = () => {
             transition={{ delay: 0.1, duration: 0.5 }}
             className="text-primary font-semibold uppercase tracking-wider text-sm"
           >
-            Technologies
+            Capabilities
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
@@ -89,7 +76,7 @@ export const TechStackSection = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6"
           >
-            Our <span className="gradient-text">Tech Stack</span>
+            Engineering <span className="gradient-text">Tech Stack</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -98,8 +85,8 @@ export const TechStackSection = () => {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-muted-foreground text-lg"
           >
-            We leverage cutting-edge technologies to build solutions that are 
-            fast, scalable, and future-proof.
+            We leverage high-throughput cloud architectures to build solutions that are 
+            sub-second fast, secure, and future-proof.
           </motion.p>
         </motion.div>
 
@@ -136,7 +123,7 @@ export const TechStackSection = () => {
           <AnimatePresence mode="popLayout">
             {filteredTech.map((tech) => (
               <motion.div
-                key={tech.name}
+                key={tech.slug}
                 layout
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -147,12 +134,16 @@ export const TechStackSection = () => {
                   y: -6,
                   transition: { duration: 0.2 }
                 }}
-                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl bg-card border border-border transition-all duration-300 cursor-default ${
-                  categoryGlows[tech.category] || "hover:border-primary/50"
-                }`}
               >
-                <p className="font-medium text-sm sm:text-base text-foreground">{tech.name}</p>
-                <p className="text-xs text-muted-foreground">{tech.category}</p>
+                <Link
+                  href={`/technology/${tech.slug}`}
+                  className={`block px-5 py-3 rounded-xl bg-card border border-border transition-all duration-300 cursor-pointer text-center ${
+                    categoryGlows[tech.category] || "hover:border-primary/50"
+                  }`}
+                >
+                  <p className="font-bold text-sm text-foreground hover:text-primary transition-colors">{tech.name}</p>
+                  <p className="text-[10px] text-muted-foreground font-semibold">{tech.category}</p>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>

@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Building2, ShoppingCart, Heart, GraduationCap,
-  Factory, Plane, Utensils, Banknote, Scale, Building
+  Factory, Plane, Utensils, Banknote, ShieldCheck, Truck
 } from "lucide-react";
 
 import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
 
 const industries = [
-  { icon: Banknote, name: "Fintech & Banking", projects: 25 },
-  { icon: ShoppingCart, name: "E-commerce & Retail", projects: 40 },
-  { icon: Heart, name: "Healthcare", projects: 18 },
-  { icon: GraduationCap, name: "Education & EdTech", projects: 22 },
-  { icon: Factory, name: "Manufacturing", projects: 15 },
-  { icon: Plane, name: "Travel & Hospitality", projects: 12 },
-  { icon: Utensils, name: "Food & Restaurant", projects: 30 },
-  { icon: Building2, name: "Real Estate", projects: 20 },
-  { icon: Scale, name: "Legal & Law Firms", projects: 10 },
-  { icon: Building, name: "Enterprise & SaaS", projects: 35 },
+  { icon: Banknote, name: "Fintech & Banking", slug: "fintech", projects: 25 },
+  { icon: ShoppingCart, name: "Retail & E-Commerce", slug: "retail", projects: 40 },
+  { icon: Heart, name: "Healthcare & MedTech", slug: "healthcare", projects: 18 },
+  { icon: GraduationCap, name: "Education & EdTech", slug: "education", projects: 22 },
+  { icon: Factory, name: "Manufacturing & IoT", slug: "manufacturing", projects: 15 },
+  { icon: ShieldCheck, name: "Insurance & InsurTech", slug: "insurance", projects: 12 },
+  { icon: Truck, name: "Logistics & Supply Chain", slug: "logistics", projects: 30 },
+  { icon: Building2, name: "Real Estate & PropTech", slug: "real-estate", projects: 20 },
 ];
 
 const staggerContainer = {
@@ -46,8 +45,8 @@ export const IndustriesSection = () => {
             Digital Innovation Across <span className="gradient-text">Key Industries</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            We deliver bespoke web design, custom software development, and digital marketing services 
-            tailored to help businesses across key global industries scale successfully.
+            We deliver bespoke custom software development, AI solutions, and SaaS platforms
+            tailored to solve business problems across major global industries.
           </p>
         </motion.div>
 
@@ -56,29 +55,32 @@ export const IndustriesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4"
         >
           {industries.map((industry) => (
             <motion.div
-              key={industry.name}
+              key={industry.slug}
               variants={fadeUp}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              <div className="p-6 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-500 text-center h-full cursor-pointer overflow-hidden relative">
+              <Link
+                href={`/industries/${industry.slug}`}
+                className="block p-6 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)] transition-all duration-500 text-center h-full cursor-pointer overflow-hidden relative"
+              >
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6">
-                    <industry.icon className="text-primary" size={28} />
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                    <industry.icon size={26} />
                   </div>
-                  <h3 className="font-medium text-sm mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-bold text-base text-foreground mb-1 group-hover:text-primary transition-colors">
                     {industry.name}
                   </h3>
-                  <p className="text-xs text-muted-foreground">
-                    {industry.projects}+ Projects
-                  </p>
+                  <span className="text-xs text-muted-foreground font-semibold">
+                    {industry.projects}+ Case Studies
+                  </span>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

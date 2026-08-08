@@ -287,9 +287,9 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
-              <Button variant="hero" size="lg" className="w-full sm:w-auto group" asChild>
+              <Button variant="hero" size="lg" className="w-full sm:w-auto group font-bold shadow-lg shadow-primary/25" asChild>
                 <Link href="/contact">
-                  {heroCtaVariant === "variant-b" ? "Start Your Project Today" : "Get a Free Consultation"}
+                  Discuss Your Project
                   <motion.span
                     className="inline-block"
                     animate={{ x: [0, 4, 0] }}
@@ -299,15 +299,10 @@ export const HeroSection = () => {
                   </motion.span>
                 </Link>
               </Button>
-              <Button variant="hero-outline" size="lg" className="w-full sm:w-auto group" asChild>
-                <Link href="/portfolio">
-                  <motion.span
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Play size={20} className="fill-current" />
-                  </motion.span>
-                  View Our Work
+              <Button variant="hero-outline" size="lg" className="w-full sm:w-auto group font-semibold" asChild>
+                <Link href="/services">
+                  Explore Our Services
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
             </motion.div>

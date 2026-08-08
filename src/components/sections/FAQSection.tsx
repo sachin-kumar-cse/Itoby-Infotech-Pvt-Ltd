@@ -5,12 +5,30 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  { question: "How long does it take to build a website?", answer: "A standard business website takes 2-4 weeks. Complex web applications with custom features may take 6-12 weeks. We provide detailed timelines during the discovery phase." },
-  { question: "What technologies do you use for development?", answer: "We use modern, industry-leading technologies including React, Next.js, Node.js, Laravel, Flutter, and more. Our tech stack is chosen based on your project's specific requirements." },
-  { question: "Do you provide ongoing support after project completion?", answer: "Yes! We offer 12 months of premium support with all projects. We also provide maintenance packages for continued updates, security patches, and feature enhancements." },
-  { question: "How do you handle project communication?", answer: "We maintain transparent communication through regular updates, weekly calls, and a dedicated project manager. You'll have full visibility into your project's progress." },
-  { question: "What is your pricing model?", answer: "We offer flexible pricing options including fixed-price projects, hourly rates, and retainer packages. We provide detailed quotes after understanding your requirements." },
-  { question: "Can you help with digital marketing after the website launch?", answer: "Absolutely! We offer comprehensive digital marketing services including SEO, PPC advertising, social media marketing, and content strategy to drive traffic and conversions." },
+  {
+    question: "What does Itoby Infotech Pvt. Ltd. do?",
+    answer: "Itoby Infotech Pvt. Ltd. (IIPL) is a premier global software engineering company & SaaS lab. We build custom software solutions, AI voice calling agents, multi-tenant SaaS platforms, mobile applications, and high-converting Next.js web applications for growing businesses and enterprise clients."
+  },
+  {
+    question: "Does Itoby Infotech build custom software and SaaS products?",
+    answer: "Yes. We engineer bespoke custom software and multi-tenant SaaS applications from scratch using Next.js 15, TypeScript, Node.js, and Supabase PostgreSQL with Row Level Security (RLS)."
+  },
+  {
+    question: "Does Itoby Infotech develop AI agents and chatbots?",
+    answer: "Yes. We build autonomous AI agents and 24/7 conversational chatbots powered by OpenAI models, Pgvector RAG retrieval, and real-time telephony WebSockets for automated lead intake and customer service."
+  },
+  {
+    question: "What technologies does Itoby Infotech use?",
+    answer: "Our core engineering stack includes Next.js 15 App Router, React 19, TypeScript, Node.js, Python, Supabase PostgreSQL, Docker, AWS, and Vercel Edge infrastructure."
+  },
+  {
+    question: "How long does custom software development take?",
+    answer: "A Minimum Viable Product (MVP) custom software build takes 8 to 12 weeks. Enterprise ERP systems and complex multi-tenant SaaS portals take 14 to 24 weeks depending on scope."
+  },
+  {
+    question: "Do you provide ongoing post-launch maintenance and SLA support?",
+    answer: "Yes. All projects include 12 months of premium technical support, security patch management, database backups, and 24/7 SLA infrastructure monitoring."
+  },
 ];
 
 const staggerContainer = {

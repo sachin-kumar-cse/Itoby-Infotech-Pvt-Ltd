@@ -181,14 +181,30 @@ export default function WebDesignClient() {
       />
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner
-        title="Web Design & High-Performance Development"
-        description="We create stunning, high-performance websites that captivate audiences, drive conversions, and establish your brand as an industry leader."
-        badge="Custom UI/UX & Web Engineering"
+        title="Web Development Services"
+        description="Itoby Infotech Pvt. Ltd. builds high-performance web applications, enterprise corporate portals, and headless e-commerce platforms engineered for sub-second speeds and maximum conversions."
+        badge="Full-Stack Web Engineering"
         breadcrumbs={[
+          { label: "Home", path: "/" },
           { label: "Services", path: "/services" },
-          { label: "Web Design" },
+          { label: "Web Development", path: "/services/web-design" },
         ]}
       />
+
+      {/* Answer-First Direct Definition Block */}
+      <section className="py-12 bg-background border-b border-border/50">
+        <div className="container-wide max-w-4xl mx-auto text-center space-y-4">
+          <span className="text-primary font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 inline-block">
+            Direct Overview
+          </span>
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-foreground">
+            What is Web Development?
+          </h2>
+          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+            Web development is the engineering process of creating, building, and maintaining websites and interactive web applications. It encompasses responsive frontend user interfaces, backend API servers, database architectures, and secure third-party integrations tailored to deliver sub-second performance and seamless business workflows across all device viewports.
+          </p>
+        </div>
+      </section>
 
       {/* What We Offer */}
       <section className="section-padding bg-card/30">
@@ -468,6 +484,44 @@ export default function WebDesignClient() {
                 </Link>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Engineering & Technology Clusters */}
+      <section className="py-12 bg-background border-t border-border/40">
+        <div className="container-wide space-y-6">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Related Engineering & Technology Clusters:</p>
+            <div className="flex flex-wrap gap-2.5">
+              <Link href="/services/custom-software-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Custom Software Development
+              </Link>
+              <Link href="/services/saas-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                SaaS Application Development
+              </Link>
+              <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                AI Development Services
+              </Link>
+              <Link href="/services/mobile-app" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Mobile App Development
+              </Link>
+              <Link href="/technology/nextjs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Next.js 15 Web Engineering
+              </Link>
+              <Link href="/technology/react" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                React 19 Frontend
+              </Link>
+              <Link href="/technology/nodejs" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Node.js Backend APIs
+              </Link>
+              <Link href="/technology/supabase-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Supabase PostgreSQL Database
+              </Link>
+              <Link href="/pricing/website-development-cost" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
+                Website Development Cost Guide
+              </Link>
+            </div>
           </div>
         </div>
       </section>

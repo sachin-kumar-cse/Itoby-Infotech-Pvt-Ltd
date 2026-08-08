@@ -141,43 +141,64 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "saas-development-company",
-    title: "SaaS Development Company & Cloud Architecture",
+    title: "SaaS Development Services",
     heroBadge: "SaaS Product Engineering",
-    heroDescription: "Multi-tenant SaaS application development, subscription billing engines, and enterprise cloud architecture built for hyper-growth.",
-    overview: "Itoby Infotech Pvt. Ltd. is a premier SaaS development lab. We engineer multi-tenant web applications, self-service subscription portals, and API-driven SaaS platforms designed to scale seamlessly from seed stage to million-user benchmarks.",
+    heroDescription: "Itoby Infotech Pvt. Ltd. engineers multi-tenant SaaS platforms, subscription billing engines, self-service portals, and scalable cloud architectures.",
+    overview: "SaaS development is the process of building multi-tenant web applications accessible via subscription models. Itoby Infotech Pvt. Ltd. builds production-ready SaaS MVPs, self-service team management portals, automated Stripe subscription systems, and multi-tenant PostgreSQL architectures engineered to scale from initial launch to enterprise adoption.",
     benefits: [
-      "Multi-tenant database schema with strict data isolation",
-      "Automated Stripe & Razorpay recurring billing & dunning",
-      "Instant tenant onboarding with sub-second provisioning",
-      "100/100 Core Web Vitals with Next.js 15 server rendering",
-      "Role-based access controls (RBAC) and team workspaces",
-      "Comprehensive telemetry, usage analytics, and audit logs"
+      "Multi-tenant database schema with strict Row Level Security (RLS) data isolation",
+      "Automated Stripe & Razorpay recurring billing, tiered pricing, and dunning engine",
+      "Instant tenant onboarding with self-service team invite management",
+      "Sub-second page rendering and 100/100 Core Web Vitals with Next.js 15 App Router",
+      "Role-Based Access Control (RBAC) with granular workspace permissions",
+      "Real-time usage telemetry, webhooks, and 12 months of SLA technical maintenance"
     ],
     features: [
-      "Multi-Tenant SaaS Architecture",
-      "Automated Subscription & Tiered Billing",
-      "Self-Service User & Team Management",
-      "API Monetization & Webhook Engine",
-      "White-Label Tenant Customization",
-      "Real-Time Usage & Revenue Analytics"
+      "Multi-Tenant Software Architecture & RLS Isolation",
+      "Automated Subscription & Tiered Usage Billing",
+      "Self-Service User Workspace & Team Onboarding",
+      "API Monetization & Webhook Event Engine",
+      "White-Label Tenant Portal Customization",
+      "Real-Time Usage Telemetry & Financial Analytics"
     ],
     process: [
-      { step: "01", title: "Product Strategy & UX", description: "Defining tenant boundaries, subscription tiers, and user onboarding journeys." },
-      { step: "02", title: "Full-Stack Development", description: "Building multi-tenant schemas, auth flows, and Stripe webhook handlers." },
-      { step: "03", title: "Load & Security Testing", description: "Stress testing concurrent tenant connections and data isolation bounds." },
-      { step: "04", title: "Launch & Scaling", description: "Deploying to Vercel and Supabase with automated CI/CD and analytics." }
+      { step: "01", title: "Product Discovery & Architecture", description: "Defining tenant isolation boundaries, subscription tiers, and user onboarding journeys." },
+      { step: "02", title: "Multi-Tenant Schema & Auth", description: "Configuring Supabase PostgreSQL RLS, OAuth authentication, and workspace permissions." },
+      { step: "03", title: "Full-Stack Development & Billing", description: "Building responsive Next.js dashboards, Stripe webhook handlers, and transactional emails." },
+      { step: "04", title: "Security & Multi-Tenant Testing", description: "Stress-testing concurrent tenant data bounds, API rate limits, and OWASP vulnerabilities." },
+      { step: "05", title: "Deployment & Scaling Support", description: "Zero-downtime deployment on Vercel and AWS infrastructure with 24/7 SLA monitoring." }
     ],
-    techStack: ["Next.js 15", "TypeScript", "React", "Supabase", "PostgreSQL", "Stripe API", "Tailwind CSS"],
+    techStack: ["Next.js 15", "TypeScript", "React 19", "Node.js", "Supabase", "PostgreSQL", "Stripe API", "Tailwind CSS", "Vercel", "AWS"],
     useCases: [
-      "B2B Workflow Automation SaaS",
-      "PropTech Property Management CRM",
-      "GST Invoicing & Billing SaaS",
-      "AI Content & Voice Automation SaaS"
+      "B2B Workflow & Task Automation SaaS Platforms",
+      "PropTech Tenant & Commercial Lease Management Portals",
+      "Automated GST Invoicing & Financial Accounting SaaS",
+      "AI-Powered Content & Autonomous Voice Agent SaaS"
     ],
     faqs: [
       {
-        question: "What multi-tenant database approach do you use for SaaS products?",
-        answer: "Depending on your regulatory requirements, we implement row-level security (RLS) schema multi-tenancy in PostgreSQL/Supabase for cost efficiency, or separate schema/database isolation for enterprise clients."
+        question: "What is SaaS development?",
+        answer: "SaaS development is the process of creating cloud-based software applications delivered over the internet via recurring subscription models, featuring multi-tenant data isolation, user authentication, and self-service administration."
+      },
+      {
+        question: "What is the difference between a SaaS product and custom software?",
+        answer: "A SaaS product is built to serve multiple subscriber organizations (tenants) under a recurring subscription business model, while custom internal software is engineered specifically for one company's internal operations without multi-tenant billing."
+      },
+      {
+        question: "What multi-tenant database approach do you use for SaaS platforms?",
+        answer: "We implement Row Level Security (RLS) schema multi-tenancy in Supabase PostgreSQL for high cost-efficiency and data security, or dedicated database schemas per tenant for enterprise regulatory compliance."
+      },
+      {
+        question: "How do you handle automated SaaS subscription billing?",
+        answer: "We integrate Stripe Billing and Razorpay Subscriptions using secure webhook handlers for automated tier upgrades, prorated billing calculations, recurring invoice PDF generation, and failed payment dunning notifications."
+      },
+      {
+        question: "How much does SaaS MVP development cost?",
+        answer: "SaaS MVP development costs depend on feature complexity, billing tier logic, multi-tenant roles, and API integrations. We provide detailed fixed-scope or milestone estimates after a technical discovery audit."
+      },
+      {
+        question: "How long does SaaS product development take?",
+        answer: "A production-ready SaaS MVP typically takes 8 to 12 weeks. Feature-rich multi-tenant enterprise platforms take 14 to 22 weeks."
       }
     ]
   },

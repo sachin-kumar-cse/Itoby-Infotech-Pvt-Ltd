@@ -573,43 +573,68 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "crm-development",
-    title: "Custom CRM Development Company",
+    title: "CRM Development Services",
     heroBadge: "Customer Relationship Management",
-    heroDescription: "Custom CRM software development, sales pipeline automation, B2B lead scoring, and automated email/WhatsApp client outreach engines.",
-    overview: "We engineer custom CRM solutions (such as IIPL Lead and IIPL Renting) tailored to your sales funnel. Track leads, automate email and WhatsApp follow-ups, and empower your sales team with actionable pipeline intelligence.",
+    heroDescription: "Itoby Infotech Pvt. Ltd. engineers custom CRM software solutions, automated lead scoring engines, sales pipelines, and customer portals.",
+    overview: "CRM (Customer Relationship Management) development is the software engineering process of building or customizing applications designed to capture, organize, track, and nurture customer interactions, lead pipelines, and sales communications throughout the buyer lifecycle. Itoby Infotech Pvt. Ltd. builds custom CRM portals (such as IIPL Lead and IIPL Renting), Kanban deal boards, multi-channel messaging integrations (Email/WhatsApp), and real-time revenue analytics dashboards tailored to your exact sales process.",
     benefits: [
-      "Tailored sales funnels built 100% around your sales process",
-      "Automated lead capture from website forms and WhatsApp",
-      "Integrated cold email and WhatsApp outreach engines",
-      "360-degree customer activity history and call logs",
-      "Real-time sales velocity and revenue forecasting metrics",
-      "No per-seat monthly license fees"
+      "Bespoke Kanban sales pipelines built 100% around your sales process",
+      "Automated multi-channel lead capture from web forms, WhatsApp, and APIs",
+      "360-degree customer profile timelines, interaction logs, and document storage",
+      "100% source code IP ownership with zero per-seat monthly subscription licensing fees",
+      "Real-time sales velocity analytics, deal conversion metrics, and revenue forecasting",
+      "Granular Role-Based Access Control (RBAC) protecting customer PII and sales data"
     ],
     features: [
-      "Kanban Sales Pipeline Management",
-      "Automated Lead Scoring & Assignment",
-      "WhatsApp & Email Campaign Sync",
-      "Client Document & Invoice Storage",
-      "Team Activity Tracking & Metrics",
-      "Custom Data Export & API Integrations"
+      "Custom Kanban Deal Stages & Visual Sales Pipeline",
+      "Automated Lead Scoring, Qualification & Round-Robin Assignment",
+      "Multi-Channel Email, WhatsApp & Webhook Communication Sync",
+      "Client Portal, Document Storage & Invoice Management",
+      "Sales Representative Activity Telemetry & Performance Audits",
+      "RESTful & GraphQL API Gateways for ERP & Payment Gateway Integration"
     ],
     process: [
-      { step: "01", title: "Sales Funnel Audit", description: "Mapping deal stages, lead sources, and communication channels." },
-      { step: "02", title: "Custom CRM Coding", description: "Developing responsive Kanban boards, lead cards, and outreach triggers." },
-      { step: "03", title: "Integration", description: "Connecting web forms, payment portals, and messaging gateways." },
-      { step: "04", title: "Team Onboarding", description: "Training sales teams and launching production CRM dashboards." }
+      { step: "01", title: "Sales Process & Funnel Audit", description: "Mapping deal stages, lead capture channels, communication workflows, and team permissions." },
+      { step: "02", title: "Database Architecture & UI Prototyping", description: "Designing relational PostgreSQL schemas, Kanban UI wireframes, and API data contracts." },
+      { step: "03", title: "Agile CRM Sprint Development", description: "Engineering lead cards, deal stages, activity timelines, and messaging webhooks in 2-week sprints." },
+      { step: "04", title: "Integration & Security Audits", description: "Connecting web forms, payment portals, and WhatsApp APIs with OWASP input validation." },
+      { step: "05", title: "Production Launch & SLA Maintenance", description: "Deploying on Vercel/AWS infrastructure with sales team training and 12 months SLA support." }
     ],
-    techStack: ["Next.js 15", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Stripe API"],
+    techStack: ["Next.js 15", "TypeScript", "React 19", "Node.js", "Python", "PostgreSQL", "Supabase", "Stripe API", "Tailwind CSS", "AWS"],
     useCases: [
-      "Commercial Property Leasing CRM (IIPL Renting)",
-      "B2B SaaS Lead Capture CRM (IIPL Lead)",
-      "Financial Services Client Onboarding CRM",
-      "Agency Client Project Portal"
+      "Commercial Property & Real Estate Leasing CRM (IIPL Renting)",
+      "B2B SaaS Lead Capture & Cold Outreach CRM (IIPL Lead)",
+      "FinTech Client Onboarding & KYC Management CRM",
+      "Professional Agency Client Management & Invoice Portal"
     ],
     faqs: [
       {
-        question: "How long does custom CRM software development take?",
-        answer: "A core custom CRM MVP takes 6-10 weeks. Advanced enterprise CRMs with automated AI scoring and WhatsApp multi-agent routing take 10-16 weeks."
+        question: "What is CRM development?",
+        answer: "CRM development is the software engineering process of creating or customizing applications that track customer interactions, manage sales pipelines, automate lead qualification, and centralize communication histories across your sales and support teams."
+      },
+      {
+        question: "What is the difference between CRM and ERP software?",
+        answer: "CRM (Customer Relationship Management) focuses on front-office activities—such as lead capture, sales deals, customer support, and marketing outreach. ERP (Enterprise Resource Planning) manages back-office operations—such as inventory, procurement, manufacturing, and financial accounting."
+      },
+      {
+        question: "Why choose custom CRM development over off-the-shelf platforms like Salesforce or HubSpot?",
+        answer: "Custom CRM development provides 100% source code IP ownership, eliminates expensive per-seat monthly subscription fees, adapts perfectly to your unique sales deal stages, and avoids unnecessary feature bloat."
+      },
+      {
+        question: "Can a custom CRM automate lead assignment and follow-up reminders?",
+        answer: "Yes. We build automated workflow triggers that route incoming leads via round-robin logic, generate follow-up task notifications for sales reps, and trigger automated email or WhatsApp status updates."
+      },
+      {
+        question: "Can a custom CRM integrate with WhatsApp, Email, and payment gateways?",
+        answer: "Yes. We engineer multi-channel integrations connecting your CRM to WhatsApp Business API, Twilio, SendGrid, Gmail, Stripe, and Razorpay for seamless lead communication and invoice billing."
+      },
+      {
+        question: "How much does custom CRM software development cost?",
+        answer: "Custom CRM development costs depend on deal pipeline complexity, lead scoring automation, third-party API integrations, and client portal requirements. We provide transparent milestone estimates after an initial technical discovery audit."
+      },
+      {
+        question: "How long does custom CRM development take?",
+        answer: "A core custom CRM MVP takes 6 to 10 weeks. Advanced enterprise CRMs with multi-team permissions, automated AI scoring, and bi-directional ERP syncing take 10 to 16 weeks."
       }
     ]
   }

@@ -17,44 +17,60 @@ export interface IndustryData {
 export const industriesList: IndustryData[] = [
   {
     slug: "healthcare",
-    title: "Healthcare & Telemedicine Software Development",
-    heroBadge: "Healthcare IT Engineering",
-    heroDescription: "HIPAA-compliant healthcare software, EHR/EMR integrations, telemedicine portals, and patient engagement platforms engineered for medical providers.",
-    overview: "Itoby Infotech Pvt. Ltd. builds secure, scalable healthcare software and telemedicine portals enabling hospitals, clinics, and digital health startups to streamline patient care, automate appointment scheduling, and ensure strict HIPAA data compliance.",
+    title: "Healthcare Software Development",
+    heroBadge: "Healthcare Software Engineering",
+    heroDescription: "Itoby Infotech Pvt. Ltd. builds custom healthcare software, patient portals, medical inventory engines, and automated scheduling systems for providers.",
+    overview: "Healthcare software development is the engineering process of building secure digital applications, patient portals, and operational systems for medical practices, clinics, and healthtech companies. Itoby Infotech Pvt. Ltd. develops custom appointment scheduling engines, administrative workflow portals, patient communication tools, and inventory management systems to streamline healthcare operations.",
     benefits: [
-      "100% HIPAA & GDPR compliant data architecture",
-      "Seamless integration with Epic, Cerner, and HL7/FHIR APIs",
-      "End-to-end video consultation and e-prescriptions",
-      "Automated SMS/WhatsApp appointment reminders",
-      "Secure patient portal with biometric authentication",
-      "Real-time analytics dashboard for hospital administrators"
+      "Centralized patient appointment booking and administrative workflows",
+      "Automated SMS and WhatsApp appointment reminders to reduce no-shows",
+      "Granular Role-Based Access Control (RBAC) protecting sensitive patient records",
+      "AES-256 data encryption at rest and TLS 1.3 transport layer security",
+      "Tailored patient and staff portals built 100% for your operational needs",
+      "High-availability cloud infrastructure with sub-second page load performance"
     ],
     features: [
-      "Telemedicine Video Consultations",
-      "EHR / EMR System Integration",
-      "Patient Portal & Medical Records",
-      "Online Doctor Scheduling",
-      "Digital E-Prescriptions",
-      "Medical Billing & Insurance Sync"
+      "Online Patient Appointment & Doctor Scheduling",
+      "Custom Patient Communication & Consultation Portals",
+      "Medical Inventory & Supply Chain Tracking (ERP)",
+      "Patient Contact & Administrative Workflows (CRM)",
+      "Automated Invoice Billing & Payment Gateway Sync",
+      "Real-Time Administrative Telemetry & Operational Dashboards"
     ],
-    techStack: ["React", "Next.js 15", "Node.js", "Python", "PostgreSQL", "WebRTC", "AWS HealthLake", "Supabase"],
+    techStack: ["React 19", "Next.js 15", "Node.js", "Python", "PostgreSQL", "Supabase", "Tailwind CSS", "AWS"],
     faqs: [
       {
-        question: "How does Itoby Infotech ensure HIPAA compliance in healthcare software?",
-        answer: "We enforce BAA-compliant cloud infrastructure (AWS/GCP), end-to-end AES-256 data encryption at rest and in transit, TLS 1.3 transport security, role-based access controls (RBAC), and full audit logging."
+        question: "What is healthcare software development?",
+        answer: "Healthcare software development is the process of creating or customizing digital systems—such as patient portals, appointment scheduling tools, administrative CRMs, and operational ERPs—to streamline healthcare organization workflows."
       },
       {
-        question: "Can you integrate custom telemedicine apps with existing hospital EHR systems?",
-        answer: "Yes. We specialize in HL7 and FHIR API integrations connecting custom telemedicine portals with legacy EHR/EMR platforms like Epic, Cerner, Allscripts, and Athenahealth."
+        question: "What types of healthcare software solutions can Itoby Infotech build?",
+        answer: "We build custom web and mobile applications, including patient portals, doctor appointment scheduling platforms, medical inventory tracking engines, patient communication tools, and administrative analytics dashboards."
       },
       {
-        question: "How long does custom healthcare app development take?",
-        answer: "A MVP telemedicine app takes 8-12 weeks. Enterprise hospital management portals with multi-specialty workflows take 14-24 weeks depending on security and certification requirements."
+        question: "Can healthcare software be customized for unique clinic workflows?",
+        answer: "Yes. We build 100% custom software tailored to your specific administrative procedures, staff roles, and patient intake requirements rather than forcing rigid off-the-shelf software models."
+      },
+      {
+        question: "How is security and data protection handled in custom healthcare software?",
+        answer: "We implement enterprise-grade security controls including role-based access control (RBAC), multi-factor authentication (MFA), AES-256 data encryption at rest, TLS 1.3 encryption in transit, strict input validation, and audit logging."
+      },
+      {
+        question: "Can healthcare software integrate with CRM or ERP systems?",
+        answer: "Yes. We engineer secure RESTful and GraphQL API gateways that sync custom healthcare portals with ERP inventory modules, CRM client management pipelines, and third-party payment gateways."
+      },
+      {
+        question: "Can AI features be added to healthcare software applications?",
+        answer: "Yes. We can integrate AI-powered features such as automated FAQ chatbots, voice assistants for administrative call triage, document parsing tools, and natural-language internal data search."
+      },
+      {
+        question: "How long does custom healthcare software development take?",
+        answer: "A core patient portal MVP typically takes 8 to 12 weeks. Comprehensive administrative healthcare systems with multi-branch inventory, CRM workflows, and custom dashboards take 14 to 22 weeks."
       }
     ],
     caseStudy: {
-      title: "MediCare Telehealth Portal",
-      metrics: "Served 250,000+ patient consultations with zero downtime"
+      title: "Custom Patient Portal & Administrative System",
+      metrics: "Engineered custom web and mobile workflows for streamlined appointment scheduling, patient intake, and administrative data management."
     }
   },
   {

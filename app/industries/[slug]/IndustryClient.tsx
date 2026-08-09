@@ -210,6 +210,38 @@ export default function IndustryClient({ industry }: Props) {
         </div>
       </section>
 
+      {/* Related Services Cluster */}
+      <section className="py-8 bg-card/20 border-t border-border/40">
+        <div className="container-wide">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Related Software Engineering Services:</p>
+            <div className="flex flex-wrap gap-2.5">
+              <Link href="/services/custom-software-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Custom Software Development
+              </Link>
+              <Link href="/services/ai-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                AI Development Services
+              </Link>
+              <Link href="/services/saas-development-company" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                SaaS Application Development
+              </Link>
+              <Link href="/services/web-design" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Web Application Engineering
+              </Link>
+              <Link href="/services/mobile-app" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Mobile App Development
+              </Link>
+              <Link href="/services/erp-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Enterprise ERP Development
+              </Link>
+              <Link href="/services/crm-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Custom CRM Platforms
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <CTASection />
     </>

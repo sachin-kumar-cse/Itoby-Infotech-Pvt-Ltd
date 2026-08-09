@@ -115,6 +115,36 @@ export default function ResourceClient({ resource }: Props) {
         </div>
       </section>
 
+      {/* Related Deep-Dive Articles & Checklists */}
+      <section className="py-10 bg-background border-t border-border/40">
+        <div className="container-wide max-w-5xl space-y-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">Related Engineering Guides & Web Tools:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            {resource.slug === "technical-seo-checklist-2026" && (
+              <Link href="/blog/mastering-ai-seo-geo-generative-engine-optimization" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Read our playbook on mastering AI SEO and Generative Engine Optimization (GEO) in 2026
+              </Link>
+            )}
+            {resource.slug === "software-development-checklist" && (
+              <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Learn top 10 enterprise SaaS web architecture patterns
+              </Link>
+            )}
+            {resource.slug === "website-launch-checklist" && (
+              <Link href="/blog/nextjs-15-app-router-performance-optimization-2026" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Next.js 15 App Router performance optimization guide
+              </Link>
+            )}
+            <Link href="/services/mobile-app-development" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+              → Discover cross-platform Mobile App Development Services
+            </Link>
+            <Link href="/install" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+              → Install Progressive Web App (PWA) on your mobile or desktop device
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CTASection />
     </>
   );

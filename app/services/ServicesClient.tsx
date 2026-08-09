@@ -218,6 +218,25 @@ export default function ServicesClient() {
       </section>
 
       <ServiceComparisonSection />
+
+      {/* Specialized Engineering Hubs */}
+      <section className="py-12 bg-background border-t border-border/40">
+        <div className="container-wide max-w-5xl space-y-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">Specialized Enterprise Engineering Hubs:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <Link href="/services/mobile-app-development" className="p-4 rounded-2xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+              → Discover enterprise Mobile App Development Services for iOS & Android
+            </Link>
+            <Link href="/services/custom-software-development" className="p-4 rounded-2xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+              → Explore Custom Software Development Services & microservices
+            </Link>
+            <Link href="/services/ai-agent-development" className="p-4 rounded-2xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+              → Build autonomous AI Agent Systems & RAG knowledge engines
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <TestimonialsSection />
       <CTASection />
     </>

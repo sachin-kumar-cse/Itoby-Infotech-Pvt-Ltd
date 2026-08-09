@@ -236,8 +236,8 @@ export default function PortfolioClient() {
             })}
           </motion.div>
 
-          {/* Loading */}
-          {isLoading ? (
+          {/* Loading / Content */}
+          {isLoading && projects.length === 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[...Array(6)].map((_, i) => (
                 <div key={i} className="rounded-3xl bg-card/50 border border-border/30 overflow-hidden animate-pulse">

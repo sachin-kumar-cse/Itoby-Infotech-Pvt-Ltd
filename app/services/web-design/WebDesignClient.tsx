@@ -150,11 +150,11 @@ const caseStudies = [
     path: "/portfolio/techflow",
   },
   {
-    title: "Luxe Fashion E-commerce",
-    category: "E-commerce",
-    result: "150% boost in online sales",
+    title: "Juxtudio – Architecture & Interior Design",
+    category: "Design Portfolio",
+    result: "+95% consultation bookings",
     image: getImgSrc(luxeFashionImage),
-    path: "/portfolio/luxe-fashion",
+    path: "/portfolio/juxtudio",
   },
 ];
 
@@ -521,6 +521,21 @@ export default function WebDesignClient() {
               <Link href="/pricing/website-development-cost" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
                 Website Development Cost Guide
               </Link>
+            </div>
+
+            <div className="pt-4 border-t border-border/30 mt-4">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Featured Web Architecture & Mobile Engineering Guides:</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <Link href="/blog/nextjs-15-app-router-performance-optimization-2026" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                  → Read our Next.js 15 App Router performance optimization guide
+                </Link>
+                <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                  → Learn top 10 enterprise SaaS web architecture patterns
+                </Link>
+                <Link href="/services/mobile-app-development" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                  → Discover cross-platform Mobile App Development Services
+                </Link>
+              </div>
             </div>
           </div>
         </div>

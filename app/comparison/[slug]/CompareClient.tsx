@@ -122,6 +122,43 @@ export default function CompareClient({ comparison }: Props) {
         </div>
       </section>
 
+      {/* Related Technical Guides & Comparisons */}
+      <section className="py-10 bg-background border-t border-border/40">
+        <div className="container-wide max-w-4xl space-y-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">Related Engineering Guides & Services:</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            {comparison.slug === "flutter-vs-react-native" && (
+              <Link href="/services/mobile-app-development" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Discover cross-platform Mobile App Development Services for iOS & Android
+              </Link>
+            )}
+            {comparison.slug === "nextjs-vs-react" && (
+              <Link href="/blog/nextjs-15-app-router-performance-optimization-2026" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Read our Next.js 15 App Router performance optimization guide
+              </Link>
+            )}
+            {comparison.slug === "custom-software-vs-saas" && (
+              <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Learn top 10 enterprise SaaS web architecture patterns
+              </Link>
+            )}
+            {comparison.slug === "wordpress-vs-custom-development" && (
+              <Link href="/blog/mastering-ai-seo-geo-generative-engine-optimization" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Read our Generative Engine Optimization (GEO) guide for 2026
+              </Link>
+            )}
+            {comparison.slug === "ai-chatbot-vs-ai-agent" && (
+              <Link href="/blog/autonomous-ai-voice-agents-restaurant-sales-calling" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Guide on autonomous AI voice agents for restaurant and sales call automation
+              </Link>
+            )}
+            <Link href="/install" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+              → Install Progressive Web App (PWA) on your device
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CTASection />
     </>
   );

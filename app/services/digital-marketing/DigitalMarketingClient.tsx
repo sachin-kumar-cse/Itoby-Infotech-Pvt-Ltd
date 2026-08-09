@@ -18,7 +18,8 @@ import {
   Lightbulb,
   LineChart,
   Megaphone,
-  Rocket
+  Rocket,
+  Sparkles
 } from "lucide-react";
 import {
   Accordion,
@@ -469,6 +470,27 @@ export default function DigitalMarketingClient() {
                 </Link>
               </motion.div>
             ))}
+          </div>
+
+          {/* Contextual Engineering & GEO Guides */}
+          <div className="mt-16 p-8 rounded-3xl bg-card border border-border/60 backdrop-blur-xl">
+            <h3 className="font-display text-xl font-bold mb-4 text-foreground flex items-center gap-2">
+              <Sparkles className="text-primary" size={20} /> Featured Growth Engineering & AI SEO Guides
+            </h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Our growth strategists publish actionable methodologies on Generative Engine Optimization (GEO), AI search ranking algorithms, and B2B client acquisition pipelines:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <Link href="/blog/mastering-ai-seo-geo-generative-engine-optimization" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                → Read our playbook on mastering AI SEO and Generative Engine Optimization (GEO) in 2026
+              </Link>
+              <Link href="/blog/b2b-lead-generation-google-maps-scraping-ai-audits" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                → Learn B2B lead generation with AI site auditing and Google Maps extraction
+              </Link>
+              <Link href="/resources/technical-seo-checklist-2026" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                → Explore our 30-point technical SEO and Core Web Vitals audit checklist for 2026
+              </Link>
+            </div>
           </div>
         </div>
       </section>

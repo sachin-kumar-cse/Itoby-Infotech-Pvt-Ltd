@@ -188,6 +188,26 @@ export default function TechClient({ tech }: Props) {
               </AccordionItem>
             ))}
           </Accordion>
+
+          {/* Contextual Technical Guides & Related Services */}
+          <div className="mt-12 p-6 rounded-2xl bg-card/40 border border-border/60">
+            <p className="text-xs font-bold uppercase tracking-wider text-primary mb-3">Related Technical Insights & Engineering Hubs:</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              {(tech.slug === "nextjs" || tech.slug === "nextjs-development" || tech.slug === "react") && (
+                <Link href="/blog/nextjs-15-app-router-performance-optimization-2026" className="p-3 rounded-xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                  → Read our Next.js 15 App Router performance optimization guide
+                </Link>
+              )}
+              {(tech.slug === "flutter" || tech.slug === "react" || tech.slug === "nodejs") && (
+                <Link href="/services/mobile-app-development" className="p-3 rounded-xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                  → Discover cross-platform Mobile App Development Services
+                </Link>
+              )}
+              <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3 rounded-xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                → Learn top 10 enterprise SaaS web architecture patterns
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

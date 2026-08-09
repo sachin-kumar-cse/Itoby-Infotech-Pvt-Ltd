@@ -246,8 +246,30 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
               <Link href="/technology/supabase-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 Supabase PostgreSQL RLS
               </Link>
+              <Link href="/services/mobile-app-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Mobile App Development Services
+              </Link>
               <Link href="/portfolio/manufacturing-erp" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
                 Manufacturing ERP Case Study
+              </Link>
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-border/30">
+            <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Engineering Benchmarks & Technical Guides:</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+              {(slug.includes("ai") || slug.includes("chatbot")) && (
+                <Link href="/blog/autonomous-ai-voice-agents-restaurant-sales-calling" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                  → Guide on autonomous AI voice agents for inbound & sales calling
+                </Link>
+              )}
+              {(slug.includes("crm") || slug.includes("saas")) && (
+                <Link href="/portfolio/lead-itoby" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                  → Lead Itoby automated lead scoring & CRM case study
+                </Link>
+              )}
+              <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Learn top 10 enterprise SaaS web architecture patterns
               </Link>
             </div>
           </div>

@@ -237,6 +237,28 @@ export default function IndustryClient({ industry }: Props) {
               <Link href="/services/crm-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
                 Custom CRM Platforms
               </Link>
+              <Link href="/services/mobile-app-development" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Mobile App Development Services
+              </Link>
+            </div>
+
+            <div className="pt-4 border-t border-border/30 mt-4">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Industry Engineering Guides & Insights:</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                {industry.slug.includes("real-estate") && (
+                  <Link href="/blog/building-scalable-proptech-tenant-management-office-renting" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Read our guide on building scalable PropTech tenant management software
+                  </Link>
+                )}
+                {industry.slug.includes("fintech") && (
+                  <Link href="/blog/future-fintech-automated-gst-billing-eway-cashmemo" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Article on the future of FinTech automated GST billing and cash receipts
+                  </Link>
+                )}
+                <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                  → Top 10 enterprise SaaS web architecture patterns for industry scale
+                </Link>
+              </div>
             </div>
           </div>
         </div>

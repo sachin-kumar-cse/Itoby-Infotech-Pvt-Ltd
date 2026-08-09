@@ -41,6 +41,7 @@ const saasProductsList = [
 const services = [
   { name: "Web Design & Development", path: "/services/web-design" },
   { name: "Mobile App Development", path: "/services/mobile-app" },
+  { name: "Mobile App Development Services", path: "/services/mobile-app-development" },
   { name: "Digital Marketing", path: "/services/digital-marketing" },
   { name: "Software Solutions", path: "/services/software-solutions" },
   { name: "Microsoft Office 365", path: "/services/microsoft-365" },
@@ -58,6 +59,7 @@ const quickLinks = [
   { name: "Our Portfolio", path: "/portfolio" },
   { name: "Careers & Hiring", path: "/careers" },
   { name: "Blog & Insights", path: "/blog" },
+  { name: "Install Progressive Web App (PWA)", path: "/install" },
   { name: "Contact Us", path: "/contact" },
   { name: "Book Appointment", path: "/book-appointment" },
 ];

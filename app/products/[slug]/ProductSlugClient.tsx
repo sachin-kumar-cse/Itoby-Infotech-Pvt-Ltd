@@ -237,24 +237,75 @@ export default function ProductSlugClient({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* Related Products Internal Links */}
+      {/* Related Products & Technical Guides Internal Links */}
       <section className="py-12 bg-background border-t border-border/40">
-        <div className="container-wide">
-          <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-4">Related Proprietary SaaS Suite:</p>
-          <div className="flex flex-wrap gap-3">
-            {productsList.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/products/${p.slug}`}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-colors ${
-                  p.slug === product.slug
-                    ? "bg-primary/20 border-primary text-primary"
-                    : "bg-card border-border/60 text-muted-foreground hover:text-primary hover:bg-secondary"
-                }`}
-              >
-                {p.name}
+        <div className="container-wide space-y-6">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Related Proprietary SaaS Suite:</p>
+            <div className="flex flex-wrap gap-3">
+              {productsList.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/products/${p.slug}`}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-colors ${
+                    p.slug === product.slug
+                      ? "bg-primary/20 border-primary text-primary"
+                      : "bg-card border-border/60 text-muted-foreground hover:text-primary hover:bg-secondary"
+                  }`}
+                >
+                  {p.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-border/30">
+            <p className="text-xs font-extrabold uppercase tracking-wider text-primary mb-3">Engineering Guides & Client Benchmarks:</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+              {product.slug === "leadflow" && (
+                <>
+                  <Link href="/blog/b2b-lead-generation-google-maps-scraping-ai-audits" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Read our guide to automated B2B lead generation via Google Maps scraping and AI audits
+                  </Link>
+                  <Link href="/portfolio/lead-itoby" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → View the Lead Itoby automated lead scoring CRM case study
+                  </Link>
+                </>
+              )}
+              {product.slug === "calling" && (
+                <>
+                  <Link href="/blog/autonomous-ai-voice-agents-restaurant-sales-calling" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Guide on autonomous AI voice calling agents for restaurant reservation and sales automation
+                  </Link>
+                  <Link href="/case-studies/ai-voice-calling" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → IIPL Calling autonomous AI voice calling agent case study
+                  </Link>
+                </>
+              )}
+              {product.slug === "renting" && (
+                <>
+                  <Link href="/blog/building-scalable-proptech-tenant-management-office-renting" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Article on architecting scalable commercial PropTech and tenant management platforms
+                  </Link>
+                  <Link href="/portfolio/rent-itoby" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Rent Itoby rental CRM dashboard project
+                  </Link>
+                </>
+              )}
+              {(product.slug === "billing" || product.slug === "whatsapp") && (
+                <>
+                  <Link href="/blog/future-fintech-automated-gst-billing-eway-cashmemo" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Read about the future of FinTech automated GST billing and E-Way bill synchronization
+                  </Link>
+                  <Link href="/case-studies/billing-saas" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → IIPL Billing scalable GST cloud invoicing case study
+                  </Link>
+                </>
+              )}
+              <Link href="/blog/top-10-web-architecture-patterns-enterprise-saas" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                → Learn the top 10 enterprise SaaS web architecture patterns
               </Link>
-            ))}
+            </div>
           </div>
         </div>
       </section>

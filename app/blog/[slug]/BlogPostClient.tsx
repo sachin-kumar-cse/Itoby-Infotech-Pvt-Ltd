@@ -25,15 +25,19 @@ interface BlogPostData {
   created_at: string;
 }
 
+import { fallbackBlogs } from "@/data/blogsData";
+
 export default function BlogPostClient({ slug }: { slug: string }) {
   const router = useRouter();
-  const [post, setPost] = useState<BlogPostData | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPostData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const initialFallback = fallbackBlogs.find((b) => b.slug === slug) || null;
+  const initialRelated = fallbackBlogs.filter((b) => b.slug !== slug).slice(0, 3);
+
+  const [post, setPost] = useState<BlogPostData | null>(initialFallback as BlogPostData | null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPostData[]>(initialRelated as BlogPostData[]);
+  const [isLoading, setIsLoading] = useState(!initialFallback);
 
   useEffect(() => {
     const fetchPost = async () => {
-      setIsLoading(true);
       const { data, error } = await supabase
         .from("blog_posts")
         .select("*")
@@ -41,11 +45,8 @@ export default function BlogPostClient({ slug }: { slug: string }) {
         .eq("is_published", true)
         .maybeSingle();
 
-      if (error || !data) {
-        setPost(null);
-      } else {
+      if (!error && data) {
         setPost(data as BlogPostData);
-        // Fetch related
         const { data: related } = await supabase
           .from("blog_posts")
           .select("id, slug, title, excerpt, category, image, read_time, created_at, author, author_role, content")
@@ -53,7 +54,9 @@ export default function BlogPostClient({ slug }: { slug: string }) {
           .eq("category", data.category)
           .neq("id", data.id)
           .limit(3);
-        setRelatedPosts((related as BlogPostData[]) || []);
+        if (related && related.length > 0) {
+          setRelatedPosts(related as BlogPostData[]);
+        }
       }
       setIsLoading(false);
     };

@@ -43,9 +43,9 @@ export default function CaseStudySlugClient({ slug }: { slug: string }) {
     publisher: {
       "@type": "Organization",
       name: "Itoby Infotech Pvt. Ltd.",
-      url: "https://itobyinfotech.com",
+      url: "https://www.itobyinfotech.com",
     },
-    mainEntityOfPage: `https://itobyinfotech.com/case-studies/${cs.slug}`,
+    mainEntityOfPage: `https://www.itobyinfotech.com/case-studies/${cs.slug}`,
   };
 
   const faqSchema = {

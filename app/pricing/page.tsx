@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Website & Software Development Cost Pricing Guides",
   description: "Transparent cost guides and pricing calculators for website development, custom software engineering, mobile apps, and SaaS platforms.",
   alternates: {
-    canonical: "https://itobyinfotech.com/pricing",
+    canonical: "https://www.itobyinfotech.com/pricing",
   },
 };
 

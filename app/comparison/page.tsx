@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Tech Stack & Framework Comparisons",
   description: "In-depth technical comparisons analyzing Next.js vs React, Flutter vs React Native, and web frameworks for software decision-makers.",
   alternates: {
-    canonical: "https://itobyinfotech.com/comparison",
+    canonical: "https://www.itobyinfotech.com/comparison",
   },
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Explore Itoby Infotech's portfolio of successful client projects: custom web platforms, mobile apps, SaaS tools, CRM dashboards, and digital growth.",
   alternates: {
-    canonical: "https://itobyinfotech.com/portfolio",
+    canonical: "https://www.itobyinfotech.com/portfolio",
   },
 };
 

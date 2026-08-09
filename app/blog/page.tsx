@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Explore the latest software engineering guides, Next.js tutorials, AI trends, and digital growth strategies from the Itoby Infotech team.",
   alternates: {
-    canonical: "https://itobyinfotech.com/blog",
+    canonical: "https://www.itobyinfotech.com/blog",
   },
 };
 

@@ -27,7 +27,7 @@ export default function TechClient({ tech }: Props) {
     provider: {
       "@type": "Organization",
       name: "Itoby Infotech Pvt. Ltd.",
-      url: "https://itobyinfotech.com",
+      url: "https://www.itobyinfotech.com",
     },
     areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
     description: tech.heroDescription,

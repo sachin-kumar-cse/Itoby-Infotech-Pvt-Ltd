@@ -86,7 +86,7 @@ const Services = () => {
           provider: {
             "@type": "Organization",
             name: "Itoby Infotech Pvt Ltd (IIPL)",
-            url: "https://itobyinfotech.com",
+            url: "https://www.itobyinfotech.com",
           },
           serviceType: "Global Digital Agency & SaaS Engineering Services",
           areaServed: ["IN", "US", "CA", "AU", "AE", "GB"],

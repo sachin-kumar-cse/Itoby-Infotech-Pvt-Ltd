@@ -33,7 +33,7 @@ const Index = () => {
           "@type": "Organization",
           name: "Itoby Infotech Pvt Ltd (IIPL)",
           alternateName: ["IIPL", "Itoby Infotech", "Itoby Infotech Private Limited"],
-          url: "https://itobyinfotech.com",
+          url: "https://www.itobyinfotech.com",
           logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
           description: "Global digital agency & SaaS software builder behind IIPL Lead, IIPL Renting, IIPL Billing, IIPL Cashmemo and IIPL Calling AI voice agents.",
           foundingDate: "2013",

@@ -166,7 +166,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
-    url: "https://itobyinfotech.com"
+    url: "https://www.itobyinfotech.com"
   },
   areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
   description: "Microsoft 365 migration, SharePoint intranet, Teams deployment, and Azure AD security services by Itoby Infotech."

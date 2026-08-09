@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${resource.title} | Itoby Infotech`,
     description: resource.heroDescription,
     alternates: {
-      canonical: `https://itobyinfotech.com/resources/${slug}`,
+      canonical: `https://www.itobyinfotech.com/resources/${slug}`,
     },
     openGraph: {
       title: `${resource.title} | Itoby Infotech`,
       description: resource.heroDescription,
-      url: `https://itobyinfotech.com/resources/${slug}`,
+      url: `https://www.itobyinfotech.com/resources/${slug}`,
       type: "website",
     },
   };

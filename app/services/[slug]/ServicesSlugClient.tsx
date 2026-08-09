@@ -46,7 +46,7 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
     provider: {
       "@type": "Organization",
       name: "Itoby Infotech Pvt. Ltd.",
-      url: "https://itobyinfotech.com",
+      url: "https://www.itobyinfotech.com",
     },
     serviceType: service.heroBadge,
     description: service.heroDescription,

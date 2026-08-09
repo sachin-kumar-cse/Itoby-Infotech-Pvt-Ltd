@@ -168,7 +168,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
-    url: "https://itobyinfotech.com"
+    url: "https://www.itobyinfotech.com"
   },
   areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
   description: "Data-driven SEO, Generative Engine Optimization (GEO), Google Ads PPC, Meta Ads, and conversion rate optimization services by Itoby Infotech."

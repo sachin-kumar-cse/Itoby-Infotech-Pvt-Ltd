@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Explore career opportunities at Itoby Infotech. We are hiring software engineers, UI/UX designers, mobile developers, and digital marketers.",
   alternates: {
-    canonical: "https://itobyinfotech.com/careers",
+    canonical: "https://www.itobyinfotech.com/careers",
   },
 };
 

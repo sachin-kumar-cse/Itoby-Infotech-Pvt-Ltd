@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Get a custom price estimate for your web design, mobile app, digital marketing, or enterprise software project from Itoby Infotech.",
   alternates: {
-    canonical: "https://itobyinfotech.com/request-quote",
+    canonical: "https://www.itobyinfotech.com/request-quote",
   },
 };
 

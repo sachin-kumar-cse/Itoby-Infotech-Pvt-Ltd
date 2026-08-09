@@ -166,7 +166,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
-    url: "https://itobyinfotech.com"
+    url: "https://www.itobyinfotech.com"
   },
   areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
   description: "Custom ERP, CRM, portal, microservices, and workflow automation development services by Itoby Infotech using Node.js, Python, PostgreSQL, and AWS."

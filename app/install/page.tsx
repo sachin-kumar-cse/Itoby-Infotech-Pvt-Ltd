@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Install the official Itoby Infotech Progressive Web App (PWA) on your mobile device or desktop for instant loading and offline capability.",
   alternates: {
-    canonical: "https://itobyinfotech.com/install",
+    canonical: "https://www.itobyinfotech.com/install",
   },
 };
 

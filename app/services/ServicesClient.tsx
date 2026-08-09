@@ -82,7 +82,7 @@ const servicesListSchema = {
     position: index + 1,
     name: s.title,
     description: s.description,
-    url: `https://itobyinfotech.com${s.path}`,
+    url: `https://www.itobyinfotech.com${s.path}`,
   })),
 };
 

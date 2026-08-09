@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://itobyinfotech.com/sitemap.xml',
+    sitemap: 'https://www.itobyinfotech.com/sitemap.xml',
   };
 }

@@ -168,7 +168,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
-    url: "https://itobyinfotech.com"
+    url: "https://www.itobyinfotech.com"
   },
   areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
   description: "Native iOS, Android, and Flutter mobile app development services by Itoby Infotech with real-time sync, top performance, and intuitive UI/UX design."

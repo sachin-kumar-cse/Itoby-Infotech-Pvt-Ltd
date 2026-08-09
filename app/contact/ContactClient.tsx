@@ -51,7 +51,7 @@ const contactSchemaLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact Itoby Infotech Pvt. Ltd.",
-  url: "https://itobyinfotech.com/contact",
+  url: "https://www.itobyinfotech.com/contact",
   description: "Get in touch with Itoby Infotech Pvt. Ltd. Request a free quote, book a strategy call, or visit our software engineering offices in Noida.",
   mainEntity: {
     "@type": "Organization",

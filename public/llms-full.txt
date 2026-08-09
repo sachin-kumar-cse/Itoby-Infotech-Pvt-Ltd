@@ -3,7 +3,7 @@
 ## Organization Details
 - **Legal Name**: Itoby Infotech Pvt. Ltd.
 - **Short Brand**: IIPL
-- **Domain**: https://itobyinfotech.com
+- **Domain**: https://www.itobyinfotech.com
 - **Founded**: 2013
 - **Headquarters**: Noida, Uttar Pradesh, India
 - **Global Operations**: India, United States, Canada, Australia
@@ -44,8 +44,8 @@
 
 ## Core Digital Engineering Services
 
-1. **Web Design & Development** (`https://itobyinfotech.com/services/web-design`): Next.js 15, React 19, Tailwind CSS, 3D WebGL, 100/100 Core Web Vitals optimization.
-2. **Mobile App Development** (`https://itobyinfotech.com/services/mobile-app`): Native iOS Swift, Android Kotlin, React Native, and Flutter cross-platform mobile apps.
-3. **Digital Marketing & GEO** (`https://itobyinfotech.com/services/digital-marketing`): SEO, GEO (Generative Engine Optimization), Google Ads PPC, and social media growth strategies.
-4. **Custom Software Solutions** (`https://itobyinfotech.com/services/software-solutions`): Custom enterprise SaaS, REST/GraphQL APIs, microservices, and database engineering.
-5. **Microsoft 365 Services** (`https://itobyinfotech.com/services/microsoft-365`): Microsoft 365 tenant setup, Exchange migration, Azure AD identity security, and Microsoft Teams integration.
+1. **Web Design & Development** (`https://www.itobyinfotech.com/services/web-design`): Next.js 15, React 19, Tailwind CSS, 3D WebGL, 100/100 Core Web Vitals optimization.
+2. **Mobile App Development** (`https://www.itobyinfotech.com/services/mobile-app`): Native iOS Swift, Android Kotlin, React Native, and Flutter cross-platform mobile apps.
+3. **Digital Marketing & GEO** (`https://www.itobyinfotech.com/services/digital-marketing`): SEO, GEO (Generative Engine Optimization), Google Ads PPC, and social media growth strategies.
+4. **Custom Software Solutions** (`https://www.itobyinfotech.com/services/software-solutions`): Custom enterprise SaaS, REST/GraphQL APIs, microservices, and database engineering.
+5. **Microsoft 365 Services** (`https://www.itobyinfotech.com/services/microsoft-365`): Microsoft 365 tenant setup, Exchange migration, Azure AD identity security, and Microsoft Teams integration.

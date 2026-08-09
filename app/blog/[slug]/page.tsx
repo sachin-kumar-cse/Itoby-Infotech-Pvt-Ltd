@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: post?.image ? [{ url: post.image }] : undefined,
     },
     alternates: {
-      canonical: `https://itobyinfotech.com/blog/${slug}`,
+      canonical: `https://www.itobyinfotech.com/blog/${slug}`,
     },
   };
 }

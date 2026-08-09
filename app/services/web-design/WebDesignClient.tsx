@@ -166,7 +166,7 @@ const serviceSchema = {
   provider: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
-    url: "https://itobyinfotech.com"
+    url: "https://www.itobyinfotech.com"
   },
   areaServed: ["US", "CA", "AU", "GB", "AE", "IN"],
   description: "Custom web design and Next.js development services by Itoby Infotech. UI/UX design, e-commerce development, landing pages, and speed optimization."

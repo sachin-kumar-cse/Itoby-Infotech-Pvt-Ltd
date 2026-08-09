@@ -56,7 +56,7 @@ const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About Itoby Infotech Pvt. Ltd.",
-  url: "https://itobyinfotech.com/about",
+  url: "https://www.itobyinfotech.com/about",
   description: "Learn about Itoby Infotech — a premier global digital agency engineering custom web design, mobile apps, software solutions, and AI SaaS platforms.",
   publisher: {
     "@type": "Organization",

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Explore proprietary SaaS software products engineered by Itoby Infotech Pvt. Ltd., including IIPL Lead, IIPL Billing, IIPL Renting, IIPL Cashmemo, and IIPL Calling AI Voice Agents.",
   alternates: {
-    canonical: "https://itobyinfotech.com/products",
+    canonical: "https://www.itobyinfotech.com/products",
   },
   openGraph: {
     title: "SaaS Software Products & AI Platforms | Itoby Infotech",
     description:
       "Explore proprietary SaaS software products engineered by Itoby Infotech Pvt. Ltd., including IIPL Lead, IIPL Billing, IIPL Renting, IIPL Cashmemo, and IIPL Calling AI Voice Agents.",
-    url: "https://itobyinfotech.com/products",
+    url: "https://www.itobyinfotech.com/products",
     siteName: "Itoby Infotech",
     type: "website",
   },

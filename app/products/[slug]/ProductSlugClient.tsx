@@ -34,12 +34,12 @@ export default function ProductSlugClient({ slug }: { slug: string }) {
     name: product.name,
     operatingSystem: "Web Browser",
     applicationCategory: `${product.category}Application`,
-    url: product.externalUrl || `https://itobyinfotech.com/products/${product.slug}`,
+    url: product.externalUrl || `https://www.itobyinfotech.com/products/${product.slug}`,
     description: product.heroDescription,
     provider: {
       "@type": "Organization",
       name: "Itoby Infotech Pvt. Ltd.",
-      url: "https://itobyinfotech.com",
+      url: "https://www.itobyinfotech.com",
     },
   };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Seamless Microsoft 365 deployment, Exchange email, SharePoint architecture, Teams integration, and enterprise cloud migration by Itoby Infotech.",
   alternates: {
-    canonical: "https://itobyinfotech.com/services/microsoft-365",
+    canonical: "https://www.itobyinfotech.com/services/microsoft-365",
   },
 };
 

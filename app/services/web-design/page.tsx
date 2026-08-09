@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Itoby Infotech Pvt. Ltd. delivers custom web development services, Next.js web applications, e-commerce portals, and enterprise web solutions.",
   alternates: {
-    canonical: "https://itobyinfotech.com/services/web-design",
+    canonical: "https://www.itobyinfotech.com/services/web-design",
   },
   openGraph: {
     title: "Web Development Services | Itoby Infotech",
     description:
       "Itoby Infotech Pvt. Ltd. delivers custom web development services, Next.js web applications, e-commerce portals, and enterprise web solutions.",
-    url: "https://itobyinfotech.com/services/web-design",
+    url: "https://www.itobyinfotech.com/services/web-design",
     siteName: "Itoby Infotech",
     type: "website",
   },

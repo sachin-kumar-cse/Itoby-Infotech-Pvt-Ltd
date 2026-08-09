@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Drive target traffic and conversions with data-driven digital marketing, SEO, Google Ads, Meta Ads, and AI search optimization by Itoby Infotech.",
   alternates: {
-    canonical: "https://itobyinfotech.com/services/digital-marketing",
+    canonical: "https://www.itobyinfotech.com/services/digital-marketing",
   },
 };
 

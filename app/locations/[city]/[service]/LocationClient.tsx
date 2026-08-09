@@ -24,8 +24,8 @@ export default function LocationClient({ data }: Props) {
     "@type": "LocalBusiness",
     name: `Itoby Infotech Pvt. Ltd. - ${data.cityName}`,
     image: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-    "@id": `https://itobyinfotech.com/locations/${data.citySlug}/${data.serviceSlug}`,
-    url: `https://itobyinfotech.com/locations/${data.citySlug}/${data.serviceSlug}`,
+    "@id": `https://www.itobyinfotech.com/locations/${data.citySlug}/${data.serviceSlug}`,
+    url: `https://www.itobyinfotech.com/locations/${data.citySlug}/${data.serviceSlug}`,
     telephone: "+91-91427-73500",
     address: {
       "@type": "PostalAddress",
@@ -48,7 +48,7 @@ export default function LocationClient({ data }: Props) {
     provider: {
       "@type": "Organization",
       name: "Itoby Infotech Pvt. Ltd.",
-      url: "https://itobyinfotech.com",
+      url: "https://www.itobyinfotech.com",
     },
     areaServed: data.cityName,
     description: data.heroDescription,

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Schedule a free 30-minute 1-on-1 strategy call with our software engineering & digital transformation architects at Itoby Infotech.",
   alternates: {
-    canonical: "https://itobyinfotech.com/book-appointment",
+    canonical: "https://www.itobyinfotech.com/book-appointment",
   },
 };
 

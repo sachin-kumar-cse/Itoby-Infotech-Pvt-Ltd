@@ -142,15 +142,15 @@ export const PageHeroBanner = ({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://itobyinfotech.com",
+        item: "https://www.itobyinfotech.com",
       },
       ...breadcrumbs.map((item, idx) => ({
         "@type": "ListItem",
         position: idx + 2,
         name: item.label,
         item: item.path
-          ? `https://itobyinfotech.com${item.path.startsWith("/") ? item.path : "/" + item.path}`
-          : "https://itobyinfotech.com",
+          ? `https://www.itobyinfotech.com${item.path.startsWith("/") ? item.path : "/" + item.path}`
+          : "https://www.itobyinfotech.com",
       })),
     ],
   };

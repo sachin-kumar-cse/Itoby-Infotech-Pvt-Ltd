@@ -43,7 +43,7 @@ export default function CaseStudiesHubClient() {
       "@type": "ListItem",
       position: idx + 1,
       name: cs.title,
-      url: `https://itobyinfotech.com/case-studies/${cs.slug}`,
+      url: `https://www.itobyinfotech.com/case-studies/${cs.slug}`,
     })),
   };
 

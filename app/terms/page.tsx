@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Read the official Terms of Service and legal agreements governing the use of Itoby Infotech web design, software development, and SaaS products.",
   alternates: {
-    canonical: "https://itobyinfotech.com/terms",
+    canonical: "https://www.itobyinfotech.com/terms",
   },
 };
 

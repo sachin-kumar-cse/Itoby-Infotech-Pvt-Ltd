@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Itoby Infotech Pvt. Ltd. builds native iOS, Android, and Flutter cross-platform mobile apps with real-time cloud sync, biometric security, and offline support.",
   alternates: {
-    canonical: "https://itobyinfotech.com/services/mobile-app",
+    canonical: "https://www.itobyinfotech.com/services/mobile-app",
   },
   openGraph: {
     title: "Mobile App Development Services | Itoby Infotech",
     description:
       "Itoby Infotech Pvt. Ltd. builds native iOS, Android, and Flutter cross-platform mobile apps with real-time cloud sync, biometric security, and offline support.",
-    url: "https://itobyinfotech.com/services/mobile-app",
+    url: "https://www.itobyinfotech.com/services/mobile-app",
     siteName: "Itoby Infotech",
     type: "website",
   },

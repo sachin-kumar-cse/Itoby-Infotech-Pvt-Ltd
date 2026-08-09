@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Bespoke enterprise software development, custom CRM and ERP platforms, admin dashboards, and business automation engineered by Itoby Infotech.",
   alternates: {
-    canonical: "https://itobyinfotech.com/services/software-solutions",
+    canonical: "https://www.itobyinfotech.com/services/software-solutions",
   },
 };
 

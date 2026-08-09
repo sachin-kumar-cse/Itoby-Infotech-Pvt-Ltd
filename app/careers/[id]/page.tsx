@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${title} - Careers`,
     description,
     alternates: {
-      canonical: `https://itobyinfotech.com/careers/${id}`,
+      canonical: `https://www.itobyinfotech.com/careers/${id}`,
     },
   };
 }

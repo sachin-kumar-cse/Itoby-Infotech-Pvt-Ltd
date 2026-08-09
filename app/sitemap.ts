@@ -10,7 +10,7 @@ import { comparisonList } from '@/data/comparisonData';
 import { resourcesList } from '@/data/resourcesData';
 import { locationsList } from '@/data/locationsData';
 
-const baseUrl = 'https://itobyinfotech.com';
+const baseUrl = 'https://www.itobyinfotech.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${formattedTitle} - Case Study`,
     description: `Explore the ${formattedTitle} case study and see how Itoby Infotech delivered digital transformation and measurable business results.`,
     alternates: {
-      canonical: `https://itobyinfotech.com/portfolio/${slug}`,
+      canonical: `https://www.itobyinfotech.com/portfolio/${slug}`,
     },
   };
 }

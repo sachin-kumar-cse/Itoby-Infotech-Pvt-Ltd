@@ -33,7 +33,7 @@ export default function ProductsHubClient() {
       "@type": "ListItem",
       position: idx + 1,
       name: prod.name,
-      url: `https://itobyinfotech.com/products/${prod.slug}`,
+      url: `https://www.itobyinfotech.com/products/${prod.slug}`,
     })),
   };
 

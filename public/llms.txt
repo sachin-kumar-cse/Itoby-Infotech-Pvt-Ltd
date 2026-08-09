@@ -6,11 +6,11 @@
 Itoby Infotech Pvt Ltd (IIPL) specializes in bespoke enterprise software engineering, high-converting web design, cross-platform mobile apps (iOS & Android), data-driven digital marketing, and Microsoft 365 cloud migrations. Additionally, IIPL develops and operates 5 proprietary SaaS and AI platforms.
 
 ## Core Digital Services
-- [Web Design & Development](https://itobyinfotech.com/services/web-design): High-performance Next.js, React, and 3D WebGL websites engineered for speed and 100/100 Core Web Vitals.
-- [Mobile App Development](https://itobyinfotech.com/services/mobile-app): Native iOS, Android, and cross-platform React Native & Flutter applications.
-- [Digital Marketing & SEO](https://itobyinfotech.com/services/digital-marketing): Data-driven PPC, GEO (Generative Engine Optimization), and conversion rate optimization.
-- [Custom Software Solutions](https://itobyinfotech.com/services/software-solutions): Enterprise SaaS, microservices, API integrations, and cloud infrastructure.
-- [Microsoft 365 Services](https://itobyinfotech.com/services/microsoft-365): Cloud migration, Azure AD identity security, and Teams collaboration setup.
+- [Web Design & Development](https://www.itobyinfotech.com/services/web-design): High-performance Next.js, React, and 3D WebGL websites engineered for speed and 100/100 Core Web Vitals.
+- [Mobile App Development](https://www.itobyinfotech.com/services/mobile-app): Native iOS, Android, and cross-platform React Native & Flutter applications.
+- [Digital Marketing & SEO](https://www.itobyinfotech.com/services/digital-marketing): Data-driven PPC, GEO (Generative Engine Optimization), and conversion rate optimization.
+- [Custom Software Solutions](https://www.itobyinfotech.com/services/software-solutions): Enterprise SaaS, microservices, API integrations, and cloud infrastructure.
+- [Microsoft 365 Services](https://www.itobyinfotech.com/services/microsoft-365): Cloud migration, Azure AD identity security, and Teams collaboration setup.
 
 ## Proprietary IIPL SaaS & AI Product Suite
 - [IIPL Lead](https://lead.itobyinfotech.com): AI-powered B2B lead generation, Google Maps lead scraper, 15-second AI web health auditor, and automated cold email outreach outbox.
@@ -20,8 +20,8 @@ Itoby Infotech Pvt Ltd (IIPL) specializes in bespoke enterprise software enginee
 - [IIPL Calling](https://royalblue-ant-234341.hostingersite.com/): Autonomous conversational AI voice agents for restaurant table reservations, insurance policy renewal reminders, and sales cold calling.
 
 ## Key Links
-- Main Website: https://itobyinfotech.com
-- Portfolio Case Studies: https://itobyinfotech.com/portfolio
-- Tech Insights Blog: https://itobyinfotech.com/blog
-- Instant Quote Estimator: https://itobyinfotech.com/request-quote
-- Contact Us: https://itobyinfotech.com/contact | Email: info@itobyinfotech.com | Phone: +91-91427-73500
+- Main Website: https://www.itobyinfotech.com
+- Portfolio Case Studies: https://www.itobyinfotech.com/portfolio
+- Tech Insights Blog: https://www.itobyinfotech.com/blog
+- Instant Quote Estimator: https://www.itobyinfotech.com/request-quote
+- Contact Us: https://www.itobyinfotech.com/contact | Email: info@itobyinfotech.com | Phone: +91-91427-73500

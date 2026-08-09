@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Global IT Services & Development Locations",
   description: "Itoby Infotech delivers web development, mobile app design, and custom software services across Noida, Delhi NCR, Bangalore, and Dubai.",
   alternates: {
-    canonical: "https://itobyinfotech.com/locations",
+    canonical: "https://www.itobyinfotech.com/locations",
   },
 };
 

@@ -10,7 +10,7 @@ export interface BlogSEOData {
   content: string;
 }
 
-export function generateBlogJsonLd(post: BlogSEOData, siteUrl = "https://itobyinfotech.com") {
+export function generateBlogJsonLd(post: BlogSEOData, siteUrl = "https://www.itobyinfotech.com") {
   const url = `${siteUrl}/blog/${post.slug}`;
   const wordCount = post.content.replace(/<[^>]*>/g, "").split(/\s+/).length;
   const readTime = Math.max(1, Math.ceil(wordCount / 200));
@@ -44,7 +44,7 @@ export function generateBlogJsonLd(post: BlogSEOData, siteUrl = "https://itobyin
   };
 }
 
-export function generateBreadcrumbJsonLd(post: BlogSEOData, siteUrl = "https://itobyinfotech.com") {
+export function generateBreadcrumbJsonLd(post: BlogSEOData, siteUrl = "https://www.itobyinfotech.com") {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

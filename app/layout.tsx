@@ -27,10 +27,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://itobyinfotech.com"),
+  metadataBase: new URL("https://www.itobyinfotech.com"),
   title: {
     default: "Website Development Company | AI, SaaS & Software | Itoby Infotech",
-    template: "%s | Itoby Infotech",
+    template: "%s",
   },
   description:
     "Itoby Infotech Pvt. Ltd. is a premier website development company & SaaS lab engineering custom software, mobile apps, digital marketing & AI solutions.",
@@ -56,11 +56,11 @@ export const metadata: Metadata = {
     "max-video-preview": -1,
   },
   alternates: {
-    canonical: "https://itobyinfotech.com",
+    canonical: "https://www.itobyinfotech.com",
   },
   openGraph: {
     type: "website",
-    url: "https://itobyinfotech.com",
+    url: "https://www.itobyinfotech.com",
     title: "Website Development Company | AI, SaaS & Software | Itoby Infotech",
     description:
       "Itoby Infotech Pvt. Ltd. is a premier website development company & SaaS lab engineering custom software, mobile apps, digital marketing & AI solutions.",
@@ -101,7 +101,7 @@ const jsonLdOrganization = {
   name: "Itoby Infotech Pvt. Ltd.",
   legalName: "Itoby Infotech Private Limited",
   alternateName: ["IIPL", "Itoby Infotech"],
-  url: "https://itobyinfotech.com",
+  url: "https://www.itobyinfotech.com",
   logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
   contactPoint: {
     "@type": "ContactPoint",
@@ -129,8 +129,8 @@ const jsonLdLocalBusiness = {
       "@type": "LocalBusiness",
       "name": "Itoby Infotech Pvt. Ltd. - Noida Global HQ",
       "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-      "@id": "https://itobyinfotech.com/#noida-hq",
-      "url": "https://itobyinfotech.com",
+      "@id": "https://www.itobyinfotech.com/#noida-hq",
+      "url": "https://www.itobyinfotech.com",
       "telephone": "+91-91427-73500",
       "priceRange": "$$",
       "address": {
@@ -157,8 +157,8 @@ const jsonLdLocalBusiness = {
       "@type": "LocalBusiness",
       "name": "Itoby Infotech Pvt. Ltd. - Delhi Office",
       "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-      "@id": "https://itobyinfotech.com/#delhi-office",
-      "url": "https://itobyinfotech.com",
+      "@id": "https://www.itobyinfotech.com/#delhi-office",
+      "url": "https://www.itobyinfotech.com",
       "telephone": "+91-91427-73500",
       "priceRange": "$$",
       "address": {
@@ -185,8 +185,8 @@ const jsonLdLocalBusiness = {
       "@type": "LocalBusiness",
       "name": "Itoby Infotech Pvt. Ltd. - California US Hub",
       "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
-      "@id": "https://itobyinfotech.com/#california-office",
-      "url": "https://itobyinfotech.com",
+      "@id": "https://www.itobyinfotech.com/#california-office",
+      "url": "https://www.itobyinfotech.com",
       "telephone": "+1-888-581-3028",
       "priceRange": "$$$",
       "address": {
@@ -216,12 +216,12 @@ const jsonLdWebsite = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Itoby Infotech",
-  url: "https://itobyinfotech.com",
+  url: "https://www.itobyinfotech.com",
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://itobyinfotech.com/search?q={search_term_string}",
+      urlTemplate: "https://www.itobyinfotech.com/search?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },

@@ -340,5 +340,62 @@ export const technologyList: TechnologyData[] = [
     features: ["REST & GraphQL APIs", "Microservices Architecture", "Realtime WebSockets", "Redis Caching"],
     useCases: ["API Gateways", "SaaS Backend Systems", "Realtime Messaging"],
     faqs: [{ question: "Why choose Node.js for backend development?", answer: "Node.js handles thousands of concurrent API requests efficiently with minimal server overhead." }]
+  },
+  {
+    slug: "python",
+    title: "Python AI & Backend Engineering",
+    name: "Python",
+    category: "AI & Backend Engineering",
+    heroDescription: "Enterprise Python development for AI Agent systems, LangChain RAG pipelines, FastAPI microservices, and Machine Learning algorithms.",
+    overview: "Itoby Infotech Pvt. Ltd. builds high-performance AI applications, autonomous agents, and microservices powered by Python 3.12, FastAPI, PyTorch, LangChain, and OpenAI APIs.",
+    benefits: [
+      "Preferred programming language for AI, Machine Learning, and NLP models",
+      "Sub-second API execution with asynchronous FastAPI & Starlette engines",
+      "Seamless integration with LangChain, LlamaIndex, PyTorch, and OpenAI",
+      "High-throughput data engineering and pandas/numpy telemetry processing",
+      "Containerized microservices scalable on AWS ECS, GCP & Docker",
+      "Clean, maintainable backend code architecture backed by 12 months SLA"
+    ],
+    features: [
+      "FastAPI & Django REST Framework",
+      "LangChain & Autonomous Agent Architecture",
+      "Async WebSockets & Real-Time Telemetry",
+      "PyTorch & Scikit-Learn Model Deployment",
+      "Celery & Redis Background Task Queues",
+      "Pgvector & Supabase Vector Indexing"
+    ],
+    useCases: [
+      "Autonomous AI Agents & Tool-Calling Microservices",
+      "Enterprise Document RAG Knowledge Engines",
+      "Real-Time Telephony & Voice AI Systems",
+      "Predictive Analytics & Financial Algorithms"
+    ],
+    faqs: [
+      {
+        question: "Why is Python the industry standard for AI & LLM development?",
+        answer: "Python has the richest ecosystem of machine learning and LLM orchestration libraries—including PyTorch, TensorFlow, LangChain, LlamaIndex, and OpenAI SDKs—allowing rapid engineering of autonomous agents and RAG pipelines."
+      },
+      {
+        question: "How fast is FastAPI for production Python web microservices?",
+        answer: "FastAPI is built on Starlette and Pydantic, making it one of the fastest Python frameworks available—delivering near-Node.js/Go async performance for high-concurrency AI API gateways."
+      }
+    ]
+  },
+  {
+    slug: "python-development",
+    title: "Python AI & Backend Development Company",
+    name: "Python Development",
+    category: "AI & Backend Engineering",
+    heroDescription: "Enterprise Python development for AI Agent systems, LangChain RAG pipelines, FastAPI microservices, and Machine Learning algorithms.",
+    overview: "Itoby Infotech Pvt. Ltd. builds high-performance AI applications, autonomous agents, and microservices powered by Python 3.12, FastAPI, PyTorch, LangChain, and OpenAI APIs.",
+    benefits: [
+      "Preferred programming language for AI, Machine Learning, and NLP models",
+      "Sub-second API execution with asynchronous FastAPI & Starlette engines",
+      "Seamless integration with LangChain, LlamaIndex, PyTorch, and OpenAI",
+      "High-throughput data engineering and pandas/numpy telemetry processing"
+    ],
+    features: ["FastAPI & Django", "LangChain & AI Agents", "PyTorch & ML Models", "Pgvector & Redis"],
+    useCases: ["Autonomous AI Agents", "Document RAG Engines", "Voice AI Telephony", "Predictive Analytics"],
+    faqs: [{ question: "Why build AI backends with Python?", answer: "Python provides native ecosystem support for PyTorch, LangChain, and OpenAI APIs with async FastAPI endpoints." }]
   }
 ];

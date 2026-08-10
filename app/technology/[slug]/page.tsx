@@ -7,30 +7,15 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-const slugMapping: Record<string, string> = {
-  "nextjs-development": "nextjs",
-  "react-development": "react",
-  "nodejs-development": "nodejs",
-  "supabase-development": "supabase-development",
-  "postgresql-development": "postgresql-development",
-  "openai-integration": "openai-integration",
-  "ai-automation": "ai-automation",
-};
+const baseUrl = "https://www.itobyinfotech.com";
 
 export async function generateStaticParams() {
-  const baseParams = technologyList.map((t) => ({ slug: t.slug }));
-  const aliasParams = [
-    { slug: "nextjs-development" },
-    { slug: "react-development" },
-    { slug: "nodejs-development" },
-  ];
-  return [...baseParams, ...aliasParams];
+  return technologyList.map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const targetSlug = slugMapping[slug] || slug;
-  const tech = technologyList.find((t) => t.slug === targetSlug);
+  const tech = technologyList.find((t) => t.slug === slug);
 
   if (!tech) {
     return {
@@ -38,16 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const canonicalUrl = `${baseUrl}/technology/${slug}`;
+
   return {
-    title: `${tech.name} Development Services | Itoby Infotech`,
+    title: tech.title || `${tech.name} Development Services | Itoby Infotech`,
     description: tech.heroDescription,
     alternates: {
-      canonical: `https://www.itobyinfotech.com/technology/${targetSlug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${tech.name} Development Services | Itoby Infotech`,
+      title: tech.title || `${tech.name} Development Services | Itoby Infotech`,
       description: tech.heroDescription,
-      url: `https://www.itobyinfotech.com/technology/${targetSlug}`,
+      url: canonicalUrl,
       type: "website",
     },
   };
@@ -55,8 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TechnologyPage({ params }: Props) {
   const { slug } = await params;
-  const targetSlug = slugMapping[slug] || slug;
-  const tech = technologyList.find((t) => t.slug === targetSlug);
+  const tech = technologyList.find((t) => t.slug === slug);
 
   if (!tech) {
     notFound();

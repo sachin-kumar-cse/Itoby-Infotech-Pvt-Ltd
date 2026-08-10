@@ -61,7 +61,7 @@ const aboutSchema = {
   publisher: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
-    logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png"
+    logo: "https://www.itobyinfotech.com/images/logo.png"
   }
 };
 

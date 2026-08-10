@@ -62,7 +62,7 @@ const About = () => {
           "@type": "Organization",
           name: "Itoby Infotech Pvt Ltd (IIPL)",
           url: "https://www.itobyinfotech.com/about",
-          logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+          logo: "https://www.itobyinfotech.com/images/logo.png",
           description: "Global digital agency providing custom web design, app development, and software solutions since 2013.",
           foundingDate: "2013",
           areaServed: ["US", "CA", "AU", "UK", "IN", "AE"],

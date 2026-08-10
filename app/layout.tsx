@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Itoby Infotech",
     images: [
       {
-        url: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
+        url: "https://www.itobyinfotech.com/images/logo.png",
         width: 1200,
         height: 630,
         alt: "Itoby Infotech Logo",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     description:
       "Itoby Infotech Pvt. Ltd. is a premier website development company & SaaS lab engineering custom software, mobile apps, digital marketing & AI solutions.",
     images: [
-      "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
+      "https://www.itobyinfotech.com/images/logo.png",
     ],
   },
   icons: {
@@ -102,7 +102,7 @@ const jsonLdOrganization = {
   legalName: "Itoby Infotech Private Limited",
   alternateName: ["IIPL", "Itoby Infotech"],
   url: "https://www.itobyinfotech.com",
-  logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+  logo: "https://www.itobyinfotech.com/images/logo.png",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-91427-73500",
@@ -128,7 +128,7 @@ const jsonLdLocalBusiness = {
     {
       "@type": "LocalBusiness",
       "name": "Itoby Infotech Pvt. Ltd. - Noida Global HQ",
-      "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+      "image": "https://www.itobyinfotech.com/images/logo.png",
       "@id": "https://www.itobyinfotech.com/#noida-hq",
       "url": "https://www.itobyinfotech.com",
       "telephone": "+91-91427-73500",
@@ -156,7 +156,7 @@ const jsonLdLocalBusiness = {
     {
       "@type": "LocalBusiness",
       "name": "Itoby Infotech Pvt. Ltd. - Delhi Office",
-      "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+      "image": "https://www.itobyinfotech.com/images/logo.png",
       "@id": "https://www.itobyinfotech.com/#delhi-office",
       "url": "https://www.itobyinfotech.com",
       "telephone": "+91-91427-73500",
@@ -184,7 +184,7 @@ const jsonLdLocalBusiness = {
     {
       "@type": "LocalBusiness",
       "name": "Itoby Infotech Pvt. Ltd. - California US Hub",
-      "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+      "image": "https://www.itobyinfotech.com/images/logo.png",
       "@id": "https://www.itobyinfotech.com/#california-office",
       "url": "https://www.itobyinfotech.com",
       "telephone": "+1-888-581-3028",
@@ -217,14 +217,6 @@ const jsonLdWebsite = {
   "@type": "WebSite",
   name: "Itoby Infotech",
   url: "https://www.itobyinfotech.com",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://www.itobyinfotech.com/search?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const jsonLdSaasProducts = {
@@ -238,21 +230,7 @@ const jsonLdSaasProducts = {
       "url": "https://lead.itobyinfotech.com",
       "description": "AI B2B Lead Generation & Cold Email Automation CRM with Google Maps Scraper and 15-Second AI Site Auditor.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "142",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Amit Sharma" },
-        "datePublished": "2026-01-15",
-        "reviewBody": "IIPL Lead automated our B2B lead pipelines and quadrupled our sales revenue.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      }
+      "offers": { "@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://lead.itobyinfotech.com" }
     },
     {
       "@type": "SoftwareApplication",
@@ -262,21 +240,7 @@ const jsonLdSaasProducts = {
       "url": "https://rent.itobyinfotech.com",
       "description": "Commercial Office Leasing & Tenant Management CRM for real estate property managers.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "98",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Vikram Patel" },
-        "datePublished": "2026-02-10",
-        "reviewBody": "Reduced tenant onboarding time by 75% across our commercial office towers.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      }
+      "offers": { "@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://rent.itobyinfotech.com" }
     },
     {
       "@type": "SoftwareApplication",
@@ -286,21 +250,7 @@ const jsonLdSaasProducts = {
       "url": "https://billing.itobyinfotech.com",
       "description": "Enterprise GST Invoicing & Client Revenue Software with E-Way Bill API sync and retainer billing.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "115",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Neha Gupta" },
-        "datePublished": "2026-01-28",
-        "reviewBody": "Simplified GST e-invoicing and automated monthly client billing effortlessly.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      }
+      "offers": { "@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://billing.itobyinfotech.com" }
     },
     {
       "@type": "SoftwareApplication",
@@ -310,45 +260,17 @@ const jsonLdSaasProducts = {
       "url": "https://cashmemo.itobyinfotech.com",
       "description": "Instant Digital Cash Memo & Retail Receipt Builder with direct WhatsApp PDF sharing.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "86",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Sanjay Verma" },
-        "datePublished": "2026-03-02",
-        "reviewBody": "Instant WhatsApp PDF receipt generator saves our billing staff hours every day.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      }
+      "offers": { "@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://cashmemo.itobyinfotech.com" }
     },
     {
       "@type": "SoftwareApplication",
       "name": "IIPL Calling",
       "applicationCategory": "CommunicationsApplication",
       "operatingSystem": "Web Browser",
-      "url": "https://royalblue-ant-234341.hostingersite.com/",
+      "url": "https://calling.itobyinfotech.com",
       "description": "Conversational AI Voice Calling Agents for Restaurant Table Bookings & Insurance Renewal Reminders.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "ratingCount": "64",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Rahul Mehta" },
-        "datePublished": "2026-03-15",
-        "reviewBody": "AI calling agents handle appointment scheduling smoothly with human-like conversation.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      }
+      "offers": { "@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://calling.itobyinfotech.com" }
     }
   ]
 };

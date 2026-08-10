@@ -34,7 +34,7 @@ export function generateBlogJsonLd(post: BlogSEOData, siteUrl = "https://www.ito
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png",
+        url: "https://www.itobyinfotech.com/images/logo.png",
       },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },

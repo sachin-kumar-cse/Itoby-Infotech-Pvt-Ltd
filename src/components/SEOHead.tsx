@@ -11,7 +11,7 @@ interface SEOHeadProps {
 }
 
 const SITE_URL = "https://www.itobyinfotech.com";
-const DEFAULT_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/social-images/social-1768300030161-logo.png";
+const DEFAULT_IMAGE = "https://www.itobyinfotech.com/images/logo.png";
 const BRAND_TAGLINE = "Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & SaaS Lab";
 
 export const SEOHead = ({

@@ -23,7 +23,7 @@ export default function LocationClient({ data }: Props) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: `Itoby Infotech Pvt. Ltd. - ${data.cityName}`,
-    image: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+    image: "https://www.itobyinfotech.com/images/logo.png",
     "@id": `https://www.itobyinfotech.com/locations/${data.citySlug}/${data.serviceSlug}`,
     url: `https://www.itobyinfotech.com/locations/${data.citySlug}/${data.serviceSlug}`,
     telephone: "+91-91427-73500",

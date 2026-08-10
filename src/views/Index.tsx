@@ -34,7 +34,7 @@ const Index = () => {
           name: "Itoby Infotech Pvt Ltd (IIPL)",
           alternateName: ["IIPL", "Itoby Infotech", "Itoby Infotech Private Limited"],
           url: "https://www.itobyinfotech.com",
-          logo: "https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png",
+          logo: "https://www.itobyinfotech.com/images/logo.png",
           description: "Global digital agency & SaaS software builder behind IIPL Lead, IIPL Renting, IIPL Billing, IIPL Cashmemo and IIPL Calling AI voice agents.",
           foundingDate: "2013",
           areaServed: ["IN", "US", "CA", "AU", "AE", "GB"],

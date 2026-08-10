@@ -52,7 +52,7 @@ serve(async (req) => {
     <lastBuildDate>${latestDate}</lastBuildDate>
     <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
     <image>
-      <url>https://storage.googleapis.com/gpt-engineer-file-uploads/NuIqdmrGTlSdYJak86UeamHtiDq1/uploads/1768299997879-logo.png</url>
+      <url>https://www.itobyinfotech.com/images/logo.png</url>
       <title>Itoby Infotech Blog</title>
       <link>${BASE_URL}/blog</link>
     </image>

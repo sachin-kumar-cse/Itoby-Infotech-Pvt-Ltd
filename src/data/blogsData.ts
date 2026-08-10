@@ -218,7 +218,7 @@ Explore commercial leasing software solutions at [IIPL Renting](https://rent.ito
     title: "The Future of FinTech: Automated GST Billing, E-Way Sync & Digital Cash Receipts",
     excerpt: "A comprehensive breakdown comparing tax-compliant invoicing (IIPL Billing) vs instant POS cash memo generators (IIPL Cashmemo).",
     category: "FinTech & Invoicing",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/blog/fintech-gst-billing-automation.webp",
     author: "Sachin Kumar",
     author_role: "Founder @ IIPL",
     read_time: "7 min read",

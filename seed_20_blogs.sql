@@ -177,7 +177,7 @@ Tailored for retail counters, quick billing, and instant service receipts:
 
 Learn more at [IIPL Billing](https://billing.itobyinfotech.com) and [IIPL Cashmemo](https://cashmemo.itobyinfotech.com).',
   'FinTech & Invoicing',
-  'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80',
+  '/images/blog/fintech-gst-billing-automation.webp',
   'Sachin Kumar',
   'Founder @ IIPL',
   '5 min read',
@@ -418,7 +418,7 @@ Paper thermal receipts fade over time, waste money, and fail to capture customer
 
 With **IIPL Cashmemo** (`https://cashmemo.itobyinfotech.com`), cashiers generate digital cash memos in 5 seconds and deliver PDF receipts straight to the customer''s WhatsApp.',
   'FinTech & Invoicing',
-  '/images/blogs/retail-whatsapp-invoicing.webp',
+  '/images/blog/retail-digital-whatsapp-invoicing.webp',
   'FinTech Team',
   'POS Specialist @ IIPL',
   '4 min read',

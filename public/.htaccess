@@ -2,13 +2,11 @@
   RewriteEngine On
   RewriteBase /
 
-  # 301 Redirect www to non-www
-  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
-  # 301 Redirect HTTP to HTTPS
+  # 301 Direct Single-Step Redirect non-www and HTTP to https://www.itobyinfotech.com
+  RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(itobyinfotech\.com)$ [NC]
+  RewriteRule ^(.*)$ https://www.itobyinfotech.com/$1 [R=301,L]
 
   # SPA Routing
   RewriteRule ^index\.html$ - [L]

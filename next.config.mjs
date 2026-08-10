@@ -6,6 +6,33 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'itobyinfotech.com',
+          },
+        ],
+        destination: 'https://www.itobyinfotech.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.itobyinfotech.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   outputFileTracingRoot: path.join(__dirname),
   reactStrictMode: true,
   trailingSlash: false,

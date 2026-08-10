@@ -418,7 +418,7 @@ Paper thermal receipts fade over time, waste money, and fail to capture customer
 
 With **IIPL Cashmemo** (`https://cashmemo.itobyinfotech.com`), cashiers generate digital cash memos in 5 seconds and deliver PDF receipts straight to the customer''s WhatsApp.',
   'FinTech & Invoicing',
-  'https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&w=1200&q=80',
+  '/images/blogs/retail-whatsapp-invoicing.webp',
   'FinTech Team',
   'POS Specialist @ IIPL',
   '4 min read',

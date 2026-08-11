@@ -92,6 +92,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   verification: {
     google: "xGvhsBlP0jK8nOcsUSrBBDy19jI3xN1lQff_vQLkF58",
+    other: {
+      "p:domain_verify": "1a7ed9f5d3e232f62e3dd027cc97c7e5",
+    },
   },
 };
 
@@ -284,6 +287,7 @@ export default function RootLayout({
     <html lang="en" className={`dark ${spaceGrotesk.variable} ${inter.variable} font-sans`} suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="xGvhsBlP0jK8nOcsUSrBBDy19jI3xN1lQff_vQLkF58" />
+        <meta name="p:domain_verify" content="1a7ed9f5d3e232f62e3dd027cc97c7e5" />
         <link rel="preconnect" href="https://uvpxfbucgcpsjwahmvjy.supabase.co" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         

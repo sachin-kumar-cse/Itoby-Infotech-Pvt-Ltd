@@ -27,6 +27,7 @@ import {
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
+import { getJobSlug } from "@/data/jobHelpers";
 
 interface Job {
   id: string;
@@ -265,7 +266,7 @@ const Careers = () => {
             >
               {jobs.map((job) => (
                 <motion.div key={job.id} variants={fadeUp}>
-                  <Link to={`/careers/${job.id}`}>
+                  <Link to={`/careers/${getJobSlug(job)}`}>
                     <div className="relative p-6 rounded-3xl bg-card/50 backdrop-blur-xl border border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.15)] group cursor-pointer overflow-hidden">
                       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">

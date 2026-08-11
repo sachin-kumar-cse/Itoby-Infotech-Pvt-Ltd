@@ -10,6 +10,7 @@ const caseStudy = {
   duration: "4 months",
   year: "2024",
   heroImage: heroImage,
+  alt: "Retail Chain Microsoft 365 deployment solution",
   overview: "Connected 200+ retail locations with Microsoft 365, enabling real-time communication and collaboration that transformed operational efficiency.",
   challenge: [
     "200+ locations with inconsistent communication methods - some using email, others fax, some just phone.",

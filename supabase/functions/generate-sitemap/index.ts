@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
@@ -7,7 +8,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const BASE_URL = "https://itobyinfotech.in";
+const BASE_URL = "https://www.itobyinfotech.com";
 
 const STATIC_PAGES = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
@@ -99,8 +100,9 @@ const handler = async (req: Request): Promise<Response> => {
     // Dynamic job pages
     for (const job of jobs) {
       const lastmod = job.updated_at ? job.updated_at.split("T")[0] : "";
+      const jobSlug = job.id === "944ab032-029a-4258-b9fb-47d4114fcdbd" ? "ui-ux-designer" : job.id;
       xml += `  <url>\n`;
-      xml += `    <loc>${BASE_URL}/careers/${job.id}</loc>\n`;
+      xml += `    <loc>${BASE_URL}/careers/${jobSlug}</loc>\n`;
       if (lastmod) xml += `    <lastmod>${lastmod}</lastmod>\n`;
       xml += `    <changefreq>weekly</changefreq>\n`;
       xml += `    <priority>0.5</priority>\n`;

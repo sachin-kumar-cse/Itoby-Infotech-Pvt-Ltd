@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useDbProjects } from "@/hooks/useDbProjects";
-import { ArrowUpRight, Filter, Sparkles, TrendingUp, Layers } from "lucide-react";
+import { ArrowUpRight, Filter, Sparkles, TrendingUp, Layers, Building2, Globe2, ShieldCheck, Lock } from "lucide-react";
 import { CTASection } from "@/components/sections/CTASection";
 import { PortfolioStatsSection } from "@/components/sections/PortfolioStatsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -165,11 +165,42 @@ const fallbackProjects = [
   },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.itobyinfotech.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Portfolio",
+      item: "https://www.itobyinfotech.com/portfolio",
+    },
+  ],
+};
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Software Engineering Portfolio & Case Studies",
+  description: "Explore Itoby Infotech's portfolio of successful client projects across SaaS platforms, mobile applications, AI agents, enterprise ERPs, and PropTech tools.",
+  provider: {
+    "@type": "Organization",
+    name: "Itoby Infotech Pvt. Ltd.",
+    url: "https://www.itobyinfotech.com",
+  },
+  url: "https://www.itobyinfotech.com/portfolio",
+};
+
 export default function PortfolioClient() {
   const [activeCategory, setActiveCategory] = useState("All");
   const { dbProjects, isLoading } = useDbProjects();
 
-  // Merge database projects with hardcoded projects (deduplicated by slug)
   const projects = [
     ...dbProjects,
     ...fallbackProjects.filter((fb) => !dbProjects.some((db) => db.slug === fb.slug)),
@@ -182,13 +213,37 @@ export default function PortfolioClient() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner
-        title="Showcasing Our Digital Masterpieces"
-        description="Explore our portfolio of successful digital transformations across web engineering, mobile apps, software solutions, and marketing campaigns."
-        badge="Our Proven Case Studies"
-        breadcrumbs={[{ label: "Portfolio" }]}
+        title="Showcasing Our Software Engineering Portfolio"
+        description="Explore our portfolio of proven digital transformations across SaaS platforms, mobile applications, AI microservices, enterprise ERPs, and PropTech platforms."
+        badge="Proven Client Case Studies"
+        breadcrumbs={[{ label: "Home", path: "/" }, { label: "Portfolio", path: "/portfolio" }]}
       />
+
+      {/* Entity & GEO Trust Signal Banner */}
+      <section className="py-4 bg-primary/10 border-b border-primary/20 text-xs font-semibold text-foreground">
+        <div className="container-wide flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Building2 className="text-primary w-4 h-4 shrink-0" />
+            <span><strong>Engineered by Itoby Infotech Pvt. Ltd.</strong> (Custom Software, SaaS & AI Solutions)</span>
+          </div>
+          <div className="flex items-center gap-4 text-muted-foreground">
+            <span className="flex items-center gap-1.5"><Globe2 className="w-3.5 h-3.5 text-primary" /> Global HQ: Noida, UP, India</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" /> Serving: US, CA, AU, GB, AE, IN</span>
+            <span className="flex items-center gap-1.5"><Lock className="w-3.5 h-3.5 text-primary" /> 100% IP Ownership</span>
+          </div>
+        </div>
+      </section>
 
       <PortfolioStatsSection />
 

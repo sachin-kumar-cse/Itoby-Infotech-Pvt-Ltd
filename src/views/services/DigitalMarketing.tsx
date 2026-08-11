@@ -159,7 +159,7 @@ const DigitalMarketing = () => {
           "name": "Digital Marketing",
           "provider": { "@type": "Organization", "name": "Itoby Infotech" },
           "description": "Comprehensive digital marketing services including SEO, social media, PPC, and content marketing.",
-          "url": "https://itobyinfotech.in/services/digital-marketing"
+          "url": "https://www.itobyinfotech.com/services/digital-marketing"
         }}
       />
       <PageHeroBanner

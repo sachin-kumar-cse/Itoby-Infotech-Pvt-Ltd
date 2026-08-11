@@ -69,6 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const compareRoutes = comparisonList.map((c) => `/comparison/${c.slug}`);
   const resourceRoutes = resourcesList.map((r) => `/resources/${r.slug}`);
   const locationRoutes = locationsList.map((l) => `/locations/${l.citySlug}/${l.serviceSlug}`);
+  const careerRoutes = ['/careers/ui-ux-designer'];
 
   const allRoutes = [
     ...staticRoutes,
@@ -82,6 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...compareRoutes,
     ...resourceRoutes,
     ...locationRoutes,
+    ...careerRoutes,
   ];
 
   return allRoutes.map((route) => ({

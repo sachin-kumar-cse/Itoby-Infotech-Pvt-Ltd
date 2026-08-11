@@ -36,6 +36,18 @@ const caseStudy = {
     author: "Maria Bellini",
     role: "Owner, Bella's Italian Kitchen"
   },
+  relatedServices: [
+    { name: "CRM Development Services", path: "/services/crm-development" },
+    { name: "Web Development Company", path: "/services/web-design" },
+    { name: "Custom Software Development", path: "/services/custom-software-development" }
+  ],
+  relatedIndustries: [
+    { name: "Software for Retail", path: "/industries/retail" }
+  ],
+  relatedTechnologies: [
+    { name: "AI Automation", path: "/technology/ai-automation" },
+    { name: "Node.js Development", path: "/technology/nodejs" }
+  ],
   relatedProjects: [
     {
       title: "B2B SaaS Company",

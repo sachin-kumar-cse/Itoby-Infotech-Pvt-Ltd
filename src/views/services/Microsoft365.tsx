@@ -157,7 +157,7 @@ const Microsoft365 = () => {
           "name": "Microsoft 365 Services",
           "provider": { "@type": "Organization", "name": "Itoby Infotech" },
           "description": "Microsoft 365 deployment, migration, and managed services for businesses.",
-          "url": "https://itobyinfotech.in/services/microsoft-365"
+          "url": "https://www.itobyinfotech.com/services/microsoft-365"
         }}
       />
       <PageHeroBanner

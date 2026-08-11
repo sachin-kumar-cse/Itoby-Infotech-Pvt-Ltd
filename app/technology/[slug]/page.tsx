@@ -24,18 +24,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const canonicalUrl = `${baseUrl}/technology/${slug}`;
+  const title = tech.seoTitle || tech.title || `${tech.name} Development Services | Itoby Infotech`;
+  const description = tech.metaDescription || tech.heroDescription;
 
   return {
-    title: tech.title || `${tech.name} Development Services | Itoby Infotech`,
-    description: tech.heroDescription,
+    title,
+    description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: tech.title || `${tech.name} Development Services | Itoby Infotech`,
-      description: tech.heroDescription,
+      title,
+      description,
       url: canonicalUrl,
+      siteName: "Itoby Infotech",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

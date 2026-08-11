@@ -10,6 +10,7 @@ const caseStudy = {
   duration: "10 months",
   year: "2024",
   heroImage: heroImage,
+  alt: "Manufacturing ERP software platform",
   overview: "A custom ERP system that improved operational efficiency by 45% for a mid-sized manufacturing company through automation and real-time visibility.",
   challenge: [
     "Multiple disconnected systems for inventory, production, and sales creating data silos.",

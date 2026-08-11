@@ -159,7 +159,7 @@ const MobileApp = () => {
           "name": "Mobile App Development",
           "provider": { "@type": "Organization", "name": "Itoby Infotech" },
           "description": "Native and cross-platform mobile app development for iOS and Android.",
-          "url": "https://itobyinfotech.in/services/mobile-app"
+          "url": "https://www.itobyinfotech.com/services/mobile-app"
         }}
       />
       <PageHeroBanner

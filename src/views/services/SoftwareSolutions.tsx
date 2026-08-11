@@ -157,7 +157,7 @@ const SoftwareSolutions = () => {
           "name": "Custom Software Solutions",
           "provider": { "@type": "Organization", "name": "Itoby Infotech" },
           "description": "Custom enterprise software development including ERP, CRM, and industry-specific solutions.",
-          "url": "https://itobyinfotech.in/services/software-solutions"
+          "url": "https://www.itobyinfotech.com/services/software-solutions"
         }}
       />
       <PageHeroBanner

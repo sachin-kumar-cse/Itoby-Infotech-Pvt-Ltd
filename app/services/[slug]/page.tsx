@@ -22,23 +22,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const title = service.seoTitle || `${service.title} | Itoby Infotech`;
+  const description = service.metaDescription || service.heroDescription;
+
   return {
-    title: `${service.title} | Itoby Infotech`,
-    description: service.heroDescription,
+    title,
+    description,
     alternates: {
       canonical: `https://www.itobyinfotech.com/services/${slug}`,
     },
     openGraph: {
-      title: `${service.title} | Itoby Infotech`,
-      description: service.heroDescription,
+      title,
+      description,
       url: `https://www.itobyinfotech.com/services/${slug}`,
       siteName: "Itoby Infotech",
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} | Itoby Infotech`,
-      description: service.heroDescription,
+      title,
+      description,
     },
   };
 }

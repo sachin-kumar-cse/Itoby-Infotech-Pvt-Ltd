@@ -158,7 +158,7 @@ const WebDesign = () => {
           "name": "Web Design & Development",
           "provider": { "@type": "Organization", "name": "Itoby Infotech" },
           "description": "Custom web design and development services including e-commerce, SaaS, and responsive web applications.",
-          "url": "https://itobyinfotech.in/services/web-design"
+          "url": "https://www.itobyinfotech.com/services/web-design"
         }}
       />
       {/* 3D Animated Hero & Breadcrumbs */}

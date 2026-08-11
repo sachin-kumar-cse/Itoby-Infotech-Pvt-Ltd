@@ -36,6 +36,31 @@ const caseStudy = {
     author: "Michael Torres",
     role: "Founder, FitTrack Wellness"
   },
+  relatedServices: [
+    { name: "Mobile App Development", path: "/services/mobile-app" },
+    { name: "Custom Software Development", path: "/services/custom-software-development" }
+  ],
+  relatedIndustries: [
+    { name: "Software for Healthcare", path: "/industries/healthcare" }
+  ],
+  relatedTechnologies: [
+    { name: "Flutter Mobile App Dev", path: "/technology/flutter" },
+    { name: "Node.js Development", path: "/technology/nodejs" }
+  ],
+  faqs: [
+    {
+      question: "What is the FitTrack Health App project developed by Itoby Infotech?",
+      answer: "FitTrack Health App is a cross-platform mobile health and fitness application engineered by Itoby Infotech Pvt. Ltd. using Flutter, Dart, Firebase, Node.js, and HealthKit/Google Fit APIs for workout tracking, nutrition logging, and wearable device sync."
+    },
+    {
+      question: "What technologies were used to build the FitTrack mobile app?",
+      answer: "The FitTrack mobile app was engineered using Flutter, Dart, Firebase, Node.js, MongoDB, Apple HealthKit, Google Fit API, and TensorFlow Lite for on-device machine learning recommendations."
+    },
+    {
+      question: "Does Itoby Infotech build custom mobile health & fitness applications?",
+      answer: "Yes. We engineer custom mobile applications for iOS and Android with wearable device integrations, biometric data security, offline data caching, and real-time cloud synchronization."
+    }
+  ],
   relatedProjects: [
     {
       title: "QuickPay Fintech App",

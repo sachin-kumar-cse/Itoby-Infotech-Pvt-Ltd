@@ -11,12 +11,12 @@ const nextConfig = {
     return [
       {
         source: '/home',
-        destination: 'https://www.itobyinfotech.com/',
+        destination: '/',
         permanent: true,
       },
       {
         source: '/home/:path*',
-        destination: 'https://www.itobyinfotech.com/',
+        destination: '/',
         permanent: true,
       },
       {

@@ -23,17 +23,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const title = industry.seoTitle || `${industry.title} | Itoby Infotech`;
+  const description = industry.metaDescription || industry.heroDescription;
+
   return {
-    title: `${industry.title} | Itoby Infotech`,
-    description: industry.heroDescription,
+    title,
+    description,
     alternates: {
       canonical: `https://www.itobyinfotech.com/industries/${slug}`,
     },
     openGraph: {
-      title: `${industry.title} | Itoby Infotech`,
-      description: industry.heroDescription,
+      title,
+      description,
       url: `https://www.itobyinfotech.com/industries/${slug}`,
+      siteName: "Itoby Infotech",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

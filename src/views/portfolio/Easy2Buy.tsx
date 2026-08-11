@@ -10,6 +10,7 @@ const caseStudy = {
   duration: "4 months",
   year: "2025",
   heroImage: heroImage,
+  alt: "Easy2Buy fashion e-commerce platform",
   overview: "A vibrant, full-featured fashion e-commerce platform serving 10,000+ customers with categories spanning sarees, kurtis, lehengas, jewelry, and accessories — achieving 40% month-over-month growth.",
   challenge: [
     "No online storefront for an established fashion retailer with a loyal offline customer base.",

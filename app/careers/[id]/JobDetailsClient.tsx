@@ -17,6 +17,7 @@ import {
   CheckCircle, Star, Send, Building, Share2, Heart
 } from "lucide-react";
 import { toast } from "sonner";
+import { getJobSlug, getJobInternalId } from "@/data/jobHelpers";
 
 interface Job {
   id: string;
@@ -54,10 +55,11 @@ export default function JobDetailsClient({ id }: { id: string }) {
   useEffect(() => {
     const fetchJob = async () => {
       setIsLoading(true);
+      const internalId = getJobInternalId(id || "");
       const { data, error } = await supabase
         .from("jobs")
         .select("*")
-        .eq("id", id || "")
+        .or(`id.eq.${internalId},id.eq.${id || ""}`)
         .eq("is_active", true)
         .maybeSingle();
 
@@ -393,7 +395,7 @@ export default function JobDetailsClient({ id }: { id: string }) {
             <h2 className="font-display text-2xl font-bold mb-8">Similar Openings</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {relatedJobs.map((rj) => (
-                <Link key={rj.id} href={`/careers/${rj.id}`}>
+                <Link key={rj.id} href={`/careers/${getJobSlug(rj)}`}>
                   <Card className="bg-card border-border hover:border-primary/50 transition-all group cursor-pointer h-full">
                     <CardContent className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">

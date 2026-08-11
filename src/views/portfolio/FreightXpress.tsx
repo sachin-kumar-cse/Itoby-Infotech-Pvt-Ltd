@@ -10,6 +10,7 @@ const caseStudy = {
   duration: "5 months",
   year: "2025",
   heroImage: heroImage,
+  alt: "FreightXpress logistics management platform",
   overview: "A comprehensive logistics and freight management website with real-time tracking, service booking, and customer portal that increased online bookings by 320%.",
   challenge: [
     "No online presence for a growing logistics company serving 500+ businesses.",

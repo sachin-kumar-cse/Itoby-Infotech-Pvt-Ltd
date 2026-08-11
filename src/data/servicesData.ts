@@ -1,24 +1,46 @@
 export interface DetailedServiceData {
   slug: string;
   title: string;
+  seoTitle?: string;
+  metaDescription?: string;
   heroBadge: string;
   heroDescription: string;
   overview: string;
+  aiOverview?: {
+    whatIs: string;
+    whoNeeds: string;
+    capabilities: string;
+    technologies: string;
+    processSummary: string;
+    securityAndScalability: string;
+  };
   benefits: string[];
   features: string[];
   process: { step: string; title: string; description: string }[];
   techStack: string[];
   useCases: string[];
+  relatedServices?: { name: string; path: string }[];
+  relatedCaseStudies?: { name: string; path: string; description: string }[];
   faqs: { question: string; answer: string }[];
 }
 
 export const detailedServicesList: DetailedServiceData[] = [
   {
     slug: "custom-software-development",
-    title: "Custom Software Development Services",
+    title: "Custom Software Development Company",
+    seoTitle: "Custom Software Development Company | Itoby Infotech",
+    metaDescription: "Itoby Infotech Pvt. Ltd. is a custom software development company engineering bespoke enterprise software, scalable microservices, custom ERP/CRM tools, and API integrations.",
     heroBadge: "Bespoke Software Engineering",
     heroDescription: "Itoby Infotech Pvt. Ltd. engineers custom software solutions, enterprise microservices, and automated business applications tailored to your exact operational workflows.",
     overview: "Custom software development is the process of designing, building, deploying, and maintaining software tailored specifically to a business's unique operational requirements rather than adapting to generic off-the-shelf SaaS tools. Itoby Infotech Pvt. Ltd. delivers custom business applications, multi-tenant portals, legacy software modernization, and API integrations engineered for long-term scalability and 100% IP ownership.",
+    aiOverview: {
+      whatIs: "Custom software development is the engineering of bespoke applications built specifically around an organization's proprietary workflows, database schemas, and compliance requirements.",
+      whoNeeds: "Growing enterprises, mid-market companies, and SaaS founders who have outgrown generic off-the-shelf software and require full source code ownership, zero per-seat monthly license fees, and custom API integrations.",
+      capabilities: "Itoby Infotech Pvt. Ltd. delivers end-to-end custom software solutions including enterprise microservices, admin portals, custom ERP and CRM platforms, automated business pipelines, and cloud database modernizations.",
+      technologies: "Next.js 15, React 19, TypeScript, Node.js, Python, PostgreSQL, Supabase, Docker, AWS, GraphQL, and RESTful API Gateways.",
+      processSummary: "5-stage agile lifecycle: Technical Discovery & Architecture -> UI/UX Prototyping -> 2-Week Agile Sprints -> Security & Penetration Audits -> Production Cloud Deployment with SLA Maintenance.",
+      securityAndScalability: "Built with Role-Based Access Control (RBAC), OAuth 2.0, AES-256 database encryption, OWASP input validation, sub-second PostgreSQL indexing, and AWS/Vercel auto-scaling infrastructure."
+    },
     benefits: [
       "100% intellectual property ownership with zero recurring per-user seat licenses",
       "Bespoke database schemas and API integrations built for your unique operations",
@@ -49,6 +71,18 @@ export const detailedServicesList: DetailedServiceData[] = [
       "Automated Supply Chain & Logistics Management Systems",
       "Custom Financial Dashboards & Real-Time Analytics"
     ],
+    relatedServices: [
+      { name: "ERP Development Services", path: "/services/erp-development" },
+      { name: "CRM Development Services", path: "/services/crm-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "AI Development Company", path: "/services/ai-development-company" },
+      { name: "Web Development Company", path: "/services/web-design" },
+      { name: "Mobile App Development", path: "/services/mobile-app" }
+    ],
+    relatedCaseStudies: [
+      { name: "Manufacturing Plant ERP Case Study", path: "/portfolio/manufacturing-erp", description: "Custom multi-branch inventory & production ERP built for enterprise manufacturing." },
+      { name: "Lead Itoby B2B Lead Gen CRM", path: "/portfolio/lead-itoby", description: "Automated cold email & lead scoring CRM platform." }
+    ],
     faqs: [
       {
         question: "What is custom software development?",
@@ -73,15 +107,33 @@ export const detailedServicesList: DetailedServiceData[] = [
       {
         question: "Who owns the developed custom software source code?",
         answer: "You own 100% of the custom software source code, intellectual property rights, database schemas, and documentation upon project completion."
+      },
+      {
+        question: "Where is Itoby Infotech located and what markets do you serve?",
+        answer: "Itoby Infotech Pvt. Ltd. is headquartered in Sector-4, Noida, UP, India (Delhi NCR) with an international client hub in California, US. We serve enterprises across the United States, Canada, Australia, United Kingdom, UAE, and India."
+      },
+      {
+        question: "How do you manage software development for clients in the US, Canada, Australia, UK, and UAE?",
+        answer: "We manage international B2B software engineering projects using structured Agile 2-week sprints, transparent Jira/GitHub task tracking, daily async updates, and overlapping communication windows tailored for US (EST/PST), UK (GMT), Australia (AEST), UAE (GST), and India time zones."
       }
     ]
   },
   {
     slug: "ai-development-company",
-    title: "AI Development Services",
+    title: "AI Development Company",
+    seoTitle: "AI Development Company | Enterprise AI & RAG Solutions | Itoby Infotech",
+    metaDescription: "Premier AI development company delivering custom artificial intelligence development services, RAG knowledge systems, LLM fine-tuning, and automated AI microservices.",
     heroBadge: "Artificial Intelligence Engineering",
     heroDescription: "Itoby Infotech Pvt. Ltd. delivers custom AI development services, RAG enterprise search engines, LLM fine-tuning, and intelligent automation systems.",
     overview: "AI development is the engineering process of designing, building, integrating, and deploying artificial intelligence models and microservices into business software. Itoby Infotech Pvt. Ltd. builds custom AI applications, Retrieval-Augmented Generation (RAG) knowledge systems, document intelligence tools, and automated predictive workflows tailored to enterprise operational needs.",
+    aiOverview: {
+      whatIs: "AI development is the engineering of custom artificial intelligence systems, Retrieval-Augmented Generation (RAG) search pipelines, Large Language Model (LLM) fine-tuning, and machine learning microservices.",
+      whoNeeds: "Businesses looking to automate repetitive data workflows, build intelligent document search engines, create custom conversational bots, or deploy predictive analytics tools without exposing sensitive data.",
+      capabilities: "Itoby Infotech Pvt. Ltd. engineers enterprise RAG vector search, custom LLM fine-tuning, multi-agent workflow automation, OCR document intelligence, and conversational voice interfaces.",
+      technologies: "OpenAI API, Claude 3.5, Llama 3, Python, LangChain, LlamaIndex, Pgvector, Supabase, FastAPI, Next.js 15, Docker, and AWS.",
+      processSummary: "5-step AI lifecycle: Data Cleanliness & Feasibility Audit -> RAG & Vector Chunking Architecture -> Application Integration -> Guardrails & PII Redaction -> Production Cloud Deployment.",
+      securityAndScalability: "Strict zero-data-retention enterprise API contracts, pre-embedding PII redaction, self-hosted LLM deployment inside private AWS VPCs, and sub-second vector index retrieval."
+    },
     benefits: [
       "100% private data security with zero third-party AI model training retention",
       "RAG architecture for hallucination-free enterprise document search",
@@ -112,6 +164,16 @@ export const detailedServicesList: DetailedServiceData[] = [
       "Predictive Customer Analytics & Lead Scoring",
       "Smart Recommendation Engines for E-Commerce & SaaS"
     ],
+    relatedServices: [
+      { name: "AI Agent Development Company", path: "/services/ai-agent-development" },
+      { name: "AI Chatbot Development Company", path: "/services/ai-chatbot-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "Custom Software Development", path: "/services/custom-software-development" }
+    ],
+    relatedCaseStudies: [
+      { name: "Autonomous AI Voice Agent Calling", path: "/blog/autonomous-ai-voice-agents-restaurant-sales-calling", description: "Conversational AI voice agent calling architecture for automated bookings." },
+      { name: "Kaspereye Security Platform", path: "/portfolio/kaspereye-security", description: "Real-time threat monitoring and intelligent analytics dashboard." }
+    ],
     faqs: [
       {
         question: "What is AI development?",
@@ -136,15 +198,29 @@ export const detailedServicesList: DetailedServiceData[] = [
       {
         question: "How long does AI software development take?",
         answer: "A RAG document search or basic AI application MVP takes 6 to 10 weeks. Multi-agent workflow automation systems and enterprise fine-tuned model pipelines take 12 to 18 weeks."
+      },
+      {
+        question: "How does Itoby Infotech deliver AI software for clients in the US, Canada, Australia, UK, and UAE?",
+        answer: "We deliver custom AI microservices globally via overlapping communication windows (EST, PST, GMT, AEST, GST), secure cloud deployments on AWS/Azure, and daily asynchronous GitHub/Jira sprint updates."
       }
     ]
   },
   {
     slug: "ai-agent-development",
-    title: "AI Agent Development Services",
+    title: "AI Agent Development Company",
+    seoTitle: "AI Agent Development Company | Autonomous AI Agents | Itoby Infotech",
+    metaDescription: "Pioneering AI agent development company engineering autonomous AI agents, multi-agent tool calling microservices, and Human-in-the-Loop automation.",
     heroBadge: "Autonomous AI Agent Engineering",
     heroDescription: "Itoby Infotech Pvt. Ltd. builds autonomous AI agents, multi-agent workflow automation systems, tool-calling microservices, and human-in-the-loop enterprise AI assistants.",
     overview: "An AI agent is an autonomous or semi-autonomous software system designed to interpret business goals, reason through multi-step tasks, invoke API tools, query vector databases, and execute workflows within defined permission boundaries. Unlike simple conversational chatbots, AI agents actively perform multi-step actions, execute tool functions, integrate with enterprise CRM/ERP systems, and incorporate human-in-the-loop approval gates for high-risk operations.",
+    aiOverview: {
+      whatIs: "An AI agent is an autonomous software system that uses Large Language Models (LLMs) to reason through goals, break them into sub-tasks, execute API functions, query vector memory, and self-correct during multi-step workflows.",
+      whoNeeds: "Enterprises seeking to automate multi-step operational tasks like lead enrichment, support ticket triage, invoice verification, or data reconciliation without human bottlenecking.",
+      capabilities: "Itoby Infotech Pvt. Ltd. designs single and multi-agent systems, ReAct & Plan-and-Solve reasoning loops, custom tool API wrappers, and Human-in-the-Loop (HITL) approval portals.",
+      technologies: "Python, LangChain, LangGraph, CrewAI, OpenAI API, Claude 3.5, Llama 3, Pgvector, Supabase, FastAPI, Next.js 15, and AWS.",
+      processSummary: "5-stage agent lifecycle: Use-Case Discovery & Tool API Mapping -> Agent Architecture & Prompt Engineering -> Multi-Agent Coding -> HITL & Safety Audits -> Cloud Deployment & Telemetry.",
+      securityAndScalability: "Strict permission bounds around tool calls, mandatory human approval gates for critical actions, complete execution telemetry logs, and private VPC deployment."
+    },
     benefits: [
       "Autonomous multi-step task execution and API tool-calling workflows",
       "Human-in-the-Loop (HITL) approval gates for sensitive operational actions",
@@ -174,6 +250,16 @@ export const detailedServicesList: DetailedServiceData[] = [
       "Automated Lead Qualification & CRM Sync Agents",
       "Back-Office Document Processing & Invoice Verification Agents",
       "Autonomous Data Retrieval & Market Intelligence Assistants"
+    ],
+    relatedServices: [
+      { name: "AI Development Company", path: "/services/ai-development-company" },
+      { name: "AI Chatbot Development Company", path: "/services/ai-chatbot-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "CRM Development Services", path: "/services/crm-development" }
+    ],
+    relatedCaseStudies: [
+      { name: "IIPL Calling AI Voice Agent", path: "/portfolio/lead-itoby", description: "Conversational voice agent calling SaaS built for automated lead outreach." },
+      { name: "Autonomous AI Voice Calling Architecture", path: "/blog/autonomous-ai-voice-agents-restaurant-sales-calling", description: "Technical guide on building multi-agent conversational voice systems." }
     ],
     faqs: [
       {
@@ -208,10 +294,20 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "ai-chatbot-development",
-    title: "AI Chatbot Development Services",
+    title: "AI Chatbot Development Company",
+    seoTitle: "AI Chatbot Development Company | 24/7 Conversational AI | Itoby Infotech",
+    metaDescription: "Custom AI chatbot development company building 24/7 conversational AI assistants, RAG document search bots, and seamless human support escalation.",
     heroBadge: "Conversational AI Engineering",
     heroDescription: "Itoby Infotech Pvt. Ltd. builds 24/7 AI chatbots, RAG document knowledge assistants, lead qualification bots, and seamless human support handoff systems.",
     overview: "An AI chatbot is a conversational software application that uses Natural Language Processing (NLP) and Large Language Models (LLMs) to understand user inquiries and deliver context-aware answers. Unlike basic rule-based chatbots with rigid decision trees, modern AI chatbots perform Retrieval-Augmented Generation (RAG) over company documents, qualify sales leads 24/7, and seamlessly transfer complex inquiries to human customer support agents.",
+    aiOverview: {
+      whatIs: "An AI chatbot is a conversational AI interface powered by Natural Language Processing (NLP), Large Language Models (LLMs), and Retrieval-Augmented Generation (RAG) to deliver 24/7 accurate support and lead capture.",
+      whoNeeds: "E-commerce stores, SaaS platforms, B2B agencies, healthcare providers, and enterprise portals needing to automate customer support inquiries, reduce tickets, and capture leads 24/7.",
+      capabilities: "Itoby Infotech Pvt. Ltd. develops RAG document search chatbots, multilingual support bots (50+ languages), automated lead capture bots, and live human support handoff integrations.",
+      technologies: "OpenAI API, Claude 3.5, Pgvector, Supabase, Next.js 15, React 19, Python, FastAPI, WebSockets, and WhatsApp Business API.",
+      processSummary: "5-step chatbot lifecycle: Document Ingestion & RAG Setup -> Conversational Design -> Custom Glassmorphic Widget Coding -> Human Escalation Testing -> Global Launch & Telemetry.",
+      securityAndScalability: "Zero public model data training retention, PII redaction filters, sub-second vector retrieval, and smooth WebSockets streaming."
+    },
     benefits: [
       "24/7 automated customer support with sub-second response times",
       "RAG-powered document knowledge retrieval for accurate answers",
@@ -241,6 +337,16 @@ export const detailedServicesList: DetailedServiceData[] = [
       "SaaS Knowledge Base & Technical Support Automation",
       "B2B Lead Qualification & Appointment Booking Assistants",
       "Internal Employee HR Policy & IT Knowledge Assistants"
+    ],
+    relatedServices: [
+      { name: "AI Agent Development Company", path: "/services/ai-agent-development" },
+      { name: "AI Development Company", path: "/services/ai-development-company" },
+      { name: "Web Development Company", path: "/services/web-design" },
+      { name: "Mobile App Development", path: "/services/mobile-app" }
+    ],
+    relatedCaseStudies: [
+      { name: "TechFlow Knowledge Assistant", path: "/portfolio/techflow", description: "Embedded support chat and real-time portal integration." },
+      { name: "Easy2Buy E-Commerce Assistant", path: "/portfolio/easy2buy", description: "Omnichannel e-commerce product inquiry chatbot." }
     ],
     faqs: [
       {
@@ -275,10 +381,20 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "saas-development-company",
-    title: "SaaS Development Services",
+    title: "SaaS Development Company",
+    seoTitle: "SaaS Development Company | Multi-Tenant Product Engineering | Itoby Infotech",
+    metaDescription: "Top SaaS development company engineering multi-tenant SaaS applications, automated Stripe subscription billing, self-service portals, and Next.js cloud architecture.",
     heroBadge: "SaaS Product Engineering",
     heroDescription: "Itoby Infotech Pvt. Ltd. engineers multi-tenant SaaS platforms, subscription billing engines, self-service portals, and scalable cloud architectures.",
     overview: "SaaS development is the process of building multi-tenant web applications accessible via subscription models. Itoby Infotech Pvt. Ltd. builds production-ready SaaS MVPs, self-service team management portals, automated Stripe subscription systems, and multi-tenant PostgreSQL architectures engineered to scale from initial launch to enterprise adoption.",
+    aiOverview: {
+      whatIs: "SaaS development is the engineering of cloud-based multi-tenant software platforms delivered under recurring subscription business models with automated billing and team access management.",
+      whoNeeds: "SaaS founders, tech startups, and enterprise organizations launching commercial cloud products, customer portals, or subscription-based software tools.",
+      capabilities: "Itoby Infotech Pvt. Ltd. delivers multi-tenant Row Level Security (RLS) database architecture, Stripe & Razorpay recurring billing integrations, team workspace onboarding, and white-label admin portals.",
+      technologies: "Next.js 15, TypeScript, React 19, Node.js, Supabase, PostgreSQL, Stripe API, Tailwind CSS, Vercel, and AWS.",
+      processSummary: "5-stage SaaS lifecycle: Discovery & Tenant Schema Architecture -> RLS & OAuth Setup -> Full-Stack Coding & Stripe Billing -> Load & Multi-Tenant Security Audits -> Production Rollout.",
+      securityAndScalability: "Strict Row Level Security (RLS) data isolation per tenant, automated webhook dunning engines for failed payments, RBAC permissions, and sub-second Next.js App Router performance."
+    },
     benefits: [
       "Multi-tenant database schema with strict Row Level Security (RLS) data isolation",
       "Automated Stripe & Razorpay recurring billing, tiered pricing, and dunning engine",
@@ -309,6 +425,16 @@ export const detailedServicesList: DetailedServiceData[] = [
       "Automated GST Invoicing & Financial Accounting SaaS",
       "AI-Powered Content & Autonomous Voice Agent SaaS"
     ],
+    relatedServices: [
+      { name: "Custom Software Development", path: "/services/custom-software-development" },
+      { name: "CRM Development Services", path: "/services/crm-development" },
+      { name: "ERP Development Services", path: "/services/erp-development" },
+      { name: "AI Development Company", path: "/services/ai-development-company" }
+    ],
+    relatedCaseStudies: [
+      { name: "Rent Itoby PropTech SaaS", path: "/portfolio/rent-itoby", description: "Commercial lease & tenant management SaaS platform." },
+      { name: "Lead Itoby Cold Email SaaS", path: "/portfolio/lead-itoby", description: "B2B lead generation & automated CRM subscription tool." }
+    ],
     faqs: [
       {
         question: "What is SaaS development?",
@@ -338,10 +464,20 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "web-development-company",
-    title: "Website & Web Development Company",
+    title: "Web Development Company",
+    seoTitle: "Web Development Company | Custom Next.js & Web Apps | Itoby Infotech",
+    metaDescription: "Leading website development company engineering custom Next.js web applications, headless e-commerce storefronts, and 100/100 Core Web Vitals portals.",
     heroBadge: "Full-Stack Web Engineering",
     heroDescription: "Custom Next.js web applications, headless e-commerce storefronts, and enterprise corporate websites engineered for maximum conversions.",
     overview: "We engineer custom high-converting web applications and enterprise portals using Next.js 15, React, and modern TypeScript. Every website we build features sub-second page loads, 100/100 Core Web Vitals, and robust search engine rankings.",
+    aiOverview: {
+      whatIs: "Web development is the full-stack engineering of web applications, corporate portals, and e-commerce platforms using modern frameworks like Next.js, React, and Node.js.",
+      whoNeeds: "Businesses needing fast, secure, search-optimized web applications with sub-second page rendering and high conversion rates.",
+      capabilities: "Itoby Infotech Pvt. Ltd. builds Next.js 15 web applications, headless CMS storefronts, PWA progressive web apps, and enterprise client portals.",
+      technologies: "Next.js 15, React 19, TypeScript, Tailwind CSS, Node.js, Supabase, Vercel, and REST/GraphQL APIs.",
+      processSummary: "4-step web engineering process: UX Wireframing -> Full-Stack Coding -> SEO & Core Web Vitals Optimization -> Vercel Edge Deployment.",
+      securityAndScalability: "Zero vulnerable third-party plugins, OWASP headers, automated sub-second CDN caching, and 100/100 Core Web Vitals scores."
+    },
     benefits: [
       "Sub-second page navigation with Server Components",
       "Built-in OpenGraph, Meta, and JSON-LD Schema SEO",
@@ -371,19 +507,43 @@ export const detailedServicesList: DetailedServiceData[] = [
       "SaaS Product Landing Hubs",
       "High-Conversion Lead Gen Pages"
     ],
+    relatedServices: [
+      { name: "Custom Software Development", path: "/services/custom-software-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "Mobile App Development", path: "/services/mobile-app" },
+      { name: "AI Development Company", path: "/services/ai-development-company" }
+    ],
+    relatedCaseStudies: [
+      { name: "TechFlow Corporate Portal", path: "/portfolio/techflow", description: "High-conversion web application portal." },
+      { name: "Luxe Fashion E-Commerce", path: "/portfolio/luxe-fashion", description: "Headless e-commerce storefront with instant page loads." }
+    ],
     faqs: [
       {
         question: "Why should we choose Next.js over WordPress for our business website?",
         answer: "Next.js websites deliver 5x faster page loads, 100/100 Core Web Vitals, top Google SEO rankings, and zero security risks from unmaintained third-party WordPress plugins."
+      },
+      {
+        question: "How long does custom web application development take?",
+        answer: "A standard corporate web application or lead gen hub takes 4 to 6 weeks. Complex headless e-commerce portals or web applications take 8 to 12 weeks."
       }
     ]
   },
   {
     slug: "mobile-app-development",
-    title: "Mobile App Development Company (iOS & Android)",
+    title: "Mobile App Development Company",
+    seoTitle: "Mobile App Development Company (iOS & Android) | Itoby Infotech",
+    metaDescription: "Custom mobile app development company building native iOS & Android applications with Flutter & React Native. 60fps graphics, biometric security, and offline sync.",
     heroBadge: "Cross-Platform Mobile Apps",
     heroDescription: "Native-performing iOS and Android mobile applications engineered with Flutter, React Native, and robust cloud backends.",
     overview: "Itoby Infotech Pvt. Ltd. builds high-performance mobile applications for iOS and Android. Using Flutter and React Native, we deliver fluid 60fps native user experiences, offline data caching, and real-time cloud synchronizations.",
+    aiOverview: {
+      whatIs: "Mobile app development is the engineering of mobile applications for iOS and Android smartphones and tablets using native or cross-platform frameworks like Flutter and React Native.",
+      whoNeeds: "Businesses, FinTech startups, healthcare providers, and e-commerce brands needing dedicated iOS & Android mobile apps with push notifications, offline support, and biometric security.",
+      capabilities: "Itoby Infotech Pvt. Ltd. delivers cross-platform Flutter & React Native mobile development, SQLite offline sync, biometric security (FaceID/TouchID), and Apple App Store / Google Play Store deployment.",
+      technologies: "Flutter, React Native, Dart, TypeScript, Supabase, Firebase, SQLite, PostgreSQL, and REST/GraphQL APIs.",
+      processSummary: "4-step mobile engineering process: UI/UX Wireframing -> Mobile Code Engineering -> Physical Device Testing -> App Store Publishing & Approval.",
+      securityAndScalability: "Encrypted local storage, biometric authentication, sub-second cloud synchronization, and 60fps native UI rendering."
+    },
     benefits: [
       "Single codebase cuts iOS & Android development cost by 40%",
       "Native 60fps hardware-accelerated graphics performance",
@@ -413,103 +573,43 @@ export const detailedServicesList: DetailedServiceData[] = [
       "Healthcare Telemedicine Mobile Apps",
       "E-Commerce Mobile Shopping Apps"
     ],
+    relatedServices: [
+      { name: "Web Development Company", path: "/services/web-design" },
+      { name: "Custom Software Development", path: "/services/custom-software-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "AI Development Company", path: "/services/ai-development-company" }
+    ],
+    relatedCaseStudies: [
+      { name: "FitTrack Health App", path: "/portfolio/fittrack", description: "Cross-platform mobile application with real-time biometric tracking." },
+      { name: "QuickPay Digital Wallet", path: "/portfolio/quickpay", description: "Secure FinTech mobile payment wallet app." }
+    ],
     faqs: [
       {
         question: "Will a Flutter app perform as well as native Swift or Kotlin?",
         answer: "Yes. Flutter compiles directly to ARM machine code for iOS and Android, leveraging the Skia/Impeller graphics renderer for liquid 60fps native UI performance."
-      }
-    ]
-  },
-  {
-    slug: "ai-agent-development",
-    title: "AI Agent Development Company",
-    heroBadge: "Autonomous AI Workflows",
-    heroDescription: "Autonomous AI agents, multi-agent orchestrations, and intelligent task execution workflows for enterprise automation.",
-    overview: "We engineer autonomous AI agents capable of reasoning, executing API actions, processing multi-step tasks, and collaborating to automate complex business workflows with human-in-the-loop oversight.",
-    benefits: [
-      "Autonomous 24/7 task execution without human bottleneck",
-      "Multi-agent collaboration for complex decision chains",
-      "Integrates directly with CRMs, databases, and third-party APIs",
-      "Strict safety guardrails and audit trails for compliance",
-      "Reduces manual operational costs by up to 75%",
-      "Scales processing volume instantly on demand"
-    ],
-    features: [
-      "Autonomous Multi-Agent Systems",
-      "Tool-Calling & API Execution Agents",
-      "Goal-Oriented Planning Models",
-      "Memory & Context Management",
-      "Human-in-the-Loop Approval Portals",
-      "Real-Time Execution Logs"
-    ],
-    process: [
-      { step: "01", title: "Workflow Mapping", description: "Deconstructing business processes into discrete agent tools and triggers." },
-      { step: "02", title: "Agent Construction", description: "Building agent prompts, tool integrations, and state machine transitions." },
-      { step: "03", title: "Simulation & Tuning", description: "Simulating edge cases and testing tool-execution precision." },
-      { step: "04", title: "Enterprise Deployment", description: "Integrating agents into your web dashboard with real-time logs." }
-    ],
-    techStack: ["LangChain", "CrewAI", "OpenAI API", "Python", "Node.js", "Pgvector", "Supabase"],
-    useCases: [
-      "Automated B2B Lead Enrichment",
-      "Customer Support Triage Agents",
-      "Code Refactoring & Audit Agents",
-      "Financial Data Reconciliation Agents"
-    ],
-    faqs: [
+      },
       {
-        question: "What is an autonomous AI agent?",
-        answer: "An AI agent is a specialized software model that can evaluate a high-level goal, break it into sub-tasks, call external APIs, query databases, and complete complex workflows autonomously."
-      }
-    ]
-  },
-  {
-    slug: "ai-chatbot-development",
-    title: "AI Chatbot Development Company",
-    heroBadge: "Conversational AI Portals",
-    heroDescription: "Custom AI chatbots, RAG customer support bots, and WhatsApp AI assistants integrated with enterprise CRMs.",
-    overview: "We build intelligent conversational AI chatbots trained on your internal documentation, knowledge bases, and product catalogs to deliver instant 24/7 customer support and lead qualification across web and mobile channels.",
-    benefits: [
-      "Instant < 1s response times for 80%+ of support inquiries",
-      "Zero hallucinations using proprietary RAG vector embeddings",
-      "Omnichannel deployment across Web, WhatsApp, and Mobile Apps",
-      "Seamless human escalation when complex intervention is needed",
-      "Supports 50+ international languages automatically",
-      "Direct lead generation and CRM calendar booking"
-    ],
-    features: [
-      "RAG Knowledge Base Training",
-      "Omnichannel Web & WhatsApp Widgets",
-      "CRM & Calendar Booking Integration",
-      "Multi-Language Conversational AI",
-      "Human Agent Live Chat Handoff",
-      "Sentiment & Analytics Dashboard"
-    ],
-    process: [
-      { step: "01", title: "Data Ingestion", description: "Scraping PDFs, help documentation, and FAQs into vector storage." },
-      { step: "02", title: "Widget & Flow Setup", description: "Designing dark glassmorphic chat widgets and conversational flows." },
-      { step: "03", title: "Testing & Guardrails", description: "Verifying response accuracy and preventing off-topic prompts." },
-      { step: "04", title: "Embed & Go Live", description: "Adding the lightweight widget snippet onto your Next.js application." }
-    ],
-    techStack: ["Next.js 15", "OpenAI API", "Pgvector", "Supabase", "Tailwind CSS", "WebSockets"],
-    useCases: [
-      "24/7 E-Commerce Order Support Bot",
-      "SaaS Technical Knowledge Base Assistant",
-      "WhatsApp Real Estate Inquiry Agent",
-      "Patient Appointment Intake Bot"
-    ],
-    faqs: [
-      {
-        question: "Can an AI chatbot hand off complex chats to human support agents?",
-        answer: "Yes. Our AI chatbots continuously evaluate query complexity and user sentiment, offering automated one-click handoff to human support representatives via email or live chat dashboard."
+        question: "How long does mobile app development take?",
+        answer: "A cross-platform mobile app MVP for iOS and Android takes 6 to 10 weeks. Enterprise apps with complex backends and offline sync take 12 to 18 weeks."
       }
     ]
   },
   {
     slug: "erp-development",
-    title: "ERP Development Services",
+    title: "ERP Development Company",
+    seoTitle: "ERP Development Company | Custom Enterprise ERP Systems | Itoby Infotech",
+    metaDescription: "Specialized ERP development company engineering custom ERP software, inventory tracking, supply chain automation, and GST financial accounting.",
     heroBadge: "Enterprise Resource Planning",
     heroDescription: "Itoby Infotech Pvt. Ltd. engineers custom ERP software systems, inventory engines, procurement automation, and integrated enterprise modules.",
     overview: "ERP (Enterprise Resource Planning) development is the software engineering process of creating or customizing integrated business management applications. It connects disparate organizational functions—such as procurement, inventory tracking, financial accounting, human resources, and supply chain operations—into a centralized system of record with role-based access controls and real-time operational analytics.",
+    aiOverview: {
+      whatIs: "ERP development is the engineering of custom Enterprise Resource Planning software connecting procurement, inventory, manufacturing, financial accounting, and HR into one secure database.",
+      whoNeeds: "Manufacturing companies, logistics providers, retail chains, and healthcare organizations seeking to eliminate per-seat licensing fees and replace disparate spreadsheets with a single system of record.",
+      capabilities: "Itoby Infotech Pvt. Ltd. builds custom inventory management, multi-branch supply chain ERP, automated GST invoicing, HR & payroll modules, and real-time executive BI dashboards.",
+      technologies: "Next.js 15, TypeScript, React 19, Node.js, Python, PostgreSQL, Supabase, Docker, AWS, and REST/GraphQL APIs.",
+      processSummary: "5-stage ERP lifecycle: Process Audit & Workflow Mapping -> Database Schema Planning -> Agile Sprint Development -> Legacy Data Migration -> Production Deployment with 24/7 SLA Support.",
+      securityAndScalability: "100% source code IP ownership, Role-Based Access Control (RBAC), AES-256 database encryption, sub-second PostgreSQL queries, and AWS cloud auto-scaling."
+    },
     benefits: [
       "Centralizes all enterprise operational departments into a single source of truth",
       "Automates procurement, inventory tracking, order processing, and GST billing",
@@ -539,6 +639,16 @@ export const detailedServicesList: DetailedServiceData[] = [
       "Logistics & Multi-Warehouse Supply Chain ERP",
       "Retail Multi-Branch Inventory & POS ERP",
       "Healthcare Hospital Operational & Inventory ERP"
+    ],
+    relatedServices: [
+      { name: "CRM Development Services", path: "/services/crm-development" },
+      { name: "Custom Software Development", path: "/services/custom-software-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "AI Development Company", path: "/services/ai-development-company" }
+    ],
+    relatedCaseStudies: [
+      { name: "Manufacturing Plant ERP System", path: "/portfolio/manufacturing-erp", description: "Enterprise multi-warehouse inventory & production ERP." },
+      { name: "FreightXpress Logistics ERP", path: "/portfolio/freightxpress", description: "Multi-branch fleet management & logistics system." }
     ],
     faqs: [
       {
@@ -573,10 +683,20 @@ export const detailedServicesList: DetailedServiceData[] = [
   },
   {
     slug: "crm-development",
-    title: "CRM Development Services",
+    title: "CRM Development Company",
+    seoTitle: "CRM Development Company | Custom Sales Pipeline Software | Itoby Infotech",
+    metaDescription: "Leading CRM development company building custom CRM software, Kanban sales deal boards, automated lead scoring, and WhatsApp/Email messaging sync.",
     heroBadge: "Customer Relationship Management",
     heroDescription: "Itoby Infotech Pvt. Ltd. engineers custom CRM software solutions, automated lead scoring engines, sales pipelines, and customer portals.",
     overview: "CRM (Customer Relationship Management) development is the software engineering process of building or customizing applications designed to capture, organize, track, and nurture customer interactions, lead pipelines, and sales communications throughout the buyer lifecycle. Itoby Infotech Pvt. Ltd. builds custom CRM portals (such as IIPL Lead and IIPL Renting), Kanban deal boards, multi-channel messaging integrations (Email/WhatsApp), and real-time revenue analytics dashboards tailored to your exact sales process.",
+    aiOverview: {
+      whatIs: "CRM development is the software engineering of custom Customer Relationship Management platforms, Kanban sales deal pipelines, automated lead scoring engines, and client portals.",
+      whoNeeds: "B2B sales teams, real estate leasing managers, financial firms, and professional agencies needing custom deal stages, automated round-robin lead routing, and zero per-seat subscription fees.",
+      capabilities: "Itoby Infotech Pvt. Ltd. builds custom Kanban sales pipelines, lead scoring automation, WhatsApp Business API integrations, client document portals, and real-time sales velocity analytics.",
+      technologies: "Next.js 15, TypeScript, React 19, Node.js, Python, PostgreSQL, Supabase, Stripe API, Tailwind CSS, and AWS.",
+      processSummary: "5-stage CRM lifecycle: Sales Process Audit -> Schema & UI Prototyping -> Agile Sprint Development -> Multi-Channel API Integration -> Production Rollout & SLA Support.",
+      securityAndScalability: "100% source code IP ownership, Role-Based Access Control (RBAC), secure PII storage, sub-second PostgreSQL indexing, and REST/GraphQL API gateways."
+    },
     benefits: [
       "Bespoke Kanban sales pipelines built 100% around your sales process",
       "Automated multi-channel lead capture from web forms, WhatsApp, and APIs",
@@ -606,6 +726,16 @@ export const detailedServicesList: DetailedServiceData[] = [
       "B2B SaaS Lead Capture & Cold Outreach CRM (IIPL Lead)",
       "FinTech Client Onboarding & KYC Management CRM",
       "Professional Agency Client Management & Invoice Portal"
+    ],
+    relatedServices: [
+      { name: "ERP Development Services", path: "/services/erp-development" },
+      { name: "Custom Software Development", path: "/services/custom-software-development" },
+      { name: "SaaS Development Company", path: "/services/saas-development-company" },
+      { name: "AI Agent Development Company", path: "/services/ai-agent-development" }
+    ],
+    relatedCaseStudies: [
+      { name: "Lead Itoby B2B Lead Gen CRM", path: "/portfolio/lead-itoby", description: "Automated cold email & lead scoring CRM platform." },
+      { name: "Rent Itoby Real Estate CRM", path: "/portfolio/rent-itoby", description: "PropTech leasing & tenant CRM software." }
     ],
     faqs: [
       {

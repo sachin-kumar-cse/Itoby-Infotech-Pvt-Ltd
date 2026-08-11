@@ -36,6 +36,20 @@ const caseStudy = {
     author: "Rahul Sharma",
     role: "Director, Kaspereye Security Solutions"
   },
+  relatedServices: [
+    { name: "Web Development Company", path: "/services/web-design" },
+    { name: "Custom Software Development", path: "/services/custom-software-development" },
+    { name: "AI Development Company", path: "/services/ai-development-company" }
+  ],
+  relatedIndustries: [
+    { name: "Software for Real Estate", path: "/industries/real-estate" },
+    { name: "Software for Retail", path: "/industries/retail" }
+  ],
+  relatedTechnologies: [
+    { name: "React Development", path: "/technology/react" },
+    { name: "Node.js Development", path: "/technology/nodejs" },
+    { name: "Python AI Engineering", path: "/technology/python" }
+  ],
   relatedProjects: [
     {
       title: "FreightXpress Logistics",

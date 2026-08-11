@@ -4,6 +4,19 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') || '';
   const proto = request.headers.get('x-forwarded-proto') || 'https';
+  const pathname = request.nextUrl.pathname;
+
+  // 301 Redirect legacy job UUID to SEO slug
+  if (pathname === '/careers/944ab032-029a-4258-b9fb-47d4114fcdbd') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/careers/ui-ux-designer';
+    return NextResponse.redirect(url, { status: 301 });
+  }
+
+  // 301 Redirect /home to root homepage /
+  if (pathname === '/home' || pathname.startsWith('/home/')) {
+    return NextResponse.redirect('https://www.itobyinfotech.com/', { status: 301 });
+  }
 
   // If request hits non-www domain (itobyinfotech.com) or plain HTTP on primary domain
   if (host === 'itobyinfotech.com' || (host === 'www.itobyinfotech.com' && proto === 'http')) {

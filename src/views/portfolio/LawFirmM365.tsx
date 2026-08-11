@@ -10,6 +10,7 @@ const caseStudy = {
   duration: "3 months",
   year: "2025",
   heroImage: heroImage,
+  alt: "Microsoft 365 migration solution for law firms",
   overview: "A seamless Microsoft 365 migration for a 150-person law firm that reduced IT costs by 50% while improving collaboration and security.",
   challenge: [
     "Aging on-premises infrastructure requiring significant capital investment to maintain or upgrade.",

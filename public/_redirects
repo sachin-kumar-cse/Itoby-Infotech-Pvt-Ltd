@@ -1,3 +1,5 @@
+/home https://www.itobyinfotech.com/ 301!
+/home/* https://www.itobyinfotech.com/ 301!
 http://itobyinfotech.com/* https://www.itobyinfotech.com/:splat 301!
 https://itobyinfotech.com/* https://www.itobyinfotech.com/:splat 301!
 http://www.itobyinfotech.com/* https://www.itobyinfotech.com/:splat 301!

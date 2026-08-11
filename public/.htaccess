@@ -8,6 +8,9 @@
   RewriteCond %{HTTP_HOST} ^(?:www\.)?(itobyinfotech\.com)$ [NC]
   RewriteRule ^(.*)$ https://www.itobyinfotech.com/$1 [R=301,L]
 
+  # 301 Redirect /home to root homepage
+  RewriteRule ^home/?(.*)$ https://www.itobyinfotech.com/ [R=301,L]
+
   # SPA Routing
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f

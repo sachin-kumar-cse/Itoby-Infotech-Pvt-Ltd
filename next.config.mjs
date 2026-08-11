@@ -10,6 +10,16 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/home',
+        destination: 'https://www.itobyinfotech.com/',
+        permanent: true,
+      },
+      {
+        source: '/home/:path*',
+        destination: 'https://www.itobyinfotech.com/',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

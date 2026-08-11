@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import JobDetailsClient from "./JobDetailsClient";
 import { supabase } from "@/integrations/supabase/client";
-import { getJobSlug, getJobInternalId } from "@/data/jobHelpers";
+import { getJobSlug, getJobInternalId, isValidUuid, JOB_SLUG_MAP } from "@/data/jobHelpers";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -10,22 +10,23 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  if (id === "944ab032-029a-4258-b9fb-47d4114fcdbd") {
-    return {
-      title: "UI/UX Designer Careers | Itoby Infotech",
-      alternates: {
-        canonical: "https://www.itobyinfotech.com/careers/ui-ux-designer",
-      },
-    };
+  if (JOB_SLUG_MAP[id]) {
+    const slug = JOB_SLUG_MAP[id];
+    return redirect(`/careers/${slug}`);
   }
 
   const internalId = getJobInternalId(id);
+  const targetId = isValidUuid(internalId) ? internalId : (isValidUuid(id) ? id : null);
 
-  const { data: job } = await supabase
-    .from("jobs")
-    .select("title, department, location, description")
-    .or(`id.eq.${internalId},id.eq.${id}`)
-    .maybeSingle();
+  let job = null;
+  if (targetId) {
+    const { data } = await supabase
+      .from("jobs")
+      .select("title, department, location, description")
+      .eq("id", targetId)
+      .maybeSingle();
+    job = data;
+  }
 
   const slug = getJobSlug({ id: job ? internalId : id, title: job?.title });
   const title = job?.title || (id === "ui-ux-designer" ? "UI/UX Designer" : "Career Opportunity");
@@ -43,17 +44,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function JobDetailsPage({ params }: Props) {
   const { id } = await params;
 
-  if (id === "944ab032-029a-4258-b9fb-47d4114fcdbd") {
-    redirect("/careers/ui-ux-designer");
+  if (JOB_SLUG_MAP[id]) {
+    redirect(`/careers/${JOB_SLUG_MAP[id]}`);
   }
 
   const internalId = getJobInternalId(id);
+  const targetId = isValidUuid(internalId) ? internalId : (isValidUuid(id) ? id : null);
 
-  const { data: job } = await supabase
-    .from("jobs")
-    .select("*")
-    .or(`id.eq.${internalId},id.eq.${id}`)
-    .maybeSingle();
+  let job = null;
+  if (targetId) {
+    const { data } = await supabase
+      .from("jobs")
+      .select("*")
+      .eq("id", targetId)
+      .maybeSingle();
+    job = data;
+  }
 
   const title = job?.title || (id === "ui-ux-designer" ? "UI/UX Designer" : "Career Opportunity");
   const description = job?.description || "Apply for UI/UX Designer position at Itoby Infotech Pvt. Ltd.";

@@ -15,7 +15,7 @@ import {
   CheckCircle, Star, Send, Building, Share2, Heart
 } from "lucide-react";
 import { toast } from "sonner";
-import { getJobSlug, getJobInternalId } from "@/data/jobHelpers";
+import { getJobSlug, getJobInternalId, isValidUuid } from "@/data/jobHelpers";
 
 interface Job {
   id: string;
@@ -55,23 +55,29 @@ const JobDetails = () => {
     const fetchJob = async () => {
       setIsLoading(true);
       const internalId = getJobInternalId(id || "");
-      const { data, error } = await supabase
-        .from("jobs")
-        .select("*")
-        .or(`id.eq.${internalId},id.eq.${id || ""}`)
-        .eq("is_active", true)
-        .maybeSingle();
+      const targetId = isValidUuid(internalId) ? internalId : (isValidUuid(id || "") ? id : null);
 
-      if (error || !data) {
+      let fetchedJob: Job | null = null;
+      if (targetId) {
+        const { data } = await supabase
+          .from("jobs")
+          .select("*")
+          .eq("id", targetId)
+          .eq("is_active", true)
+          .maybeSingle();
+        if (data) fetchedJob = data as Job;
+      }
+
+      if (!fetchedJob) {
         setJob(null);
       } else {
-        setJob(data as Job);
+        setJob(fetchedJob);
         const { data: related } = await supabase
           .from("jobs")
           .select("*")
           .eq("is_active", true)
-          .eq("department", data.department)
-          .neq("id", data.id)
+          .eq("department", fetchedJob.department)
+          .neq("id", fetchedJob.id)
           .limit(2);
         setRelatedJobs((related as Job[]) || []);
       }

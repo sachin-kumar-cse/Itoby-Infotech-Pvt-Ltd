@@ -112,13 +112,13 @@ const jsonLdOrganization = {
     availableLanguage: ["en", "hi"],
   },
   sameAs: [
-    "https://linkedin.com/company/itobyinfotech",
-    "https://github.com/sachin-kumar-cse/Itoby-Infotech-Pvt-Ltd",
-    "https://twitter.com/itobyinfotech",
-    "https://instagram.com/itobyinfotech",
-    "https://facebook.com/itobyinfotech",
-    "https://youtube.com/@itobyinfotech",
-    "https://www.crunchbase.com/organization/itoby-infotech",
+    "https://www.linkedin.com/in/itoby-infotech-629529428/",
+    "https://www.facebook.com/itobyinfotech2017/",
+    "https://www.instagram.com/itobyinfotechpvtltd",
+    "https://www.youtube.com/@Itobyinfotech",
+    "https://x.com/itobyinfotech",
+    "https://github.com/itobyinfotech",
+    "https://www.crunchbase.com/organization/itoby-infotech-private-limited",
   ],
 };
 

@@ -127,7 +127,7 @@ export const HeroSection = () => {
             opacity: [0.3, 0.5, 0.3],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-primary/10 blur-[80px] sm:blur-[140px]"
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] lg:w-[800px] h-[300px] sm:h-[500px] lg:h-[800px] rounded-full bg-primary/5 blur-[120px] sm:blur-[180px] pointer-events-none"
         />
         <motion.div
           animate={{
@@ -135,7 +135,7 @@ export const HeroSection = () => {
             opacity: [0.2, 0.4, 0.2],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-10 w-[250px] sm:w-[400px] lg:w-[600px] h-[250px] sm:h-[400px] lg:h-[600px] rounded-full bg-glow-secondary/10 blur-[80px] sm:blur-[120px]"
+          className="absolute bottom-1/4 right-10 w-[250px] sm:w-[400px] lg:w-[600px] h-[250px] sm:h-[400px] lg:h-[600px] rounded-full bg-glow-secondary/5 blur-[100px] sm:blur-[160px] pointer-events-none"
         />
 
         {/* 3D Glass Orbs */}
@@ -155,7 +155,7 @@ export const HeroSection = () => {
             rotate: [360, 180, 0],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-1/3 w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] rounded-full bg-primary/10 blur-[60px] sm:blur-[100px] hidden sm:block"
+          className="absolute top-1/3 left-1/3 w-[200px] sm:w-[300px] lg:w-[400px] h-[200px] sm:h-[300px] lg:h-[400px] rounded-full bg-primary/5 blur-[80px] sm:blur-[120px] hidden sm:block pointer-events-none"
         />
       </div>
 
@@ -404,7 +404,7 @@ export const HeroSection = () => {
               />
               
               {/* Inner Content */}
-              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-primary/20 to-glow-secondary/20 backdrop-blur-sm border border-primary/20 flex items-center justify-center">
+              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/80 backdrop-blur-md border border-primary/20 shadow-xl flex items-center justify-center">
                 <div className="text-center p-6">
                   <motion.div
                     animate={{ 
@@ -415,7 +415,7 @@ export const HeroSection = () => {
                       y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                       rotateY: { duration: 8, repeat: Infinity, ease: "linear" },
                     }}
-                    className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-primary flex items-center justify-center shadow-[0_0_40px_hsl(75_100%_50%/0.4)]"
+                    className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-primary flex items-center justify-center shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
                   >
                     <span className="text-4xl font-display font-bold text-primary-foreground">IIPL</span>
                   </motion.div>

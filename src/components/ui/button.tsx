@@ -8,15 +8,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_30px_hsl(75_100%_50%/0.4)]",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)]",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-border bg-transparent text-foreground hover:border-primary hover:text-primary",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground font-bold hover:shadow-[0_0_40px_hsl(75_100%_50%/0.5)] hover:scale-105 transition-all duration-300",
+        hero: "bg-primary text-primary-foreground font-bold hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] hover:scale-105 transition-all duration-300",
         "hero-outline": "border-2 border-foreground/20 bg-transparent text-foreground hover:border-primary hover:text-primary hover:bg-primary/10 transition-all duration-300",
-        glow: "bg-primary text-primary-foreground animate-pulse-glow hover:animate-none hover:shadow-[0_0_50px_hsl(75_100%_50%/0.6)]",
+        glow: "bg-primary text-primary-foreground animate-pulse-glow hover:animate-none hover:shadow-[0_0_50px_hsl(var(--primary)/0.45)]",
         magnetic: "bg-primary text-primary-foreground hover:scale-105 active:scale-95 transition-transform duration-200",
       },
       size: {

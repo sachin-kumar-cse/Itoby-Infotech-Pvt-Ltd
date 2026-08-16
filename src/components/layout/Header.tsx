@@ -124,7 +124,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2"
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.5)] transition-shadow duration-300">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-shadow duration-300">
                   <span className="text-primary-foreground font-display font-bold text-base sm:text-xl">
                     IIPL
                   </span>

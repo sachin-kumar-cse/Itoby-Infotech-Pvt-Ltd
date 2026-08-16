@@ -230,7 +230,7 @@ export const Footer = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address..."
-                    className="h-11 px-4 rounded-xl bg-secondary border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-[0_0_20px_hsl(75_100%_50%/0.2)] transition-all w-full sm:w-72"
+                    className="h-11 px-4 rounded-xl bg-secondary border border-border text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:shadow-[0_0_20px_hsl(var(--primary)/0.2)] transition-all w-full sm:w-72"
                     disabled={isSubmitting}
                     required
                   />
@@ -322,7 +322,7 @@ export const Footer = () => {
           <motion.div variants={itemVariants} className="space-y-4">
             <Link href="/" className="flex items-center gap-2 group">
               <motion.div
-                className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(75_100%_50%/0.6)] transition-shadow"
+                className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-shadow"
                 whileHover={{ rotate: 5, scale: 1.05 }}
               >
                 <span className="text-primary-foreground font-display font-bold text-xl">IIPL</span>

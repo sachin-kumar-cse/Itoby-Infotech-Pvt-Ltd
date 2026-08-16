@@ -11,6 +11,9 @@
   # 301 Redirect /home to root homepage
   RewriteRule ^home/?(.*)$ https://www.itobyinfotech.com/ [R=301,L]
 
+  # 301 Redirect /about-us to /about
+  RewriteRule ^about-us/?(.*)$ https://www.itobyinfotech.com/about [R=301,L]
+
   # SPA Routing
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f

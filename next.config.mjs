@@ -20,6 +20,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/about-us/:path*',
+        destination: '/about',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

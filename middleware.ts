@@ -25,6 +25,11 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // 301 Redirect /about-us to /about
+  if (pathname === '/about-us' || pathname.startsWith('/about-us/')) {
+    return NextResponse.redirect('https://www.itobyinfotech.com/about', { status: 301 });
+  }
+
   // 301 Redirect /home to root homepage /
   if (pathname === '/home' || pathname.startsWith('/home/')) {
     return NextResponse.redirect('https://www.itobyinfotech.com/', { status: 301 });

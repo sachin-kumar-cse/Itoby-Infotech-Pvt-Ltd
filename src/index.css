@@ -74,9 +74,9 @@
 
   /* Light Mode */
   .light {
-    --primary: 142 72% 32%;
-    --primary-foreground: 0 0% 100%;
-    --background: 218 20% 97%;
+    --primary: 75 100% 46%;
+    --primary-foreground: 0 0% 0%;
+    --background: 220 16% 96%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -85,31 +85,31 @@
     --secondary: 215 20% 93%;
     --secondary-foreground: 222 47% 11%;
     --muted: 215 20% 90%;
-    --muted-foreground: 215 20% 40%;
-    --accent: 142 72% 32%;
-    --accent-foreground: 0 0% 100%;
+    --muted-foreground: 215 20% 35%;
+    --accent: 75 100% 46%;
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
     --border: 214 20% 86%;
     --input: 214 20% 86%;
-    --ring: 142 72% 32%;
+    --ring: 75 100% 46%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 142 72% 32%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary: 75 100% 46%;
+    --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 215 20% 93%;
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 214 20% 86%;
-    --sidebar-ring: 142 72% 32%;
+    --sidebar-ring: 75 100% 46%;
 
-    --glow-primary: 142 72% 32%;
-    --glow-secondary: 170 70% 30%;
-    --gradient-start: 142 72% 32%;
-    --gradient-end: 170 70% 30%;
+    --glow-primary: 75 100% 46%;
+    --glow-secondary: 160 84% 30%;
+    --gradient-start: 75 100% 46%;
+    --gradient-end: 142 76% 36%;
 
-    --shadow-glow: 0 4px 20px hsl(142 72% 32% / 0.12);
-    --shadow-glow-lg: 0 10px 30px hsl(142 72% 32% / 0.15);
+    --shadow-glow: 0 4px 20px hsl(75 100% 46% / 0.18);
+    --shadow-glow-lg: 0 10px 30px hsl(75 100% 46% / 0.25);
     --shadow-card: 0 10px 30px -10px hsl(222 47% 11% / 0.06);
   }
 

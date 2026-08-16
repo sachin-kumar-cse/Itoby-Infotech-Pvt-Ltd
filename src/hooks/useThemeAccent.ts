@@ -5,12 +5,12 @@ import { useState, useEffect } from "react";
 export interface AccentPreset {
   id: string;
   name: string;
-  hsl: string; // e.g. "75 100% 50%"
+  hsl: string; // e.g. "75 100% 46%"
   hex: string; // for UI swatch preview
 }
 
 export const ACCENT_PRESETS: AccentPreset[] = [
-  { id: "lime", name: "Cyber Lime", hsl: "75 100% 50%", hex: "#84cc16" },
+  { id: "lime", name: "Cyber Lime", hsl: "75 100% 46%", hex: "#aee801" },
   { id: "blue", name: "Neon Cyan", hsl: "190 100% 50%", hex: "#06b6d4" },
   { id: "purple", name: "Electric Purple", hsl: "270 100% 60%", hex: "#a855f7" },
   { id: "pink", name: "Hot Pink", hsl: "325 100% 55%", hex: "#ec4899" },
@@ -32,29 +32,6 @@ export const ACCENT_PRESETS: AccentPreset[] = [
   { id: "sunburst", name: "Sunburst Red", hsl: "0 84% 60%", hex: "#ef4444" },
 ];
 
-const LIGHT_MODE_ACCENTS: Record<string, string> = {
-  lime: "142 72% 32%",       // Rich Emerald Forest Green
-  blue: "199 89% 36%",       // Deep Sapphire Blue
-  purple: "270 70% 45%",     // Deep Royal Purple
-  pink: "330 75% 42%",       // Deep Magenta Rose
-  indigo: "238 75% 48%",     // Rich Electric Indigo
-  crimson: "345 75% 42%",    // Deep Crimson
-  orange: "20 85% 42%",      // Rich Burnt Orange
-  amber: "35 90% 36%",       // Deep Amber Gold
-  emerald: "155 80% 30%",    // Deep Ocean Emerald
-  teal: "173 80% 30%",       // Deep Ocean Teal
-  magenta: "292 70% 42%",    // Rich Magenta
-  gold: "42 90% 35%",        // Rich Gold
-  mint: "165 75% 32%",       // Deep Mint
-  violet: "258 75% 48%",     // Deep Violet
-  coral: "0 80% 45%",        // Deep Coral
-  sky: "200 90% 36%",        // Deep Azure Sky
-  rose: "350 75% 45%",       // Deep Rose
-  chartreuse: "142 72% 32%", // Rich Forest Green
-  fuchsia: "293 65% 42%",    // Deep Fuchsia
-  sunburst: "0 80% 45%",     // Deep Crimson Red
-};
-
 export const useThemeAccent = () => {
   const [activeAccent, setActiveAccent] = useState<AccentPreset>(ACCENT_PRESETS[0]);
 
@@ -63,20 +40,17 @@ export const useThemeAccent = () => {
     if (typeof window !== "undefined") {
       localStorage.setItem("itoby-theme-accent", preset.id);
 
-      const isLight = document.documentElement.classList.contains("light");
-      const effectiveHsl = isLight ? (LIGHT_MODE_ACCENTS[preset.id] || "142 72% 32%") : preset.hsl;
-
       const root = document.documentElement;
-      root.style.setProperty("--primary", effectiveHsl);
-      root.style.setProperty("--accent", effectiveHsl);
-      root.style.setProperty("--ring", effectiveHsl);
-      root.style.setProperty("--glow-primary", effectiveHsl);
-      root.style.setProperty("--gradient-start", effectiveHsl);
-      root.style.setProperty("--chart-1", effectiveHsl);
-      root.style.setProperty("--sidebar-primary", effectiveHsl);
-      root.style.setProperty("--sidebar-ring", effectiveHsl);
+      root.style.setProperty("--primary", preset.hsl);
+      root.style.setProperty("--accent", preset.hsl);
+      root.style.setProperty("--ring", preset.hsl);
+      root.style.setProperty("--glow-primary", preset.hsl);
+      root.style.setProperty("--gradient-start", preset.hsl);
+      root.style.setProperty("--chart-1", preset.hsl);
+      root.style.setProperty("--sidebar-primary", preset.hsl);
+      root.style.setProperty("--sidebar-ring", preset.hsl);
 
-      window.dispatchEvent(new CustomEvent("themeAccentChange", { detail: { ...preset, hsl: effectiveHsl, isLight } }));
+      window.dispatchEvent(new CustomEvent("themeAccentChange", { detail: preset }));
     }
   };
 
@@ -91,18 +65,6 @@ export const useThemeAccent = () => {
     }
 
     applyAccent(initialPreset);
-
-    // MutationObserver to automatically adjust accent colors when switching between dark and light themes
-    const observer = new MutationObserver(() => {
-      applyAccent(initialPreset);
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
   }, []);
 
   return {

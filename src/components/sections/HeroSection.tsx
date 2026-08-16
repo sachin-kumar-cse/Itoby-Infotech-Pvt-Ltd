@@ -208,7 +208,7 @@ export const HeroSection = () => {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="w-2 h-2 rounded-full bg-primary"
               />
-              <span className="text-xs sm:text-sm font-semibold text-primary">
+              <span className="text-xs sm:text-sm font-semibold text-foreground dark:text-primary">
                 Itoby Infotech Pvt Ltd (IIPL) • Global Digital Agency & Enterprise SaaS Lab
               </span>
               <Sparkles size={14} className="text-primary" />

@@ -65,10 +65,10 @@ const quickLinks = [
 ];
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com/company/itobyinfotech", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/itoby-infotech-629529428", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com/itobyinfotech", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com/itobyinfotech", label: "Instagram" },
-  { icon: Facebook, href: "https://facebook.com/itobyinfotech", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/itobyinfotechpvtltd/", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/itobyinfotech2017", label: "Facebook" },
   { icon: Youtube, href: "https://youtube.com/@itobyinfotech", label: "YouTube" },
 ];
 

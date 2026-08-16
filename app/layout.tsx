@@ -115,9 +115,9 @@ const jsonLdOrganization = {
     availableLanguage: ["en", "hi"],
   },
   sameAs: [
-    "https://www.linkedin.com/in/itoby-infotech-629529428/",
-    "https://www.facebook.com/itobyinfotech2017/",
-    "https://www.instagram.com/itobyinfotechpvtltd",
+    "https://www.linkedin.com/in/itoby-infotech-629529428",
+    "https://www.facebook.com/itobyinfotech2017",
+    "https://www.instagram.com/itobyinfotechpvtltd/",
     "https://www.youtube.com/@Itobyinfotech",
     "https://x.com/itobyinfotech",
     "https://github.com/itobyinfotech",

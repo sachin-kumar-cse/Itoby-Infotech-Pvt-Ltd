@@ -1,20 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Eye, Database, Bell, Mail, Globe, UserCheck } from "lucide-react";
+import { Shield, Lock, Eye, Database, Bell, Mail, Globe, UserCheck, Clock, Trash2, Users, Smartphone } from "lucide-react";
 
+/**
+ * Each section renders as a card and carries an `id`, so a section can be linked
+ * to directly. Google Play asks for an account deletion URL separately from the
+ * privacy policy URL, and #account-deletion is only a valid answer while that
+ * anchor exists — do not rename it.
+ */
 const sections = [
   {
+    id: "information-we-collect",
     icon: Database,
     title: "Information We Collect",
     content: [
       "Personal Information: Name, email address, phone number, and company details when you contact us or use our services.",
       "Usage Data: Information about how you interact with our website, including pages visited, time spent, and navigation patterns.",
       "Technical Data: IP address, browser type, device information, and operating system.",
-      "Cookies: We use cookies and similar tracking technologies to enhance your browsing experience.",
+      "Cookies: This website uses cookies and similar technologies to enhance your browsing experience. The Itoby mobile app uses none — it stores only a sign-in token and your appearance preference on your device.",
     ],
   },
   {
+    id: "information-in-the-itoby-app",
+    icon: Smartphone,
+    title: "Information in the Itoby App",
+    content: [
+      "Your account: your email address, the role your organisation has been given, and the name and contact details recorded against your account.",
+      "If you are billed through IIPL Renting: your lease and the unit it covers, the invoices raised against it, payments made and their gateway reference, receipts issued, maintenance complaints you raise together with any photographs or files attached to them, and documents shared with you or uploaded by you.",
+      "Activity: actions taken inside the product — who changed what, and when — are written to an audit log, which is how a billing or complaint record can be explained later.",
+      "The app carries no advertising, no analytics and no tracking. We do not sell personal information or share it with data brokers.",
+    ],
+  },
+  {
+    id: "how-we-use-your-information",
     icon: Eye,
     title: "How We Use Your Information",
     content: [
@@ -25,6 +44,7 @@ const sections = [
     ],
   },
   {
+    id: "data-security",
     icon: Lock,
     title: "Data Security",
     content: [
@@ -35,6 +55,7 @@ const sections = [
     ],
   },
   {
+    id: "your-rights",
     icon: UserCheck,
     title: "Your Rights",
     content: [
@@ -42,19 +63,55 @@ const sections = [
       "Rectification: You can request correction of inaccurate or incomplete data.",
       "Erasure: You can request deletion of your personal data under certain circumstances.",
       "Data Portability: You can request transfer of your data to another service provider.",
+      "Write to info@itobyinfotech.com and we will respond within thirty days. We may ask you to confirm your identity first, so that we are not handing your records to someone else.",
+      "Under India's Digital Personal Data Protection Act, Itoby Infotech Pvt Ltd is the Data Fiduciary for this information, and Sector-4, Noida, UP, India is where a grievance should be sent. If we do not resolve it, you may escalate to the Data Protection Board of India.",
     ],
   },
   {
+    id: "third-party-services",
     icon: Globe,
     title: "Third-Party Services",
     content: [
-      "We may use third-party services for analytics, payment processing, and communication.",
-      "These services have their own privacy policies governing the use of your information.",
-      "We ensure that our partners comply with applicable data protection regulations.",
+      "Supabase hosts the database, authentication and file storage behind the Itoby app. Data is held in their managed infrastructure.",
+      "Razorpay processes card, UPI and netbanking payments. Payment details are entered on Razorpay's own checkout and are never handled by us. We receive and store only the outcome and its reference, so an invoice can be marked paid and a receipt issued.",
+      "Neither is given your data for their own purposes, and we do not add others without changing this page first. We will also disclose information where the law requires it, or to establish or defend a legal claim.",
+      "Our providers may store and process data outside India, including in the European Union and the United States. Where personal data leaves the country it was collected in, it is protected by the contractual terms we hold with those providers.",
       "We do not sell your personal information to third parties.",
     ],
   },
   {
+    id: "how-long-we-keep-it",
+    icon: Clock,
+    title: "How Long We Keep It",
+    content: [
+      "Enquiries: up to two years from your last contact with us, unless you ask for removal sooner.",
+      "Account and rental records: for as long as your lease or relationship with us is active.",
+      "Invoices, payments and receipts: eight years after the financial year they belong to, as Indian tax law requires. These cannot be deleted on request while that period runs.",
+      "Audit log entries: for as long as the records they explain are held.",
+    ],
+  },
+  {
+    id: "account-deletion",
+    icon: Trash2,
+    title: "Deleting Your Account",
+    content: [
+      "Itoby accounts are created by an administrator at your organisation rather than by self sign-up, so they are closed the same way. Ask your administrator, or write to us directly.",
+      "To request deletion, email info@itobyinfotech.com from the address on the account with the subject \"Delete my account\". We will action it within thirty days.",
+      "Closing an account removes your access and your profile.",
+      "Financial records we are required to retain — invoices, payments and receipts — are kept for the period described above and then deleted.",
+    ],
+  },
+  {
+    id: "children",
+    icon: Users,
+    title: "Children",
+    content: [
+      "The Itoby app is a business tool. It is not directed at children, it is not designed for them, and we do not knowingly collect information from anyone under 18.",
+      "If you believe a child has given us information, write to us and we will remove it.",
+    ],
+  },
+  {
+    id: "updates-to-this-policy",
     icon: Bell,
     title: "Updates to This Policy",
     content: [
@@ -95,7 +152,7 @@ export default function PrivacyPolicyClient() {
               use, and safeguard your data.
             </p>
             <p className="text-sm text-muted-foreground mt-4">
-              Last updated: January 2025
+              Last updated: September 2026
             </p>
           </motion.div>
         </div>
@@ -108,11 +165,12 @@ export default function PrivacyPolicyClient() {
             {sections.map((section, index) => (
               <motion.div
                 key={section.title}
+                id={section.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card border border-border rounded-2xl p-8"
+                className="bg-card border border-border rounded-2xl p-8 scroll-mt-32"
               >
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -148,17 +206,17 @@ export default function PrivacyPolicyClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="mailto:privacy@itobyinfotech.in" 
+                href="mailto:info@itobyinfotech.com" 
                 className="text-primary hover:underline font-medium"
               >
-                privacy@itobyinfotech.in
+                info@itobyinfotech.com
               </a>
               <span className="hidden sm:block text-muted-foreground">|</span>
               <a 
-                href="tel:+919876543210" 
+                href="tel:+919142773500" 
                 className="text-primary hover:underline font-medium"
               >
-                +91 98765 43210
+                +91 91427 73500
               </a>
             </div>
           </motion.div>

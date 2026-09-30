@@ -260,7 +260,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                                   href="/products/renting"
                                   className="block px-2.5 py-1.5 text-xs font-medium rounded-xl hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
                                 >
-                                  PropTech Renting CRM
+                                  IIPL Renting CRM
                                 </Link>
                                 <Link
                                   href="/products/calling"

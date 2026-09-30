@@ -152,7 +152,7 @@ export const productsList: ProductData[] = [
   },
   {
     slug: "renting",
-    name: "IIPL Renting (PropTech CRM)",
+    name: "IIPL Renting CRM",
     tagline: "Commercial Property Leasing & Tenant Management CRM",
     category: "PropTech",
     badge: "PropTech CRM",

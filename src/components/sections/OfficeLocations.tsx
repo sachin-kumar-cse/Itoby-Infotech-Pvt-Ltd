@@ -25,7 +25,6 @@ const offices = [
     city: "California",
     country: "United States",
     address: "513 W Bonaventure Ave, Tracy, CA 95391, USA",
-    phone: "+1 (888) 581-3028",
     email: "usa@itobyinfotech.com",
     hours: "Mon - Fri: 9:00 AM - 5:00 PM PST",
   },
@@ -84,12 +83,14 @@ export const OfficeLocations = () => {
                     <MapPin size={18} className="shrink-0 mt-0.5 text-primary" />
                     {office.address}
                   </p>
-                  <p className="text-muted-foreground flex items-center gap-3">
-                    <Phone size={18} className="shrink-0 text-primary" />
-                    <a href={`tel:${office.phone}`} className="hover:text-primary transition-colors">
-                      {office.phone}
-                    </a>
-                  </p>
+                  {office.phone && (
+                    <p className="text-muted-foreground flex items-center gap-3">
+                      <Phone size={18} className="shrink-0 text-primary" />
+                      <a href={`tel:${office.phone}`} className="hover:text-primary transition-colors">
+                        {office.phone}
+                      </a>
+                    </p>
+                  )}
                   <p className="text-muted-foreground flex items-center gap-3">
                     <Mail size={18} className="shrink-0 text-primary" />
                     <a href={`mailto:${office.email}`} className="hover:text-primary transition-colors">

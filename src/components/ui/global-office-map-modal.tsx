@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MapPin, Clock, Globe, PhoneCall, ShieldCheck, ArrowRight, Building, Sparkles } from "lucide-react";
+import { X, MapPin, Clock, Globe, PhoneCall, Mail, ShieldCheck, ArrowRight, Building, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface OfficeHub {
@@ -11,7 +11,7 @@ interface OfficeHub {
   type: string;
   address: string;
   timezone: string;
-  phone: string;
+  phone?: string;
   email: string;
   coords: { x: number; y: number }; // Percentage position on map
   status: "active" | "standby";
@@ -57,7 +57,6 @@ const officeHubs: OfficeHub[] = [
     type: "US Client & Technology Hub",
     address: "513 W Bonaventure Ave, Tracy, CA 95391, USA",
     timezone: "America/Los_Angeles",
-    phone: "+1 (888) 581-3028",
     email: "usa@itobyinfotech.com",
     coords: { x: 22, y: 38 },
     status: "active",
@@ -240,10 +239,19 @@ export const GlobalOfficeMapModal = ({ isOpen, onClose }: GlobalOfficeMapModalPr
                     <span>{selectedHub.address}</span>
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <PhoneCall className="w-4 h-4 text-primary shrink-0" />
-                    <a href={`tel:${selectedHub.phone}`} className="hover:text-foreground font-mono">{selectedHub.phone}</a>
-                  </div>
+                  {selectedHub.phone && (
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <PhoneCall className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`tel:${selectedHub.phone}`} className="hover:text-foreground font-mono">{selectedHub.phone}</a>
+                    </div>
+                  )}
+
+                  {selectedHub.email && (
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Mail className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`mailto:${selectedHub.email}`} className="hover:text-foreground font-mono">{selectedHub.email}</a>
+                    </div>
+                  )}
                 </div>
               </div>
 

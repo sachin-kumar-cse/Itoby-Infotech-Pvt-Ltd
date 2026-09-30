@@ -190,7 +190,6 @@ const jsonLdLocalBusiness = {
       "image": "https://www.itobyinfotech.com/images/logo.png",
       "@id": "https://www.itobyinfotech.com/#california-office",
       "url": "https://www.itobyinfotech.com",
-      "telephone": "+1-888-581-3028",
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",

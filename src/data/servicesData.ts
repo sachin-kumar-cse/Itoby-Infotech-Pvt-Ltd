@@ -80,7 +80,7 @@ export const detailedServicesList: DetailedServiceData[] = [
       { name: "Mobile App Development", path: "/services/mobile-app" }
     ],
     relatedCaseStudies: [
-      { name: "Manufacturing Plant ERP Case Study", path: "/portfolio/manufacturing-erp", description: "Custom multi-branch inventory & production ERP built for enterprise manufacturing." },
+      { name: "Rent Itoby Asset Management CRM", path: "/portfolio/rent-itoby", description: "Fleet and asset leasing CRM with booking workflows." },
       { name: "Lead Itoby B2B Lead Gen CRM", path: "/portfolio/lead-itoby", description: "Automated cold email & lead scoring CRM platform." }
     ],
     faqs: [
@@ -110,7 +110,7 @@ export const detailedServicesList: DetailedServiceData[] = [
       },
       {
         question: "Where is Itoby Infotech located and what markets do you serve?",
-        answer: "Itoby Infotech Pvt. Ltd. is headquartered in Sector-4, Noida, UP, India (Delhi NCR) with an international client hub in California, US. We serve enterprises across the United States, Canada, Australia, United Kingdom, UAE, and India."
+        answer: "Itoby Infotech Private Limited is headquartered in Sector-4, Noida, UP, India with its registered office in Delhi. We serve clients across India and international markets, including the United States, through remote software development and IT services."
       },
       {
         question: "How do you manage software development for clients in the US, Canada, Australia, UK, and UAE?",
@@ -345,7 +345,7 @@ export const detailedServicesList: DetailedServiceData[] = [
       { name: "Mobile App Development", path: "/services/mobile-app" }
     ],
     relatedCaseStudies: [
-      { name: "TechFlow Knowledge Assistant", path: "/portfolio/techflow", description: "Embedded support chat and real-time portal integration." },
+      { name: "Lead Itoby AI Prospecting Assistant", path: "/portfolio/lead-itoby", description: "Automated lead discovery and multi-channel conversational scoring." },
       { name: "Easy2Buy E-Commerce Assistant", path: "/portfolio/easy2buy", description: "Omnichannel e-commerce product inquiry chatbot." }
     ],
     faqs: [
@@ -514,8 +514,8 @@ export const detailedServicesList: DetailedServiceData[] = [
       { name: "AI Development Company", path: "/services/ai-development-company" }
     ],
     relatedCaseStudies: [
-      { name: "TechFlow Corporate Portal", path: "/portfolio/techflow", description: "High-conversion web application portal." },
-      { name: "Luxe Fashion E-Commerce", path: "/portfolio/luxe-fashion", description: "Headless e-commerce storefront with instant page loads." }
+      { name: "Easy2Buy E-Commerce", path: "/portfolio/easy2buy", description: "Modern e-commerce platform with catalog management and secure checkout." },
+      { name: "Juxtudio Architecture Showcase", path: "/portfolio/juxtudio", description: "Visual architecture and interior design portfolio." }
     ],
     faqs: [
       {
@@ -580,8 +580,8 @@ export const detailedServicesList: DetailedServiceData[] = [
       { name: "AI Development Company", path: "/services/ai-development-company" }
     ],
     relatedCaseStudies: [
-      { name: "FitTrack Health App", path: "/portfolio/fittrack", description: "Cross-platform mobile application with real-time biometric tracking." },
-      { name: "QuickPay Digital Wallet", path: "/portfolio/quickpay", description: "Secure FinTech mobile payment wallet app." }
+      { name: "Easy2Buy Mobile Platform", path: "/portfolio/easy2buy", description: "Responsive mobile commerce with catalog search and checkout." },
+      { name: "Rent Itoby Mobile Operations", path: "/portfolio/rent-itoby", description: "Mobile asset tracking and booking management interface." }
     ],
     faqs: [
       {
@@ -647,8 +647,8 @@ export const detailedServicesList: DetailedServiceData[] = [
       { name: "AI Development Company", path: "/services/ai-development-company" }
     ],
     relatedCaseStudies: [
-      { name: "Manufacturing Plant ERP System", path: "/portfolio/manufacturing-erp", description: "Enterprise multi-warehouse inventory & production ERP." },
-      { name: "FreightXpress Logistics ERP", path: "/portfolio/freightxpress", description: "Multi-branch fleet management & logistics system." }
+      { name: "Rent Itoby Fleet & Inventory CRM", path: "/portfolio/rent-itoby", description: "Multi-branch equipment leasing and reservation workflow platform." },
+      { name: "Solid Edge Corporate Contracting", path: "/portfolio/solidedgeconstructions", description: "Corporate contracting and civil project management portal." }
     ],
     faqs: [
       {

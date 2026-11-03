@@ -13,7 +13,7 @@ const features = [
   {
     icon: Globe,
     title: "Global Availability",
-    description: "Serving clients across 15+ countries with flexible communication hours.",
+    description: "Serving clients across India and international markets, including the United States.",
     gradient: "from-emerald-500/20 via-emerald-500/10 to-transparent",
     iconColor: "text-emerald-500",
     glow: "group-hover:shadow-emerald-500/20",

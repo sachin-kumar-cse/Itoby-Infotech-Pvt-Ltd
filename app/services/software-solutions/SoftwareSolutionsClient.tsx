@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import Link from "next/link";
-import manufacturingErpImage from "@/assets/portfolio/manufacturing-erp.webp";
-import healthcarePortalImage from "@/assets/portfolio/healthcare-portal.webp";
+import rentItobyImage from "@/assets/portfolio/rent-itoby.png";
+import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 import { Button } from "@/components/ui/button";
 import { 
   Database,
@@ -143,18 +143,18 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "Manufacturing ERP System",
-    category: "Enterprise Software",
-    result: "45% improvement in efficiency",
-    image: getImgSrc(manufacturingErpImage),
-    path: "/portfolio/manufacturing-erp",
+    title: "Rent Itoby Asset Management",
+    category: "Proprietary SaaS Platform",
+    result: "Fleet Management & Booking Automation",
+    image: getImgSrc(rentItobyImage),
+    path: "/portfolio/rent-itoby",
   },
   {
-    title: "Healthcare Patient Portal",
-    category: "Custom Portal",
-    result: "Reduced admin time by 60%",
-    image: getImgSrc(healthcarePortalImage),
-    path: "/portfolio/healthcare-portal",
+    title: "Kaspereye Security Solutions",
+    category: "B2B Security Web Architecture",
+    result: "Security Surveillance Products Portal",
+    image: getImgSrc(kaspereyeImage),
+    path: "/portfolio/kaspereye-security",
   },
 ];
 

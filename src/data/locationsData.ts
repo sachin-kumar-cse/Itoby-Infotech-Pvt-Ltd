@@ -26,10 +26,10 @@ export const locationsList: LocationServiceData[] = [
     heroDescription: "Premier website development company in Noida engineering custom Next.js web applications, e-commerce stores, and high-converting websites for businesses across Sector-62, Sector-63 & NCR.",
     overview: "Itoby Infotech Pvt. Ltd. is a top-rated website development agency in Noida, Sector-4. We specialize in engineering ultra-fast, secure, and SEO-optimized web applications using Next.js 15, React, and TypeScript with 100/100 Core Web Vitals performance.",
     benefits: [
-      "Local software engineering office in Sector-4, Noida",
+      "Operational headquarters in Sector-4, Noida",
       "Sub-second page navigation with Next.js 15 Server Components",
-      "100/100 Core Web Vitals score guarantee for Google SEO",
-      "Custom UI/UX design tailored for NCR startups & enterprises",
+      "High Core Web Vitals optimization for Google SEO",
+      "Custom UI/UX design tailored for NCR businesses & enterprises",
       "Dedicated 12 months post-launch technical SLA support",
       "Seamless integration with GST invoicing & payment gateways"
     ],
@@ -45,7 +45,7 @@ export const locationsList: LocationServiceData[] = [
     faqs: [
       {
         question: "Why choose Itoby Infotech as your website development company in Noida?",
-        answer: "Itoby Infotech Pvt. Ltd. is physically headquartered in Sector-4, Noida with 11+ years of proven software development experience, having delivered 500+ successful digital projects for startups, SMEs, and global enterprises."
+        answer: "Itoby Infotech Private Limited operates its operational headquarters in Sector-4, Noida. Incorporated in 2017, the company provides custom software engineering and digital technology services for businesses in India and international markets."
       },
       {
         question: "Where is Itoby Infotech located in Noida?",

@@ -140,7 +140,7 @@ export const VideoModal = ({ isOpen, onClose, testimonial }: VideoModalProps) =>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-foreground font-medium">
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
-                    <span>300% Conversion Boost</span>
+                    <span>Modern Cloud Architecture</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-foreground font-medium">
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />

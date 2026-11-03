@@ -91,7 +91,7 @@ const ROICalculatorSection = () => {
             Calculate Your <span className="text-primary">Return on Investment</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            See projected growth based on industry benchmarks from our 100+ successful projects.
+            Explore illustrative estimates based on standard digital industry planning models.
           </p>
         </motion.div>
 
@@ -207,7 +207,7 @@ const ROICalculatorSection = () => {
                 </div>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  * Based on average results from 100+ projects. Actual results may vary.
+                  * Estimates are illustrative for planning purposes. Actual results vary based on business model and market execution.
                 </p>
 
                 <Button variant="hero" className="w-full" asChild>

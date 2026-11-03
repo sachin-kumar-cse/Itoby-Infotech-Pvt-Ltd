@@ -24,6 +24,20 @@ interface DbProject {
   client?: string;
 }
 
+const DEPRECATED_SLUGS = new Set([
+  "techflow",
+  "luxe-fashion",
+  "fittrack",
+  "quickpay",
+  "restaurant-chain",
+  "b2b-saas",
+  "manufacturing-erp",
+  "healthcare-portal",
+  "law-firm-m365",
+  "retail-m365",
+  "freightxpress",
+]);
+
 // Cache for projects to avoid repeated fetches
 let projectsCache: PortfolioProject[] | null = null;
 let cacheTimestamp: number = 0;
@@ -63,10 +77,12 @@ export const useDbProjects = () => {
       }
 
       if (data && data.length > 0) {
-        const processedProjects = data.map((p: DbProject) => ({
-          ...p,
-          source: "db" as const,
-        }));
+        const processedProjects = data
+          .filter((p: DbProject) => !DEPRECATED_SLUGS.has(p.slug))
+          .map((p: DbProject) => ({
+            ...p,
+            source: "db" as const,
+          }));
 
         // Update cache
         projectsCache = processedProjects;

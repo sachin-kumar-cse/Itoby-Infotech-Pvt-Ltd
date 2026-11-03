@@ -37,10 +37,10 @@ export const productsList: ProductData[] = [
       "AI Personalized Email Body Generator"
     ],
     benefits: [
-      "Extract 1,000+ verified B2B leads per hour automatically",
-      "Increase cold email open rates by 3x with personalized AI audits",
+      "Extract structured B2B leads from publicly accessible map data",
+      "Improve cold email relevance with automated site audit reports",
       "Integrated lead scoring and CRM pipeline management",
-      "Zero manual data entry with auto-enrichment APIs"
+      "Structured data export for outreach campaigns"
     ],
     howItWorks: [
       { step: "01", title: "Search & Scrape", description: "Input target industry and city to scrape verified B2B leads from Google Maps." },
@@ -81,10 +81,10 @@ export const productsList: ProductData[] = [
       "Comprehensive GSTR-1 & GSTR-3B Tax Filing Analytics"
     ],
     benefits: [
-      "Reduce invoice generation time from 15 minutes to 30 seconds",
-      "Accelerate payment collection by 50% with instant payment links",
-      "100% compliant with Indian GST laws and international e-invoicing standards",
-      "Multi-currency conversion for global client billing"
+      "Streamline invoice generation workflows for quick billing",
+      "Accelerate payment collection with direct digital payment links",
+      "Compliant with Indian GST laws and invoice standard formats",
+      "Multi-currency support for cross-border invoicing"
     ],
     howItWorks: [
       { step: "01", title: "Client & Item Setup", description: "Add client details and catalog products with HSN tax codes." },
@@ -169,10 +169,10 @@ export const productsList: ProductData[] = [
       "Investor Portfolio Financial Yield Dashboards"
     ],
     benefits: [
-      "Reduce tenant onboarding time by 75%",
-      "Eliminate late rent payments with automated WhatsApp reminders",
-      "Centralize commercial unit vacancies across multiple property towers",
-      "Automated financial profit-loss reporting for property investors"
+      "Streamline commercial and residential tenant onboarding",
+      "Automated rent alerts and renewal reminder workflows",
+      "Centralize unit vacancies across managed property portfolios",
+      "Financial reporting and export capabilities for property records"
     ],
     howItWorks: [
       { step: "01", title: "Add Property Units", description: "Log office units, square footage, and monthly rental pricing." },
@@ -200,7 +200,7 @@ export const productsList: ProductData[] = [
     tagline: "Conversational AI Voice Calling Agents",
     category: "AI",
     badge: "Voice AI",
-    externalUrl: "https://royalblue-ant-234341.hostingersite.com/",
+    externalUrl: "https://calling.itobyinfotech.com",
     heroDescription: "Autonomous Voice AI calling agents that handle inbound customer inquiries and outbound sales calls with human-like conversation latency.",
     overview: "IIPL Calling deploys conversational AI voice agents capable of conducting natural phone calls, qualifying sales leads, booking calendar appointments, and answering customer support inquiries 24/7.",
     targetAudience: "Call Centers, Insurance Brokers, Real Estate Agencies, and Customer Support Teams",
@@ -213,9 +213,9 @@ export const productsList: ProductData[] = [
       "Real-Time Call Transcript & Sentiment Analysis"
     ],
     benefits: [
-      "Scale call volume to 10,000+ simultaneous calls instantly",
-      "Reduce call center operational costs by 80%",
-      "Zero missed inbound customer calls 24 hours a day",
+      "Scale concurrent call handling with automated cloud telephony",
+      "Reduce repetitive call handling overhead for frontline teams",
+      "Answer routine inbound customer calls around the clock",
       "Seamless integration with CRM lead workflows"
     ],
     howItWorks: [

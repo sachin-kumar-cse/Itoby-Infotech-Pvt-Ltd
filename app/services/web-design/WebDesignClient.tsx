@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import Link from "next/link";
-import techflowImage from "@/assets/portfolio/techflow-saas.webp";
-import luxeFashionImage from "@/assets/portfolio/luxe-fashion.webp";
+import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import juxtudioImage from "@/assets/portfolio/juxtudio-architecture.png";
 import { 
   Palette, 
   Code, 
@@ -40,7 +40,7 @@ const offerings = [
 ];
 
 const benefits = [
-  "Increase conversions by up to 200% with optimized design",
+  "Enhanced user experience with conversion-focused UI/UX design",
   "24/7 uptime with enterprise-grade hosting",
   "SEO-optimized structure for better search rankings",
   "Mobile-first responsive design for all devices",
@@ -143,17 +143,17 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "TechFlow SaaS Platform",
-    category: "Web Application",
-    result: "300% increase in user signups",
-    image: getImgSrc(techflowImage),
-    path: "/portfolio/techflow",
+    title: "Easy2Buy E-commerce",
+    category: "E-commerce Platform",
+    result: "Catalog & Payment Architecture",
+    image: getImgSrc(easy2buyImage),
+    path: "/portfolio/easy2buy",
   },
   {
     title: "Juxtudio – Architecture & Interior Design",
     category: "Design Portfolio",
-    result: "+95% consultation bookings",
-    image: getImgSrc(luxeFashionImage),
+    result: "Spatial Showcase & Visual Portfolio",
+    image: getImgSrc(juxtudioImage),
     path: "/portfolio/juxtudio",
   },
 ];
@@ -292,8 +292,8 @@ export default function WebDesignClient() {
             >
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 border border-primary/30 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <span className="text-7xl font-bold gradient-text">200%</span>
-                  <p className="text-xl text-muted-foreground mt-4">Average Conversion Increase</p>
+                  <span className="text-4xl sm:text-5xl font-bold gradient-text">Speed</span>
+                  <p className="text-xl text-muted-foreground mt-4">High-Performance Web Architecture</p>
                 </div>
               </div>
             </motion.div>

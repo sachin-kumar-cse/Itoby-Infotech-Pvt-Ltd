@@ -7,7 +7,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 const posts = [
   { id: 1, slug: "web-design-trends-2026", title: "Top Web Design Trends to Watch in 2026", excerpt: "Discover the latest design patterns and visual trends shaping the future of web experiences.", category: "Design", date: "Jan 8, 2026", image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop" },
   { id: 2, slug: "seo-checklist-2026", title: "The Ultimate SEO Checklist for 2026", excerpt: "A comprehensive guide to optimizing your website for search engines in the AI era.", category: "SEO", date: "Jan 5, 2026", image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=400&fit=crop" },
-  { id: 3, slug: "saas-case-study-techflow", title: "Case Study: How We Built TechFlow's SaaS Platform", excerpt: "A deep dive into building a project management platform that serves 10,000+ teams.", category: "Case Study", date: "Dec 15, 2025", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" },
+  { id: 3, slug: "multi-tenant-saas-architecture-patterns", title: "Engineering Scalable Multi-Tenant SaaS Platforms in 2026", excerpt: "Key architectural patterns and best practices for building scalable multi-tenant SaaS applications.", category: "Engineering", date: "Jan 12, 2026", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" },
 ];
 
 const staggerContainer = {

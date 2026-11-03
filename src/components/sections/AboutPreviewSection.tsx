@@ -50,7 +50,7 @@ export const AboutPreviewSection = () => {
           >
             <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 rounded-3xl blur-2xl" />
             
-            {/* Floating Badge 1 - Client Satisfaction */}
+            {/* Floating Badge 1 - Client Centric Quality */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
@@ -58,7 +58,7 @@ export const AboutPreviewSection = () => {
               className="absolute top-12 -left-6 z-20 hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-card/95 backdrop-blur-xl border border-border/80 shadow-2xl text-xs font-semibold text-foreground"
             >
               <CheckCircle className="text-primary" size={16} />
-              <span>99% Client Satisfaction</span>
+              <span>Client-Centric Delivery</span>
             </motion.div>
 
             {/* Floating Badge 2 - Agile Assured */}
@@ -128,9 +128,9 @@ export const AboutPreviewSection = () => {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[8px] sm:text-[10px] text-muted-foreground font-semibold uppercase tracking-wider flex items-center gap-1">
-                    <Activity size={10} className="text-primary" /> System Traffic
+                    <Activity size={10} className="text-primary" /> System Reliability
                   </span>
-                  <span className="text-[8px] sm:text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full font-bold">+340%</span>
+                  <span className="text-[8px] sm:text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full font-bold">Optimized</span>
                 </div>
                 
                 {/* Dynamic graph layout using CSS bars */}
@@ -168,8 +168,8 @@ export const AboutPreviewSection = () => {
               whileHover={{ scale: 1.08, rotate: 3 }}
               className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-card/90 backdrop-blur-xl border border-border/80 flex flex-col items-center justify-center shadow-2xl z-20"
             >
-              <span className="text-2xl sm:text-4xl font-display font-bold text-primary">11+</span>
-              <span className="text-xs sm:text-sm font-medium text-muted-foreground text-center">Years of<br/>Experience</span>
+              <span className="text-xl sm:text-3xl font-display font-bold text-primary">2017</span>
+              <span className="text-xs sm:text-sm font-medium text-muted-foreground text-center">Year<br/>Incorporated</span>
             </motion.div>
           </motion.div>
 
@@ -185,14 +185,17 @@ export const AboutPreviewSection = () => {
             </span>
 
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-              A Global Digital Engineering Partner{" "}
-              <span className="gradient-text">Built to Scale Enterprises Worldwide</span>
+              Technology & Software Engineering{" "}
+              <span className="gradient-text">Delivering Practical Digital Solutions</span>
             </h2>
 
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              At <strong className="text-foreground font-bold">Itoby Infotech Pvt Ltd (IIPL)</strong>, we don't just build websites—we engineer enterprise SaaS applications, 
-              custom software, AI voice calling bots, and high-converting web apps. Serving clients across <span className="text-foreground font-semibold">India, USA, Canada, Australia, Dubai (UAE) & UK</span>, 
-              we combine bespoke software development with our suite of 5 proprietary IIPL SaaS platforms.
+              <strong className="text-foreground font-bold">Itoby Infotech Private Limited</strong> is an India-based technology and software development company incorporated in 2017. 
+              We help businesses build and improve their digital operations through website development, custom software, SaaS applications, mobile applications, AI integrations and technology consulting.
+            </p>
+
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              Headquartered in India, Itoby Infotech provides technology and software development services to clients in India and international markets, including the United States.
             </p>
 
             <motion.ul

@@ -117,10 +117,10 @@ export default function CareersClient() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {[
-              { value: "50+", label: "Team Members", icon: "👥" },
-              { value: "12+", label: "Countries", icon: "🌍" },
-              { value: "95%", label: "Retention Rate", icon: "💎" },
-              { value: "4.8★", label: "Glassdoor Rating", icon: "⭐" },
+              { value: "2017", label: "Year Incorporated", icon: "🏛️" },
+              { value: "Full-Stack", label: "Engineering Disciplines", icon: "💻" },
+              { value: "Agile", label: "Collaborative Culture", icon: "⚡" },
+              { value: "Global", label: "Client Markets", icon: "🌍" },
             ].map((stat) => (
               <motion.div
                 key={stat.label}
@@ -386,7 +386,7 @@ export default function CareersClient() {
                   </Link>
                 </Button>
                 <Button variant="hero-outline" size="xl" asChild>
-                  <a href="mailto:careers@itobyinfotech.in">Email Us Directly</a>
+                  <a href="mailto:info@itobyinfotech.com">Email Us Directly</a>
                 </Button>
               </div>
             </div>

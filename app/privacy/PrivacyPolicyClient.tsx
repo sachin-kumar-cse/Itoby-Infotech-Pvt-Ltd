@@ -64,7 +64,7 @@ const sections = [
       "Erasure: You can request deletion of your personal data under certain circumstances.",
       "Data Portability: You can request transfer of your data to another service provider.",
       "Write to info@itobyinfotech.com and we will respond within thirty days. We may ask you to confirm your identity first, so that we are not handing your records to someone else.",
-      "Under India's Digital Personal Data Protection Act, Itoby Infotech Pvt Ltd is the Data Fiduciary for this information, and Sector-4, Noida, UP, India is where a grievance should be sent. If we do not resolve it, you may escalate to the Data Protection Board of India.",
+      "Under India's Digital Personal Data Protection Act, Itoby Infotech Private Limited (CIN: U74999DL2017PTC310615; Registered Office: J-34/B, J-Block, Laxmi Nagar, Delhi - 110092, India) is the Data Fiduciary for this information, and its Operational Headquarters at Sector-4, Noida, UP, India is where a grievance should be sent. If we do not resolve it, you may escalate to the Data Protection Board of India.",
     ],
   },
   {

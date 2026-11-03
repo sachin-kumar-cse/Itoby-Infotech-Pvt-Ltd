@@ -80,7 +80,7 @@ const sections = [
     content: [
       "Disputes shall first be addressed through good-faith negotiation between the parties.",
       "If negotiation fails, disputes may be submitted to mediation before pursuing legal action.",
-      "All disputes are governed by the laws of India and subject to the jurisdiction of Patna courts.",
+      "All disputes are governed by the laws of India and subject to the exclusive jurisdiction of the competent courts of Delhi, India.",
       "We encourage open communication to resolve any concerns before they become disputes.",
     ],
   },
@@ -94,6 +94,14 @@ const additionalTerms = [
   {
     title: "Warranties",
     description: "We warrant that our services will be performed in a professional manner consistent with industry standards. We provide a 30-day warranty period for bug fixes on delivered software, excluding issues caused by client modifications.",
+  },
+  {
+    title: "Cancellation Policy",
+    description: "Service cancellation requests must be submitted in writing with 30 days prior notice. For SaaS subscriptions, cancellation requests take effect at the conclusion of the active billing cycle with no automatic renewals.",
+  },
+  {
+    title: "Refund Policy",
+    description: "Because custom engineering and technology consulting involve dedicated resource allocation, payments for delivered and accepted milestone phases are non-refundable. Advance payments for uncommenced project phases may be refunded upon written request less administrative setup costs.",
   },
   {
     title: "Force Majeure",
@@ -151,10 +159,12 @@ export default function TermsOfServiceClient() {
           >
             <h2 className="font-display text-2xl font-bold mb-4">Introduction</h2>
             <p className="text-muted-foreground mb-4">
-              Welcome to Itoby Infotech Pvt. Ltd. ("Company," "we," "our," or "us"). These Terms of 
-              Service ("Terms") govern your use of our website and engagement with our professional 
-              services including web design, mobile application development, software solutions, 
-              digital marketing, and Microsoft 365 consulting.
+              Welcome to Itoby Infotech Private Limited ("Company," "we," "our," or "us"), 
+              incorporated in 2017 (CIN: U74999DL2017PTC310615), having its Registered Office at 
+              J-34/B, J-Block, Laxmi Nagar, Delhi - 110092, India and Operational Headquarters at 
+              Sector-4, Noida, Uttar Pradesh, India. These Terms of Service ("Terms") govern your use 
+              of our website and engagement with our professional services including web design, mobile 
+              application development, custom software solutions, digital marketing, and Microsoft 365 consulting.
             </p>
             <p className="text-muted-foreground">
               By accessing our website or engaging our services, you acknowledge that you have read, 
@@ -246,17 +256,17 @@ export default function TermsOfServiceClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="mailto:legal@itobyinfotech.in" 
+                href="mailto:info@itobyinfotech.com" 
                 className="text-primary hover:underline font-medium"
               >
-                legal@itobyinfotech.in
+                info@itobyinfotech.com
               </a>
               <span className="hidden sm:block text-muted-foreground">|</span>
               <a 
-                href="tel:+919876543210" 
+                href="tel:+919142773500" 
                 className="text-primary hover:underline font-medium"
               >
-                +91 98765 43210
+                +91 91427 73500
               </a>
             </div>
           </motion.div>

@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import Link from "next/link";
-import restaurantImage from "@/assets/portfolio/restaurant-marketing.webp";
-import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.webp";
+import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import leadItobyImage from "@/assets/portfolio/lead-itoby.png";
 import { Button } from "@/components/ui/button";
 import { 
   Search,
@@ -42,7 +42,7 @@ const offerings = [
 ];
 
 const benefits = [
-  "Increase organic traffic by up to 300%",
+  "Enhance organic search visibility through structured technical SEO",
   "Lower cost per acquisition with optimized campaigns",
   "Real-time performance tracking and reporting",
   "Targeted audience segmentation",
@@ -146,18 +146,18 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "Local Restaurant Chain",
-    category: "Local SEO & Ads",
-    result: "250% increase in reservations",
-    image: getImgSrc(restaurantImage),
-    path: "/portfolio/restaurant-chain",
+    title: "Easy2Buy Omnichannel Strategy",
+    category: "E-commerce Growth & SEO",
+    result: "Search Engine Optimization & Catalog Reach",
+    image: getImgSrc(easy2buyImage),
+    path: "/portfolio/easy2buy",
   },
   {
-    title: "B2B SaaS Company",
-    category: "Lead Generation",
-    result: "85% reduction in cost per lead",
-    image: getImgSrc(b2bSaasImage),
-    path: "/portfolio/b2b-saas",
+    title: "Lead Itoby B2B Lead Automation",
+    category: "B2B Lead Discovery Platform",
+    result: "Inbound Pipeline & Scoring Strategy",
+    image: getImgSrc(leadItobyImage),
+    path: "/portfolio/lead-itoby",
   },
 ];
 
@@ -278,8 +278,8 @@ export default function DigitalMarketingClient() {
             >
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 border border-primary/30 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <span className="text-7xl font-bold gradient-text">300%</span>
-                  <p className="text-xl text-muted-foreground mt-4">Average Traffic Growth</p>
+                  <span className="text-4xl sm:text-5xl font-bold gradient-text">Growth</span>
+                  <p className="text-xl text-muted-foreground mt-4">Targeted Performance Strategy</p>
                 </div>
               </div>
             </motion.div>

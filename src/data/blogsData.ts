@@ -81,7 +81,7 @@ Next.js 15 introduces granular cache revalidation helpers. Utilize \`revalidateT
 - **Bundle Analysis**: Utilize \`@next/bundle-analyzer\` to eliminate unnecessary NPM packages.
 - **Dynamic Imports**: Wrap heavy non-critical client overlays in Next.js \`dynamic(() => import(...), { ssr: false })\`.
 - **Image Formats**: Serve Next.js images in WebP and AVIF formats with automated CDN compression.
-- **Real-World Case Study**: Read our [TechFlow SaaS Next.js 15 scaling case study](https://www.itobyinfotech.com/case-studies/techflow-saas) detailing a 300% growth benchmark.
+- **Architecture Overview**: Explore our [Enterprise SaaS Development Services](https://www.itobyinfotech.com/services/saas-development) detailing scalable Next.js architecture patterns and performance benchmarks.
 
 ---
 
@@ -107,7 +107,7 @@ Optimizing Next.js 15 requires combining server-side streaming, smart image load
 
 In 2026, missed phone calls mean lost revenue. Customer expectations demand instant 24/7 responses—whether reserving a dinner table, scheduling a doctor consultation, or renewing an insurance policy.
 
-Enter **IIPL Calling** (\`https://royalblue-ant-234341.hostingersite.com/\`), the conversational voice AI platform engineered by **Itoby Infotech Pvt Ltd (IIPL)** under our specialized [AI Agent Development Services](https://www.itobyinfotech.com/services/ai-agent-development).
+Enter **IIPL Calling** (\`https://calling.itobyinfotech.com\`), the conversational voice AI platform engineered by **Itoby Infotech Pvt Ltd (IIPL)** under our specialized [AI Agent Development Services](https://www.itobyinfotech.com/services/ai-agent-development).
 
 ---
 
@@ -133,11 +133,11 @@ Qualify incoming leads 24/7 by asking structured intent questions before transfe
 ---
 
 ## 3. Key Benefits Over Traditional Call Centers
-- **Zero Hold Time**: Handle 1,000+ concurrent phone calls simultaneously.
-- **70% Cost Reduction**: Slash operational call center overhead while operating 24/7/365.
+- **Zero Hold Time**: Handle concurrent phone calls simultaneously with automated queuing.
+- **Operational Efficiency**: Reduce operational call center overhead while operating 24/7/365.
 - **Consistent SLA Quality**: Zero agent burnout, uniform script compliance, and full transcript sentiment analytics.
 
-Experience live AI Calling demos at [IIPL Calling](https://royalblue-ant-234341.hostingersite.com/).
+Experience live AI Calling demos at [IIPL Calling](https://calling.itobyinfotech.com).
 `
   },
   {
@@ -171,7 +171,7 @@ Modern B2B prospecting requires precision over volume. Traditional cold email sp
 ---
 
 ## Why Personalization Wins in B2B Outreach
-Prospects ignore generic templates. When an email contains exact diagnostic insights about their website's speed bottlenecks or mobile layout issues, open rates jump to 65%+ and reply rates increase by 300%. To pair cold outreach with search visibility, read our [Generative Engine Optimization (GEO) guide](https://www.itobyinfotech.com/blog/mastering-ai-seo-geo-generative-engine-optimization).
+Prospects ignore generic templates. When an email contains exact diagnostic insights about their website's speed bottlenecks or mobile layout issues, open rates jump noticeably and reply rates increase significantly. To pair cold outreach with search visibility, read our [Generative Engine Optimization (GEO) guide](https://www.itobyinfotech.com/blog/mastering-ai-seo-geo-generative-engine-optimization).
 
 Transform your agency sales pipeline today with [IIPL Lead](https://lead.itobyinfotech.com).
 `
@@ -332,9 +332,9 @@ Partner with **Itoby Infotech Pvt Ltd** to optimize your web application for AI 
   },
   {
     id: "blog-8",
-    slug: "saas-case-study-techflow",
-    title: "SaaS Scaling Case Study: How TechFlow Achieved 300% Growth with Next.js 15",
-    excerpt: "Detailed architectural breakdown of how TechFlow scaled its SaaS platform using Next.js 15, Supabase PostgreSQL, and Vercel Edge deployment.",
+    slug: "multi-tenant-saas-architecture-patterns",
+    title: "Engineering Scalable Multi-Tenant SaaS Platforms in 2026",
+    excerpt: "Key architectural patterns and best practices for building scalable multi-tenant SaaS applications using Next.js 15, PostgreSQL, and Edge computing.",
     category: "SaaS & Cloud",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     author: "Sachin Kumar",
@@ -344,21 +344,28 @@ Partner with **Itoby Infotech Pvt Ltd** to optimize your web application for AI 
     is_published: true,
     created_at: "2026-08-04T16:00:00Z",
     content: `
-# SaaS Scaling Case Study: How TechFlow Achieved 300% Growth with Next.js 15
+# Engineering Scalable Multi-Tenant SaaS Platforms in 2026
 
-When B2B SaaS startup TechFlow experienced rapid user adoption, their legacy single-page application struggled with slow initial load times, high server costs, and poor Google SEO rankings.
+Modern multi-tenant SaaS applications require rigorous architecture to guarantee data isolation, low latency, and horizontal scalability across global tenant bases.
 
-**Itoby Infotech Pvt Ltd (IIPL)** re-architected TechFlow's platform using Next.js 15 App Router, Supabase PostgreSQL, and Tailwind CSS.
+At **Itoby Infotech Private Limited**, we build production-grade SaaS architectures leveraging Next.js App Router, modern PostgreSQL schemas with Row-Level Security (RLS), and distributed Edge caching.
 
 ---
 
-## Key Technical Achievements:
-- **70% Faster Page Loads**: Reduced Largest Contentful Paint (LCP) from 3.8 seconds to 0.9 seconds.
-- **300% Growth in Organic Traffic**: Next.js Server Components enabled instant Google indexing and higher search rankings.
-- **Sub-Second Dashboard Analytics**: Replaced heavy client-side REST calls with server-side cached queries and Supabase Row Level Security.
-- **99.99% Uptime**: Deployed multi-region Vercel Edge functions with automated database failover.
+## Key Multi-Tenant Architecture Considerations:
 
-Explore more case studies and client success stories at [Itoby Infotech Portfolio](/portfolio).
+### 1. Tenant Data Isolation Models
+- **Database-per-Tenant**: Maximum isolation for enterprise clients with strict regulatory or compliance mandates.
+- **Schema-per-Tenant**: Balanced isolation with streamlined database maintenance.
+- **Shared Database with Row-Level Security (RLS)**: Highly cost-efficient, scalable architecture with PostgreSQL enforcing tenant boundaries at the database kernel level.
+
+### 2. Edge Routing and Custom Domains
+Dynamic tenant resolution at the edge using middleware allows routing wildcard domains and custom client domains to tenant-specific configurations without cold starts.
+
+### 3. Asynchronous Job Processing
+Decoupling intensive background tasks (billing, analytics, reports) through queue systems ensures sub-second user dashboard responsiveness.
+
+Explore our [SaaS Application Development Services](/services/saas-development) to learn how we engineer resilient software architectures.
 `
   },
   {

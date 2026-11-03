@@ -42,6 +42,7 @@ const sections = [
       "Rectification: You can request correction of inaccurate or incomplete data.",
       "Erasure: You can request deletion of your personal data under certain circumstances.",
       "Data Portability: You can request transfer of your data to another service provider.",
+      "Under India's Digital Personal Data Protection Act, Itoby Infotech Private Limited (CIN: U74999DL2017PTC310615; Registered Office: J-34/B, J-Block, Laxmi Nagar, Delhi - 110092, India) is the Data Fiduciary for this information, and its Operational Headquarters at Sector-4, Noida, UP, India is where a grievance should be sent.",
     ],
   },
   {
@@ -149,17 +150,17 @@ const PrivacyPolicy = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a 
-                href="mailto:privacy@itobyinfotech.in" 
+                href="mailto:info@itobyinfotech.com" 
                 className="text-primary hover:underline font-medium"
               >
-                privacy@itobyinfotech.in
+                info@itobyinfotech.com
               </a>
               <span className="hidden sm:block text-muted-foreground">|</span>
               <a 
-                href="tel:+919876543210" 
+                href="tel:+919142773500" 
                 className="text-primary hover:underline font-medium"
               >
-                +91 98765 43210
+                +91 91427 73500
               </a>
             </div>
           </motion.div>

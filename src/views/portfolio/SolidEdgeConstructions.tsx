@@ -1,6 +1,6 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
 import heroImage from "@/assets/portfolio/solidedge-construction.png";
-import luxeImage from "@/assets/portfolio/luxe-fashion.webp";
+import juxtudioImage from "@/assets/portfolio/juxtudio-architecture.png";
 import rainfraImage from "@/assets/portfolio/rainfra-architecture.webp";
 
 const caseStudy = {
@@ -10,32 +10,27 @@ const caseStudy = {
   duration: "2 months",
   year: "2025",
   heroImage: heroImage,
-  overview: "A premium, high-performance website design and comprehensive project portfolio showcase built for a leading civil construction and infrastructure engineering firm.",
+  overview: "A modern corporate website design and project portfolio showcase built for a civil construction and infrastructure engineering firm.",
   challenge: [
-    "A rapidly growing civil engineering firm wanted to establish a robust digital footprint to showcase complex commercial structures.",
-    "Required a high-converting website to attract government bids and private commercial builders.",
-    "Needed an structured showcase page to display detailed stats (square footage, project timelines, materials).",
-    "Needed a fast, responsive layout that performs optimally on all mobile and desktop devices."
+    "A civil engineering firm wanted to establish a digital footprint to showcase commercial structural capabilities.",
+    "Required a professional website to present corporate capabilities to commercial contractors.",
+    "Needed a structured showcase page to display project details, scope of work, and timelines.",
+    "Needed a fast, responsive layout that performs optimally across mobile and desktop devices."
   ],
   solution: [
-    "Designed and developed a premium glassmorphic website with robust layouts showcasing construction details.",
+    "Designed and developed a corporate website layout detailing construction services and standards.",
     "Created an interactive portfolio gallery filtering projects by commercial, residential, and infrastructure categories.",
-    "Implemented client testimonial sections, service catalogs, and simplified quote request funnels.",
-    "Fully optimized for search engines (SEO) with keyword-dense structured data to drive organic commercial leads.",
-    "Configured custom analytics tracking to monitor visitor engagement and contact form submissions."
+    "Implemented service catalogs and quote request consultation funnels.",
+    "Optimized for search engines (SEO) with structured metadata and fast load times.",
+    "Configured analytics tracking to monitor visitor engagement and form submissions."
   ],
   results: [
-    { metric: "Inbound Leads", value: "+140%" },
-    { metric: "Page Load Speed", value: "<1.2s" },
-    { metric: "Organic Traffic", value: "+210%" },
-    { metric: "Conversion Rate", value: "+75%" }
+    { metric: "Frontend", value: "React + Vite" },
+    { metric: "Styling", value: "Tailwind CSS" },
+    { metric: "Animations", value: "Framer Motion" },
+    { metric: "Page Speed", value: "< 1.5s" }
   ],
   techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Supabase", "Lucide Icons", "Google Analytics"],
-  testimonial: {
-    quote: "Our new digital home reflects the solidity and engineering excellence of our physical structures. The portfolio showcase is already helping us close major commercial construction accounts.",
-    author: "Vikram Singh",
-    role: "Managing Director, Solid Edge Constructions"
-  },
   relatedProjects: [
     {
       title: "RA Infra Studio Portfolio",
@@ -44,10 +39,10 @@ const caseStudy = {
       path: "/portfolio/rainfra-studio"
     },
     {
-      title: "Luxe Fashion E-commerce",
-      category: "E-commerce",
-      image: luxeImage,
-      path: "/portfolio/luxe-fashion"
+      title: "Juxtudio Architecture Design",
+      category: "Website",
+      image: juxtudioImage,
+      path: "/portfolio/juxtudio"
     }
   ]
 };

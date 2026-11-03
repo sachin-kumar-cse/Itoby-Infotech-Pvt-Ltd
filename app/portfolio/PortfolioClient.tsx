@@ -11,12 +11,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { WorkProcessSection } from "@/components/sections/WorkProcessSection";
 import ROICalculatorSection from "@/components/sections/ROICalculatorSection";
 
-import techflowImage from "@/assets/portfolio/techflow-saas.webp";
 import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
-import fittrackImage from "@/assets/portfolio/fittrack-app.webp";
-import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.webp";
-import healthcareImage from "@/assets/portfolio/healthcare-portal.webp";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
 import rainfraImage from "@/assets/portfolio/rainfra-architecture.webp";
 import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 import solidedgeImage from "@/assets/portfolio/solidedge-construction.png";
@@ -28,82 +23,27 @@ import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 
 const getImgSrc = (img: any) => typeof img === "string" ? img : img?.src || img;
 
-const categories = ["All", "Website", "E-commerce", "App", "Marketing", "Software", "Microsoft 365"];
+const categories = ["All", "Website", "E-commerce", "Software"];
 
 const fallbackProjects = [
-  {
-    slug: "techflow",
-    title: "TechFlow SaaS Platform",
-    category: "Software",
-    description: "A comprehensive SaaS solution for workflow automation with advanced analytics and real-time collaboration.",
-    image: getImgSrc(techflowImage),
-    results: "300% ROI",
-    tech: ["React", "Node.js", "PostgreSQL", "AWS"],
-    client: "TechFlow Inc.",
-    source: "hardcoded" as const,
-  },
   {
     slug: "easy2buy",
     title: "Easy2Buy E-commerce",
     category: "E-commerce",
-    description: "Modern e-commerce platform with AI-powered recommendations and seamless payment integration.",
+    description: "Modern e-commerce platform with catalog management, product filters, and payment gateway integration.",
     image: getImgSrc(easy2buyImage),
-    results: "250% Sales ↑",
+    results: "E-Commerce System",
     tech: ["Next.js", "Stripe", "MongoDB", "AI"],
     client: "Easy2Buy",
-    source: "hardcoded" as const,
-  },
-  {
-    slug: "fittrack",
-    title: "FitTrack Mobile App",
-    category: "App",
-    description: "Fitness tracking app with personalized workout plans, nutrition guidance and ML-powered insights.",
-    image: getImgSrc(fittrackImage),
-    results: "1M+ Downloads",
-    tech: ["React Native", "Firebase", "ML Kit"],
-    client: "FitTrack",
-    source: "hardcoded" as const,
-  },
-  {
-    slug: "b2b-saas",
-    title: "B2B SaaS Campaign",
-    category: "Marketing",
-    description: "Comprehensive digital marketing strategy that multiplied lead generation by 4x in 6 months.",
-    image: getImgSrc(b2bSaasImage),
-    results: "400% Leads ↑",
-    tech: ["Google Ads", "SEO", "Analytics"],
-    client: "B2B SaaS Corp",
-    source: "hardcoded" as const,
-  },
-  {
-    slug: "healthcare-portal",
-    title: "Healthcare Management Portal",
-    category: "Website",
-    description: "Secure patient management system with telemedicine and appointment scheduling.",
-    image: getImgSrc(healthcareImage),
-    results: "95% Efficiency",
-    tech: ["React", "Django", "PostgreSQL"],
-    client: "MedCare Solutions",
-    source: "hardcoded" as const,
-  },
-  {
-    slug: "quickpay",
-    title: "QuickPay FinTech",
-    category: "Software",
-    description: "Next-gen payment processing with blockchain security and instant settlements.",
-    image: getImgSrc(quickpayImage),
-    results: "99.9% Uptime",
-    tech: ["Vue.js", "Blockchain", "Microservices"],
-    client: "QuickPay",
     source: "hardcoded" as const,
   },
   {
     slug: "rainfra-studio",
     title: "RA Infra Studio – Architecture Portfolio",
     category: "Website",
-    description: "A stunning dark-themed portfolio website for a leading architecture and interior design firm with immersive project showcases.",
+    description: "Dark-themed portfolio website for an architecture firm with immersive visual showcases and project galleries.",
     image: getImgSrc(rainfraImage),
-    results: "+200% Inquiries",
+    results: "Architecture Showcase",
     tech: ["React", "Framer Motion", "Three.js"],
     client: "RA Infra Studio",
     source: "hardcoded" as const,
@@ -112,9 +52,9 @@ const fallbackProjects = [
     slug: "kaspereye-security",
     title: "Kaspereye Security Solutions",
     category: "Website",
-    description: "Professional B2B website for a leading physical security and surveillance systems provider.",
+    description: "B2B corporate website for an electronic physical security and surveillance equipment provider in India.",
     image: getImgSrc(kaspereyeImage),
-    results: "+180% Leads",
+    results: "Security Systems Web",
     tech: ["React", "Tailwind CSS", "Supabase"],
     client: "Kaspereye Security",
     source: "hardcoded" as const,
@@ -123,9 +63,9 @@ const fallbackProjects = [
     slug: "solidedgeconstructions",
     title: "Solid Edge Constructions",
     category: "Website",
-    description: "Premium website for a civil engineering and construction firm to attract high-value commercial contracts.",
+    description: "Corporate website for a civil engineering and infrastructure development firm to showcase contracting capabilities.",
     image: getImgSrc(solidedgeImage),
-    results: "+140% Leads",
+    results: "Construction Firm Web",
     tech: ["React", "Vite", "Tailwind CSS"],
     client: "Solid Edge Constructions",
     source: "hardcoded" as const,
@@ -134,33 +74,33 @@ const fallbackProjects = [
     slug: "juxtudio",
     title: "Juxtudio – Architecture & Interior Design",
     category: "Website",
-    description: "Minimalist luxury portfolio for an architecture and interior design studio with immersive parallax galleries.",
+    description: "Portfolio website showcasing architectural designs, spatial renderings, and project concepts.",
     image: getImgSrc(juxtudioImage),
-    results: "+95% Bookings",
-    tech: ["React", "GSAP", "Framer Motion"],
-    client: "Juxtudio Design Studio",
+    results: "Design Showcase",
+    tech: ["React", "Tailwind CSS", "Framer Motion"],
+    client: "Juxtudio",
     source: "hardcoded" as const,
   },
   {
     slug: "rent-itoby",
     title: "Rent Itoby – Rental CRM Dashboard",
-    category: "App",
-    description: "A state-of-the-art rental CRM for managing equipment, vehicle fleets, and property leasing with auto-booking and payment integration.",
+    category: "Software",
+    description: "Proprietary IIPL SaaS platform for managing vehicle fleets, equipment leasing, and inventory reservations.",
     image: getImgSrc(rentItobyImage),
-    results: "0% Overbooking",
+    results: "Company Product / Internal Project",
     tech: ["React", "Node.js", "Stripe API"],
-    client: "Itoby Rental Systems",
+    client: "Company Product / Internal Project",
     source: "hardcoded" as const,
   },
   {
     slug: "lead-itoby",
     title: "Lead Itoby – Lead Scoring CRM",
     category: "Software",
-    description: "Automated lead generation and scoring CRM with drip campaign automation and real-time conversion tracking.",
+    description: "Proprietary IIPL SaaS platform for B2B lead discovery, verification, and campaign tracking.",
     image: getImgSrc(leadItobyImage),
-    results: "+110% Conversions",
+    results: "Company Product / Internal Project",
     tech: ["React", "Python", "PostgreSQL"],
-    client: "Itoby Marketing Solutions",
+    client: "Company Product / Internal Project",
     source: "hardcoded" as const,
   },
 ];
@@ -187,8 +127,8 @@ const breadcrumbSchema = {
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Software Engineering Portfolio & Case Studies",
-  description: "Explore Itoby Infotech's portfolio of successful client projects across SaaS platforms, mobile applications, AI agents, enterprise ERPs, and PropTech tools.",
+  name: "Software Engineering Portfolio & Projects",
+  description: "Explore Itoby Infotech's portfolio of verified client projects and proprietary software solutions across custom web development, e-commerce, and software applications.",
   provider: {
     "@type": "Organization",
     name: "Itoby Infotech Pvt. Ltd.",
@@ -224,9 +164,9 @@ export default function PortfolioClient() {
 
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner
-        title="Showcasing Our Software Engineering Portfolio"
-        description="Explore our portfolio of proven digital transformations across SaaS platforms, mobile applications, AI microservices, enterprise ERPs, and PropTech platforms."
-        badge="Proven Client Case Studies"
+        title="Our Software Engineering & Development Portfolio"
+        description="Explore our portfolio of verified client projects and proprietary software solutions across custom web development, e-commerce, and software applications."
+        badge="Verified Projects & Products"
         breadcrumbs={[{ label: "Home", path: "/" }, { label: "Portfolio", path: "/portfolio" }]}
       />
 
@@ -264,7 +204,7 @@ export default function PortfolioClient() {
               <span className="text-sm font-medium hidden sm:inline">Filter:</span>
             </div>
             {categories.map((category) => {
-              const count = category === "All" ? dbProjects.length : dbProjects.filter(p => p.category === category).length;
+              const count = category === "All" ? projects.length : projects.filter(p => p.category === category).length;
               if (count === 0 && category !== "All") return null;
               return (
                 <motion.button
@@ -423,7 +363,9 @@ export default function PortfolioClient() {
               <div className="w-20 h-20 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
                 <Layers className="w-10 h-10 text-primary/50" />
               </div>
-              <p className="text-muted-foreground text-lg">No projects found in this category.</p>
+              <p className="text-muted-foreground text-lg max-w-lg mx-auto">
+                We are updating our portfolio. Contact us to learn more about our web development, software engineering, and digital solutions.
+              </p>
             </motion.div>
           )}
         </div>

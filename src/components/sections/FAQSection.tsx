@@ -7,7 +7,7 @@ import {
 const faqs = [
   {
     question: "What does Itoby Infotech Pvt. Ltd. do?",
-    answer: "Itoby Infotech Pvt. Ltd. (IIPL) is a premier global software engineering company & SaaS lab. We build custom software solutions, AI voice calling agents, multi-tenant SaaS platforms, mobile applications, and high-converting Next.js web applications for growing businesses and enterprise clients."
+    answer: "Itoby Infotech Private Limited is an India-based technology and software development company incorporated in 2017. We help businesses build and improve their digital operations through website development, custom software, SaaS applications, mobile applications, AI integrations and technology consulting."
   },
   {
     question: "Does Itoby Infotech build custom software and SaaS products?",
@@ -93,8 +93,8 @@ export const FAQSection = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
             >
               {[
-                { val: "1200+", label: "Projects Delivered" },
-                { val: "99%", label: "Client Satisfaction" },
+                { val: "2017", label: "Year Incorporated" },
+                { val: "Dedicated", label: "Technical Support" },
               ].map((s) => (
                 <motion.div
                   key={s.label}

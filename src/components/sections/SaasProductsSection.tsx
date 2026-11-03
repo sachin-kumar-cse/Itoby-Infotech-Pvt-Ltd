@@ -50,7 +50,7 @@ export const saasProducts: SaasProduct[] = [
     badge: "Flagship Product",
     gradient: "from-indigo-500 via-purple-500 to-pink-500",
     features: ["Google Maps Scraper", "AI Site Auditor", "Multi-Sender Outbox", "AI Proposals"],
-    metrics: "4x Lead Velocity",
+    metrics: "Sales Automation",
   },
   {
     id: "renting",
@@ -65,7 +65,7 @@ export const saasProducts: SaasProduct[] = [
     badge: "Office Leasing",
     gradient: "from-blue-500 via-cyan-500 to-teal-500",
     features: ["Tenant Management", "Auto Rent Reminders", "Agreement Generator", "Fleet Analytics"],
-    metrics: "0% Overbooking",
+    metrics: "Tenant Management",
   },
   {
     id: "billing",
@@ -77,10 +77,10 @@ export const saasProducts: SaasProduct[] = [
     url: "https://billing.itobyinfotech.com",
     icon: Receipt,
     category: "FinTech & Invoicing",
-    badge: "GST Approved",
+    badge: "GST Invoicing",
     gradient: "from-emerald-500 via-teal-500 to-cyan-500",
     features: ["Instant GST Invoices", "E-Way Sync", "Recurring Retainers", "Multi-Currency"],
-    metrics: "100% Tax Compliant",
+    metrics: "GST Invoicing",
   },
   {
     id: "cashmemo",
@@ -104,7 +104,7 @@ export const saasProducts: SaasProduct[] = [
     tagline: "Conversational AI Phone Calling & Voice Bots",
     description:
       "Autonomous conversational AI voice agents for restaurant table reservations, insurance policy renewal reminders, lead qualification, and cold sales calling.",
-    url: "https://royalblue-ant-234341.hostingersite.com/",
+    url: "https://calling.itobyinfotech.com",
     icon: PhoneCall,
     category: "Voice AI & Telecom",
     badge: "Voice AI",

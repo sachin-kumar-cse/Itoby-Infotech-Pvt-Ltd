@@ -341,7 +341,7 @@ const JobDetails = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number</Label>
-                        <Input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
+                        <Input id="phone" name="phone" type="tel" placeholder="+91 91427 73500" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="portfolio">Portfolio / LinkedIn URL</Label>

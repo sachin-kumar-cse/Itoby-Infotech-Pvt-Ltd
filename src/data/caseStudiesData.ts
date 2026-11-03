@@ -41,9 +41,9 @@ export const caseStudiesList: CaseStudyData[] = [
       "Lack of centralized Kanban pipeline tracking for multi-agent sales teams"
     ],
     objectives: [
-      "Automate Google Maps lead extraction with 99% email & phone accuracy",
+      "Automate Google Maps lead extraction with validated email & phone data extraction",
       "Build a 15-second AI site auditor running Lighthouse performance audits on demand",
-      "Triple cold email response rates via automated audit report attachments",
+      "Improve cold email response rates via automated audit report attachments",
       "Achieve sub-second database query speeds for multi-tenant sales accounts"
     ],
     solutionDelivered: "We engineered a full-stack Next.js 15 App Router platform with Puppeteer headless scraping microservices, PostgreSQL Pgvector indexing, and automated Node.js SMTP dunning pipelines.",
@@ -59,10 +59,10 @@ export const caseStudiesList: CaseStudyData[] = [
     architectureOverview: "Built on Next.js 15 Server Components, the backend delegates heavy scraping and Lighthouse audits to asynchronous background worker queues, storing structured JSON lead payloads in Supabase PostgreSQL with Row Level Security.",
     developmentTimeline: "10 Weeks (Initial MVP in 4 weeks, AI Audit Engine in 3 weeks, Pipeline Dashboards in 3 weeks).",
     results: [
-      { metric: "50,000+", label: "Leads Scraped Daily" },
-      { metric: "3.2x", label: "Cold Email Response Increase" },
+      { metric: "Automated", label: "Lead Pipeline Workflow" },
+      { metric: "Enhanced", label: "Cold Outreach Relevance" },
       { metric: "15 Sec", label: "Average AI Site Audit Speed" },
-      { metric: "99.9%", label: "Uptime on Vercel CDN" }
+      { metric: "Edge CDN", label: "Vercel Global Deployment" }
     ],
     performanceImprovements: [
       { metric: "100/100", label: "Core Web Vitals Score" },
@@ -70,9 +70,9 @@ export const caseStudiesList: CaseStudyData[] = [
       { metric: "0.00", label: "Cumulative Layout Shift (CLS)" }
     ],
     businessOutcomes: [
-      "Reduced client customer acquisition costs (CAC) by 65% in 60 days",
-      "Scaled lead processing to 500+ active agency sub-accounts",
-      "Generated over 1.2 Million automated cold email outreach sequences"
+      "Streamlined client customer acquisition workflows with automated site audits",
+      "Modular multi-tenant architecture supporting scalable accounts",
+      "Automated personalized outreach sequencing"
     ],
     lessonsLearned: [
       "Asynchronous headless worker queues prevent main-thread server timeouts during bulk site audits.",
@@ -102,7 +102,7 @@ export const caseStudiesList: CaseStudyData[] = [
     clientName: "Enterprise Retail & SaaS Clients",
     clientIndustry: "FinTech & Automated Billing",
     badge: "FinTech SaaS",
-    heroDescription: "How we built a multi-tenant cloud GST billing platform processing $25M+ in annual invoices with sub-second PDF generation and WhatsApp delivery.",
+    heroDescription: "How we built a multi-tenant cloud GST billing platform supporting business tax compliance with sub-second PDF generation and WhatsApp delivery.",
     overview: "IIPL Billing is a multi-tenant GST invoicing and retainer accounting software designed for SMBs, retail store chains, and tech agencies requiring compliant tax invoice generation.",
     businessChallenge: "Legacy billing software was slow, desktop-bound, and required manual calculations for CGST, SGST, and IGST tax splits, causing accounting delays and frequent billing errors.",
     existingProblems: [
@@ -130,18 +130,18 @@ export const caseStudiesList: CaseStudyData[] = [
     architectureOverview: "Leveraging PostgreSQL Row Level Security (RLS) and Supabase database functions, client financial records are isolated per tenant workspace with automated daily backups.",
     developmentTimeline: "8 Weeks (Core billing schemas in 3 weeks, PDF/WhatsApp API in 2 weeks, Retainers & Tax Analytics in 3 weeks).",
     results: [
-      { metric: "$25M+", label: "Invoices Processed Annually" },
+      { metric: "Multi-Tenant", label: "Cloud Invoicing Architecture" },
       { metric: "< 500ms", label: "PDF Rendering Latency" },
-      { metric: "100%", label: "GST Compliance Rate" },
-      { metric: "75%", label: "Faster Payment Collection" }
+      { metric: "100%", label: "GST Compliance Alignment" },
+      { metric: "Instant", label: "Digital Payment Links" }
     ],
     performanceImprovements: [
       { metric: "100/100", label: "Core Web Vitals Rating" },
       { metric: "0ms", label: "Tax Calculation Latency" }
     ],
     businessOutcomes: [
-      "Eliminated 100% of manual tax calculation errors for 1,200+ active business users",
-      "Accelerated payment collection cycles from 14 days down to 3 days using instant WhatsApp links"
+      "Automated tax calculations and compliance formats for active business users",
+      "Accelerated payment collection cycles using instant WhatsApp digital links"
     ],
     lessonsLearned: [
       "Offloading PDF generation to serverless Edge functions prevents server memory exhaustion under peak end-of-month billing surges."
@@ -167,8 +167,8 @@ export const caseStudiesList: CaseStudyData[] = [
   {
     slug: "jetsetterss",
     title: "Jetsetterss: Premium Luxury Travel & Concierge Platform",
-    clientName: "Jetsetterss Luxury Travel Ltd",
-    clientIndustry: "Hospitality & High-Net-Worth Concierge",
+    clientName: "Demonstration Project",
+    clientIndustry: "Hospitality & Travel Concepts",
     badge: "Luxury Travel Tech",
     heroDescription: "Engineering a high-conversion luxury travel booking portal with interactive villa tours, real-time itinerary builder, and concierge messaging.",
     overview: "Jetsetterss is an elite luxury travel and private villa rental portal serving high-net-worth travelers with curated destination experiences, private jet charters, and 24/7 concierge support.",
@@ -196,18 +196,18 @@ export const caseStudiesList: CaseStudyData[] = [
     architectureOverview: "Built with Next.js 15 App Router and server-rendered components, delivering pre-rendered static HTML pages for all villa listings with sub-second Edge CDN delivery.",
     developmentTimeline: "6 Weeks (UI/UX wireframing in 2 weeks, Next.js frontend in 3 weeks, SEO & launch in 1 week).",
     results: [
-      { metric: "+210%", label: "Luxury Booking Inquiries" },
+      { metric: "Optimized", label: "Inquiry Conversion Flow" },
       { metric: "< 600ms", label: "Page Load Speed" },
       { metric: "100/100", label: "Lighthouse Performance" },
-      { metric: "+180%", label: "Organic Search Growth" }
+      { metric: "Structured", label: "Organic SEO Architecture" }
     ],
     performanceImprovements: [
       { metric: "0.9s", label: "Largest Contentful Paint (LCP)" },
       { metric: "0ms", label: "Interaction to Next Paint (INP)" }
     ],
     businessOutcomes: [
-      "Increased qualified high-ticket villa rental bookings by 210% in 90 days",
-      "Established brand as a top luxury travel portal across US and European markets"
+      "Engineered high-converting luxury UI/UX and seamless inquiry flow",
+      "Demonstrated scalable luxury travel portal architecture with sub-second performance"
     ],
     lessonsLearned: [
       "Ultra-high-resolution luxury imagery requires AVIF/WebP Next.js image optimization to maintain sub-second load times without compromising visual fidelity."
@@ -236,17 +236,17 @@ export const caseStudiesList: CaseStudyData[] = [
     clientName: "Insurance & Real Estate Clients",
     clientIndustry: "Telecommunications & Voice AI",
     badge: "Voice AI Platform",
-    heroDescription: "How we built a conversational Voice AI telephony platform with sub-800ms response latency handling 10,000+ simultaneous customer calls.",
-    overview: "IIPL Calling is an autonomous voice AI agent platform that conducts natural human-like phone calls, qualifies incoming leads, and books appointments directly into client CRMs.",
-    businessChallenge: "Call centers were suffering from 40%+ missed call rates during peak hours, high staff turnover, and expensive per-call operational costs.",
+    heroDescription: "How we built a conversational Voice AI telephony platform with sub-800ms response latency handling automated voice intake and lead routing.",
+    overview: "IIPL Calling is an autonomous voice AI agent platform that conducts natural phone calls, qualifies incoming leads, and books appointments directly into client CRMs.",
+    businessChallenge: "Frontline teams were struggling with repetitive inbound call volume during peak hours and high after-hours missed call rates.",
     existingProblems: [
-      "High missed inbound customer call volume during off-hours",
-      "Slow manual lead follow-up taking over 24 hours",
-      "Expensive call center staffing and training overhead"
+      "Inbound customer inquiries arriving outside standard operational hours",
+      "Manual phone intake and delayed appointment scheduling",
+      "Repetitive routine queries tying up frontline staff"
     ],
     objectives: [
       "Build a sub-800ms voice AI pipeline for natural conversation turn-taking",
-      "Automate 100% of off-hour inbound customer inquiries",
+      "Automate routine off-hour inbound customer inquiries",
       "Integrate bi-directional telephony with CRM calendar booking",
       "Support multi-language neural speech models (English, Spanish, Hindi)"
     ],
@@ -255,7 +255,7 @@ export const caseStudiesList: CaseStudyData[] = [
     featuresDeveloped: [
       "Sub-800ms Neural Speech Synthesis Engine",
       "Inbound 24/7 Answering & Lead Triage Bot",
-      "Outbound Automated Cold Calling & Survey Agent",
+      "Outbound Automated Outreach & Survey Agent",
       "Google Calendar & CRM Appointment Booking Gateway",
       "Real-Time Telephony Call Transcript & Sentiment Analyzer"
     ],
@@ -263,16 +263,16 @@ export const caseStudiesList: CaseStudyData[] = [
     developmentTimeline: "8 Weeks (Audio pipeline in 3 weeks, CRM integrations in 3 weeks, Field testing in 2 weeks).",
     results: [
       { metric: "< 800ms", label: "Turn-Taking Latency" },
-      { metric: "10,000+", label: "Simultaneous Calls Handled" },
-      { metric: "80%", label: "Call Center Cost Reduction" },
-      { metric: "0", label: "Missed Inbound Calls" }
+      { metric: "Scalable", label: "Cloud Telephony Pipeline" },
+      { metric: "Automated", label: "Routine Call Handling" },
+      { metric: "24/7", label: "Inbound Availability" }
     ],
     performanceImprovements: [
-      { metric: "99.9%", label: "Audio Stream Reliability" }
+      { metric: "Resilient", label: "Audio Stream Reliability" }
     ],
     businessOutcomes: [
-      "Eliminated missed inbound calls 24/7 for participating insurance agencies",
-      "Lowered customer lead intake costs from $12 per call down to $0.40 per call"
+      "Enabled round-the-clock call answering and structured lead intake",
+      "Streamlined calendar appointment booking directly into client CRMs"
     ],
     lessonsLearned: [
       "Optimizing WebSocket audio buffer sizes is critical to achieving natural, sub-second conversational latency."

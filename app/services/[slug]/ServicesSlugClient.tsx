@@ -120,8 +120,8 @@ export default function ServicesSlugClient({ slug }: { slug: string }) {
             <span><strong>Engineered by Itoby Infotech Pvt. Ltd.</strong> (Premier Software & AI Development Company)</span>
           </div>
           <div className="flex items-center gap-4 text-muted-foreground">
-            <span className="flex items-center gap-1.5"><Globe2 className="w-3.5 h-3.5 text-primary" /> Global HQ: Noida, UP, India</span>
-            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" /> US Hub: California, USA</span>
+            <span className="flex items-center gap-1.5"><Globe2 className="w-3.5 h-3.5 text-primary" /> Operational HQ: Noida, UP, India</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-primary" /> US Remote Client Services</span>
             <span className="flex items-center gap-1.5"><Lock className="w-3.5 h-3.5 text-primary" /> 100% IP Ownership</span>
           </div>
         </div>

@@ -10,24 +10,13 @@ import { ArrowLeft, CheckCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CTASection } from "@/components/sections/CTASection";
 
-import B2BSaas from "@/views/portfolio/B2BSaas";
 import Easy2Buy from "@/views/portfolio/Easy2Buy";
-import FitTrack from "@/views/portfolio/FitTrack";
-import FreightXpress from "@/views/portfolio/FreightXpress";
-import HealthcarePortal from "@/views/portfolio/HealthcarePortal";
 import Juxtudio from "@/views/portfolio/Juxtudio";
 import KaspereyeSecurity from "@/views/portfolio/KaspereyeSecurity";
-import LawFirmM365 from "@/views/portfolio/LawFirmM365";
 import LeadItoby from "@/views/portfolio/LeadItoby";
-import LuxeFashion from "@/views/portfolio/LuxeFashion";
-import ManufacturingERP from "@/views/portfolio/ManufacturingERP";
-import QuickPay from "@/views/portfolio/QuickPay";
 import RainfraStudio from "@/views/portfolio/RainfraStudio";
 import RentItoby from "@/views/portfolio/RentItoby";
-import RestaurantChain from "@/views/portfolio/RestaurantChain";
-import RetailM365 from "@/views/portfolio/RetailM365";
 import SolidEdgeConstructions from "@/views/portfolio/SolidEdgeConstructions";
-import TechFlow from "@/views/portfolio/TechFlow";
 
 interface DbProject {
   slug: string;
@@ -41,24 +30,13 @@ interface DbProject {
 }
 
 const staticComponents: Record<string, React.ComponentType> = {
-  "b2b-saas": B2BSaas,
   "easy2buy": Easy2Buy,
-  "fittrack": FitTrack,
-  "freightxpress": FreightXpress,
-  "healthcare-portal": HealthcarePortal,
   "juxtudio": Juxtudio,
   "kaspereye-security": KaspereyeSecurity,
-  "law-firm-m365": LawFirmM365,
   "lead-itoby": LeadItoby,
-  "luxe-fashion": LuxeFashion,
-  "manufacturing-erp": ManufacturingERP,
-  "quickpay": QuickPay,
   "rainfra-studio": RainfraStudio,
   "rent-itoby": RentItoby,
-  "restaurant-chain": RestaurantChain,
-  "retail-m365": RetailM365,
   "solidedgeconstructions": SolidEdgeConstructions,
-  "techflow": TechFlow,
 };
 
 export default function PortfolioSlugClient({ slug }: { slug: string }) {

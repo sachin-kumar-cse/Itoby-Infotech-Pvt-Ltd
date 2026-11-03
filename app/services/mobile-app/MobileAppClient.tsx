@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import Link from "next/link";
-import fittrackImage from "@/assets/portfolio/fittrack-app.webp";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
+import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import rentItobyImage from "@/assets/portfolio/rent-itoby.png";
 import { Button } from "@/components/ui/button";
 import { 
   Smartphone,
@@ -145,18 +145,18 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "FitTrack Health App",
-    category: "Health & Fitness",
-    result: "500K+ downloads in 6 months",
-    image: getImgSrc(fittrackImage),
-    path: "/portfolio/fittrack",
+    title: "Easy2Buy Mobile Platform",
+    category: "Mobile Commerce",
+    result: "Responsive Commerce Interface",
+    image: getImgSrc(easy2buyImage),
+    path: "/portfolio/easy2buy",
   },
   {
-    title: "QuickPay Fintech App",
-    category: "Finance",
-    result: "4.8★ rating on App Store",
-    image: getImgSrc(quickpayImage),
-    path: "/portfolio/quickpay",
+    title: "Rent Itoby Field Operations",
+    category: "Mobile Management App",
+    result: "Fleet & Asset Mobile Experience",
+    image: getImgSrc(rentItobyImage),
+    path: "/portfolio/rent-itoby",
   },
 ];
 
@@ -516,11 +516,11 @@ export default function MobileAppClient() {
               <Link href="/comparison/flutter-vs-react-native" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-primary/10 border border-primary/30 text-primary font-bold hover:bg-primary/20 transition-colors">
                 Flutter vs React Native Comparison
               </Link>
-              <Link href="/portfolio/fittrack" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                FitTrack Mobile Case Study
+              <Link href="/portfolio/easy2buy" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Easy2Buy Mobile Case Study
               </Link>
-              <Link href="/portfolio/quickpay" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
-                QuickPay Fintech Mobile Case
+              <Link href="/portfolio/rent-itoby" className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-card border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors">
+                Rent Itoby Mobile App Case
               </Link>
             </div>
           </div>

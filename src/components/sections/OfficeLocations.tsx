@@ -7,26 +7,26 @@ import { GlobalOfficeMapModal } from "@/components/ui/global-office-map-modal";
 const offices = [
   {
     city: "Noida",
-    country: "India (HQ)",
-    address: "Sector-4, Noida, Uttar Pradesh 201301",
+    country: "Operational Headquarters",
+    address: "Sector-4, Noida, Uttar Pradesh, India",
     phone: "+91 91427 73500",
     email: "info@itobyinfotech.com",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM IST",
   },
   {
     city: "Delhi",
-    country: "India",
-    address: "L100, Laxmi Nagar, Delhi 110092",
+    country: "Registered Office",
+    address: "Itoby Infotech Private Limited, J-34/B, J-Block, Laxmi Nagar, Delhi - 110092, India (CIN: U74999DL2017PTC310615)",
     phone: "+91 91427 73500",
     email: "info@itobyinfotech.com",
-    hours: "Mon - Sat: 9:00 AM - 6:00 PM IST",
+    hours: "Corporate Registered Office",
   },
   {
-    city: "California",
-    country: "United States",
-    address: "513 W Bonaventure Ave, Tracy, CA 95391, USA",
-    email: "usa@itobyinfotech.com",
-    hours: "Mon - Fri: 9:00 AM - 5:00 PM PST",
+    city: "United States",
+    country: "Remote Client Services",
+    address: "Serving clients across the United States through remote software development and IT services.",
+    email: "info@itobyinfotech.com",
+    hours: "Remote US & Global Project Coordination",
   },
 ];
 
@@ -47,13 +47,13 @@ export const OfficeLocations = () => {
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Our Offices
+            Corporate Presence
           </span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold mt-4 mb-4">
-            Visit Us <span className="gradient-text">Globally</span>
+            Our <span className="gradient-text">Offices & Client Reach</span>
           </h2>
           <p className="text-muted-foreground">
-            We have offices across multiple locations to serve you better.
+            Registered and operational offices in India, serving clients locally and across international markets.
           </p>
         </motion.div>
 

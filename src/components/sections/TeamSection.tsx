@@ -116,7 +116,7 @@ export const TeamSection = () => {
                       <Twitter size={20} />
                     </motion.a>
                     <motion.a
-                      href={`mailto:${member.name.toLowerCase().replace(' ', '.')}@itobyinfotech.in`}
+                      href="mailto:info@itobyinfotech.com"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="w-10 h-10 rounded-full bg-card flex items-center justify-center text-foreground hover:text-primary hover:bg-primary/10 transition-colors"

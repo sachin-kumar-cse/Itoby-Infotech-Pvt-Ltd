@@ -1,53 +1,48 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
 import heroImage from "@/assets/portfolio/lead-itoby.png";
-import techflowImage from "@/assets/portfolio/techflow-saas.webp";
-import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.webp";
+import rentItobyImage from "@/assets/portfolio/rent-itoby.png";
+import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
 
 const caseStudy = {
   title: "Lead Itoby – Lead Scoring CRM",
   category: "Software",
-  client: "Itoby Marketing Solutions",
+  client: "Company Product / Internal Project",
   duration: "3.5 months",
   year: "2025",
   heroImage: heroImage,
-  overview: "An automated lead generation, scoring, and marketing automation CRM built to help sales forces identify and convert high-intent prospective buyers.",
+  overview: "An automated lead discovery, scoring, and sales pipeline CRM built as part of IIPL's proprietary SaaS suite to help sales teams track prospect interactions.",
   challenge: [
-    "Sales teams were overwhelmed by cold leads, resulting in high churn and low conversion rates.",
-    "No structured pipeline tracking or central repository for marketing interaction points.",
-    "Needed an automated scoring system to grade leads by email opens, site visits, and budget criteria.",
-    "Required immediate notifications (SMS/Email/Webhook) as soon as high-value leads are scored."
+    "Sales teams needed structured pipeline tracking to categorize and prioritize prospect interactions.",
+    "No centralized repository for managing multi-channel lead engagement points.",
+    "Needed an automated scoring system to organize prospects by engagement and industry criteria.",
+    "Required instant notification triggers (Email/Webhook) as soon as high-intent inquiries arrive."
   ],
   solution: [
-    "Built a high-performance React dashboard showing conversion funnels, sales pipelines, and lead scores.",
-    "Developed a customizable rule-based scoring engine calculating values from lead behavioral signals.",
-    "Integrated custom email and WhatsApp marketing triggers to drip campaign sequences to segmented audiences.",
-    "Configured direct webhook integrations to feed leads into external databases and slack channels instantly.",
+    "Built a high-performance React dashboard showing sales pipelines, deal stages, and lead scores.",
+    "Developed a rule-based scoring engine calculating values from engagement touchpoints.",
+    "Integrated custom email and notification triggers to organize outreach sequences.",
+    "Configured webhook integrations to connect leads with external databases and notification channels.",
     "Designed a responsive lead dashboard containing search filters, note logs, and appointment booking controls."
   ],
   results: [
-    { metric: "Sales Conversion Rate", value: "+110%" },
-    { metric: "Lead Response Time", value: "<15s" },
-    { metric: "Cold Outreach Redundancy", value: "45% ↓" },
-    { metric: "Deals Closed", value: "+88%" }
+    { metric: "Dashboard", value: "React + TS" },
+    { metric: "Backend", value: "Python / Django" },
+    { metric: "Database", value: "PostgreSQL" },
+    { metric: "Cache & Queue", value: "Redis" }
   ],
   techStack: ["React", "TypeScript", "Python (Django)", "PostgreSQL", "Redis", "Twilio", "Resend API"],
-  testimonial: {
-    quote: "Lead Itoby cut down our cold outreach fatigue immediately. By prioritizing hot leads based on their real-time scoring metrics, our sales reps closed nearly double the deals in a single quarter.",
-    author: "Arjun Verma",
-    role: "VP Sales, NextGen B2B Systems"
-  },
   relatedProjects: [
     {
-      title: "TechFlow SaaS Platform",
+      title: "Rent Itoby – Rental CRM Dashboard",
       category: "Software",
-      image: techflowImage,
-      path: "/portfolio/techflow"
+      image: rentItobyImage,
+      path: "/portfolio/rent-itoby"
     },
     {
-      title: "B2B SaaS Campaign",
-      category: "Marketing",
-      image: b2bSaasImage,
-      path: "/portfolio/b2b-saas"
+      title: "Easy2Buy Fashion E-commerce",
+      category: "E-commerce",
+      image: easy2buyImage,
+      path: "/portfolio/easy2buy"
     }
   ]
 };

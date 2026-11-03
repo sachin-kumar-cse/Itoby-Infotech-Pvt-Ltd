@@ -317,7 +317,7 @@ export const JobsManagementTab = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, location: e.target.value })
                   }
-                  placeholder="Remote / Patna, Bihar"
+                  placeholder="Remote / Noida, UP"
                 />
               </div>
               <div className="space-y-2">

@@ -98,7 +98,7 @@ const Careers = () => {
 
   return (
     <Layout>
-      <SEOHead title="Careers - Join Our Team" description="Explore career opportunities at Itoby Infotech. Join our team of designers, developers, and marketers in Patna, India." path="/careers" jsonLd={{ "@context": "https://schema.org", "@type": "JobPosting", hiringOrganization: { "@type": "Organization", name: "Itoby Infotech" } }} />
+      <SEOHead title="Careers - Join Our Team" description="Explore career opportunities at Itoby Infotech. Join our team of designers, developers, and marketers in Noida, Delhi NCR, India." path="/careers" jsonLd={{ "@context": "https://schema.org", "@type": "JobPosting", hiringOrganization: { "@type": "Organization", name: "Itoby Infotech" } }} />
 
       {/* 3D Animated Hero & Breadcrumbs */}
       <PageHeroBanner
@@ -119,10 +119,10 @@ const Careers = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {[
-              { value: "50+", label: "Team Members", icon: "👥" },
-              { value: "12+", label: "Countries", icon: "🌍" },
-              { value: "95%", label: "Retention Rate", icon: "💎" },
-              { value: "4.8★", label: "Glassdoor Rating", icon: "⭐" },
+              { value: "2017", label: "Year Incorporated", icon: "🏛️" },
+              { value: "Full-Stack", label: "Engineering Disciplines", icon: "💻" },
+              { value: "Agile", label: "Collaborative Culture", icon: "⚡" },
+              { value: "Global", label: "Client Markets", icon: "🌍" },
             ].map((stat) => (
               <motion.div
                 key={stat.label}
@@ -388,7 +388,7 @@ const Careers = () => {
                   </Link>
                 </Button>
                 <Button variant="hero-outline" size="xl" asChild>
-                  <a href="mailto:careers@itobyinfotech.in">Email Us Directly</a>
+                  <a href="mailto:info@itobyinfotech.com">Email Us Directly</a>
                 </Button>
               </div>
             </div>

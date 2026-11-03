@@ -36,18 +36,7 @@ const JobDetails = lazy(() => import("./views/JobDetails"));
 const AdminLogin = lazy(() => import("./views/admin/AdminLogin"));
 const AdminDashboard = lazy(() => import("./views/admin/AdminDashboard"));
 const RequestQuote = lazy(() => import("./views/RequestQuote"));
-const TechFlow = lazy(() => import("./views/portfolio/TechFlow"));
-const LuxeFashion = lazy(() => import("./views/portfolio/LuxeFashion"));
-const FitTrack = lazy(() => import("./views/portfolio/FitTrack"));
-const QuickPay = lazy(() => import("./views/portfolio/QuickPay"));
-const RestaurantChain = lazy(() => import("./views/portfolio/RestaurantChain"));
-const B2BSaas = lazy(() => import("./views/portfolio/B2BSaas"));
-const ManufacturingERP = lazy(() => import("./views/portfolio/ManufacturingERP"));
-const HealthcarePortal = lazy(() => import("./views/portfolio/HealthcarePortal"));
-const LawFirmM365 = lazy(() => import("./views/portfolio/LawFirmM365"));
-const RetailM365 = lazy(() => import("./views/portfolio/RetailM365"));
 const KaspereyeSecurity = lazy(() => import("./views/portfolio/KaspereyeSecurity"));
-const FreightXpress = lazy(() => import("./views/portfolio/FreightXpress"));
 const RainfraStudio = lazy(() => import("./views/portfolio/RainfraStudio"));
 const Easy2Buy = lazy(() => import("./views/portfolio/Easy2Buy"));
 const SolidEdgeConstructions = lazy(() => import("./views/portfolio/SolidEdgeConstructions"));
@@ -81,18 +70,7 @@ const App = () => (
                   <Route path="/services/software-solutions" element={<SoftwareSolutions />} />
                   <Route path="/services/microsoft-365" element={<Microsoft365 />} />
                   <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/portfolio/techflow" element={<TechFlow />} />
-                  <Route path="/portfolio/luxe-fashion" element={<LuxeFashion />} />
-                  <Route path="/portfolio/fittrack" element={<FitTrack />} />
-                  <Route path="/portfolio/quickpay" element={<QuickPay />} />
-                  <Route path="/portfolio/restaurant-chain" element={<RestaurantChain />} />
-                  <Route path="/portfolio/b2b-saas" element={<B2BSaas />} />
-                  <Route path="/portfolio/manufacturing-erp" element={<ManufacturingERP />} />
-                  <Route path="/portfolio/healthcare-portal" element={<HealthcarePortal />} />
-                  <Route path="/portfolio/law-firm-m365" element={<LawFirmM365 />} />
-                  <Route path="/portfolio/retail-m365" element={<RetailM365 />} />
                   <Route path="/portfolio/kaspereye-security" element={<KaspereyeSecurity />} />
-                  <Route path="/portfolio/freightxpress" element={<FreightXpress />} />
                   <Route path="/portfolio/rainfra-studio" element={<RainfraStudio />} />
                   <Route path="/portfolio/easy2buy" element={<Easy2Buy />} />
                   <Route path="/portfolio/solidedgeconstructions" element={<SolidEdgeConstructions />} />

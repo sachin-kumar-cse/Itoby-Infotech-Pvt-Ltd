@@ -101,17 +101,41 @@ export const metadata: Metadata = {
 const jsonLdOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Itoby Infotech Pvt. Ltd.",
+  name: "Itoby Infotech Private Limited",
   legalName: "Itoby Infotech Private Limited",
   alternateName: ["IIPL", "Itoby Infotech"],
   url: "https://www.itobyinfotech.com",
   logo: "https://www.itobyinfotech.com/images/logo.png",
+  foundingDate: "2017",
+  identifier: {
+    "@type": "PropertyValue",
+    name: "CIN",
+    value: "U74999DL2017PTC310615",
+  },
+  address: [
+    {
+      "@type": "PostalAddress",
+      streetAddress: "J-34/B, J-Block, Laxmi Nagar",
+      addressLocality: "Delhi",
+      postalCode: "110092",
+      addressCountry: "IN",
+      description: "Registered Office",
+    },
+    {
+      "@type": "PostalAddress",
+      streetAddress: "Sector-4",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN",
+      description: "Operational Headquarters",
+    },
+  ],
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-91427-73500",
     contactType: "customer service",
     email: "info@itobyinfotech.com",
-    areaServed: ["US", "CA", "AU", "IN", "GB", "AE"],
+    areaServed: ["IN", "US"],
     availableLanguage: ["en", "hi"],
   },
   sameAs: [
@@ -130,7 +154,7 @@ const jsonLdLocalBusiness = {
   "@graph": [
     {
       "@type": "LocalBusiness",
-      "name": "Itoby Infotech Pvt. Ltd. - Noida Global HQ",
+      "name": "Itoby Infotech Private Limited - Operational Headquarters",
       "image": "https://www.itobyinfotech.com/images/logo.png",
       "@id": "https://www.itobyinfotech.com/#noida-hq",
       "url": "https://www.itobyinfotech.com",
@@ -158,15 +182,15 @@ const jsonLdLocalBusiness = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "Itoby Infotech Pvt. Ltd. - Delhi Office",
+      "name": "Itoby Infotech Private Limited - Registered Office",
       "image": "https://www.itobyinfotech.com/images/logo.png",
-      "@id": "https://www.itobyinfotech.com/#delhi-office",
+      "@id": "https://www.itobyinfotech.com/#delhi-registered-office",
       "url": "https://www.itobyinfotech.com",
       "telephone": "+91-91427-73500",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "L100, Laxmi Nagar",
+        "streetAddress": "J-34/B, J-Block, Laxmi Nagar",
         "addressLocality": "Delhi",
         "addressRegion": "Delhi",
         "postalCode": "110092",
@@ -182,33 +206,6 @@ const jsonLdLocalBusiness = {
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         "opens": "09:00",
         "closes": "18:00"
-      }
-    },
-    {
-      "@type": "LocalBusiness",
-      "name": "Itoby Infotech Pvt. Ltd. - California US Hub",
-      "image": "https://www.itobyinfotech.com/images/logo.png",
-      "@id": "https://www.itobyinfotech.com/#california-office",
-      "url": "https://www.itobyinfotech.com",
-      "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "513 W Bonaventure Ave",
-        "addressLocality": "Tracy",
-        "addressRegion": "California",
-        "postalCode": "95391",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 37.73,
-        "longitude": -121.42
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
       }
     }
   ]

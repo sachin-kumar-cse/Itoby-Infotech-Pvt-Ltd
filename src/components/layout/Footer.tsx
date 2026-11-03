@@ -35,7 +35,7 @@ const saasProductsList = [
   { name: "IIPL Renting (Office Rent & Tenant CRM)", path: "https://rent.itobyinfotech.com", isExternal: true },
   { name: "IIPL Billing (GST & Invoicing SaaS)", path: "https://billing.itobyinfotech.com", isExternal: true },
   { name: "IIPL Cashmemo (Cash Invoice Generator)", path: "https://cashmemo.itobyinfotech.com", isExternal: true },
-  { name: "IIPL Calling (AI Voice Calling Agents)", path: "https://royalblue-ant-234341.hostingersite.com/", isExternal: true },
+  { name: "IIPL Calling (AI Voice Calling Agents)", path: "https://calling.itobyinfotech.com", isExternal: true },
 ];
 
 const services = [
@@ -251,60 +251,49 @@ export const Footer = () => {
       <div className="border-b border-border bg-card/60 backdrop-blur-md py-7">
         <div className="container-wide">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
-            {/* Address */}
-            <a
-              href="https://maps.google.com/?q=Noida,Uttar Pradesh,India"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 hover:border-primary/80 hover:bg-secondary/90 transition-all duration-300 flex items-center gap-4 group shadow-md"
-            >
+            {/* Registered Office */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 hover:border-primary/80 hover:bg-secondary/90 transition-all duration-300 flex items-center gap-4 group shadow-md">
               <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/25 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
                 <MapPin size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Headquarters</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Registered Office</p>
+                <h5 className="font-display font-bold text-sm text-foreground group-hover:text-primary transition-colors">
+                  J-34/B, J-Block, Laxmi Nagar
+                </h5>
+                <p className="text-xs text-muted-foreground">Delhi - 110092, India (CIN: U74999DL2017PTC310615)</p>
+              </div>
+            </div>
+
+            {/* Operational Headquarters */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 hover:border-primary/80 hover:bg-secondary/90 transition-all duration-300 flex items-center gap-4 group shadow-md">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/25 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
+                <MapPin size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
+              </div>
+              <div>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Operational Headquarters</p>
                 <h5 className="font-display font-bold text-sm text-foreground group-hover:text-primary transition-colors">
                   Sector-4, Noida, UP, India
                 </h5>
-                <p className="text-xs text-muted-foreground">Itoby Infotech Pvt Ltd (IIPL)</p>
+                <p className="text-xs text-muted-foreground">Software Engineering & Operations Hub</p>
               </div>
-            </a>
+            </div>
 
-            {/* Phone */}
-            <a
-              href="tel:+919142773500"
-              className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 hover:border-primary/80 hover:bg-secondary/90 transition-all duration-300 flex items-center gap-4 group shadow-md"
-            >
+            {/* Contact & Email */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 hover:border-primary/80 hover:bg-secondary/90 transition-all duration-300 flex items-center gap-4 group shadow-md">
               <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/25 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
                 <Phone size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Direct Hotline</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Direct Contact</p>
                 <h5 className="font-display font-bold text-sm text-foreground group-hover:text-primary transition-colors">
-                  +91 91427 73500
+                  <a href="tel:+919142773500" className="hover:text-primary transition-colors">+91 91427 73500</a>
                 </h5>
-                <p className="text-xs text-muted-foreground flex items-center gap-1">
-                  <Clock size={12} className="text-primary" /> Mon-Sat, 9AM-6PM IST
+                <p className="text-xs text-muted-foreground">
+                  <a href="mailto:info@itobyinfotech.com" className="hover:text-primary transition-colors">info@itobyinfotech.com</a>
                 </p>
               </div>
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:info@itobyinfotech.com"
-              className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 hover:border-primary/80 hover:bg-secondary/90 transition-all duration-300 flex items-center gap-4 group shadow-md"
-            >
-              <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/25 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
-                <Mail size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Email Inquiry</p>
-                <h5 className="font-display font-bold text-sm text-foreground group-hover:text-primary transition-colors">
-                  info@itobyinfotech.com
-                </h5>
-                <p className="text-xs text-muted-foreground">Fast Response & Quote Support</p>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -327,16 +316,27 @@ export const Footer = () => {
               >
                 <span className="text-primary-foreground font-display font-bold text-xl">IIPL</span>
               </motion.div>
-              <span className="text-foreground font-display font-bold text-xl">
-                Itoby<span className="text-primary"> Infotech</span>
-              </span>
+              <div>
+                <span className="text-foreground font-display font-bold text-lg block leading-tight">
+                  Itoby<span className="text-primary"> Infotech</span>
+                </span>
+                <span className="text-[10px] text-muted-foreground block font-medium">Private Limited</span>
+              </div>
             </Link>
 
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
-              <strong className="text-foreground font-semibold">Itoby Infotech Pvt Ltd (IIPL)</strong> is a premier global digital agency & SaaS engineering firm delivering AI lead automation, rental CRMs, billing systems, app development, and enterprise software.
+              <strong className="text-foreground font-semibold">Itoby Infotech Private Limited</strong> is an India-based technology and software development company incorporated in 2017.
             </p>
 
-            <div className="flex gap-2">
+            <div className="text-xs text-muted-foreground space-y-1.5 pt-1 border-t border-border/50">
+              <p><strong className="text-foreground font-semibold">CIN:</strong> U74999DL2017PTC310615</p>
+              <p><strong className="text-foreground font-semibold">Reg. Office:</strong> J-34/B, J-Block, Laxmi Nagar, Delhi - 110092, India</p>
+              <p><strong className="text-foreground font-semibold">HQ:</strong> Sector-4, Noida, Uttar Pradesh, India</p>
+              <p><strong className="text-foreground font-semibold">Email:</strong> info@itobyinfotech.com</p>
+              <p><strong className="text-foreground font-semibold">Phone:</strong> +91 91427 73500</p>
+            </div>
+
+            <div className="flex gap-2 pt-1">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
@@ -473,7 +473,7 @@ export const Footer = () => {
       <div className="border-t border-border py-6 relative bg-background/50 backdrop-blur-md">
         <div className="container-wide flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-muted-foreground">
           <p className="text-center md:text-left">
-            © {currentYear} Itoby Infotech Pvt Ltd (IIPL). All rights reserved.
+            © {currentYear} Itoby Infotech Private Limited. CIN: U74999DL2017PTC310615. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">

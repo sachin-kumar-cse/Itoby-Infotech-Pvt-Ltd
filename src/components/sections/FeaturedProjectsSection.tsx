@@ -25,16 +25,13 @@ import { Floating3DBubbles } from "@/components/ui/floating-3d-bubbles";
 import { DevicePreviewModal } from "@/components/ui/device-preview-modal";
 
 // Import fallback project images
-import techflowImage from "@/assets/portfolio/techflow-saas.webp";
 import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
-import fittrackImage from "@/assets/portfolio/fittrack-app.webp";
-import b2bSaasImage from "@/assets/portfolio/b2b-saas-marketing.webp";
-import healthcareImage from "@/assets/portfolio/healthcare-portal.webp";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
 import rainfraImage from "@/assets/portfolio/rainfra-architecture.webp";
 import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 import solidedgeImage from "@/assets/portfolio/solidedge-construction.png";
+import juxtudioImage from "@/assets/portfolio/juxtudio-architecture.png";
 import rentItobyImage from "@/assets/portfolio/rent-itoby.png";
+import leadItobyImage from "@/assets/portfolio/lead-itoby.png";
 
 const getImgSrc = (img: any) => (typeof img === "string" ? img : img?.src || img);
 
@@ -103,10 +100,10 @@ const BestProjectCard = ({ project, onPreview, widthClass = "w-[340px] sm:w-[380
               <div className="flex items-center justify-between text-xs font-bold text-primary-foreground/80 uppercase tracking-widest">
                 <span className="flex items-center gap-1.5 text-primary">
                   <CheckCircle2 size={13} />
-                  {project.client || "Client Success Story"}
+                  {project.client || "Project Showcase"}
                 </span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/70 border border-white/10">
-                  Verified ROI
+                  Case Study
                 </span>
               </div>
 
@@ -172,75 +169,15 @@ export const FeaturedProjectsSection = () => {
 
   const fallbackProjects: Project[] = [
     {
-      slug: "techflow",
-      title: "TechFlow SaaS Platform",
-      category: "Software",
-      description:
-        "A comprehensive SaaS solution for workflow automation with advanced analytics and real-time collaboration.",
-      image: getImgSrc(techflowImage),
-      results: "300% ROI",
-      tech: ["React", "Node.js", "PostgreSQL", "AWS"],
-      client: "TechFlow Inc.",
-      source: "hardcoded",
-    },
-    {
       slug: "easy2buy",
       title: "Easy2Buy E-commerce",
       category: "E-commerce",
       description:
-        "Modern e-commerce platform with AI-powered recommendations and seamless payment integration.",
+        "Modern e-commerce platform with catalog management, product filters, and payment gateway integration.",
       image: getImgSrc(easy2buyImage),
-      results: "250% Sales ↑",
+      results: "E-Commerce System",
       tech: ["Next.js", "Stripe", "MongoDB", "AI"],
-      client: "Easy2Buy Global",
-      source: "hardcoded",
-    },
-    {
-      slug: "fittrack",
-      title: "FitTrack Mobile App",
-      category: "App",
-      description:
-        "Fitness tracking app with personalized workout plans, nutrition guidance and ML-powered insights.",
-      image: getImgSrc(fittrackImage),
-      results: "1M+ Downloads",
-      tech: ["React Native", "Firebase", "ML Kit"],
-      client: "FitTrack Health",
-      source: "hardcoded",
-    },
-    {
-      slug: "b2b-saas",
-      title: "B2B SaaS Lead Campaign",
-      category: "Marketing",
-      description:
-        "Comprehensive digital marketing strategy that multiplied qualified enterprise lead generation by 4x in 6 months.",
-      image: getImgSrc(b2bSaasImage),
-      results: "400% Leads ↑",
-      tech: ["Google Ads", "SEO", "Analytics"],
-      client: "B2B SaaS Corp",
-      source: "hardcoded",
-    },
-    {
-      slug: "healthcare-portal",
-      title: "Healthcare Patient Portal",
-      category: "Healthcare",
-      description:
-        "Secure patient management system with telemedicine, EHR records, and automated appointment scheduling.",
-      image: getImgSrc(healthcareImage),
-      results: "95% Efficiency",
-      tech: ["React", "Django", "PostgreSQL"],
-      client: "MedCare Solutions",
-      source: "hardcoded",
-    },
-    {
-      slug: "quickpay",
-      title: "QuickPay FinTech App",
-      category: "App",
-      description:
-        "Next-gen payment processing with blockchain security, instant cross-border settlement, and multi-currency wallets.",
-      image: getImgSrc(quickpayImage),
-      results: "99.9% Uptime",
-      tech: ["Vue.js", "Blockchain", "Microservices"],
-      client: "QuickPay Global",
+      client: "Easy2Buy",
       source: "hardcoded",
     },
     {
@@ -248,10 +185,10 @@ export const FeaturedProjectsSection = () => {
       title: "RA Infra Studio Architecture",
       category: "Website",
       description:
-        "Stunning dark-themed portfolio website for a leading architecture firm with immersive project showcases and 3D walkthroughs.",
+        "Dark-themed portfolio website for an architecture firm with immersive visual showcases and project galleries.",
       image: getImgSrc(rainfraImage),
-      results: "+200% Inquiries",
-      tech: ["React", "Framer Motion", "Three.js"],
+      results: "Architecture Showcase",
+      tech: ["React", "Framer Motion", "Tailwind CSS"],
       client: "RA Infra Studio",
       source: "hardcoded",
     },
@@ -260,9 +197,9 @@ export const FeaturedProjectsSection = () => {
       title: "Kaspereye Security Systems",
       category: "Website",
       description:
-        "Professional B2B website for a leading physical security and surveillance systems provider in India.",
+        "B2B corporate website for an electronic physical security and surveillance equipment provider in India.",
       image: getImgSrc(kaspereyeImage),
-      results: "+180% Leads",
+      results: "Security Systems Web",
       tech: ["React", "Tailwind CSS", "Supabase"],
       client: "Kaspereye Security",
       source: "hardcoded",
@@ -272,11 +209,23 @@ export const FeaturedProjectsSection = () => {
       title: "Solid Edge Constructions",
       category: "Website",
       description:
-        "Premium website for a civil engineering and construction firm to attract high-value commercial contracts.",
+        "Corporate website for a civil engineering and infrastructure development firm to showcase contracting capabilities.",
       image: getImgSrc(solidedgeImage),
-      results: "+140% Contracts",
+      results: "Construction Firm Web",
       tech: ["React", "Vite", "Tailwind CSS"],
-      client: "Solid Edge Firm",
+      client: "Solid Edge Constructions",
+      source: "hardcoded",
+    },
+    {
+      slug: "juxtudio",
+      title: "Juxtudio Architecture & Design",
+      category: "Website",
+      description:
+        "Portfolio website showcasing architectural designs, spatial renderings, and project concepts.",
+      image: getImgSrc(juxtudioImage),
+      results: "Design Showcase",
+      tech: ["React", "Tailwind CSS", "Framer Motion"],
+      client: "Juxtudio",
       source: "hardcoded",
     },
     {
@@ -284,11 +233,23 @@ export const FeaturedProjectsSection = () => {
       title: "Rent Itoby Rental CRM",
       category: "Software",
       description:
-        "State-of-the-art rental CRM for managing vehicle fleets, equipment, and property leasing with auto-booking.",
+        "Proprietary IIPL SaaS platform for managing vehicle fleets, equipment leasing, and inventory reservations.",
       image: getImgSrc(rentItobyImage),
-      results: "0% Overbooking",
+      results: "Company Product / Internal Project",
       tech: ["React", "Node.js", "Stripe API"],
-      client: "Itoby Rental Systems",
+      client: "Company Product / Internal Project",
+      source: "hardcoded",
+    },
+    {
+      slug: "lead-itoby",
+      title: "Lead Itoby Lead CRM",
+      category: "Software",
+      description:
+        "Proprietary IIPL SaaS platform for B2B lead discovery, verification, and campaign tracking.",
+      image: getImgSrc(leadItobyImage),
+      results: "Company Product / Internal Project",
+      tech: ["React", "Python", "PostgreSQL"],
+      client: "Company Product / Internal Project",
       source: "hardcoded",
     },
   ];
@@ -304,7 +265,7 @@ export const FeaturedProjectsSection = () => {
     ...fallbackProjects.filter((fb) => !dbProjects.some((db) => db.slug === fb.slug)),
   ];
 
-  const filterCategories = ["All", "Website", "App", "Software", "E-commerce", "Marketing"];
+  const filterCategories = ["All", "Website", "Software", "E-commerce"];
 
   const filteredProjects =
     selectedFilter === "All"
@@ -346,18 +307,18 @@ export const FeaturedProjectsSection = () => {
           <div className="inline-flex items-center gap-2 px-4.5 py-2 rounded-full bg-primary/10 border border-primary/20 mb-5 shadow-xl">
             <Zap className="w-4 h-4 text-primary animate-bounce" />
             <span className="text-primary text-xs font-extrabold uppercase tracking-widest">
-              Case Studies & Success Stories
+              Selected Projects & Case Studies
             </span>
           </div>
 
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            Our Latest{" "}
+            Our Selected{" "}
             <span className="bg-gradient-to-r from-primary via-purple-400 to-accent bg-clip-text text-transparent">
-              Case Studies
+              Projects & Solutions
             </span>
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Explore how we engineered custom web platforms, mobile apps, software tools, and high-converting marketing campaigns for global enterprise clients.
+            Explore our portfolio of software engineering, website development, proprietary SaaS applications, and technical project implementations.
           </p>
         </motion.div>
 
@@ -489,7 +450,7 @@ export const FeaturedProjectsSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14"
         >
           <p className="text-muted-foreground text-sm font-medium">
-            Want to explore all 18+ client success stories?
+            Want to explore our client projects and software solutions?
           </p>
           <Button
             variant="outline"

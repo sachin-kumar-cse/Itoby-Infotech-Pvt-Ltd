@@ -10,7 +10,7 @@ const features = [
   { icon: Palette, title: "Modern Design", description: "Cutting-edge aesthetics that captivate audiences and set your brand apart from competition." },
   { icon: Search, title: "SEO Optimized", description: "Built for visibility from day one. Every project is optimized for search engine performance." },
   { icon: Headphones, title: "24/7 Support", description: "Round-the-clock dedicated support to ensure your digital presence never misses a beat." },
-  { icon: Shield, title: "Secure & Reliable", description: "Enterprise-grade security and 99.9% uptime guarantee for peace of mind." },
+  { icon: Shield, title: "Secure & Reliable", description: "Enterprise-grade security standards and resilient cloud infrastructure." },
   { icon: BadgeIndianRupee, title: "Best Pricing", description: "Premium quality at competitive rates. Maximum value for your investment." },
 ];
 

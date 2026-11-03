@@ -3,8 +3,8 @@ import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
-import lawFirmImage from "@/assets/portfolio/law-firm-m365.webp";
-import retailImage from "@/assets/portfolio/retail-m365.webp";
+import rentItobyImage from "@/assets/portfolio/rent-itoby.png";
+import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 import { Button } from "@/components/ui/button";
 import { 
   Cloud,
@@ -43,8 +43,8 @@ const benefits = [
   "Enterprise-grade security and compliance",
   "Automatic updates and new features",
   "Integrated suite of productivity tools",
-  "Reduced IT infrastructure costs",
-  "99.9% uptime guarantee",
+  "Reduced IT infrastructure complexity",
+  "Resilient cloud collaboration infrastructure",
 ];
 
 const processSteps = [
@@ -129,18 +129,18 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "Law Firm M365 Migration",
-    category: "Professional Services",
-    result: "50% reduction in IT costs",
-    image: lawFirmImage,
-    path: "/portfolio/law-firm-m365",
+    title: "Enterprise SharePoint & Teams Deployment",
+    category: "Modern Workplace",
+    result: "Unified Cloud Collaboration Architecture",
+    image: rentItobyImage,
+    path: "/contact",
   },
   {
-    title: "Retail Chain Collaboration",
-    category: "Retail",
-    result: "200+ locations connected",
-    image: retailImage,
-    path: "/portfolio/retail-m365",
+    title: "M365 Security & Compliance Implementation",
+    category: "Cloud Security Architecture",
+    result: "Identity & Endpoint Compliance Framework",
+    image: kaspereyeImage,
+    path: "/contact",
   },
 ];
 
@@ -256,8 +256,8 @@ const Microsoft365 = () => {
             >
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 border border-primary/30 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <span className="text-7xl font-bold gradient-text">99.9%</span>
-                  <p className="text-xl text-muted-foreground mt-4">Uptime Guarantee</p>
+                  <span className="text-4xl sm:text-5xl font-bold gradient-text">Solutions</span>
+                  <p className="text-xl text-muted-foreground mt-4">Microsoft Partner Ecosystem</p>
                 </div>
               </div>
             </motion.div>

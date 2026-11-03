@@ -68,7 +68,7 @@ export const industriesList: IndustryData[] = [
       { name: "Enterprise ERP Development", path: "/services/erp-development" }
     ],
     relatedCaseStudies: [
-      { name: "Healthcare Operational Portal", path: "/portfolio/healthcare-portal", description: "Patient management and administrative workflow system." }
+      { name: "Custom Healthcare Portal Architecture", path: "/services/custom-software-development", description: "Patient management and administrative workflow system." }
     ],
     faqs: [
       {
@@ -103,7 +103,7 @@ export const industriesList: IndustryData[] = [
     caseStudy: {
       title: "Custom Patient Portal & Administrative System",
       metrics: "Engineered custom web and mobile workflows for streamlined appointment scheduling, patient intake, and administrative data management.",
-      path: "/portfolio/healthcare-portal"
+      path: "/services/custom-software-development"
     }
   },
   {
@@ -186,7 +186,7 @@ export const industriesList: IndustryData[] = [
       capabilities: "Itoby Infotech Pvt. Ltd. delivers custom FinTech applications, IIPL Billing (enterprise GST invoicing), IIPL Cashmemo (instant digital cash memos via WhatsApp), and multi-currency ledgers.",
       technologies: "Node.js, Python, React Native, PostgreSQL, Supabase, Redis, AWS KMS, Docker, and Stripe API.",
       processSummary: "5-step FinTech lifecycle: Security Architecture -> Ledger Schema Design -> Agile API Development -> PCI-DSS & OWASP Audits -> High-Availability Deployment.",
-      securityAndScalability: "AES-256 hardware security module key encryption, role-based permissions, sub-second ledger processing, and 99.99% cloud availability."
+      securityAndScalability: "AES-256 hardware security module key encryption, role-based permissions, sub-second ledger processing, and high-availability cloud architecture."
     },
     benefits: [
       "PCI-DSS compliant encryption and multi-factor authentication",
@@ -211,7 +211,7 @@ export const industriesList: IndustryData[] = [
       { name: "ERP Development Services", path: "/services/erp-development" }
     ],
     relatedCaseStudies: [
-      { name: "QuickPay Digital Wallet App", path: "/portfolio/quickpay", description: "Secure FinTech mobile payment wallet app." }
+      { name: "Easy2Buy Payment Architecture", path: "/portfolio/easy2buy", description: "Secure multi-currency Stripe payment gateway integration." }
     ],
     faqs: [
       {
@@ -220,9 +220,9 @@ export const industriesList: IndustryData[] = [
       }
     ],
     caseStudy: {
-      title: "QuickPay Digital Wallet",
-      metrics: "Processed $50M+ in transactions with 4.9★ rating",
-      path: "/portfolio/quickpay"
+      title: "Easy2Buy Payment Gateway Architecture",
+      metrics: "Multi-currency checkout integration with automated payment settlement and invoice generation.",
+      path: "/portfolio/easy2buy"
     }
   },
   {
@@ -264,7 +264,6 @@ export const industriesList: IndustryData[] = [
       { name: "Custom Software Development", path: "/services/custom-software-development" }
     ],
     relatedCaseStudies: [
-      { name: "Luxe Fashion Storefront", path: "/portfolio/luxe-fashion", description: "Headless e-commerce storefront with sub-second page rendering." },
       { name: "Easy2Buy Shopping Platform", path: "/portfolio/easy2buy", description: "Omnichannel e-commerce and retail integration." }
     ],
     faqs: [
@@ -274,9 +273,9 @@ export const industriesList: IndustryData[] = [
       }
     ],
     caseStudy: {
-      title: "Luxe Fashion Headless Store",
-      metrics: "+145% organic revenue growth in 90 days",
-      path: "/portfolio/luxe-fashion"
+      title: "Easy2Buy E-Commerce Platform",
+      metrics: "Modern e-commerce platform with catalog management, product filters, and payment gateway integration.",
+      path: "/portfolio/easy2buy"
     }
   },
   {
@@ -286,14 +285,14 @@ export const industriesList: IndustryData[] = [
     metaDescription: "InsurTech software development company engineering custom insurance CRMs, automated policy renewal engines, claims verification tools, and AI voice calling agents.",
     heroBadge: "InsurTech IT Engineering",
     heroDescription: "Secure InsurTech platforms, automated claims processing portals, AI policy recommendation engines, and customer portals for insurance providers.",
-    overview: "We engineer enterprise InsurTech software, automated claims verification portals, and policy management dashboards enabling insurance companies and brokers to digitize underwriting workflows and reduce claims processing times by 80%.",
+    overview: "We engineer enterprise InsurTech software, automated claims verification portals, and policy management dashboards enabling insurance companies and brokers to digitize underwriting workflows and streamline operational turnaround.",
     aiOverview: {
       whatIs: "Insurance software development is the engineering of custom InsurTech platforms, policy management CRMs, claims verification workflows, and automated renewal reminder systems.",
       whoNeeds: "Insurance agencies, brokers, underwriters, and InsurTech startups seeking to automate policy quote generation, claims intake, and customer communication.",
       capabilities: "Itoby Infotech Pvt. Ltd. delivers custom insurance CRMs, digital claims submission portals, automated policy renewal triggers (via WhatsApp/SMS), and IIPL Calling (AI voice agents for policy reminders).",
       technologies: "Next.js 15, Node.js, Python, PostgreSQL, Supabase, AWS KMS, and Docker.",
       processSummary: "5-step InsurTech lifecycle: Underwriting Audit -> Security Schema Planning -> Agile Portal Development -> Claims Automation Testing -> High-Availability Cloud Launch.",
-      securityAndScalability: "AES-256 database encryption, role-based permission boundaries, secure policyholder PII handling, and 99.99% server availability."
+      securityAndScalability: "AES-256 database encryption, role-based permission boundaries, secure policyholder PII handling, and high-availability server architecture."
     },
     benefits: [
       "Automated document verification & AI fraud detection",
@@ -337,7 +336,7 @@ export const industriesList: IndustryData[] = [
     ],
     caseStudy: {
       title: "InsureShield Claims Portal",
-      metrics: "Reduced claims processing time from 7 days to 4 hours"
+      metrics: "Automated claims verification workflows and policyholder management (Concept Project)"
     }
   },
   {
@@ -347,12 +346,12 @@ export const industriesList: IndustryData[] = [
     metaDescription: "InsurTech software development company engineering custom insurance CRMs, automated policy renewal engines, claims verification tools, and AI voice calling agents.",
     heroBadge: "InsurTech IT Engineering",
     heroDescription: "Secure InsurTech platforms, automated claims processing portals, AI policy recommendation engines, and customer portals for insurance providers.",
-    overview: "We engineer enterprise InsurTech software, automated claims verification portals, and policy management dashboards enabling insurance companies and brokers to digitize underwriting workflows and reduce claims processing times by 80%.",
+    overview: "We engineer enterprise InsurTech software, automated claims verification portals, and policy management dashboards enabling insurance companies and brokers to digitize underwriting workflows and streamline operational turnaround.",
     benefits: ["Automated document verification & AI fraud detection", "Sub-second policy quote generation and digital signing", "Seamless integration with payment gateways & billing systems"],
     features: ["Digital Claims Submission", "AI Underwriting", "Policyholder Portal", "Renewal Engine"],
     techStack: ["Next.js 15", "Node.js", "Python", "PostgreSQL", "Supabase"],
     faqs: [{ question: "How does InsurTech software automate claims?", answer: "Our software leverages AI document OCR and automated business rules." }],
-    caseStudy: { title: "InsureShield Claims Portal", metrics: "Reduced claims processing time from 7 days to 4 hours" }
+    caseStudy: { title: "InsureShield Claims Portal", metrics: "Automated claims verification workflows and policyholder management (Concept Project)" }
   },
   {
     slug: "education",
@@ -394,7 +393,7 @@ export const industriesList: IndustryData[] = [
       { name: "AI Chatbot Development Company", path: "/services/ai-chatbot-development" }
     ],
     relatedCaseStudies: [
-      { name: "EduCampus LMS Portal", path: "/portfolio/techflow", description: "Scalable learning management system portal." }
+      { name: "Custom EdTech Portal Architecture", path: "/services/custom-software-development", description: "Scalable learning management system portal." }
     ],
     faqs: [
       {
@@ -412,7 +411,7 @@ export const industriesList: IndustryData[] = [
     ],
     caseStudy: {
       title: "EduCampus LMS Portal",
-      metrics: "Enrolled 100,000+ active students with 99.99% uptime"
+      metrics: "Scalable learning management system architecture with WebRTC video integration (Concept Project)"
     }
   },
   {
@@ -427,7 +426,7 @@ export const industriesList: IndustryData[] = [
     features: ["Custom LMS", "Live Video Classroom", "Student Analytics", "Subscription Billing"],
     techStack: ["Next.js 15", "React", "Node.js", "WebRTC", "PostgreSQL"],
     faqs: [{ question: "Can EdTech platforms handle live video lectures?", answer: "Yes, we implement WebRTC and AWS streaming." }],
-    caseStudy: { title: "EduCampus LMS Portal", metrics: "Enrolled 100,000+ active students" }
+    caseStudy: { title: "EduCampus LMS Portal", metrics: "Scalable learning management system architecture with WebRTC video integration (Concept Project)" }
   },
   {
     slug: "manufacturing",
@@ -443,7 +442,7 @@ export const industriesList: IndustryData[] = [
       capabilities: "Itoby Infotech Pvt. Ltd. delivers custom manufacturing ERPs, shop floor execution systems (MES), automated Bill of Materials (BOM) tracking, MQTT IoT sensor telemetry, and executive OEE reporting dashboards.",
       technologies: "Next.js 15, Node.js, Python, PostgreSQL, Supabase, MQTT, Docker, and AWS.",
       processSummary: "5-step manufacturing lifecycle: Plant Process Audit -> Database Schema Design -> Agile ERP Development -> IoT Telemetry Integration -> On-Site Rollout & SLA Support.",
-      securityAndScalability: "100% source code IP ownership, Role-Based Access Control (RBAC), multi-branch inventory partitioning, sub-second query indexing, and 99.99% cloud availability."
+      securityAndScalability: "100% source code IP ownership, Role-Based Access Control (RBAC), multi-branch inventory partitioning, sub-second query indexing, and high-availability cloud infrastructure."
     },
     benefits: [
       "Real-time visibility into factory floor production lines",
@@ -468,7 +467,7 @@ export const industriesList: IndustryData[] = [
       { name: "CRM Development Services", path: "/services/crm-development" }
     ],
     relatedCaseStudies: [
-      { name: "Manufacturing Plant ERP Case Study", path: "/portfolio/manufacturing-erp", description: "Custom multi-warehouse manufacturing ERP system." }
+      { name: "Solid Edge Corporate Contracting", path: "/portfolio/solidedgeconstructions", description: "Corporate contracting and civil project management portal." }
     ],
     faqs: [
       {
@@ -485,9 +484,9 @@ export const industriesList: IndustryData[] = [
       }
     ],
     caseStudy: {
-      title: "Manufacturing Plant ERP System",
-      metrics: "Enterprise multi-warehouse manufacturing ERP system engineered by Itoby Infotech.",
-      path: "/portfolio/manufacturing-erp"
+      title: "Solid Edge Contracting & Infrastructure Portal",
+      metrics: "Corporate infrastructure contracting portal and project portfolio engineered by Itoby Infotech.",
+      path: "/portfolio/solidedgeconstructions"
     }
   },
   {
@@ -502,7 +501,7 @@ export const industriesList: IndustryData[] = [
     features: ["Shop Floor Execution (MES)", "Inventory ERP", "IoT Telemetry", "Bill of Materials"],
     techStack: ["Next.js 15", "Node.js", "Python", "PostgreSQL", "MQTT"],
     faqs: [{ question: "Can manufacturing software connect with IoT sensors?", answer: "Yes, we integrate MQTT and HTTP telemetry protocols." }],
-    caseStudy: { title: "Apex Manufacturing ERP", metrics: "Increased factory OEE by 35%", path: "/portfolio/manufacturing-erp" }
+    caseStudy: { title: "Solid Edge Contracting Portal", metrics: "Corporate infrastructure contracting portal and project portfolio", path: "/portfolio/solidedgeconstructions" }
   },
   {
     slug: "logistics",
@@ -522,7 +521,7 @@ export const industriesList: IndustryData[] = [
     },
     benefits: [
       "Real-time GPS fleet tracking and automated ETA updates",
-      "Route optimization algorithms reducing fuel costs by up to 25%",
+      "Route optimization algorithms for efficient delivery dispatching",
       "Digital Proof of Delivery (e-POD) with signature capture",
       "Automate freight dispatching and driver job assignment",
       "Warehouse inventory barcode scanning & picking optimization",
@@ -544,7 +543,7 @@ export const industriesList: IndustryData[] = [
       { name: "Mobile App Development", path: "/services/mobile-app" }
     ],
     relatedCaseStudies: [
-      { name: "FreightXpress Logistics System", path: "/portfolio/freightxpress", description: "Fleet management and logistics dispatch software." }
+      { name: "Rent Itoby Fleet & Asset Platform", path: "/portfolio/rent-itoby", description: "Fleet leasing and equipment reservation management platform." }
     ],
     faqs: [
       {
@@ -561,9 +560,9 @@ export const industriesList: IndustryData[] = [
       }
     ],
     caseStudy: {
-      title: "FreightXpress Global Logistics",
-      metrics: "Dispatched 500,000+ monthly shipments with zero lost packages",
-      path: "/portfolio/freightxpress"
+      title: "Rent Itoby Fleet & Reservation Platform",
+      metrics: "Fleet leasing and equipment reservation management platform engineered by Itoby Infotech.",
+      path: "/portfolio/rent-itoby"
     }
   },
   {
@@ -578,7 +577,7 @@ export const industriesList: IndustryData[] = [
     features: ["GPS Fleet Tracking", "Automated Dispatch", "Driver Mobile App", "Warehouse Management"],
     techStack: ["Next.js 15", "React Native", "Node.js", "Google Maps API", "PostgreSQL"],
     faqs: [{ question: "Does logistics software support real-time GPS tracking?", answer: "Yes, we build driver mobile apps with background GPS streaming." }],
-    caseStudy: { title: "FreightXpress Global Logistics", metrics: "Dispatched 500,000+ monthly shipments", path: "/portfolio/freightxpress" }
+    caseStudy: { title: "Rent Itoby Fleet Operations", metrics: "Fleet leasing and dispatch management architecture", path: "/portfolio/rent-itoby" }
   },
   {
     slug: "retail",
@@ -638,7 +637,7 @@ export const industriesList: IndustryData[] = [
     ],
     caseStudy: {
       title: "OmniRetail Store Chain",
-      metrics: "Connected 45 physical retail outlets with single-click inventory sync",
+      metrics: "Omnichannel retail POS and multi-store inventory synchronization architecture (Concept Project)",
       path: "/portfolio/easy2buy"
     }
   },
@@ -654,6 +653,6 @@ export const industriesList: IndustryData[] = [
     features: ["Cloud POS Interface", "Instant Cash Memos", "Multi-Location Inventory", "E-Commerce Sync"],
     techStack: ["Next.js 15", "React", "Node.js", "PostgreSQL", "Stripe API"],
     faqs: [{ question: "How does IIPL Cashmemo help retail owners?", answer: "Generates digital PDF receipts sent directly to WhatsApp." }],
-    caseStudy: { title: "OmniRetail Store Chain", metrics: "Connected 45 physical retail outlets", path: "/portfolio/easy2buy" }
+    caseStudy: { title: "OmniRetail Store Chain", metrics: "Omnichannel retail POS and multi-store inventory synchronization architecture (Concept Project)", path: "/portfolio/easy2buy" }
   }
 ];

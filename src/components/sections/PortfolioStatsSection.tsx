@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { TrendingUp, Users, Clock, Award } from "lucide-react";
 
 const stats = [
-  { icon: TrendingUp, value: "300%", label: "Average ROI Increase" },
-  { icon: Users, value: "2M+", label: "Users Reached" },
-  { icon: Clock, value: "99.9%", label: "Uptime Guarantee" },
-  { icon: Award, value: "4.9/5", label: "Client Satisfaction" },
+  { icon: Award, value: "2017", label: "Year Incorporated" },
+  { icon: Users, value: "Full-Stack", label: "Engineering Scope" },
+  { icon: TrendingUp, value: "Sprint-Based", label: "Agile Delivery" },
+  { icon: Clock, value: "Dedicated", label: "Technical Support" },
 ];
 
 export const PortfolioStatsSection = () => {

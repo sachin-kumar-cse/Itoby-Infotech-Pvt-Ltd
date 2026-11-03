@@ -30,6 +30,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/portfolio/luxe-fashion',
+        destination: '/portfolio/easy2buy',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/b2b-saas',
+        destination: '/portfolio/lead-itoby',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

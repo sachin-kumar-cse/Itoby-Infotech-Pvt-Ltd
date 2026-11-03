@@ -3,8 +3,8 @@ import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
-import fittrackImage from "@/assets/portfolio/fittrack-app.webp";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
+import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import rentItobyImage from "@/assets/portfolio/rent-itoby.png";
 import { Button } from "@/components/ui/button";
 import { 
   Smartphone,
@@ -131,18 +131,18 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "FitTrack Health App",
-    category: "Health & Fitness",
-    result: "500K+ downloads in 6 months",
-    image: fittrackImage,
-    path: "/portfolio/fittrack",
+    title: "Easy2Buy Mobile Platform",
+    category: "Mobile Commerce",
+    result: "Responsive Commerce Interface",
+    image: easy2buyImage,
+    path: "/portfolio/easy2buy",
   },
   {
-    title: "QuickPay Fintech App",
-    category: "Finance",
-    result: "4.8★ rating on App Store",
-    image: quickpayImage,
-    path: "/portfolio/quickpay",
+    title: "Rent Itoby Field Operations",
+    category: "Mobile Management App",
+    result: "Fleet & Asset Mobile Experience",
+    image: rentItobyImage,
+    path: "/portfolio/rent-itoby",
   },
 ];
 

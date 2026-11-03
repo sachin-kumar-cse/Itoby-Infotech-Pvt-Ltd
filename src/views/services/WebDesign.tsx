@@ -3,8 +3,8 @@ import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEOHead } from "@/components/SEOHead";
-import techflowImage from "@/assets/portfolio/techflow-saas.webp";
-import luxeFashionImage from "@/assets/portfolio/luxe-fashion.webp";
+import easy2buyImage from "@/assets/portfolio/easy2buy-ecommerce.webp";
+import juxtudioImage from "@/assets/portfolio/juxtudio-architecture.png";
 import { Button } from "@/components/ui/button";
 import { 
   Palette, 
@@ -39,7 +39,7 @@ const offerings = [
 ];
 
 const benefits = [
-  "Increase conversions by up to 200% with optimized design",
+  "Enhanced user experience with conversion-focused UI/UX design",
   "24/7 uptime with enterprise-grade hosting",
   "SEO-optimized structure for better search rankings",
   "Mobile-first responsive design for all devices",
@@ -65,7 +65,7 @@ const faqs = [
   },
   {
     question: "Do you provide website hosting?",
-    answer: "Yes, we offer managed hosting solutions with 99.9% uptime guarantee, daily backups, and SSL certificates included."
+    answer: "Yes, we offer managed cloud hosting solutions with 24/7 uptime monitoring, automated backups, and SSL certificates included."
   },
   {
     question: "Can I update the website myself?",
@@ -130,18 +130,18 @@ const pricingTiers = [
 
 const caseStudies = [
   {
-    title: "TechFlow SaaS Platform",
-    category: "Web Application",
-    result: "300% increase in user signups",
-    image: techflowImage,
-    path: "/portfolio/techflow",
+    title: "Easy2Buy E-commerce",
+    category: "E-commerce Platform",
+    result: "Catalog & Payment Architecture",
+    image: easy2buyImage,
+    path: "/portfolio/easy2buy",
   },
   {
-    title: "Luxe Fashion E-commerce",
-    category: "E-commerce",
-    result: "150% boost in online sales",
-    image: luxeFashionImage,
-    path: "/portfolio/luxe-fashion",
+    title: "Juxtudio – Architecture & Interior Design",
+    category: "Design Portfolio",
+    result: "Spatial Showcase & Visual Portfolio",
+    image: juxtudioImage,
+    path: "/portfolio/juxtudio",
   },
 ];
 
@@ -258,8 +258,8 @@ const WebDesign = () => {
             >
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 border border-primary/30 flex items-center justify-center">
                 <div className="text-center p-8">
-                  <span className="text-7xl font-bold gradient-text">200%</span>
-                  <p className="text-xl text-muted-foreground mt-4">Average Conversion Increase</p>
+                  <span className="text-4xl sm:text-5xl font-bold gradient-text">Speed</span>
+                  <p className="text-xl text-muted-foreground mt-4">High-Performance Web Architecture</p>
                 </div>
               </div>
             </motion.div>

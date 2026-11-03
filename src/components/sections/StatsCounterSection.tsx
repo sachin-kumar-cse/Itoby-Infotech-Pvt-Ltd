@@ -1,14 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { Code2, Users, Trophy, Clock, Briefcase, Globe } from "lucide-react";
+import { Code2, Users, Trophy, Clock, Globe } from "lucide-react";
 
 const stats = [
-  { icon: Code2, value: 1200, suffix: "+", label: "Projects Delivered", description: "Successfully completed projects" },
-  { icon: Trophy, value: 25, suffix: "+", label: "Awards Won", description: "Industry recognitions" },
-  { icon: Clock, value: 11, suffix: "+", label: "Years Experience", description: "Delivering excellence" },
-  { icon: Briefcase, value: 50, suffix: "+", label: "Team Members", description: "Expert professionals" },
-  { icon: Globe, value: 8, suffix: "+", label: "Countries Served", description: "Global presence" },
+  { icon: Clock, display: "2017", label: "Established", description: "Incorporated in India" },
+  { icon: Code2, display: "Full-Stack", label: "Core Capabilities", description: "Web, SaaS & Mobile Apps" },
+  { icon: Trophy, display: "Agile", label: "Delivery Model", description: "Sprint-Based Engineering" },
+  { icon: Globe, display: "Global", label: "Client Services", description: "Serving India & USA" },
+  { icon: Users, display: "Dedicated", label: "Technical Support", description: "Post-Launch Maintenance" },
 ];
 
 const staggerContainer = {
@@ -46,13 +45,12 @@ export const StatsCounterSection = () => {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Proven Track Record</span>
+          <span className="text-primary font-semibold uppercase tracking-wider text-sm">Established in 2017</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Numbers That Validate <span className="gradient-text">Our Success</span>
+            Company Overview & <span className="gradient-text">Core Capabilities</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            A glance at the milestones that define our journey as a leading digital agency, delivering premium web design, 
-            custom software development, and digital marketing solutions globally.
+            Itoby Infotech Private Limited is an India-based technology and software development company incorporated in 2017.
           </p>
         </motion.div>
 
@@ -79,8 +77,8 @@ export const StatsCounterSection = () => {
                   >
                     <stat.icon className="text-primary" size={24} />
                   </motion.div>
-                  <p className="text-3xl sm:text-4xl font-display font-bold text-primary mb-1">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={2.5} margin="0px" />
+                  <p className="text-2xl sm:text-3xl font-display font-bold text-primary mb-1">
+                    {stat.display}
                   </p>
                   <p className="font-medium text-foreground text-sm mb-1">{stat.label}</p>
                   <p className="text-muted-foreground text-xs hidden sm:block">{stat.description}</p>

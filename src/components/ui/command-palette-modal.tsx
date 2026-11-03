@@ -23,11 +23,11 @@ interface SearchItem {
 const searchDatabase: SearchItem[] = [
   // Pages
   { id: "home", title: "Home", category: "Page", path: "/", icon: Globe, description: "Main homepage with company overview & hero" },
-  { id: "about", title: "About Us", category: "Page", path: "/about", icon: Briefcase, description: "Our 11+ year story, team & global footprint" },
+  { id: "about", title: "About Us", category: "Page", path: "/about", icon: Briefcase, description: "Company overview, incorporation history & capabilities" },
   { id: "services", title: "Services Overview", category: "Page", path: "/services", icon: Code, description: "All web design, mobile apps & software services" },
-  { id: "portfolio", title: "Portfolio & Case Studies", category: "Page", path: "/portfolio", icon: Sparkles, description: "18+ client case studies and digital transformation stories" },
+  { id: "portfolio", title: "Portfolio & Case Studies", category: "Page", path: "/portfolio", icon: Sparkles, description: "Project showcase and technical architectures" },
   { id: "blog", title: "Blog & Insights", category: "Page", path: "/blog", icon: BookOpen, description: "Articles on React, SEO, AI & Web Architecture" },
-  { id: "contact", title: "Contact Us", category: "Page", path: "/contact", icon: PhoneCall, description: "Get in touch with our engineering hubs in India & USA" },
+  { id: "contact", title: "Contact Us", category: "Page", path: "/contact", icon: PhoneCall, description: "Get in touch with our team in India, serving clients globally" },
   { id: "careers", title: "Careers & Hiring", category: "Page", path: "/careers", icon: Briefcase, description: "Join our global software engineering team" },
 
   // Services
@@ -41,7 +41,7 @@ const searchDatabase: SearchItem[] = [
   { id: "saas-renting", title: "IIPL Renting (Office Renting & Tenant CRM)", category: "Tool", path: "https://rent.itobyinfotech.com", icon: Briefcase, description: "Office leasing, tenant management & rent collection SaaS (rent.itobyinfotech.com)" },
   { id: "saas-billing", title: "IIPL Billing (GST Invoicing & Revenue SaaS)", category: "Tool", path: "https://billing.itobyinfotech.com", icon: FileText, description: "GST billing software, tax invoice generation & ledgers (billing.itobyinfotech.com)" },
   { id: "saas-cashmemo", title: "IIPL Cashmemo (Instant Digital Cash Memo Generator)", category: "Tool", path: "https://cashmemo.itobyinfotech.com", icon: FileText, description: "Instant cash receipts, WhatsApp PDF share & thermal print (cashmemo.itobyinfotech.com)" },
-  { id: "saas-calling", title: "IIPL Calling (AI Voice Agents for Restaurants & Insurance)", category: "Tool", path: "https://royalblue-ant-234341.hostingersite.com/", icon: PhoneCall, description: "AI restro calling, insurance renewal reminders & voice bots" },
+  { id: "saas-calling", title: "IIPL Calling (AI Voice Agents for Restaurants & Insurance)", category: "Tool", path: "https://calling.itobyinfotech.com", icon: PhoneCall, description: "AI restro calling, insurance renewal reminders & voice bots" },
 
   // Tools
   { id: "t-quote", title: "Instant Project Cost Estimator", category: "Tool", path: "/request-quote", icon: FileText, description: "Calculate project estimate and generate PDF proposal" },

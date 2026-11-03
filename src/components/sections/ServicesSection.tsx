@@ -78,7 +78,7 @@ const services: ServiceItem[] = [
     icon: PhoneCall,
     title: "IIPL Calling",
     description: "Autonomous conversational AI voice agents for restaurant table bookings, insurance renewals & follow-ups.",
-    path: "https://royalblue-ant-234341.hostingersite.com/",
+    path: "https://calling.itobyinfotech.com",
     category: "saas",
     isSaaS: true,
     isExternal: true,

@@ -37,7 +37,7 @@ const saasProductNavLinks = [
   { name: "IIPL Renting (Office & Tenant CRM)", path: "https://rent.itobyinfotech.com", isExternal: true, badge: "PropTech" },
   { name: "IIPL Billing (GST Invoicing SaaS)", path: "https://billing.itobyinfotech.com", isExternal: true, badge: "GST" },
   { name: "IIPL Cashmemo (Cash Invoice Builder)", path: "https://cashmemo.itobyinfotech.com", isExternal: true, badge: "POS" },
-  { name: "IIPL Calling (AI Voice Agents)", path: "https://royalblue-ant-234341.hostingersite.com/", isExternal: true, badge: "Voice AI" },
+  { name: "IIPL Calling (AI Voice Agents)", path: "https://calling.itobyinfotech.com", isExternal: true, badge: "Voice AI" },
 ];
 
 const navLinks = [

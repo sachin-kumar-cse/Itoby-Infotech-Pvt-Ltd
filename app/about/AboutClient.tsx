@@ -22,17 +22,17 @@ const whyChooseUs = [
 ];
 
 const geoLocations = [
-  { region: "North America", countries: "USA & Canada", desc: "Serving enterprise clients, SaaS startups & SMEs across New York, California, Texas & Toronto.", flag: "🇺🇸 🇨🇦" },
-  { region: "Asia Pacific & Australia", countries: "Australia & NZ", desc: "Delivering bespoke web & mobile applications for businesses in Sydney, Melbourne & Auckland.", flag: "🇦🇺 🇳🇿" },
-  { region: "Europe & UK", countries: "United Kingdom & EU", desc: "Providing GDPR-compliant cloud solutions, web design & software engineering in London & Berlin.", flag: "🇬🇧 🇪🇺" },
-  { region: "Middle East & Asia", countries: "India & UAE", desc: "Global development hubs in Noida, Delhi-NCR & Patna providing 24/7 dedicated engineering.", flag: "🇮🇳 🇦🇪" },
+  { region: "Operational HQ", countries: "Noida, UP, India", desc: "Sector-4, Noida, Uttar Pradesh, India. Primary software development, engineering & operations hub.", flag: "🏢" },
+  { region: "Registered Office", countries: "Delhi, India", desc: "J-34/B, J-Block, Laxmi Nagar, Delhi - 110092, India. CIN: U74999DL2017PTC310615.", flag: "🏛️" },
+  { region: "United States", countries: "USA Client Services", desc: "Serving clients across the United States through remote software development and IT services.", flag: "🇺🇸" },
+  { region: "International Markets", countries: "Global Delivery", desc: "Providing agile software engineering, SaaS development & cloud consulting to international businesses.", flag: "🌐" },
 ];
 
 const stats = [
-  { value: "500+", label: "Projects Completed", icon: "🚀" },
-  { value: "150+", label: "Happy Clients", icon: "😊" },
-  { value: "11+", label: "Years Experience", icon: "⏳" },
-  { value: "50+", label: "Team Members", icon: "👥" },
+  { value: "2017", label: "Year Incorporated", icon: "🏛️" },
+  { value: "Full-Stack", label: "Engineering Scope", icon: "💻" },
+  { value: "Sprint-Based", label: "Agile Delivery", icon: "⚡" },
+  { value: "Dedicated", label: "Technical Support", icon: "🛡️" },
 ];
 
 const values = [
@@ -55,12 +55,13 @@ const fadeUp = {
 const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  name: "About Itoby Infotech Pvt. Ltd.",
+  name: "About Itoby Infotech Private Limited",
   url: "https://www.itobyinfotech.com/about",
-  description: "Learn about Itoby Infotech — a premier global digital agency engineering custom web design, mobile apps, software solutions, and AI SaaS platforms.",
+  description: "Itoby Infotech Private Limited is an India-based technology and software development company incorporated in 2017.",
   publisher: {
     "@type": "Organization",
-    name: "Itoby Infotech Pvt. Ltd.",
+    name: "Itoby Infotech Private Limited",
+    url: "https://www.itobyinfotech.com",
     logo: "https://www.itobyinfotech.com/images/logo.png"
   }
 };
@@ -74,8 +75,8 @@ export default function AboutClient() {
       />
       <PageHeroBanner
         badge="Who We Are"
-        title="Engineering Digital Solutions for Global Leaders"
-        description="We are Itoby Infotech — a full-service digital agency and software engineering firm transforming business visions into high-impact digital experiences."
+        title="Engineering Practical Digital & Software Solutions"
+        description="Itoby Infotech Private Limited is an India-based technology and software development company incorporated in 2017."
         breadcrumbs={[
           { label: "About Us", path: "/about" },
         ]}
@@ -96,31 +97,28 @@ export default function AboutClient() {
             >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider">
                 <Sparkles size={13} className="animate-pulse" />
-                Est. 2013 — 11+ Years of Innovation
+                Incorporated in 2017 — India
               </div>
 
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-                Empowering Brands with <span className="gradient-text">World-Class Software</span> & Digital Strategy
+                Empowering Businesses with <span className="gradient-text">Practical Technology</span> & Software Solutions
               </h2>
 
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-                Founded in 2013, Itoby Infotech (IIPL) has grown into a premier global technology agency. 
-                We specialize in custom web applications, native & cross-platform mobile apps, enterprise software, 
-                and result-driven digital marketing.
+                Itoby Infotech Private Limited is an India-based technology and software development company incorporated in 2017.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                Our multidisciplinary team of software architects, UI/UX designers, cloud engineers, and growth marketers 
-                work cohesively to craft custom digital products tailored to your exact business objectives.
+                We help businesses build and improve their digital operations through website development, custom software, SaaS applications, mobile applications, AI integrations and technology consulting. Our focus is on understanding business requirements and delivering practical technology solutions.
               </p>
 
               {/* Highlights List */}
               <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 {[
-                  "Global Engineering Hubs",
-                  "100% In-House Expert Team",
-                  "Agile Development Methodology",
-                  "Dedicated Post-Launch Support",
+                  "Web Design & Development",
+                  "Custom Software & SaaS",
+                  "Mobile Apps & AI Solutions",
+                  "Microsoft 365 Solutions",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-sm font-medium text-foreground">
                     <CheckCircle2 size={16} className="text-primary shrink-0" />
@@ -184,13 +182,13 @@ export default function AboutClient() {
             className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
           >
             <span className="text-primary font-semibold uppercase tracking-wider text-xs sm:text-sm flex items-center justify-center gap-1.5">
-              <Globe2 size={16} /> Global Presence
+              <Globe2 size={16} /> Business Presence
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-3 mb-4">
-              Serving Clients Across <span className="gradient-text">North America, Europe, Australia & Asia</span>
+              Serving Clients in <span className="gradient-text">India & International Markets</span>
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base">
-              We operate across multiple time zones, delivering seamless communication and agile software development for international enterprises and high-growth startups.
+              Itoby Infotech is headquartered in India and provides technology and software development services to clients in India and international markets, including the United States.
             </p>
           </motion.div>
 

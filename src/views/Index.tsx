@@ -36,7 +36,7 @@ const Index = () => {
           url: "https://www.itobyinfotech.com",
           logo: "https://www.itobyinfotech.com/images/logo.png",
           description: "Global digital agency & SaaS software builder behind IIPL Lead, IIPL Renting, IIPL Billing, IIPL Cashmemo and IIPL Calling AI voice agents.",
-          foundingDate: "2013",
+          foundingDate: "2017",
           areaServed: ["IN", "US", "CA", "AU", "AE", "GB"],
           address: { "@type": "PostalAddress", addressLocality: "Noida", addressRegion: "Uttar Pradesh", addressCountry: "IN" },
           contactPoint: { "@type": "ContactPoint", telephone: "+91-9142773500", contactType: "sales", email: "info@itobyinfotech.com" },

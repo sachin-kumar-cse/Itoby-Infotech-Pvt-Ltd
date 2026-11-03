@@ -47,8 +47,8 @@ const nodesByPreset: Record<string, ArchitectureNode[]> = {
       description: "Decoupled Node.js / Express microservices with GraphQL & REST endpoints, rate limiting, and JWT authentication.",
       tech: ["Node.js", "Express", "GraphQL", "Docker", "Kubernetes"],
       metrics: [
-        { label: "Throughput", value: "50k req/sec" },
-        { label: "Uptime SLA", value: "99.99%" },
+        { label: "Throughput", value: "High Concurrency" },
+        { label: "Resilience", value: "High Availability" },
       ],
     },
     {

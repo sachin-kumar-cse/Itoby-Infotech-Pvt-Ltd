@@ -12,10 +12,10 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const rotatingWords = ["Websites", "Apps", "Brands", "Campaigns"];
 
-const stats = [
-  { value: 1200, suffix: "+", label: "Projects Delivered" },
-  { value: 50, suffix: "+", label: "Happy Clients" },
-  { value: 11, suffix: "+", label: "Years Experience" },
+const stats: { value?: number; suffix?: string; text?: string; label: string }[] = [
+  { value: 2017, suffix: "", label: "Year Incorporated" },
+  { text: "Full-Stack", label: "Web & SaaS Engineering" },
+  { text: "Remote & On-Site", label: "Global Delivery" },
 ];
 
 const floatingIcons = [
@@ -209,7 +209,7 @@ export const HeroSection = () => {
                 className="w-2 h-2 rounded-full bg-primary"
               />
               <span className="text-xs sm:text-sm font-semibold text-foreground dark:text-primary">
-                Itoby Infotech Pvt Ltd (IIPL) • Global Digital Agency & Enterprise SaaS Lab
+                Itoby Infotech Private Limited • Software Engineering & SaaS Lab
               </span>
               <Sparkles size={14} className="text-primary" />
             </motion.div>
@@ -276,8 +276,8 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
             >
-              <strong className="text-foreground font-bold">Itoby Infotech Pvt Ltd (IIPL)</strong> is a premier global digital engineering agency and SaaS software lab. 
-              We build Next.js applications, mobile apps, custom software, digital marketing, and proprietary <span className="text-primary font-semibold">IIPL SaaS & AI Voice Platforms</span> for clients across India, USA, Canada, Australia, Dubai (UAE), UK & worldwide.
+              <strong className="text-foreground font-bold">Itoby Infotech Private Limited</strong> is an India-based technology and software development company incorporated in 2017. 
+              We help businesses build and improve digital operations through website development, custom software, SaaS applications, mobile applications, AI integrations, and technology consulting for clients in India and international markets, including the United States.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -322,11 +322,15 @@ export const HeroSection = () => {
                   transition={{ type: "spring", stiffness: 400 }}
                 >
                   <p className="text-2xl sm:text-3xl font-display font-bold text-primary">
-                    <AnimatedCounter 
-                      value={stat.value} 
-                      suffix={stat.suffix}
-                      duration={2}
-                    />
+                    {stat.text ? (
+                      stat.text
+                    ) : (
+                      <AnimatedCounter 
+                        value={stat.value!} 
+                        suffix={stat.suffix}
+                        duration={2}
+                      />
+                    )}
                   </p>
                   <p className="text-xs sm:text-sm text-muted-foreground">{stat.label}</p>
                 </motion.div>
@@ -354,8 +358,8 @@ export const HeroSection = () => {
                   <TrendingUp size={20} className="text-primary" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Conversion</p>
-                  <h4 className="text-sm font-bold font-display text-foreground">+124% Growth</h4>
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Architecture</p>
+                  <h4 className="text-sm font-bold font-display text-foreground">Modern SaaS</h4>
                 </div>
               </motion.div>
 
@@ -370,8 +374,8 @@ export const HeroSection = () => {
                   <Globe size={20} className="text-cyan-400" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">SEO Traffic</p>
-                  <h4 className="text-sm font-bold font-display text-foreground">+340% Traffic</h4>
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">SEO & Speed</p>
+                  <h4 className="text-sm font-bold font-display text-foreground">Core Web Vitals</h4>
                 </div>
               </motion.div>
 
@@ -387,8 +391,8 @@ export const HeroSection = () => {
                   <Code size={20} className="text-primary" />
                 </div>
                 <div className="text-left">
-                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Active Delivery</p>
-                  <h4 className="text-sm font-bold font-display text-foreground">24/7 Support</h4>
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Engineering</p>
+                  <h4 className="text-sm font-bold font-display text-foreground">Agile Sprints</h4>
                 </div>
               </motion.div>
               {/* Animated Rings */}

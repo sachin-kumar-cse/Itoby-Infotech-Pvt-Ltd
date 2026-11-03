@@ -3,12 +3,11 @@ import { Rocket, Users, Trophy, Building, Globe, Star } from "lucide-react";
 import { useRef } from "react";
 
 const milestones = [
-  { year: "2013", title: "Company Founded", description: "Started as a small web design studio in Patna with a vision to help local businesses go digital.", icon: Rocket },
-  { year: "2015", title: "Team Expansion", description: "Grew to 10+ team members and expanded services to include mobile app development.", icon: Users },
-  { year: "2017", title: "First Major Award", description: "Recognized as 'Best Digital Agency' at Bihar IT Awards for our innovative solutions.", icon: Trophy },
-  { year: "2019", title: "New Office", description: "Moved to a larger office space to accommodate our growing team of 25+ professionals.", icon: Building },
-  { year: "2021", title: "Global Reach", description: "Expanded services internationally, serving clients across 15+ countries.", icon: Globe },
-  { year: "2024", title: "Industry Leader", description: "Completed 500+ projects and became a Microsoft 365 certified partner.", icon: Star },
+  { year: "2017", title: "Company Incorporation", description: "Itoby Infotech Private Limited was incorporated in India as a technology and software development company.", icon: Rocket },
+  { year: "2019", title: "Custom Software Engineering", description: "Expanded core engineering capabilities into full-stack custom software and modern web applications.", icon: Building },
+  { year: "2021", title: "Cloud Architecture & Delivery", description: "Standardized modern cloud infrastructure and agile frameworks for clients across India and international markets.", icon: Globe },
+  { year: "2023", title: "Proprietary SaaS Solutions", description: "Engineered internal software platforms including IIPL Lead, Renting, Billing, Cashmemo, and Calling.", icon: Users },
+  { year: "2024", title: "Microsoft Solutions Partner", description: "Participates in Microsoft's partner ecosystem, providing technology services related to verified capabilities.", icon: Star },
 ];
 
 export const TimelineSection = () => {
@@ -34,7 +33,7 @@ export const TimelineSection = () => {
             Milestones & <span className="gradient-text">Growth</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            A decade of innovation, growth, and commitment to excellence in digital solutions.
+            Our commitment to technical excellence and practical software development since incorporation in 2017.
           </p>
         </motion.div>
 

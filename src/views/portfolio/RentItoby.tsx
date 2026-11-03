@@ -1,53 +1,48 @@
 import { CaseStudyTemplate } from "@/components/CaseStudyTemplate";
 import heroImage from "@/assets/portfolio/rent-itoby.png";
-import quickpayImage from "@/assets/portfolio/quickpay-fintech.webp";
-import techflowImage from "@/assets/portfolio/techflow-saas.webp";
+import leadItobyImage from "@/assets/portfolio/lead-itoby.png";
+import kaspereyeImage from "@/assets/portfolio/kaspereye-security.webp";
 
 const caseStudy = {
   title: "Rent Itoby – Rental CRM Dashboard",
-  category: "App",
-  client: "Itoby Rental Systems",
+  category: "Software",
+  client: "Company Product / Internal Project",
   duration: "4 months",
   year: "2025",
   heroImage: heroImage,
-  overview: "A state-of-the-art rental CRM dashboard and automated customer booking app designed for managing equipment, vehicle fleets, and property leasing businesses.",
+  overview: "A proprietary rental CRM dashboard and automated customer booking platform designed for managing equipment, vehicle fleets, and property leasing businesses.",
   challenge: [
-    "Rental business owners struggled with fragmented systems for inventory, rental agreements, and payment tracking.",
-    "Manual booking entries led to overbooking issues and double-reservations.",
+    "Rental businesses struggled with disconnected systems for inventory, rental agreements, and payment tracking.",
+    "Manual booking entries led to scheduling errors and inventory conflicts.",
     "Needed real-time analytics to view active rentals, return schedules, and outstanding balances.",
     "Required a responsive mobile view for field operators to log delivery and return status updates."
   ],
   solution: [
     "Engineered a unified CRM dashboard displaying real-time reservation schedules and asset availability status.",
     "Built an automated calendar grid preventing double-booking and tracking rental durations.",
-    "Integrated custom digital signature panels for direct on-screen rental agreement signing.",
-    "Connected payment gateways for secure rent collection, deposit holding, and auto-invoicing.",
-    "Added a mobile-first field delivery view with status updates, geo-location logging, and client confirmation notes."
+    "Integrated digital signature flows for on-screen rental agreement confirmation.",
+    "Connected payment gateways for rent collection, deposit records, and auto-invoicing.",
+    "Added a mobile-first field delivery view with status updates and confirmation notes."
   ],
   results: [
-    { metric: "Overbooking Incidents", value: "0%" },
-    { metric: "Operational Savings", value: "35% ↓" },
-    { metric: "Payment Collections", value: "+80% Faster" },
-    { metric: "Booking Count", value: "+120%" }
+    { metric: "Frontend", value: "React + TS" },
+    { metric: "Backend", value: "Node.js" },
+    { metric: "Database", value: "Supabase" },
+    { metric: "Payments", value: "Stripe API" }
   ],
   techStack: ["React", "TypeScript", "Node.js", "Express", "Supabase", "Stripe API", "Chart.js"],
-  testimonial: {
-    quote: "Rent Itoby transformed our fleet operations. We went from pen-and-paper tracking to a fully automated cloud grid, cutting down operations overhead significantly and boosting our booking counts.",
-    author: "Sanjay Kumar",
-    role: "Operations Chief, FleetDrive India"
-  },
   relatedProjects: [
     {
-      title: "QuickPay FinTech Solution",
+      title: "Lead Itoby – Lead Scoring CRM",
       category: "Software",
-      image: quickpayImage,
-      path: "/portfolio/quickpay"
+      image: leadItobyImage,
+      path: "/portfolio/lead-itoby"
     },
     {
-      title: "TechFlow SaaS Platform",
-      category: "Software",
-      image: techflowImage,
-      path: "/portfolio/techflow"
+      title: "Kaspereye Security Solutions",
+      category: "Website",
+      image: kaspereyeImage,
+      path: "/portfolio/kaspereye-security"
     }
   ]
 };

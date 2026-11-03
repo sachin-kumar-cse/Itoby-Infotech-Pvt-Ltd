@@ -81,8 +81,8 @@ export const technologyList: TechnologyData[] = [
       { name: "Software for Retail", path: "/industries/retail" }
     ],
     relatedCaseStudies: [
-      { name: "TechFlow SaaS Web Portal", path: "/portfolio/techflow", description: "Enterprise Next.js SaaS web application." },
-      { name: "Luxe Fashion Headless Store", path: "/portfolio/luxe-fashion", description: "Headless e-commerce storefront built with Next.js." }
+      { name: "Easy2Buy E-Commerce Platform", path: "/portfolio/easy2buy", description: "Next.js e-commerce platform with catalog and cart architecture." },
+      { name: "Juxtudio Architecture Showcase", path: "/portfolio/juxtudio", description: "High-performance portfolio website built with modern web components." }
     ],
     faqs: [
       {
@@ -103,9 +103,9 @@ export const technologyList: TechnologyData[] = [
       }
     ],
     caseStudy: {
-      title: "TechFlow Next.js SaaS Portal",
-      metrics: "300% increase in user signups with sub-second page load speeds",
-      path: "/portfolio/techflow"
+      title: "Easy2Buy E-Commerce Platform",
+      metrics: "Modern web architecture with responsive catalog rendering",
+      path: "/portfolio/easy2buy"
     }
   },
   {
@@ -123,7 +123,7 @@ export const technologyList: TechnologyData[] = [
     relatedServices: [{ name: "Web Development Company", path: "/services/web-design" }],
     relatedIndustries: [{ name: "Software for Real Estate", path: "/industries/real-estate" }],
     faqs: [{ question: "Why build with Next.js?", answer: "Next.js provides sub-second rendering, security, and top SEO rankings out of the box." }],
-    caseStudy: { title: "TechFlow SaaS Portal", metrics: "300% increase in user signups", path: "/portfolio/techflow" }
+    caseStudy: { title: "Easy2Buy E-Commerce Platform", metrics: "Modern scalable architecture with structured product workflows", path: "/portfolio/easy2buy" }
   },
   {
     slug: "react",
@@ -264,7 +264,7 @@ export const technologyList: TechnologyData[] = [
       { name: "Software for Healthcare", path: "/industries/healthcare" }
     ],
     relatedCaseStudies: [
-      { name: "Manufacturing ERP Backend", path: "/portfolio/manufacturing-erp", description: "Node.js multi-warehouse ERP backend." }
+      { name: "Rent Itoby Fleet Backend", path: "/portfolio/rent-itoby", description: "Node.js rental platform and booking workflow backend." }
     ],
     faqs: [
       {
@@ -281,9 +281,9 @@ export const technologyList: TechnologyData[] = [
       }
     ],
     caseStudy: {
-      title: "Manufacturing Plant Node.js ERP",
-      metrics: "Engineered high-concurrency Node.js multi-warehouse backend",
-      path: "/portfolio/manufacturing-erp"
+      title: "Rent Itoby Node.js Fleet Platform",
+      metrics: "Engineered Node.js leasing and reservation management backend",
+      path: "/portfolio/rent-itoby"
     }
   },
   {
@@ -301,7 +301,7 @@ export const technologyList: TechnologyData[] = [
     relatedServices: [{ name: "Custom Software Development", path: "/services/custom-software-development" }],
     relatedIndustries: [{ name: "Software for Real Estate", path: "/industries/real-estate" }],
     faqs: [{ question: "Why choose Node.js for backend development?", answer: "Node.js handles thousands of concurrent API requests efficiently with minimal server overhead." }],
-    caseStudy: { title: "Manufacturing Node.js ERP", metrics: "High-concurrency backend", path: "/portfolio/manufacturing-erp" }
+    caseStudy: { title: "Rent Itoby Node.js Platform", metrics: "Modular leasing backend", path: "/portfolio/rent-itoby" }
   },
   {
     slug: "flutter",
@@ -352,7 +352,7 @@ export const technologyList: TechnologyData[] = [
       { name: "Software for Retail", path: "/industries/retail" }
     ],
     relatedCaseStudies: [
-      { name: "FitTrack Mobile App", path: "/portfolio/fittrack", description: "Cross-platform health and fitness tracking mobile application." }
+      { name: "Rent Itoby Mobile Field Operations", path: "/portfolio/rent-itoby", description: "Cross-platform mobile application for fleet and equipment management." }
     ],
     faqs: [
       {
@@ -365,9 +365,9 @@ export const technologyList: TechnologyData[] = [
       }
     ],
     caseStudy: {
-      title: "FitTrack Cross-Platform Flutter App",
-      metrics: "60fps native performance across iOS and Android viewports",
-      path: "/portfolio/fittrack"
+      title: "Rent Itoby Cross-Platform Mobile Platform",
+      metrics: "Fluid performance across iOS and Android viewports",
+      path: "/portfolio/rent-itoby"
     }
   },
   {
@@ -482,7 +482,7 @@ export const technologyList: TechnologyData[] = [
       { name: "Software for Healthcare", path: "/industries/healthcare" }
     ],
     relatedCaseStudies: [
-      { name: "Manufacturing ERP Database", path: "/portfolio/manufacturing-erp", description: "High-throughput PostgreSQL multi-warehouse database." }
+      { name: "Lead Itoby PostgreSQL CRM Database", path: "/portfolio/lead-itoby", description: "Structured PostgreSQL database schema with indexing and analytics queries." }
     ],
     faqs: [
       {
@@ -491,9 +491,9 @@ export const technologyList: TechnologyData[] = [
       }
     ],
     caseStudy: {
-      title: "Apex Manufacturing PostgreSQL Database",
-      metrics: "Scaled database architecture across 8 manufacturing plant facilities",
-      path: "/portfolio/manufacturing-erp"
+      title: "Lead Itoby Scalable PostgreSQL Schema",
+      metrics: "Structured database architecture optimized for B2B search and indexing",
+      path: "/portfolio/lead-itoby"
     }
   },
   {

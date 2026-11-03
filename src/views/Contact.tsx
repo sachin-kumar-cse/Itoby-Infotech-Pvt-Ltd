@@ -22,9 +22,9 @@ import { PageHeroBanner } from "@/components/ui/page-hero-banner";
 
 const contactInfo = [
   { icon: Mail, title: "Email Us", value: "info@itobyinfotech.com", href: "mailto:info@itobyinfotech.com", color: "text-blue-500", bg: "bg-blue-500/10", hoverBg: "group-hover:bg-blue-500" },
-  { icon: Phone, title: "Call Us", value: "+91 9142773500", href: "tel:+919142773500", color: "text-emerald-500", bg: "bg-emerald-500/10", hoverBg: "group-hover:bg-emerald-500" },
-  { icon: MapPin, title: "Visit Us", value: "Sector-4, Noida, UP", href: "#", color: "text-violet-500", bg: "bg-violet-500/10", hoverBg: "group-hover:bg-violet-500" },
-  { icon: MessageCircle, title: "WhatsApp", value: "Chat with us", href: "https://wa.me/919142773500", color: "text-primary", bg: "bg-primary/10", hoverBg: "group-hover:bg-primary" },
+  { icon: Phone, title: "Call Us", value: "+91 91427 73500", href: "tel:+919142773500", color: "text-emerald-500", bg: "bg-emerald-500/10", hoverBg: "group-hover:bg-emerald-500" },
+  { icon: MapPin, title: "Operational HQ", value: "Sector-4, Noida, UP, India", href: "#", color: "text-violet-500", bg: "bg-violet-500/10", hoverBg: "group-hover:bg-violet-500" },
+  { icon: MessageCircle, title: "WhatsApp", value: "Chat with us", href: "https://api.whatsapp.com/send?phone=919142773500", color: "text-primary", bg: "bg-primary/10", hoverBg: "group-hover:bg-primary" },
 ];
 
 const services = [
@@ -45,6 +45,39 @@ const contactSchema = z.object({
   service: z.string().min(1, "Please select a service"),
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
 });
+
+const contactSchemaLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Itoby Infotech Private Limited",
+  url: "https://www.itobyinfotech.com/contact",
+  description: "Get in touch with Itoby Infotech Private Limited. Request a quote or contact our operational headquarters in Noida, India or registered office in Delhi.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Itoby Infotech Private Limited",
+    telephone: "+91 91427 73500",
+    email: "info@itobyinfotech.com",
+    address: [
+      {
+        "@type": "PostalAddress",
+        name: "Operational Headquarters",
+        streetAddress: "Sector-4",
+        addressLocality: "Noida",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        name: "Registered Office",
+        streetAddress: "J-34/B, J-Block, Laxmi Nagar",
+        postalCode: "110092",
+        addressLocality: "Delhi",
+        addressRegion: "Delhi",
+        addressCountry: "IN"
+      }
+    ]
+  }
+};
 
 const Contact = () => {
   const { toast } = useToast();
@@ -131,9 +164,10 @@ const Contact = () => {
   return (
     <Layout>
       <SEOHead
-        title="Contact Us | Itoby Infotech Pvt Ltd (IIPL) - Global Digital Agency & Developers"
-        description="Get in touch with Itoby Infotech Pvt Ltd (IIPL) for web design, app development, custom software, digital marketing & IIPL SaaS inquiries across India, USA, Canada, Australia, Dubai (UAE) & UK."
+        title="Contact Us | Itoby Infotech Private Limited"
+        description="Get in touch with Itoby Infotech Private Limited. Request a free quote, book a strategy call, or contact our operational headquarters in Noida, UP, India."
         path="/contact"
+        jsonLd={contactSchemaLd}
       />
 
       {/* 3D Animated Hero & Breadcrumbs */}
@@ -219,8 +253,8 @@ const Contact = () => {
               >
                 {[
                   { value: "24h", label: "Response Time", icon: Clock },
-                  { value: "15+", label: "Countries", icon: Globe },
-                  { value: "100%", label: "Satisfaction", icon: Headphones },
+                  { value: "2017", label: "Incorporated", icon: Globe },
+                  { value: "Dedicated", label: "Direct Support", icon: Headphones },
                 ].map((stat) => (
                   <div key={stat.label} className="p-3 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 text-center">
                     <stat.icon className="w-4 h-4 text-primary mx-auto mb-1.5" />

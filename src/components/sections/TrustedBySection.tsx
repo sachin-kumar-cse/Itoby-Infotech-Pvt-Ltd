@@ -1,15 +1,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const clients = [
-  "TechCorp",
-  "InnovateLabs",
-  "GlobalTech",
-  "StartupHub",
-  "DigitalFirst",
-  "CloudWorks",
-  "DataFlow",
-  "SmartBiz",
+const technologies = [
+  "Next.js",
+  "React",
+  "Node.js",
+  "TypeScript",
+  "PostgreSQL",
+  "Supabase",
+  "Tailwind CSS",
+  "Framer Motion",
 ];
 
 export const TrustedBySection = () => {
@@ -25,7 +25,7 @@ export const TrustedBySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center text-sm text-muted-foreground uppercase tracking-widest mb-8"
         >
-          Trusted by Industry Leaders
+          Modern Technologies & Frameworks We Build With
         </motion.p>
 
         <motion.div 
@@ -42,7 +42,7 @@ export const TrustedBySection = () => {
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             className="flex gap-16 items-center whitespace-nowrap"
           >
-            {[...clients, ...clients].map((client, index) => (
+            {[...technologies, ...technologies].map((tech, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05, y: -3 }}
@@ -50,9 +50,9 @@ export const TrustedBySection = () => {
                 className="flex items-center gap-3 text-muted-foreground/50 hover:text-foreground transition-colors"
               >
                 <div className="w-10 h-10 rounded-lg bg-secondary/50 flex items-center justify-center">
-                  <span className="font-display font-bold">{client[0]}</span>
+                  <span className="font-display font-bold">{tech[0]}</span>
                 </div>
-                <span className="text-lg font-medium">{client}</span>
+                <span className="text-lg font-medium">{tech}</span>
               </motion.div>
             ))}
           </motion.div>

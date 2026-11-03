@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-sitemap-lastmod.mjs",
     "build": "next build",
+    "sitemap:lastmod": "node scripts/generate-sitemap-lastmod.mjs",
     "start": "next start",
     "lint": "next lint"
   },

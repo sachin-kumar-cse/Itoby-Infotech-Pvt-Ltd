@@ -1,13 +1,4 @@
-import { fallbackBlogs } from "@/data/blogsData";
-import { detailedServicesList } from "@/data/servicesData";
-import { productsList } from "@/data/productsData";
-import { caseStudiesList } from "@/data/caseStudiesData";
-import { industriesList } from "@/data/industriesData";
-import { technologyList } from "@/data/technologyData";
-import { pricingGuidesList } from "@/data/pricingData";
-import { comparisonList } from "@/data/comparisonData";
-import { resourcesList } from "@/data/resourcesData";
-import { locationsList } from "@/data/locationsData";
+import { getSitemapRoutes, SITE_URL } from "@/lib/sitemapRoutes";
 
 const INDEXNOW_HOST = "www.itobyinfotech.com";
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY || "9749d1b24b734030a10930e6a41b54f1";
@@ -97,74 +88,10 @@ function isValidCanonicalUrl(urlStr: string): boolean {
 }
 
 /**
- * Generates all raw production sitemap URLs mirroring app/sitemap.ts.
+ * Generates all raw production sitemap URLs from the same route list as app/sitemap.ts.
  */
 export function getProductionSitemapUrls(): string[] {
-  const baseUrl = `https://${INDEXNOW_HOST}`;
-
-  const staticRoutes = [
-    "",
-    "/about",
-    "/products",
-    "/case-studies",
-    "/services",
-    "/services/web-design",
-    "/services/mobile-app",
-    "/services/digital-marketing",
-    "/services/software-solutions",
-    "/services/microsoft-365",
-    "/portfolio",
-    "/portfolio/easy2buy",
-    "/portfolio/juxtudio",
-    "/portfolio/kaspereye-security",
-    "/portfolio/rainfra-studio",
-    "/portfolio/solidedgeconstructions",
-    "/portfolio/rent-itoby",
-    "/portfolio/lead-itoby",
-    "/blog",
-    "/careers",
-    "/contact",
-    "/request-quote",
-    "/book-appointment",
-    "/privacy",
-    "/terms",
-    "/install",
-    "/industries",
-    "/technology",
-    "/pricing",
-    "/comparison",
-    "/resources",
-    "/locations",
-  ];
-
-  const productRoutes = productsList.map((p) => `/products/${p.slug}`);
-  const caseStudyRoutes = caseStudiesList.map((cs) => `/case-studies/${cs.slug}`);
-  const serviceRoutes = detailedServicesList.map((s) => `/services/${s.slug}`);
-  const blogRoutes = fallbackBlogs.map((b) => `/blog/${b.slug}`);
-  const industryRoutes = industriesList.map((i) => `/industries/${i.slug}`);
-  const techRoutes = technologyList.map((t) => `/technology/${t.slug}`);
-  const pricingRoutes = pricingGuidesList.map((p) => `/pricing/${p.slug}`);
-  const compareRoutes = comparisonList.map((c) => `/comparison/${c.slug}`);
-  const resourceRoutes = resourcesList.map((r) => `/resources/${r.slug}`);
-  const locationRoutes = locationsList.map((l) => `/locations/${l.citySlug}/${l.serviceSlug}`);
-  const careerRoutes = ["/careers/ui-ux-designer"];
-
-  const allRoutes = [
-    ...staticRoutes,
-    ...productRoutes,
-    ...caseStudyRoutes,
-    ...serviceRoutes,
-    ...blogRoutes,
-    ...industryRoutes,
-    ...techRoutes,
-    ...pricingRoutes,
-    ...compareRoutes,
-    ...resourceRoutes,
-    ...locationRoutes,
-    ...careerRoutes,
-  ];
-
-  return allRoutes.map((r) => `${baseUrl}${r}`);
+  return getSitemapRoutes().map((r) => `${SITE_URL}${r.path}`);
 }
 
 /**

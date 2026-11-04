@@ -52,31 +52,19 @@ const contactSchemaLd = {
   "@type": "ContactPage",
   name: "Contact Itoby Infotech Private Limited",
   url: "https://www.itobyinfotech.com/contact",
-  description: "Get in touch with Itoby Infotech Private Limited. Request a quote or contact our operational headquarters in Noida, India or registered office in Delhi.",
+  description: "Get in touch with Itoby Infotech Private Limited. Request a free quote, book a strategy call, or contact our software engineering offices.",
   mainEntity: {
     "@type": "Organization",
     name: "Itoby Infotech Private Limited",
     telephone: "+91 91427 73500",
     email: "info@itobyinfotech.com",
-    address: [
-      {
-        "@type": "PostalAddress",
-        name: "Operational Headquarters",
-        streetAddress: "Sector-4",
-        addressLocality: "Noida",
-        addressRegion: "Uttar Pradesh",
-        addressCountry: "IN"
-      },
-      {
-        "@type": "PostalAddress",
-        name: "Registered Office",
-        streetAddress: "J-34/B, J-Block, Laxmi Nagar",
-        postalCode: "110092",
-        addressLocality: "Delhi",
-        addressRegion: "Delhi",
-        addressCountry: "IN"
-      }
-    ]
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Sector-4",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN"
+    }
   }
 };
 

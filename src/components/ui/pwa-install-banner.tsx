@@ -84,8 +84,8 @@ export const PWAInstallBanner = () => {
         </button>
 
         <div className="flex gap-3 items-start">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-            <Download className="w-6 h-6 text-primary" />
+          <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 shadow-md border border-border/50">
+            <img src="/pwa-192x192.png" alt="Itoby Infotech" className="w-full h-full object-cover" />
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-sm mb-0.5">Install Itoby Infotech</h3>

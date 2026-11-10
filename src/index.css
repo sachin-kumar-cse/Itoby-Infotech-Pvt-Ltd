@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    /* Primary - Electric Lime Accent */
-    --primary: 75 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    /* Primary - Official Itoby Royal Blue Accent */
+    --primary: 218 100% 46%;
+    --primary-foreground: 0 0% 100%;
 
     /* Dark Background Palette */
     --background: 0 0% 5%;
@@ -27,54 +27,54 @@
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 75 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 218 100% 46%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 75 100% 50%;
+    --ring: 218 100% 46%;
 
     --radius: 0.75rem;
 
     /* Chart Colors */
-    --chart-1: 75 100% 50%;
-    --chart-2: 180 100% 50%;
-    --chart-3: 270 100% 60%;
-    --chart-4: 330 100% 60%;
-    --chart-5: 45 100% 50%;
+    --chart-1: 218 100% 46%;
+    --chart-2: 232 90% 55%;
+    --chart-3: 199 95% 48%;
+    --chart-4: 155 100% 42%;
+    --chart-5: 38 100% 50%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 8%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 75 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-primary: 218 100% 46%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 15%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 75 100% 50%;
+    --sidebar-ring: 218 100% 46%;
 
-    /* Custom Design Tokens */
-    --glow-primary: 75 100% 50%;
-    --glow-secondary: 180 100% 40%;
-    --gradient-start: 75 100% 50%;
-    --gradient-end: 120 100% 40%;
+    /* Custom Design Tokens (Tone-on-tone Royal Blue + Deep Navy Harmony) */
+    --glow-primary: 218 100% 46%;
+    --glow-secondary: 232 90% 55%;
+    --gradient-start: 218 100% 46%;
+    --gradient-end: 232 90% 36%;
 
     /* Typography */
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-glow-lg: 0 0 60px hsl(var(--primary) / 0.4);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.25);
+    --shadow-glow-lg: 0 0 60px hsl(var(--primary) / 0.35);
     --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
   }
 
   /* Light Mode - Option A: Modern Tech Canvas (#F4F6F8 Canvas + Pure White Cards) */
   .light {
-    --primary: 142 72% 30%;
+    --primary: 218 100% 32%;
     --primary-foreground: 0 0% 100%;
     /* Canvas: #F4F6F8 - Glare-free, premium cool off-white */
     --background: 210 20% 96.5%;
@@ -90,28 +90,28 @@
     --secondary-foreground: 222 47% 11%;
     --muted: 214 20% 92%;
     --muted-foreground: 215 19% 36%;
-    --accent: 142 72% 30%;
+    --accent: 218 100% 32%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
     /* Subtle crisp border: #DCE3EB */
     --border: 214 20% 88%;
     --input: 214 20% 88%;
-    --ring: 142 72% 30%;
+    --ring: 218 100% 32%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 142 72% 30%;
+    --sidebar-primary: 218 100% 32%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 214 24% 93%;
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 214 20% 88%;
-    --sidebar-ring: 142 72% 30%;
+    --sidebar-ring: 218 100% 32%;
 
-    --glow-primary: 142 72% 30%;
-    --glow-secondary: 168 80% 26%;
-    --gradient-start: 142 76% 32%;
-    --gradient-end: 168 80% 26%;
+    --glow-primary: 218 100% 32%;
+    --glow-secondary: 235 90% 42%;
+    --gradient-start: 218 100% 32%;
+    --gradient-end: 235 90% 42%;
 
     --shadow-glow: 0 4px 20px hsl(var(--primary) / 0.15);
     --shadow-glow-lg: 0 10px 30px hsl(var(--primary) / 0.22);
@@ -120,8 +120,8 @@
 
   .dark {
     /* Same as root since we're dark-first */
-    --primary: 75 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 218 100% 46%;
+    --primary-foreground: 0 0% 100%;
     --background: 0 0% 5%;
     --foreground: 0 0% 98%;
     --card: 0 0% 8%;
@@ -132,13 +132,13 @@
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 65%;
-    --accent: 75 100% 50%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 218 100% 46%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 75 100% 50%;
+    --ring: 218 100% 46%;
   }
 }
 

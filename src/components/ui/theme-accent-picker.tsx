@@ -32,51 +32,58 @@ export const ThemeAccentPicker = () => {
             />
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              initial={{ opacity: 0, scale: 0.92, y: 8 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              exit={{ opacity: 0, scale: 0.92, y: 8 }}
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="absolute right-0 mt-3 z-50 w-80 p-4 rounded-2xl bg-card/95 backdrop-blur-xl border border-border/80 shadow-2xl space-y-3"
+              className="absolute right-0 mt-3 z-50 w-72 p-3.5 rounded-2xl bg-card/95 backdrop-blur-xl border border-border shadow-2xl space-y-2.5"
             >
-              <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
-                <div className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-foreground">
+              <div className="flex items-center justify-between border-b border-border/60 pb-2">
+                <div className="flex items-center gap-1.5 text-xs font-bold tracking-wide text-foreground">
                   <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  Cyber Glow Palette ({presets.length} Colors)
+                  Executive Themes
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
                   className="text-muted-foreground hover:text-foreground p-1 cursor-pointer"
+                  aria-label="Close"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
 
-              {/* 4x5 Color Swatch Grid */}
-              <div className="grid grid-cols-4 gap-2 max-h-[300px] overflow-y-auto custom-scrollbar p-0.5">
+              {/* 5 Executive Themes List */}
+              <div className="space-y-1.5">
                 {presets.map((preset) => {
                   const isSelected = activeAccent.id === preset.id;
                   return (
                     <button
                       key={preset.id}
                       onClick={() => setAccent(preset)}
-                      title={preset.name}
-                      className={`relative p-2 rounded-xl border text-xs font-semibold flex flex-col items-center gap-1 transition-all duration-300 cursor-pointer ${
+                      className={`w-full flex items-center justify-between p-2 rounded-xl border text-xs font-semibold transition-all duration-200 cursor-pointer ${
                         isSelected
-                          ? "border-primary bg-primary/15 ring-2 ring-primary/40 shadow-lg shadow-primary/20 scale-105"
-                          : "border-border/50 hover:border-border bg-secondary/40 hover:bg-secondary"
+                          ? "border-primary bg-primary/10 ring-1 ring-primary/40 shadow-sm"
+                          : "border-border/40 hover:border-border/80 bg-secondary/30 hover:bg-secondary/70"
                       }`}
                     >
-                      <span
-                        className="w-6 h-6 rounded-full shadow-md flex items-center justify-center transition-transform hover:scale-110 shrink-0"
-                        style={{ backgroundColor: preset.hex }}
-                      >
-                        {isSelected && (
-                          <Check className="w-3.5 h-3.5 text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" />
-                        )}
-                      </span>
-                      <span className="text-[9px] text-muted-foreground truncate w-full text-center font-medium">
-                        {preset.name.split(" ")[0]}
-                      </span>
+                      <div className="flex items-center gap-2.5">
+                        <span
+                          className="w-4 h-4 rounded-full shadow-sm shrink-0 ring-1 ring-border/50"
+                          style={{ backgroundColor: preset.hex }}
+                        />
+                        <span
+                          className={`text-xs ${
+                            isSelected ? "text-foreground font-bold" : "text-muted-foreground"
+                          }`}
+                        >
+                          {preset.name}
+                        </span>
+                      </div>
+                      {isSelected && (
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/20 text-primary flex items-center gap-1">
+                          <Check className="w-3 h-3" /> Active
+                        </span>
+                      )}
                     </button>
                   );
                 })}

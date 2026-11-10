@@ -11,6 +11,7 @@ export interface AccentPreset {
 
 export const ACCENT_PRESETS: AccentPreset[] = [
   { id: "lime", name: "Cyber Lime", hsl: "75 100% 46%", hex: "#aee801" },
+  { id: "royal-blue", name: "Royal Blue", hsl: "218 100% 46%", hex: "#003BA1" },
   { id: "blue", name: "Neon Cyan", hsl: "190 100% 50%", hex: "#06b6d4" },
   { id: "purple", name: "Electric Purple", hsl: "270 100% 60%", hex: "#a855f7" },
   { id: "pink", name: "Hot Pink", hsl: "325 100% 55%", hex: "#ec4899" },
@@ -41,6 +42,7 @@ export const ACCENT_PRESETS: AccentPreset[] = [
  */
 export const LIGHT_MODE_ACCENTS: Record<string, { hsl: string; gradientEnd: string }> = {
   lime: { hsl: "142 72% 30%", gradientEnd: "168 80% 26%" }, // Deep Emerald Tech Green
+  "royal-blue": { hsl: "218 100% 32%", gradientEnd: "235 90% 42%" }, // Royal Blue #003BA1
   blue: { hsl: "199 89% 34%", gradientEnd: "220 85% 36%" }, // Deep Sapphire Cyan
   purple: { hsl: "270 70% 42%", gradientEnd: "290 65% 38%" }, // Royal Purple
   pink: { hsl: "330 75% 42%", gradientEnd: "350 70% 38%" }, // Deep Rose Pink

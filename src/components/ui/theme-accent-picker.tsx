@@ -41,7 +41,7 @@ export const ThemeAccentPicker = () => {
               <div className="flex items-center justify-between border-b border-border/60 pb-2.5">
                 <div className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-foreground">
                   <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  Cyber Glow Palette (20 Colors)
+                  Cyber Glow Palette ({presets.length} Colors)
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -70,7 +70,9 @@ export const ThemeAccentPicker = () => {
                         className="w-6 h-6 rounded-full shadow-md flex items-center justify-center transition-transform hover:scale-110 shrink-0"
                         style={{ backgroundColor: preset.hex }}
                       >
-                        {isSelected && <Check className="w-3.5 h-3.5 text-black font-bold" />}
+                        {isSelected && (
+                          <Check className="w-3.5 h-3.5 text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]" />
+                        )}
                       </span>
                       <span className="text-[9px] text-muted-foreground truncate w-full text-center font-medium">
                         {preset.name.split(" ")[0]}

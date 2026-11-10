@@ -320,7 +320,7 @@ export const Footer = () => {
                 transition={{ duration: 0.2 }}
                 className="flex items-center"
               >
-                <BrandLogo className="h-9 sm:h-10" />
+                <BrandLogo className="h-12 sm:h-14 md:h-16" />
               </motion.div>
             </Link>
 

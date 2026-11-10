@@ -203,7 +203,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
             >
-              <motion.span 
+              <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="w-2 h-2 rounded-full bg-primary"
@@ -211,7 +211,7 @@ export const HeroSection = () => {
               <span className="text-xs sm:text-sm font-semibold text-foreground dark:text-primary">
                 Itoby Infotech Private Limited • Software Engineering & SaaS Lab
               </span>
-              <Sparkles size={14} className="text-primary" />
+              {/* <Sparkles size={14} className="text-primary" /> */}
             </motion.div>
 
             {/* Headline with Letter Animation */}
@@ -221,14 +221,14 @@ export const HeroSection = () => {
                 animate="visible"
                 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1]"
               >
-                <motion.span 
+                <motion.span
                   custom={0}
                   variants={textRevealVariants}
                   className="block"
                 >
                   We Build
                 </motion.span>
-                <motion.span 
+                <motion.span
                   custom={1}
                   variants={textRevealVariants}
                   className="block"
@@ -246,7 +246,7 @@ export const HeroSection = () => {
                     </motion.span>
                   ))}
                 </motion.span>
-                <motion.span 
+                <motion.span
                   custom={2}
                   variants={textRevealVariants}
                   className="block"
@@ -276,7 +276,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
             >
-              <strong className="text-foreground font-bold">Itoby Infotech Private Limited</strong> is an India-based technology and software development company incorporated in 2017. 
+              <strong className="text-foreground font-bold">Itoby Infotech Private Limited</strong> is an India-based technology and software development company incorporated in 2017.
               We help businesses build and improve digital operations through website development, custom software, SaaS applications, mobile applications, AI integrations, and technology consulting for clients in India and international markets, including the United States.
             </motion.p>
 
@@ -315,8 +315,8 @@ export const HeroSection = () => {
               className="flex flex-wrap gap-6 sm:gap-8 pt-6 sm:pt-8 border-t border-border"
             >
               {stats.map((stat, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="space-y-1"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400 }}
@@ -325,8 +325,8 @@ export const HeroSection = () => {
                     {stat.text ? (
                       stat.text
                     ) : (
-                      <AnimatedCounter 
-                        value={stat.value!} 
+                      <AnimatedCounter
+                        value={stat.value!}
                         suffix={stat.suffix}
                         duration={2}
                       />
@@ -406,16 +406,16 @@ export const HeroSection = () => {
                 transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-4 rounded-full border border-glow-secondary/20"
               />
-              
+
               {/* Inner Content */}
               <div className="absolute inset-12 rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/80 backdrop-blur-md border border-primary/20 shadow-xl flex items-center justify-center">
                 <div className="text-center p-6">
                   <motion.div
-                    animate={{ 
+                    animate={{
                       y: [0, -10, 0],
                       rotateY: [0, 360],
                     }}
-                    transition={{ 
+                    transition={{
                       y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                       rotateY: { duration: 8, repeat: Infinity, ease: "linear" },
                     }}
@@ -423,12 +423,12 @@ export const HeroSection = () => {
                   >
                     <span className="text-4xl font-display font-bold text-primary-foreground">IIPL</span>
                   </motion.div>
-                  <motion.p 
+                  <motion.p
                     className="font-display font-bold text-xl"
                     animate={{ opacity: [0.7, 1, 0.7] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    Itoby Infotech
+                    Itoby Infotech Pvt. Ltd.
                   </motion.p>
                   <p className="text-sm text-muted-foreground">Digital Excellence</p>
                 </div>
@@ -451,12 +451,11 @@ export const HeroSection = () => {
                     y: { duration: 4, repeat: Infinity, delay },
                     rotate: { duration: 6, repeat: Infinity, delay },
                   }}
-                  className={`absolute w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg hover:border-primary hover:shadow-[0_0_20px_hsl(75_100%_50%/0.2)] transition-all cursor-pointer ${
-                    i === 0 ? "-top-2 left-1/4" :
+                  className={`absolute w-14 h-14 rounded-xl bg-card border border-border flex items-center justify-center shadow-lg hover:border-primary hover:shadow-[0_0_20px_hsl(75_100%_50%/0.2)] transition-all cursor-pointer ${i === 0 ? "-top-2 left-1/4" :
                     i === 1 ? "top-1/4 -right-2" :
-                    i === 2 ? "bottom-1/4 -left-2" :
-                    "-bottom-2 right-1/4"
-                  }`}
+                      i === 2 ? "bottom-1/4 -left-2" :
+                        "-bottom-2 right-1/4"
+                    }`}
                 >
                   <Icon className="text-primary" size={24} />
                 </motion.div>
@@ -464,7 +463,7 @@ export const HeroSection = () => {
 
               {/* Glow orbs */}
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.3, 0.6, 0.3],
                 }}
@@ -472,7 +471,7 @@ export const HeroSection = () => {
                 className="absolute top-0 right-0 w-20 h-20 rounded-full bg-primary/30 blur-xl"
               />
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.3, 0.6, 0.3],
                 }}

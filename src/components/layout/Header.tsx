@@ -112,7 +112,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "glass-dark bg-background/90 backdrop-blur-xl border-b border-border/60 py-3 shadow-lg"
+            ? "bg-background/90 backdrop-blur-xl border-b border-border/60 py-3 shadow-sm dark:shadow-lg"
             : "bg-transparent py-5"
         }`}
       >
@@ -362,7 +362,7 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden glass-dark bg-background/98 backdrop-blur-3xl pt-20 pb-8 px-5 overflow-y-auto"
+            className="fixed inset-0 z-40 lg:hidden bg-background/98 backdrop-blur-3xl pt-20 pb-8 px-5 overflow-y-auto"
           >
             <div className="flex flex-col justify-between min-h-full space-y-6 pt-4">
               <nav className="flex flex-col space-y-3">

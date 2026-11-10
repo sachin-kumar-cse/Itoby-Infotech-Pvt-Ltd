@@ -72,35 +72,40 @@
     --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
   }
 
-  /* Light Mode - Refined High-Contrast & Glare-Free */
+  /* Light Mode - Option A: Modern Tech Canvas (#F4F6F8 Canvas + Pure White Cards) */
   .light {
     --primary: 142 72% 30%;
     --primary-foreground: 0 0% 100%;
-    --background: 220 18% 97%;
+    /* Canvas: #F4F6F8 - Glare-free, premium cool off-white */
+    --background: 210 20% 96.5%;
+    /* Text: #0F172A - Deep rich slate 900 for razor-sharp legibility */
     --foreground: 222 47% 11%;
+    /* Cards: Pure Crisp White (#FFFFFF) to provide clear 3D card elevation */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --secondary: 216 22% 93%;
+    /* Secondary & Muted: Balanced soft slate (#EAEFF5 / #E7ECF2) */
+    --secondary: 214 24% 93%;
     --secondary-foreground: 222 47% 11%;
-    --muted: 216 20% 92%;
-    --muted-foreground: 218 20% 38%;
+    --muted: 214 20% 92%;
+    --muted-foreground: 215 19% 36%;
     --accent: 142 72% 30%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 214 20% 86%;
-    --input: 214 20% 86%;
+    /* Subtle crisp border: #DCE3EB */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
     --ring: 142 72% 30%;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 142 72% 30%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 216 22% 93%;
+    --sidebar-accent: 214 24% 93%;
     --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 20% 86%;
+    --sidebar-border: 214 20% 88%;
     --sidebar-ring: 142 72% 30%;
 
     --glow-primary: 142 72% 30%;
@@ -108,9 +113,9 @@
     --gradient-start: 142 76% 32%;
     --gradient-end: 168 80% 26%;
 
-    --shadow-glow: 0 4px 20px hsl(142 72% 30% / 0.12);
-    --shadow-glow-lg: 0 10px 30px hsl(142 72% 30% / 0.18);
-    --shadow-card: 0 4px 20px -2px hsl(222 47% 11% / 0.05), 0 12px 32px -4px hsl(222 47% 11% / 0.08);
+    --shadow-glow: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-glow-lg: 0 10px 30px hsl(var(--primary) / 0.22);
+    --shadow-card: 0 2px 8px -1px hsl(222 47% 11% / 0.05), 0 8px 24px -3px hsl(222 47% 11% / 0.08);
   }
 
   .dark {
@@ -291,19 +296,19 @@
 
   /* Light mode glare-free card & section surface contrast */
   .light .bg-card\/30 {
-    background-color: hsl(220 18% 94% / 0.65);
+    background-color: hsl(210 20% 94% / 0.7);
   }
 
   .light .bg-card\/50 {
-    background-color: hsl(0 0% 100% / 0.88);
+    background-color: hsl(0 0% 100% / 0.9);
   }
 
   .light .bg-card\/60 {
-    background-color: hsl(0 0% 100% / 0.92);
+    background-color: hsl(0 0% 100% / 0.95);
   }
 
   .light .bg-card\/70 {
-    background-color: hsl(0 0% 100% / 0.96);
+    background-color: hsl(0 0% 100% / 0.98);
   }
 
   .light .card-shimmer-effect::after {

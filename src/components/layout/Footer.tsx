@@ -29,6 +29,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Footer3DBackground } from "@/components/ui/footer-3d-background";
 import { useCurrency, CurrencyType } from "@/hooks/useCurrency";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 const saasProductsList = [
   { name: "IIPL Lead (AI Cold Email & B2B CRM)", path: "https://lead.itobyinfotech.com", isExternal: true },
@@ -309,19 +310,18 @@ export const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Company Info */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link
+              href="/"
+              className="inline-block group py-1 select-none focus:outline-none"
+              aria-label="Itoby Infotech Private Limited - Home"
+            >
               <motion.div
-                className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-shadow"
-                whileHover={{ rotate: 5, scale: 1.05 }}
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center"
               >
-                <span className="text-primary-foreground font-display font-bold text-xl">IIPL</span>
+                <BrandLogo className="h-9 sm:h-10" />
               </motion.div>
-              <div>
-                <span className="text-foreground font-display font-bold text-lg block leading-tight">
-                  Itoby<span className="text-primary"> Infotech</span>
-                </span>
-                <span className="text-[10px] text-muted-foreground block font-medium">Private Limited</span>
-              </div>
             </Link>
 
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">

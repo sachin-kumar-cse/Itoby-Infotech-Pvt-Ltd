@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { ThemeAccentPicker } from "@/components/ui/theme-accent-picker";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 const serviceLinks = [
   { name: "Web Design & Development", path: "/services/web-design" },
@@ -118,20 +119,18 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
         <div className="container-wide">
           <div className="flex items-center justify-between">
             {/* Brand Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link
+              href="/"
+              className="flex items-center group py-1 select-none focus:outline-none"
+              aria-label="Itoby Infotech Private Limited - Home"
+            >
               <motion.div
-                whileHover={{ scale: 1.05, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center"
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-shadow duration-300">
-                  <span className="text-primary-foreground font-display font-bold text-base sm:text-xl">
-                    IIPL
-                  </span>
-                </div>
-                <span className="text-foreground font-display font-bold text-sm sm:text-xl">
-                  Itoby<span className="text-primary"> Infotech</span>
-                </span>
+                <BrandLogo className="h-8 sm:h-9 md:h-10" />
               </motion.div>
             </Link>
 

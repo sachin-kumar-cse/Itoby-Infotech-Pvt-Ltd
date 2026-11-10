@@ -95,7 +95,7 @@ export const AboutPreviewSection = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-6 sm:top-10 left-4 sm:left-8 w-[80%] sm:w-[70%] rounded-2xl border border-border/80 bg-background/95 p-3.5 sm:p-4 shadow-2xl font-mono text-[10px] sm:text-xs text-muted-foreground select-none"
+                className="absolute top-6 sm:top-10 left-4 sm:left-8 w-[80%] sm:w-[70%] rounded-2xl border border-slate-700/60 dark:border-border/80 bg-slate-900/95 dark:bg-background/95 p-3.5 sm:p-4 shadow-2xl font-mono text-[10px] sm:text-xs text-slate-300 dark:text-muted-foreground select-none"
               >
                 <div className="flex items-center gap-1.5 border-b border-border/50 pb-2 mb-3">
                   <span className="w-2 h-2 rounded-full bg-destructive/80" />

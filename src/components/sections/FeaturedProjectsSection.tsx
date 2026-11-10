@@ -59,7 +59,7 @@ const BestProjectCard = ({ project, onPreview, widthClass = "w-[340px] sm:w-[380
     <div className={`h-full shrink-0 ${widthClass} group relative transition-all duration-500`}>
       <TiltCard className="h-full">
         <Link href={`/portfolio/${project.slug}`} className="block h-full">
-          <div className="relative overflow-hidden rounded-3xl min-h-[440px] h-full bg-card/80 backdrop-blur-2xl border border-white/15 dark:border-primary/25 group-hover:border-primary/80 transition-all duration-500 shadow-2xl group-hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.35)] flex flex-col justify-between card-shimmer-effect">
+          <div className="relative overflow-hidden rounded-3xl min-h-[440px] h-full bg-card/80 backdrop-blur-2xl border border-border/80 dark:border-primary/25 group-hover:border-primary/80 transition-all duration-500 shadow-2xl group-hover:shadow-[0_25px_60px_-15px_hsl(var(--primary)/0.35)] flex flex-col justify-between card-shimmer-effect">
             
             {/* Background image with smooth scale */}
             {project.image ? (

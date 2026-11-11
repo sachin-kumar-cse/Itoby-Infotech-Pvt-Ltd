@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, ShieldCheck, Sparkles, Terminal, Activity } from "lucide-react";
+import { ArrowRight, CheckCircle, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
 
@@ -72,92 +72,33 @@ export const AboutPreviewSection = () => {
               <span>Agile Quality Assured</span>
             </motion.div>
 
-            {/* 3D Perspective Card Container */}
+            {/* 3D Perspective Card Container with Real Software Dev Workspace */}
             <motion.div
               style={{
                 rotateX: -mousePos.y,
                 rotateY: mousePos.x,
                 transformStyle: "preserve-3d",
               }}
-              className="relative w-full aspect-[4/3] rounded-3xl border border-border/50 bg-card/30 backdrop-blur-xl p-4 sm:p-6 overflow-hidden shadow-2xl flex items-center justify-center min-h-[300px] sm:min-h-[380px]"
+              className="relative w-full aspect-[4/3] rounded-3xl border border-border/60 bg-card/40 backdrop-blur-xl overflow-hidden shadow-2xl flex items-center justify-center min-h-[300px] sm:min-h-[380px] group"
             >
-              {/* Tech lines grid background */}
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,hsl(var(--primary))_1px,transparent_1px)] bg-[size:24px_24px]" />
-              <div className="absolute inset-10 rounded-full bg-gradient-to-tr from-primary/10 to-glow-secondary/10 blur-3xl opacity-60 pointer-events-none" />
+              {/* Software Development Team Image */}
+              <img
+                src="/images/about-software-dev.webp"
+                alt="Itoby Infotech Software Development & Engineering Team"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
 
-              {/* Layer 1: Code Terminal Container */}
-              <motion.div
-                animate={{
-                  y: [0, -6, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-6 sm:top-10 left-4 sm:left-8 w-[80%] sm:w-[70%] rounded-2xl border border-slate-700/60 dark:border-border/80 bg-slate-900/95 dark:bg-background/95 p-3.5 sm:p-4 shadow-2xl font-mono text-[10px] sm:text-xs text-slate-300 dark:text-muted-foreground select-none"
-              >
-                <div className="flex items-center gap-1.5 border-b border-border/50 pb-2 mb-3">
-                  <span className="w-2 h-2 rounded-full bg-destructive/80" />
-                  <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                  <span className="w-2 h-2 rounded-full bg-primary/80" />
-                  <span className="ml-1 text-[8px] sm:text-[10px] text-muted-foreground/60 flex items-center gap-1">
-                    <Terminal size={10} /> itoby-dev-server.js
-                  </span>
-                </div>
-                <div className="space-y-1.5">
-                  <p className="text-cyan-400"><span className="text-muted-foreground/50">$</span> npm run build:agency</p>
-                  <p className="text-primary/90">&gt; compiling custom software modules...</p>
-                  <p className="text-foreground/90 font-semibold">&gt; web_design_system compiled [OK]</p>
-                  <p className="text-glow-secondary/90 animate-pulse">&gt; sync connection to global databases: active</p>
-                </div>
-              </motion.div>
+              {/* Gradient Overlay for Contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
 
-              {/* Layer 2: Metric Trendline Container */}
-              <motion.div
-                animate={{
-                  y: [0, 8, 0],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute bottom-6 sm:bottom-10 right-4 sm:right-8 w-[65%] sm:w-[55%] rounded-2xl border border-border/80 bg-card/95 p-4 sm:p-5 shadow-2xl"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[8px] sm:text-[10px] text-muted-foreground font-semibold uppercase tracking-wider flex items-center gap-1">
-                    <Activity size={10} className="text-primary" /> System Reliability
-                  </span>
-                  <span className="text-[8px] sm:text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full font-bold">Optimized</span>
-                </div>
-                
-                {/* Dynamic graph layout using CSS bars */}
-                <div className="flex items-end gap-1.5 sm:gap-2 h-12 sm:h-16 pt-2">
-                  <div className="w-full h-[30%] bg-border/80 rounded-sm" />
-                  <div className="w-full h-[55%] bg-border/80 rounded-sm" />
-                  <div className="w-full h-[40%] bg-border/80 rounded-sm" />
-                  <div className="w-full h-[70%] bg-primary/30 rounded-sm" />
-                  <div className="w-full h-[95%] bg-primary rounded-sm shadow-[0_0_15px_hsl(var(--primary)/0.4)]" />
-                </div>
-              </motion.div>
-
-              {/* Layer 3: Tech Node Connections Map */}
-              <motion.div
-                animate={{
-                  scale: [0.9, 1.1, 0.9],
-                  opacity: [0.7, 1, 0.7],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-1/4 right-[8%] sm:right-[12%] p-2 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center shadow-lg"
-              >
-                <Sparkles className="text-primary animate-spin-slow" size={20} />
-              </motion.div>
+              {/* Live Engineering Status Badge */}
+              <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-card/90 backdrop-blur-md border border-border/80 shadow-xl">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="text-[11px] font-semibold text-foreground">
+                  Custom Software & Web Engineering
+                </span>
+              </div>
             </motion.div>
 
             {/* Experience Badge - Glassmorphism */}

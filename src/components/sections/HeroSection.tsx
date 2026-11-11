@@ -154,7 +154,7 @@ export const HeroSection = () => {
                 className="w-2 h-2 rounded-full bg-primary"
               />
               <span className="text-xs sm:text-sm font-semibold text-foreground dark:text-primary">
-                Itoby Infotech Private Limited • Software Engineering & SaaS Lab
+                Premier Website & Custom Software Development Company
               </span>
               {/* <Sparkles size={14} className="text-primary" /> */}
             </motion.div>
@@ -219,10 +219,9 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
+              className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed text-justify"
             >
-              <strong className="text-foreground font-bold">Itoby Infotech Private Limited</strong> is an India-based technology and software development company incorporated in 2017.
-              We help businesses build and improve digital operations through website development, custom software, SaaS applications, mobile applications, AI integrations, and technology consulting for clients in India and international markets, including the United States.
+              <strong className="text-foreground font-semibold">Itoby Infotech Private Limited</strong> (incorporated in 2017) builds premier websites, custom software, SaaS platforms, and AI solutions for modern businesses across India and the United States.
             </motion.p>
 
             {/* CTA Buttons */}

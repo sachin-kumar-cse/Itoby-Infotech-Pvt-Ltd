@@ -17,6 +17,8 @@ import LeadItoby from "@/views/portfolio/LeadItoby";
 import RainfraStudio from "@/views/portfolio/RainfraStudio";
 import RentItoby from "@/views/portfolio/RentItoby";
 import SolidEdgeConstructions from "@/views/portfolio/SolidEdgeConstructions";
+import IIPLBilling from "@/views/portfolio/IIPLBilling";
+import JetsetterssTravel from "@/views/portfolio/JetsetterssTravel";
 
 interface DbProject {
   slug: string;
@@ -31,6 +33,9 @@ interface DbProject {
 
 const staticComponents: Record<string, React.ComponentType> = {
   "easy2buy": Easy2Buy,
+  "iipl-cashmemo": Easy2Buy,
+  "iipl-billing": IIPLBilling,
+  "jetsetterss-travel": JetsetterssTravel,
   "juxtudio": Juxtudio,
   "kaspereye-security": KaspereyeSecurity,
   "lead-itoby": LeadItoby,

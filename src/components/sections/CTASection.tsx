@@ -12,7 +12,7 @@ export const CTASection = () => {
   const whatsappLink = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-background">
       <Floating3DBubbles count={15} />
       <div className="container-wide">
         <motion.div

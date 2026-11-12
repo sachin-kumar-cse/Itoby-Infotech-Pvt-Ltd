@@ -44,7 +44,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   if (isAdminPage) {
     return (
-      <div className="min-h-screen flex flex-col overflow-x-hidden bg-background">
+      <div className="min-h-screen flex flex-col overflow-x-clip bg-background">
         <CursorGlow />
         <CyberCursorTrail />
         <main className="flex-1">{children}</main>
@@ -54,7 +54,7 @@ export const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
+    <div className="min-h-screen flex flex-col overflow-x-clip bg-background text-foreground transition-colors duration-300">
       <ScrollProgress />
       <CursorGlow />
       <CyberCursorTrail />

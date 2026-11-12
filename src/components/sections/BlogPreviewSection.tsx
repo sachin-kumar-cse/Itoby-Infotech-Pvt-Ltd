@@ -22,7 +22,7 @@ const fadeUp = {
 
 export const BlogPreviewSection = () => {
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-background">
       <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
       <div className="container-wide relative z-10">
         {/* Header */}

@@ -27,7 +27,7 @@ export const ProcessSection = () => {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-background">
       <Floating3DBubbles count={15} />
       <div className="absolute top-0 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
       <div className="container-wide relative z-10">

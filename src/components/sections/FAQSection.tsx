@@ -61,7 +61,8 @@ export const FAQSection = () => {
   };
 
   return (
-    <section className="section-padding bg-card/30 relative overflow-hidden">
+    <section className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-card/20 pointer-events-none" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

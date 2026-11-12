@@ -44,7 +44,8 @@ export const TechStackSection = () => {
     : techStack.filter(tech => tech.category === activeCategory);
 
   return (
-    <section className="section-padding bg-card/30 relative overflow-hidden">
+    <section className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-card/20 pointer-events-none" />
       <TechArchitectureModal
         isOpen={isArchOpen}
         onClose={() => setIsArchOpen(false)}

@@ -87,6 +87,18 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  webpack: (config, { dev }) => {
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@': path.resolve(__dirname, 'src'),
+    };
+    if (dev) {
+      config.cache = {
+        type: 'memory',
+      };
+    }
+    return config;
+  },
 };
 
 export default withSentryConfig(nextConfig, {

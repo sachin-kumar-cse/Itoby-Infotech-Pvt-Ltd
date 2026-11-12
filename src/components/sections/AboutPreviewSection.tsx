@@ -35,7 +35,7 @@ export const AboutPreviewSection = () => {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden" ref={sectionRef}>
+    <section className="section-padding relative overflow-hidden bg-background" ref={sectionRef}>
       <div className="absolute top-1/4 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
       <div className="container-wide relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

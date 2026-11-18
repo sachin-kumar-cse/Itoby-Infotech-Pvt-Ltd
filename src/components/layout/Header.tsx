@@ -13,6 +13,9 @@ import {
   Sparkles,
   Code2,
   Layers,
+  X,
+  Phone,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -94,6 +97,35 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Lock background body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  // Auto close mobile menu on route navigation
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+  }, [pathname]);
+
+  // Close on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const handleServicesMouseEnter = () => {
@@ -325,30 +357,22 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
             {/* Mobile Toggle */}
             <div className="flex items-center gap-2 lg:hidden">
               <ThemeToggle />
-              <motion.button
+              <button
+                type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-xl bg-card border border-border text-foreground focus:outline-none"
-                aria-label="Toggle Mobile Menu"
-                whileTap={{ scale: 0.9 }}
+                className="p-2.5 rounded-xl bg-card border border-border text-foreground hover:text-primary transition-colors focus:outline-none flex items-center justify-center"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               >
-                <div className="relative w-5 h-4 flex flex-col justify-between">
-                  <motion.span
-                    animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full h-0.5 bg-foreground rounded-full block origin-center"
-                  />
-                  <motion.span
-                    animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                    transition={{ duration: 0.2 }}
-                    className="w-full h-0.5 bg-foreground rounded-full block"
-                  />
-                  <motion.span
-                    animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full h-0.5 bg-foreground rounded-full block origin-center"
-                  />
-                </div>
-              </motion.button>
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5 text-primary stroke-[2.5]" />
+                ) : (
+                  <div className="w-5 h-4 flex flex-col justify-between">
+                    <span className="w-full h-0.5 bg-foreground rounded-full block" />
+                    <span className="w-3/4 h-0.5 bg-foreground rounded-full block" />
+                    <span className="w-full h-0.5 bg-foreground rounded-full block" />
+                  </div>
+                )}
+              </button>
             </div>
           </div>
         </div>
@@ -358,16 +382,57 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden bg-background/98 backdrop-blur-3xl pt-20 pb-8 px-5 overflow-y-auto"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="fixed inset-0 z-[70] lg:hidden bg-background/98 dark:bg-[#161616]/98 backdrop-blur-3xl flex flex-col h-[100dvh] overflow-hidden"
           >
-            <div className="flex flex-col justify-between min-h-full space-y-6 pt-4">
-              <nav className="flex flex-col space-y-3">
+            {/* Mobile Nav Top Bar with Brand Logo and Prominent Close Button */}
+            <div className="flex items-center justify-between px-4 py-3.5 border-b border-border/60 bg-background/90 dark:bg-[#161616]/90 backdrop-blur-md shrink-0">
+              <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center select-none focus:outline-none"
+                aria-label="Itoby Infotech Home"
+              >
+                <BrandLogo className="h-9 sm:h-10" />
+              </Link>
+
+              <div className="flex items-center gap-2">
+                <ThemeAccentPicker />
+                <ThemeToggle />
+                {onOpenSearch && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      onOpenSearch();
+                    }}
+                    className="p-2 rounded-xl bg-card border border-border text-muted-foreground hover:text-primary transition-colors"
+                    aria-label="Search site"
+                  >
+                    <Search size={18} />
+                  </button>
+                )}
+                {/* Prominent Dedicated Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200 focus:outline-none shadow-sm cursor-pointer"
+                  aria-label="Close menu"
+                >
+                  <X size={20} className="stroke-[2.5]" />
+                </button>
+              </div>
+            </div>
+
+            {/* Scrollable Navigation List */}
+            <div className="flex-1 overflow-y-auto px-4 py-5 space-y-5 overscroll-contain">
+              <nav className="flex flex-col space-y-2.5">
                 {navLinks.map((link, i) => {
                   if (link.hasDropdown) {
+                    const isDropdownActive = pathname.startsWith("/services");
                     return (
                       <motion.div
                         key={link.path}
@@ -376,50 +441,72 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        className="rounded-2xl bg-card/40 border border-border/50 overflow-hidden"
+                        className="rounded-2xl bg-card/60 border border-border/60 overflow-hidden"
                       >
-                        <div className="flex items-center justify-between p-3.5">
-                          <Link
-                            href={link.path}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="text-xl font-display font-bold text-foreground hover:text-primary transition-colors flex items-center gap-2"
-                          >
+                        {/* Accordion Toggle Card */}
+                        <div
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              setIsMobileServicesOpen(!isMobileServicesOpen);
+                            }
+                          }}
+                          className={`w-full flex items-center justify-between p-3.5 cursor-pointer transition-colors ${
+                            isDropdownActive ? "bg-primary/10 border-l-4 border-l-primary" : "hover:bg-accent/40"
+                          }`}
+                        >
+                          <span className="text-base sm:text-lg font-display font-bold text-foreground flex items-center gap-2.5">
                             <Layers size={18} className="text-primary" />
                             {link.name}
-                          </Link>
-
-                          <button
-                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                            className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-                            aria-label="Toggle Services Dropdown"
+                          </span>
+                          <div
+                            className={`p-1.5 rounded-lg bg-primary/10 text-primary transition-transform duration-300 ${
+                              isMobileServicesOpen ? "rotate-180 bg-primary/20" : ""
+                            }`}
                           >
-                            <ChevronDown
-                              size={18}
-                              className={`transition-transform duration-300 ${isMobileServicesOpen ? "rotate-180" : ""}`}
-                            />
-                          </button>
+                            <ChevronDown size={18} />
+                          </div>
                         </div>
 
+                        {/* Collapsible Content */}
                         <AnimatePresence>
                           {isMobileServicesOpen && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
+                              transition={{ duration: 0.25 }}
                               className="overflow-hidden border-t border-border/50 bg-secondary/30 p-3 space-y-4"
                             >
+                              {/* Direct Link to all services */}
+                              <Link
+                                href="/services"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="flex items-center justify-between p-2.5 rounded-xl bg-primary/15 text-primary font-bold text-xs hover:bg-primary hover:text-primary-foreground transition-all"
+                              >
+                                <span>Explore All Services & SaaS Overview</span>
+                                <ArrowRight size={14} />
+                              </Link>
+
+                              {/* Digital Services */}
                               <div>
-                                <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
+                                <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5 px-1">
                                   <Code2 size={13} /> Digital Services
                                 </p>
-                                <div className="space-y-1 pl-2">
+                                <div className="grid grid-cols-1 gap-1">
                                   {serviceLinks.map((svc) => (
                                     <Link
                                       key={svc.path}
                                       href={svc.path}
                                       onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block py-1.5 px-2.5 rounded-lg text-xs font-semibold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                                      className={`block py-2 px-3 rounded-lg text-xs font-semibold transition-colors ${
+                                        pathname === svc.path
+                                          ? "bg-primary text-primary-foreground font-bold"
+                                          : "text-muted-foreground hover:text-foreground hover:bg-primary/10"
+                                      }`}
                                     >
                                       {svc.name}
                                     </Link>
@@ -427,26 +514,42 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                                 </div>
                               </div>
 
+                              {/* IIPL SaaS Products */}
                               <div>
-                                <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
+                                <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5 px-1">
                                   <Sparkles size={13} /> IIPL SaaS Products
                                 </p>
-                                <div className="space-y-1 pl-2">
+                                <div className="space-y-1">
                                   {saasProductNavLinks.map((prod) => (
                                     <a
                                       key={prod.name}
                                       href={prod.path}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="flex items-center justify-between py-1.5 px-2.5 rounded-lg text-xs font-semibold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                                      className="flex items-center justify-between py-2 px-3 rounded-lg text-xs font-semibold text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
                                     >
-                                      <span>{prod.name}</span>
-                                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary">
+                                      <span className="flex items-center gap-1.5 truncate">
+                                        <ExternalLink size={12} className="text-primary shrink-0" />
+                                        {prod.name}
+                                      </span>
+                                      <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-primary/20 text-primary shrink-0">
                                         {prod.badge}
                                       </span>
                                     </a>
                                   ))}
                                 </div>
+                              </div>
+
+                              {/* Products Hub */}
+                              <div className="pt-1">
+                                <Link
+                                  href="/products"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="flex items-center justify-between p-2.5 rounded-xl border border-border/60 bg-card text-xs font-bold text-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                                >
+                                  <span>View Products Hub</span>
+                                  <ArrowRight size={13} />
+                                </Link>
                               </div>
                             </motion.div>
                           )}
@@ -454,6 +557,8 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                       </motion.div>
                     );
                   }
+
+                  const isActive = pathname === link.path;
 
                   return (
                     <motion.div
@@ -467,21 +572,54 @@ export const Header = ({ onOpenSearch }: HeaderProps) => {
                       <Link
                         href={link.path}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block p-3.5 rounded-2xl bg-card/40 border border-border/50 text-xl font-display font-bold text-foreground hover:text-primary transition-colors"
+                        className={`flex items-center justify-between p-3.5 rounded-2xl border transition-all ${
+                          isActive
+                            ? "bg-primary text-primary-foreground border-primary font-bold shadow-md shadow-primary/20"
+                            : "bg-card/60 border-border/60 text-foreground hover:border-primary/40 hover:text-primary font-semibold"
+                        }`}
                       >
-                        {link.name}
+                        <span className="text-base sm:text-lg font-display">{link.name}</span>
+                        <ArrowRight
+                          size={16}
+                          className={isActive ? "text-primary-foreground" : "text-muted-foreground"}
+                        />
                       </Link>
                     </motion.div>
                   );
                 })}
               </nav>
 
-              <div className="pt-4 border-t border-border/40 space-y-3">
-                <Button className="w-full font-bold rounded-2xl py-6" asChild>
+              {/* Bottom Actions & Contacts */}
+              <div className="pt-3 border-t border-border/40 space-y-3">
+                <Button className="w-full font-bold rounded-2xl py-6 text-base shadow-lg shadow-primary/20 gap-2" asChild>
                   <Link href="/request-quote" onClick={() => setIsMobileMenuOpen(false)}>
-                    Get a Free Quote
+                    Get a Free Quote <ArrowRight size={16} />
                   </Link>
                 </Button>
+
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <a
+                    href="tel:+919142773500"
+                    className="flex items-center justify-center gap-1.5 p-3 rounded-xl bg-card border border-border/60 text-muted-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    <Phone size={14} className="text-primary" />
+                    <span>Call Us</span>
+                  </a>
+                  <Link
+                    href="/admin"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-1.5 p-3 rounded-xl bg-card border border-border/60 text-muted-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    <LogIn size={14} className="text-primary" />
+                    <span>Admin Portal</span>
+                  </Link>
+                </div>
+
+                <div className="text-center pt-1 pb-4">
+                  <p className="text-[11px] text-muted-foreground">
+                    Itoby Infotech Pvt. Ltd. • ISO 9001:2015 Certified
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>

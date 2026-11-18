@@ -142,9 +142,9 @@ Experience live AI Calling demos at [IIPL Calling](https://calling.itobyinfotech
   },
   {
     id: "blog-3",
-    slug: "b2b-lead-generation-google-maps-scraping-ai-audits",
-    title: "B2B Lead Generation Secrets: Combining Google Maps Scraping & AI Site Auditing",
-    excerpt: "Uncover how IIPL Lead automates localized Google Maps lead extraction, 15-second AI web health scans, custom pitch decks, and multi-sender cold outreach.",
+    slug: "b2b-lead-generation-local-directory-ai-audits",
+    title: "B2B Lead Generation Secrets: Combining Local Directory Prospecting & AI Site Auditing",
+    excerpt: "Uncover how IIPL Lead automates localized B2B lead discovery, 15-second AI web health scans, custom pitch decks, and multi-sender cold outreach.",
     category: "AI Sales Automation",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     author: "Growth Team",
@@ -154,16 +154,16 @@ Experience live AI Calling demos at [IIPL Calling](https://calling.itobyinfotech
     is_published: true,
     created_at: "2026-08-03T09:15:00Z",
     content: `
-# B2B Lead Generation Secrets: Combining Google Maps Scraping & AI Site Auditing
+# B2B Lead Generation Secrets: Combining Local Directory Prospecting & AI Site Auditing
 
 Modern B2B prospecting requires precision over volume. Traditional cold email spam yields low response rates, whereas hyper-personalized pitch proposals convert 4x faster.
 
-**IIPL Lead** (\`https://lead.itobyinfotech.com\`) combines localized data scraping with artificial intelligence to deliver high-converting sales pipelines. For an in-depth real-world application, check out the [Lead Itoby CRM lead scoring case study](https://www.itobyinfotech.com/portfolio/lead-itoby).
+**IIPL Lead** (\`https://lead.itobyinfotech.com\`) combines localized business intelligence with artificial intelligence to deliver high-converting sales pipelines. For an in-depth real-world application, check out the [Lead Itoby CRM lead scoring case study](https://www.itobyinfotech.com/portfolio/lead-itoby).
 
 ---
 
 ## The 4-Step IIPL Lead Pipeline:
-1. **Google Maps Data Scraping**: Extract verified local business leads by location, rating, industry, phone number, and web domain.
+1. **Local Business Directory Discovery**: Identify verified local business leads by location, rating, industry, phone number, and web domain.
 2. **Instant AI Web Audit**: Automatically scan target business websites for PageSpeed, Mobile Responsiveness, SSL security, and SEO errors in 15 seconds.
 3. **Automated AI Pitch Proposals**: Generate custom PDF audit reports highlighting specific website flaws, security risks, and revenue growth opportunities.
 4. **Multi-Inbox Cold Email Outreach**: Distribute hyper-personalized emails across rotating domain outboxes with DNS warmup, SPF, DKIM, and DMARC authentication.

@@ -52,7 +52,7 @@ const services = [
     features: ["M365 Deployment", "Business Email Setup", "SharePoint & Teams", "Security Configuration"],
     path: "/services/microsoft-365",
     gradient: "from-indigo-500/20 to-violet-500/20",
-    stat: "Partner Ecosystem",
+    stat: "Enterprise Cloud",
   },
 ];
 

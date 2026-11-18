@@ -13,7 +13,7 @@ Itoby Infotech Pvt Ltd (IIPL) specializes in bespoke enterprise software enginee
 - [Microsoft 365 Services](https://www.itobyinfotech.com/services/microsoft-365): Cloud migration, Azure AD identity security, and Teams collaboration setup.
 
 ## Proprietary IIPL SaaS & AI Product Suite
-- [IIPL Lead](https://lead.itobyinfotech.com): AI-powered B2B lead generation, Google Maps lead scraper, 15-second AI web health auditor, and automated cold email outreach outbox.
+- [IIPL Lead](https://lead.itobyinfotech.com): AI-powered B2B lead generation, verified B2B prospect discovery, 15-second AI web health auditor, and automated cold email outreach outbox.
 - [IIPL Renting](https://rent.itobyinfotech.com): Commercial office leasing & tenant CRM software, digital agreement generator, rent collection, and fleet occupancy analytics.
 - [IIPL Billing](https://billing.itobyinfotech.com): Enterprise GST billing, automated client ledgers, recurring retainer subscriptions, and E-Way bill API sync.
 - [IIPL Cashmemo](https://cashmemo.itobyinfotech.com): Instant retail cash receipt and cash memo builder with WhatsApp PDF sharing and thermal printer support.

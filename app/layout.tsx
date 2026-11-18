@@ -234,7 +234,7 @@ const jsonLdSaasProducts = {
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web Browser",
       "url": "https://lead.itobyinfotech.com",
-      "description": "AI B2B Lead Generation & Cold Email Automation CRM with Google Maps Scraper and 15-Second AI Site Auditor.",
+      "description": "AI B2B Lead Generation & Cold Email Automation CRM with B2B Lead Discovery and 15-Second AI Site Auditor.",
       "author": { "@type": "Organization", "name": "Itoby Infotech Pvt. Ltd." },
       "offers": { "@type": "Offer", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://lead.itobyinfotech.com" }
     },

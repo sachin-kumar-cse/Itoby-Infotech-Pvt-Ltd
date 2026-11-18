@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Rocket, Users, Trophy, Building, Globe, Star } from "lucide-react";
 import { useRef } from "react";
@@ -7,7 +9,7 @@ const milestones = [
   { year: "2019", title: "Custom Software Engineering", description: "Expanded core engineering capabilities into full-stack custom software and modern web applications.", icon: Building },
   { year: "2021", title: "Cloud Architecture & Delivery", description: "Standardized modern cloud infrastructure and agile frameworks for clients across India and international markets.", icon: Globe },
   { year: "2023", title: "Proprietary SaaS Solutions", description: "Engineered internal software platforms including IIPL Lead, Renting, Billing, Cashmemo, and Calling.", icon: Users },
-  { year: "2024", title: "Microsoft Solutions Partner", description: "Participates in Microsoft's partner ecosystem, providing technology services related to verified capabilities.", icon: Star },
+  { year: "2024", title: "Enterprise Cloud Expansion", description: "Expanded technology capabilities to deliver full-scale enterprise Microsoft 365, Azure, and cloud productivity architectures.", icon: Star },
 ];
 
 export const TimelineSection = () => {

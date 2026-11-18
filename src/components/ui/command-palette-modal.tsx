@@ -37,7 +37,7 @@ const searchDatabase: SearchItem[] = [
   { id: "s-m365", title: "Microsoft 365 Services", category: "Service", path: "/services/microsoft-365", icon: Shield, description: "Cloud migration, Security & Teams integration" },
 
   // IIPL SaaS Products
-  { id: "saas-lead", title: "IIPL Lead (AI Cold Email & B2B Lead Automation)", category: "Tool", path: "https://lead.itobyinfotech.com", icon: Sparkles, description: "Google Maps Scraper, AI Site Auditor & Cold Email Outreach (lead.itobyinfotech.com)" },
+  { id: "saas-lead", title: "IIPL Lead (AI Cold Email & B2B Lead Automation)", category: "Tool", path: "https://lead.itobyinfotech.com", icon: Sparkles, description: "B2B Lead Discovery, AI Site Auditor & Cold Email Outreach (lead.itobyinfotech.com)" },
   { id: "saas-renting", title: "IIPL Renting (Office Renting & Tenant CRM)", category: "Tool", path: "https://rent.itobyinfotech.com", icon: Briefcase, description: "Office leasing, tenant management & rent collection SaaS (rent.itobyinfotech.com)" },
   { id: "saas-billing", title: "IIPL Billing (GST Invoicing & Revenue SaaS)", category: "Tool", path: "https://billing.itobyinfotech.com", icon: FileText, description: "GST billing software, tax invoice generation & ledgers (billing.itobyinfotech.com)" },
   { id: "saas-cashmemo", title: "IIPL Cashmemo (Instant Digital Cash Memo Generator)", category: "Tool", path: "https://cashmemo.itobyinfotech.com", icon: FileText, description: "Instant cash receipts, WhatsApp PDF share & thermal print (cashmemo.itobyinfotech.com)" },

@@ -594,7 +594,7 @@ export const technologyList: TechnologyData[] = [
     ],
     useCases: [
       "Automated Accounting & Billing Reconciliation",
-      "B2B Lead Scraping & Verification Pipelines",
+      "B2B Lead Discovery & Verification Pipelines",
       "HR Employee Onboarding Workflows",
       "E-Commerce Fulfillment & Inventory Sync"
     ],

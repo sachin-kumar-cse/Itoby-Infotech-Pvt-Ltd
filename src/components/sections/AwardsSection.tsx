@@ -19,10 +19,10 @@ const standards: StandardItem[] = [
   {
     id: "step-1",
     num: "01",
-    label: "Microsoft Partner",
-    title: "Microsoft Solutions Partner",
+    label: "Cloud Architecture",
+    title: "Enterprise Cloud & Productivity",
     description:
-      "Active participant in Microsoft's partner ecosystem, delivering verified enterprise Microsoft 365, Azure cloud, and tenant productivity solutions.",
+      "Modern workplace engineering delivering scalable cloud deployments, Microsoft 365 tenant migrations, and multi-region infrastructure.",
     tag: "Cloud & Productivity",
     color: "#ffd9c9",
     icon: Layers,
@@ -95,12 +95,12 @@ export const AwardsSection = () => {
               Verified Capabilities &amp; Standards
             </span>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-2 text-foreground">
-              Partner Ecosystem &amp;{" "}
+              Enterprise Excellence &amp;{" "}
               <span className="gradient-text">Engineering Standards</span>
             </h2>
           </div>
           <p className="text-muted-foreground text-sm sm:text-base max-w-md leading-relaxed">
-            Itoby Infotech participates in Microsoft&apos;s partner ecosystem and delivers software following industry-standard development practices.
+            Itoby Infotech engineers enterprise software, cloud infrastructure, and custom digital platforms following industry-standard development practices.
           </p>
         </motion.div>
 

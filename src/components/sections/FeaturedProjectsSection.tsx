@@ -68,7 +68,7 @@ const verifiedProjects: Project[] = [
     title: "IIPL Lead",
     category: "Proprietary SaaS",
     meta: "PROPRIETARY SAAS · 2026",
-    description: "Official B2B sales automation CRM product by Itoby Infotech Pvt Ltd with Google Maps scraper, AI website auditor, and AI phone agents.",
+    description: "Official B2B sales automation CRM product by Itoby Infotech Pvt Ltd with targeted lead discovery, AI website auditor, and AI phone agents.",
     image: getImgSrc(iiplLeadImage),
     source: "hardcoded",
   },

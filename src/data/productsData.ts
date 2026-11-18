@@ -25,11 +25,11 @@ export const productsList: ProductData[] = [
     category: "Lead Management",
     badge: "Flagship SaaS",
     externalUrl: "https://lead.itobyinfotech.com",
-    heroDescription: "Autonomous B2B lead generation, Google Maps business scraper, 15-second instant AI site auditor, and personalized cold email outreach automation.",
-    overview: "IIPL Lead (LeadFlow) is an enterprise B2B lead discovery and sales outreach platform. Scraping real-time decision-maker contacts from Google Maps and LinkedIn, it runs automated AI site audits and triggers personalized email campaigns.",
+    heroDescription: "Autonomous B2B lead generation, verified B2B prospect discovery, 15-second instant AI site auditor, and personalized cold email outreach automation.",
+    overview: "IIPL Lead (LeadFlow) is an enterprise B2B lead discovery and sales outreach platform. Discovering real-time decision-maker contacts across business directories, it runs automated AI site audits and triggers personalized email campaigns.",
     targetAudience: "B2B Sales Agencies, Tech Consultancies, SaaS Founders, and Digital Marketing Teams",
     keyFeatures: [
-      "Real-time Google Maps & Local Business Scraper",
+      "Real-time Business Directory & Prospect Discovery",
       "15-Second Instant AI Website Performance Auditor",
       "Automated Cold Email Sequence & Dunning Engine",
       "CRM Lead Pipeline Kanban Board",
@@ -37,21 +37,21 @@ export const productsList: ProductData[] = [
       "AI Personalized Email Body Generator"
     ],
     benefits: [
-      "Extract structured B2B leads from publicly accessible map data",
+      "Extract structured B2B leads from public business directories",
       "Improve cold email relevance with automated site audit reports",
       "Integrated lead scoring and CRM pipeline management",
       "Structured data export for outreach campaigns"
     ],
     howItWorks: [
-      { step: "01", title: "Search & Scrape", description: "Input target industry and city to scrape verified B2B leads from Google Maps." },
+      { step: "01", title: "Search & Discover", description: "Input target industry and city to identify verified B2B prospect leads." },
       { step: "02", title: "Run Instant AI Audit", description: "LeadFlow runs a 15-second site audit highlighting performance bugs." },
       { step: "03", title: "Trigger Email Campaign", description: "Send personalized audit reports automatically to decision-maker emails." }
     ],
-    techStack: ["Next.js 15", "TypeScript", "Node.js", "Puppeteer", "PostgreSQL", "Supabase", "OpenAI API"],
+    techStack: ["Next.js 15", "TypeScript", "Node.js", "PostgreSQL", "Supabase", "OpenAI API"],
     useCases: [
       "Digital Marketing Client Acquisition",
       "B2B Software Agency Sales Outreach",
-      "Local Business Service Lead Scraping",
+      "Local Business Service Lead Discovery",
       "SaaS Product Cold Outreach"
     ],
     targetIndustries: ["Healthcare", "Real Estate", "FinTech", "E-Commerce", "Services"],

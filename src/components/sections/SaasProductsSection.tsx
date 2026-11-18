@@ -43,13 +43,13 @@ export const saasProducts: SaasProduct[] = [
     fullName: "IIPL Lead — AI Cold Email & B2B Lead Automation",
     tagline: "Flagship B2B Prospecting & Cold Email CRM",
     description:
-      "All-in-one B2B sales automation engine. Scrape Google Maps leads, audit target websites in 15s with AI, write custom pitch proposals, and dispatch multi-sender cold email campaigns.",
+      "All-in-one B2B sales automation engine. Discover verified B2B leads, audit target websites in 15s with AI, write custom pitch proposals, and dispatch multi-sender cold email campaigns.",
     url: "https://lead.itobyinfotech.com",
     icon: Bot,
     category: "AI Sales Automation",
     badge: "Flagship Product",
     gradient: "from-indigo-500 via-purple-500 to-pink-500",
-    features: ["Google Maps Scraper", "AI Site Auditor", "Multi-Sender Outbox", "AI Proposals"],
+    features: ["B2B Lead Discovery", "AI Site Auditor", "Multi-Sender Outbox", "AI Proposals"],
     metrics: "Sales Automation",
   },
   {

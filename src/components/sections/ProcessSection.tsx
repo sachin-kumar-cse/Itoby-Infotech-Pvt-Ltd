@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useInView } from "framer-motion";
 import { Search, Palette, Code, TestTube, Rocket } from "lucide-react";
 import { useRef } from "react";

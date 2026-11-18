@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
@@ -44,7 +46,7 @@ export const TechStackSection = () => {
     : techStack.filter(tech => tech.category === activeCategory);
 
   return (
-    <section className="section-padding bg-background relative overflow-hidden">
+    <section className="section-padding bg-background dark:bg-[#161616] relative overflow-hidden">
       <div className="absolute inset-0 bg-card/20 pointer-events-none" />
       <TechArchitectureModal
         isOpen={isArchOpen}
@@ -52,39 +54,39 @@ export const TechStackSection = () => {
       />
       <Floating3DBubbles count={20} />
       <TechStack3DOrbit />
-      <div className="container-wide relative z-10">
+      <div className="container-wide relative z-10 px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-12"
         >
           <motion.span 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-primary font-semibold uppercase tracking-wider text-sm"
+            transition={{ delay: 0.1, duration: 0.4 }}
+            className="text-primary font-semibold uppercase tracking-wider text-xs sm:text-sm"
           >
             Capabilities
           </motion.span>
           <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6"
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-4 mb-3 sm:mb-5"
           >
             Engineering <span className="gradient-text">Tech Stack</span>
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-muted-foreground text-lg"
+            transition={{ delay: 0.3, duration: 0.4 }}
+            className="text-muted-foreground text-sm sm:text-base lg:text-lg max-w-2xl mx-auto"
           >
             We leverage high-throughput cloud architectures to build solutions that are 
             sub-second fast, secure, and future-proof.
@@ -92,12 +94,12 @@ export const TechStackSection = () => {
         </motion.div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-4xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 relative ${
+              className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 relative ${
                 activeCategory === category
                   ? "text-primary-foreground font-bold"
                   : "text-muted-foreground hover:text-foreground bg-card/40 border border-border/50"
@@ -119,7 +121,7 @@ export const TechStackSection = () => {
         <motion.div
           ref={ref}
           layout
-          className="flex flex-wrap justify-center gap-3 sm:gap-4 min-h-[120px] mb-12"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-3xl mx-auto min-h-[120px] mb-8 sm:mb-12"
         >
           <AnimatePresence mode="popLayout">
             {filteredTech.map((tech) => (
@@ -131,19 +133,24 @@ export const TechStackSection = () => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ 
-                  scale: 1.08, 
-                  y: -6,
+                  scale: 1.05, 
+                  y: -4,
                   transition: { duration: 0.2 }
                 }}
+                className="w-full"
               >
                 <Link
                   href={`/technology/${tech.slug}`}
-                  className={`block px-5 py-3 rounded-xl bg-card border border-border transition-all duration-300 cursor-pointer text-center ${
+                  className={`block h-full px-3 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-card border border-border transition-all duration-300 cursor-pointer text-center ${
                     categoryGlows[tech.category] || "hover:border-primary/50"
                   }`}
                 >
-                  <p className="font-bold text-sm text-foreground hover:text-primary transition-colors">{tech.name}</p>
-                  <p className="text-[10px] text-muted-foreground font-semibold">{tech.category}</p>
+                  <p className="font-bold text-xs sm:text-sm text-foreground hover:text-primary transition-colors truncate">
+                    {tech.name}
+                  </p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground font-semibold mt-0.5">
+                    {tech.category}
+                  </p>
                 </Link>
               </motion.div>
             ))}
@@ -151,14 +158,17 @@ export const TechStackSection = () => {
         </motion.div>
 
         {/* System Architecture Blueprint Button */}
-        <div className="text-center">
+        <div className="text-center px-4">
           <Button
             variant="outline"
             size="lg"
             onClick={() => setIsArchOpen(true)}
-            className="rounded-2xl gap-2 border-primary/40 text-primary hover:bg-primary/10 shadow-lg shadow-primary/10"
+            className="w-full sm:w-auto h-auto py-2.5 sm:py-3 px-4 sm:px-6 rounded-2xl gap-2 border-primary/40 text-primary hover:bg-primary/10 shadow-lg shadow-primary/10 text-xs sm:text-sm font-semibold justify-center inline-flex items-center"
           >
-            <Activity className="w-4 h-4" /> Inspect System Architecture Blueprints <ArrowRight className="w-4 h-4" />
+            <Activity className="w-4 h-4 shrink-0" />
+            <span className="hidden sm:inline">Inspect System Architecture Blueprints</span>
+            <span className="sm:hidden">Architecture Blueprints</span>
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </Button>
         </div>
       </div>

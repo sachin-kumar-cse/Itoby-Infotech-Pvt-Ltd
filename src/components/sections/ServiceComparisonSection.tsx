@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, X, Sparkles, Sliders, ArrowRight, ShieldCheck, Zap } from "lucide-react";
@@ -265,7 +267,9 @@ export const ServiceComparisonSection = () => {
               </span>
               {customizableFeatures.map((feat) => {
                 const isSelected = selectedAddons.includes(feat.id);
-                const featPrice = `${symbol}${(currency === "INR" ? feat.inr : feat.usd * (currency === "AUD" ? 1.5 : currency === "CAD" ? 1.35 : 1)).toLocaleString()}`;
+                const multiplier = currency === "AUD" ? 1.5 : currency === "CAD" ? 1.35 : 1;
+                const rawPrice = currency === "INR" ? feat.inr : Math.round(feat.usd * multiplier);
+                const featPrice = `${symbol}${rawPrice.toLocaleString()}`;
                 return (
                   <div
                     key={feat.id}

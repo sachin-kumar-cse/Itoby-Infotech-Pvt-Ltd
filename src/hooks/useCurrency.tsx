@@ -17,15 +17,25 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [symbol, setSymbol] = useState("$");
 
   useEffect(() => {
-    const saved = typeof window !== "undefined" ? localStorage.getItem("site_currency") : null;
-    const validCurrencies: CurrencyType[] = ["USD", "AUD", "CAD", "INR", "EUR", "GBP", "AED"];
-    if (saved && validCurrencies.includes(saved as CurrencyType)) {
-      setCurrencyState(saved as CurrencyType);
+    try {
+      const saved = typeof window !== "undefined" ? localStorage.getItem("site_currency") : null;
+      const validCurrencies: CurrencyType[] = ["USD", "AUD", "CAD", "INR", "EUR", "GBP", "AED"];
+      if (saved && validCurrencies.includes(saved as CurrencyType)) {
+        setCurrencyState(saved as CurrencyType);
+      }
+    } catch {
+      // Safe fallback if localStorage is blocked
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("site_currency", currency);
+    try {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("site_currency", currency);
+      }
+    } catch {
+      // Safe fallback if localStorage is blocked
+    }
     switch (currency) {
       case "INR":
         setSymbol("₹");
@@ -53,7 +63,9 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const setCurrency = (cur: CurrencyType) => {
     setCurrencyState(cur);
-    window.dispatchEvent(new CustomEvent("currencychange", { detail: cur }));
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("currencychange", { detail: cur }));
+    }
   };
 
   return (
@@ -66,7 +78,11 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 export const useCurrency = () => {
   const context = useContext(CurrencyContext);
   if (!context) {
-    throw new Error("useCurrency must be used within a CurrencyProvider");
+    return {
+      currency: "USD" as CurrencyType,
+      setCurrency: () => {},
+      symbol: "$",
+    };
   }
   return context;
 };

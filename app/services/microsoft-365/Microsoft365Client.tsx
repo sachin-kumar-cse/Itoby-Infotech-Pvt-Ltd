@@ -276,7 +276,7 @@ export default function Microsoft365Client() {
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-glow-secondary/20 border border-primary/30 flex items-center justify-center">
                 <div className="text-center p-8">
                   <span className="text-4xl sm:text-5xl font-bold gradient-text">Solutions</span>
-                  <p className="text-xl text-muted-foreground mt-4">Microsoft Partner Ecosystem</p>
+                  <p className="text-xl text-muted-foreground mt-4">Enterprise Cloud &amp; Productivity</p>
                 </div>
               </div>
             </motion.div>

@@ -27,13 +27,13 @@ export interface CaseStudyData {
 export const caseStudiesList: CaseStudyData[] = [
   {
     slug: "leadflow-saas",
-    title: "LeadFlow B2B SaaS: Automated Lead Scraping & AI Site Auditing Engine",
+    title: "LeadFlow B2B SaaS: Automated Lead Discovery & AI Site Auditing Engine",
     clientName: "IIPL SaaS Lab",
     clientIndustry: "B2B Sales Tech & Lead Generation",
     badge: "Flagship B2B SaaS",
-    heroDescription: "How we engineered an autonomous B2B lead generation engine with Google Maps scraper and 15-second AI site auditor processing 50,000+ leads daily.",
-    overview: "LeadFlow (IIPL Lead) was engineered to solve high manual customer acquisition costs for tech agencies. It combines real-time Google Maps business data extraction with a 15-second automated website performance auditor that generates personalized PDF audit reports for cold outreach.",
-    businessChallenge: "B2B sales teams were spending 20+ hours per week manually searching Google Maps for local business contacts, evaluating site speeds manually, and writing cold emails with low open rates (< 12%).",
+    heroDescription: "How we engineered an autonomous B2B lead generation engine with B2B lead discovery and 15-second AI site auditor processing 50,000+ leads daily.",
+    overview: "LeadFlow (IIPL Lead) was engineered to solve high manual customer acquisition costs for tech agencies. It combines real-time business directory intelligence with a 15-second automated website performance auditor that generates personalized PDF audit reports for cold outreach.",
+    businessChallenge: "B2B sales teams were spending 20+ hours per week manually searching directories for local business contacts, evaluating site speeds manually, and writing cold emails with low open rates (< 12%).",
     existingProblems: [
       "Manual data entry errors when copying business addresses and phone numbers",
       "No automated way to evaluate site performance bugs before reaching out",
@@ -41,22 +41,22 @@ export const caseStudiesList: CaseStudyData[] = [
       "Lack of centralized Kanban pipeline tracking for multi-agent sales teams"
     ],
     objectives: [
-      "Automate Google Maps lead extraction with validated email & phone data extraction",
+      "Automate B2B lead discovery with validated email & phone data verification",
       "Build a 15-second AI site auditor running Lighthouse performance audits on demand",
       "Improve cold email response rates via automated audit report attachments",
       "Achieve sub-second database query speeds for multi-tenant sales accounts"
     ],
-    solutionDelivered: "We engineered a full-stack Next.js 15 App Router platform with Puppeteer headless scraping microservices, PostgreSQL Pgvector indexing, and automated Node.js SMTP dunning pipelines.",
-    technologiesUsed: ["Next.js 15", "TypeScript", "Node.js", "Puppeteer", "PostgreSQL", "Supabase", "OpenAI API", "Tailwind CSS"],
+    solutionDelivered: "We engineered a full-stack Next.js 15 App Router platform with automated data verification microservices, PostgreSQL Pgvector indexing, and automated Node.js SMTP dunning pipelines.",
+    technologiesUsed: ["Next.js 15", "TypeScript", "Node.js", "PostgreSQL", "Supabase", "OpenAI API", "Tailwind CSS"],
     featuresDeveloped: [
-      "Google Maps Local Business Geolocation Scraper",
+      "B2B Directory & Geolocation Prospecting Engine",
       "15-Second Headless Lighthouse AI Website Auditor",
       "Automated Cold Email Sequence & Dunning Trigger Engine",
       "Kanban Deal Stage Sales Pipeline Dashboard",
       "SMTP & Custom Domain Inbox Warm-Up Engine",
       "Real-Time Email Open & Link Click Tracking Telemetry"
     ],
-    architectureOverview: "Built on Next.js 15 Server Components, the backend delegates heavy scraping and Lighthouse audits to asynchronous background worker queues, storing structured JSON lead payloads in Supabase PostgreSQL with Row Level Security.",
+    architectureOverview: "Built on Next.js 15 Server Components, the backend delegates asynchronous data extraction and Lighthouse audits to background worker queues, storing structured JSON lead payloads in Supabase PostgreSQL with Row Level Security.",
     developmentTimeline: "10 Weeks (Initial MVP in 4 weeks, AI Audit Engine in 3 weeks, Pipeline Dashboards in 3 weeks).",
     results: [
       { metric: "Automated", label: "Lead Pipeline Workflow" },

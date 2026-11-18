@@ -484,8 +484,8 @@ export default function DigitalMarketingClient() {
               <Link href="/blog/mastering-ai-seo-geo-generative-engine-optimization" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
                 → Read our playbook on mastering AI SEO and Generative Engine Optimization (GEO) in 2026
               </Link>
-              <Link href="/blog/b2b-lead-generation-google-maps-scraping-ai-audits" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
-                → Learn B2B lead generation with AI site auditing and Google Maps extraction
+              <Link href="/blog/b2b-lead-generation-local-directory-ai-audits" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
+                → Learn B2B lead generation with AI site auditing and local directory prospecting
               </Link>
               <Link href="/resources/technical-seo-checklist-2026" className="p-4 rounded-2xl bg-secondary/50 border border-border/50 hover:border-primary/50 text-foreground hover:text-primary transition-all font-medium">
                 → Explore our 30-point technical SEO and Core Web Vitals audit checklist for 2026

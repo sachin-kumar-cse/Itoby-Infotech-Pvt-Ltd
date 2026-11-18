@@ -264,8 +264,8 @@ export default function ProductSlugClient({ slug }: { slug: string }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
               {product.slug === "leadflow" && (
                 <>
-                  <Link href="/blog/b2b-lead-generation-google-maps-scraping-ai-audits" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
-                    → Read our guide to automated B2B lead generation via Google Maps scraping and AI audits
+                  <Link href="/blog/b2b-lead-generation-local-directory-ai-audits" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
+                    → Read our guide to automated B2B lead generation via local directory prospecting and AI audits
                   </Link>
                   <Link href="/portfolio/lead-itoby" className="p-3.5 rounded-xl bg-card border border-border/60 hover:border-primary text-foreground hover:text-primary transition-all font-medium">
                     → View the Lead Itoby automated lead scoring CRM case study

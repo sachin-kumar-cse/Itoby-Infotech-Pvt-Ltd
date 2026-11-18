@@ -52,7 +52,7 @@ export const allServices: ServiceItem[] = [
   {
     icon: Bot,
     title: "IIPL Lead",
-    description: "AI Cold Email & B2B Lead Generation CRM. Google Maps scraper, 15s AI site auditor & outreach outbox.",
+    description: "AI Cold Email & B2B Lead Generation CRM. B2B prospect discovery, 15s AI site auditor & outreach outbox.",
     path: "https://lead.itobyinfotech.com",
     category: "saas",
     isSaaS: true,
@@ -197,12 +197,12 @@ const studioCards: StudioCard[] = [
   // Card 1: IIPL Lead (Electric Purple - as in reference screenshot)
   {
     id: "iipl-lead",
-    tags: ["B2B LEAD GEN", "AI SCRAPER", "OUTBOX"],
+    tags: ["B2B LEAD GEN", "AI DISCOVERY", "OUTBOX"],
     theme: "purple",
     tiltDeg: -2.5,
     icon3D: "💎",
     title: "IIPL LEAD & AI ENGINE",
-    description: "Automated Google Maps scraper, 15-second instant AI site audit & multi-channel cold email outreach.",
+    description: "Targeted B2B directory discovery, 15-second instant AI site audit & multi-channel cold email outreach.",
     actionUrl: "https://lead.itobyinfotech.com",
     isExternal: true,
     renderCapsule: () => (

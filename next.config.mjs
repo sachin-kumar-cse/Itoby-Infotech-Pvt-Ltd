@@ -40,6 +40,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/blog/b2b-lead-generation-google-maps-scraping-ai-audits',
+        destination: '/blog/b2b-lead-generation-local-directory-ai-audits',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {

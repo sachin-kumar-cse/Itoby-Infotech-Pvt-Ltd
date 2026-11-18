@@ -21,6 +21,12 @@ export default function Error({
         <p className="text-muted-foreground text-sm leading-relaxed">
           An unexpected error occurred. Please try again or return to the homepage.
         </p>
+        {error?.message && (
+          <div className="p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-xs font-mono text-left max-h-40 overflow-y-auto">
+            <p className="font-bold mb-1">{error.name}: {error.message}</p>
+            {error.digest && <p className="text-muted-foreground">Digest: {error.digest}</p>}
+          </div>
+        )}
         <div className="flex gap-3 justify-center pt-2">
           <button
             onClick={() => reset()}

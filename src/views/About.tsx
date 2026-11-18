@@ -142,7 +142,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="grid grid-cols-2 gap-3 pt-4"
               >
-                {["Microsoft Solutions Partner", "Agile Methodology", "Sprint Delivery", "Dedicated Support"].map((item) => (
+                {["Enterprise Cloud Solutions", "Agile Methodology", "Sprint Delivery", "Dedicated Support"].map((item) => (
                   <motion.div
                     key={item}
                     variants={fadeUp}

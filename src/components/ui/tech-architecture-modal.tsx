@@ -146,29 +146,29 @@ export const TechArchitectureModal = ({ isOpen, onClose }: TechArchitectureModal
           className="relative z-10 w-full max-w-5xl bg-card border border-border/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
         >
           {/* Top Control Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 p-4 px-6 border-b border-border/60 bg-muted/40">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+          <div className="flex items-center justify-between gap-3 p-3.5 sm:p-4 px-4 sm:px-6 border-b border-border/60 bg-muted/40">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                 <Activity className="w-5 h-5 text-primary" />
               </div>
-              <div>
-                <h3 className="font-display font-bold text-foreground text-base sm:text-lg leading-tight">
-                  System Architecture & Tech Flow Visualizer
+              <div className="min-w-0">
+                <h3 className="font-display font-bold text-foreground text-sm sm:text-base lg:text-lg leading-tight truncate">
+                  System Architecture Visualizer
                 </h3>
-                <p className="text-xs text-muted-foreground">Interactive blueprint of Itoby Infotech's engineering standards</p>
+                <p className="text-[11px] sm:text-xs text-muted-foreground truncate">Interactive blueprint of engineering standards</p>
               </div>
             </div>
 
             <button
               onClick={onClose}
-              className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
+              className="w-8 sm:w-9 h-8 sm:h-9 shrink-0 rounded-xl bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>
           </div>
 
           {/* Preset Blueprint Selector */}
-          <div className="p-4 px-6 bg-background/50 border-b border-border/40 flex flex-wrap gap-2">
+          <div className="p-3 sm:p-4 px-4 sm:px-6 bg-background/50 border-b border-border/40 flex overflow-x-auto no-scrollbar sm:flex-wrap gap-2">
             {architecturePresets.map((preset) => (
               <button
                 key={preset.id}
@@ -177,7 +177,7 @@ export const TechArchitectureModal = ({ isOpen, onClose }: TechArchitectureModal
                   const firstNode = (nodesByPreset[preset.id] || nodesByPreset.saas)[0];
                   setActiveNodeId(firstNode.id);
                 }}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
+                className={`shrink-0 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-semibold transition-all duration-300 ${
                   selectedPreset === preset.id
                     ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
                     : "bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary"
@@ -189,7 +189,7 @@ export const TechArchitectureModal = ({ isOpen, onClose }: TechArchitectureModal
           </div>
 
           {/* Main Visualizer Diagram & Detail Panel */}
-          <div className="flex-1 p-6 sm:p-8 overflow-y-auto custom-scrollbar grid lg:grid-cols-12 gap-8">
+          <div className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto custom-scrollbar grid lg:grid-cols-12 gap-6 lg:gap-8">
             {/* Left Column: Interactive Node Flow Diagram (7 cols) */}
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center justify-between mb-2">
